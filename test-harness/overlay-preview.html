@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Overlay (Shadow DOM) Preview</title>
+  <style>
+    body {
+      margin: 0; min-height: 100vh;
+      font: 16px/1.5 Georgia, serif;
+      background: #fdfdfd; color: #202122;
+      padding: 24px;
+    }
+    /* A busy host page, like Wikipedia, to prove the card's own styles
+       don't leak in from — and aren't leaked into by — the page. */
+    h1 { border-bottom: 3px solid #a2a9b1; padding-bottom: 6px; }
+    a { color: #0645ad; }
+  </style>
+</head>
+<body>
+  <h1>Host page (simulates a real website, e.g. Wikipedia)</h1>
+  <p>This paragraph exists to prove the extension's <a href="#">styles don't affect the host page</a>, and vice versa. The overlay below is injected exactly the way <code>overlay.js</code> does it in production: a host <code>&lt;div&gt;</code> with a real <code>attachShadow()</code> shadow root, matching what actually runs when the extension injects into a real tab.</p>
+
+  <script src="chrome-mock.js"></script>
+  <script>
+    chrome.storage.session.set({
+      pendingQuiz: {
+        questions: [
+          {
+            id: 'ov-1',
+            question: 'On which date was the Constitution of India adopted by the Constituent Assembly?',
+            options: ['26 January 1950', '26 November 1949', '15 August 1947', '26 January 1949'],
+            answer: 1,
+            explanation: 'It was adopted on 26 November 1949 and came into effect on 26 January 1950.'
+          }
+        ],
+        title: 'UPSC / Civil Services',
+        durationSec: 45,
+        theme: 'dark',
+        glass: 'balanced'
+      }
+    });
+  </script>
+  <script src="../src/ui-core.js"></script>
+  <script src="../src/overlay.js"></script>
+</body>
+</html>

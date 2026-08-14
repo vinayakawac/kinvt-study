@@ -126,22 +126,29 @@
   }
 
   function addStyles(container, css) {
+    // `container` is the card's own wrapper div — inside a ShadowRoot when
+    // rendered via overlay.js, or directly in the page when rendered via
+    // quiz-window.js. `container.shadowRoot` only exists on an element that
+    // is ITSELF a shadow host (attachShadow was called on it), which
+    // `container` never is here — it's a plain div living *inside* the
+    // shadow tree. Checking that always came back falsy, so styles were
+    // silently attached to the outer page's document instead, which shadow
+    // DOM encapsulation blocks from ever reaching the card. getRootNode()
+    // correctly returns the ShadowRoot (or the Document, if there is none)
+    // regardless of how deep `container` sits inside it.
+    var root = container.getRootNode ? container.getRootNode() : document;
     try {
       if (typeof CSSStyleSheet !== 'undefined' && 'replaceSync' in CSSStyleSheet.prototype) {
         var sheet = new CSSStyleSheet();
         sheet.replaceSync(css);
-        if (container.shadowRoot) {
-          container.shadowRoot.adoptedStyleSheets = [sheet]; // CSP-proof, no <style> tag
-        } else {
-          document.adoptedStyleSheets = (document.adoptedStyleSheets || []).concat([sheet]);
-        }
+        root.adoptedStyleSheets = (root.adoptedStyleSheets || []).concat([sheet]);
         return;
       }
     } catch (e) { /* fall back to <style> */ }
     var style = el('style');
     style.textContent = css;
-    if (container.shadowRoot) container.shadowRoot.appendChild(style);
-    else document.head.appendChild(style);
+    if (root === document) document.head.appendChild(style);
+    else root.appendChild(style);
   }
 
   function create(container, cfg) {

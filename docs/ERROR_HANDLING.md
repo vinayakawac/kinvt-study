@@ -52,6 +52,18 @@ Fixed with `getActiveContentTab()`: it explicitly asks for a `'normal'`-type win
 
 **Lesson**: "last focused window" is not the same thing as "the window with the content tab I want," especially once a browser has more than one kind of top-level window (a sidebar, a picture-in-picture window, a detached panel). Be explicit about the window *type* you actually need rather than relying on focus order.
 
+### 5. The overlay's own styles never reached inside its shadow root
+
+`ui-core.js#addStyles(container, css)` decided where to attach the card's stylesheet by checking `container.shadowRoot`. That property only exists on an element that is *itself* a shadow host (i.e. something `attachShadow()` was called on directly) — but `container` is always a plain `<div>` living **inside** the shadow tree, never the host itself, in both call sites (`overlay.js` passes the `wrap` div appended to the shadow root; `quiz-window.js` passes a normal page `<div>`). `container.shadowRoot` was therefore always `undefined`, so the code took the "no shadow root" branch every time — attaching styles to the outer page's `document` instead. For `quiz-window.js` that's harmless, because there *is* no shadow root there; the page's own document is the right place. But for `overlay.js`, the styles landed on the **host page's** document (e.g. the real Wikipedia tab), which shadow DOM encapsulation specifically blocks from ever reaching content inside the shadow root. The result: the card rendered completely unstyled — most visibly, an inline 15×15px header icon with no size constraint rendered at its raw SVG intrinsic size, ballooning to fill most of the card and pushing the actual question down out of view.
+
+This shipped without being caught because every prior test page (`quiz-card-preview.html`, `background-test.html`) rendered the card into a plain `<div>` with no shadow root at all — exercising the *fallback* branch's happy path, never the shadow-DOM branch that real page injection actually uses.
+
+Fixed by using `container.getRootNode()` instead, which correctly walks up to the nearest root — the `ShadowRoot` if `container` sits inside one, or `document` otherwise — regardless of how many plain `<div>`s sit between `container` and that root. Both `Document` and `ShadowRoot` support `.adoptedStyleSheets` and `.appendChild()` identically, so the same code path now works correctly for both call sites.
+
+Added `test-harness/overlay-preview.html`, which builds a real `attachShadow()` host on top of a mock "host page," to catch this exact class of bug going forward — the earlier test pages structurally couldn't have caught it no matter how much they were used, since they never involved a shadow root at all.
+
+**Lesson**: a property check like `container.shadowRoot` is really asking "is `container` a shadow host," which is a much narrower question than "is `container` rendered inside a shadow tree." When testing DOM/styling code meant to work inside a shadow root, the test needs an *actual* shadow root, not a stand-in `<div>` — the two are not equivalent for anything CSS-scoping related, and a passing test against the stand-in proves nothing about the real path.
+
 ## If you're adding new async logic here
 
 - Prefer returning `null`/`undefined`/`false` for "didn't work, try the next thing" and reserve throwing for genuinely unexpected states.
