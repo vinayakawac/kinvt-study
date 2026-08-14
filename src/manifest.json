@@ -7,7 +7,8 @@
   "permissions": ["storage", "alarms", "scripting", "sidePanel"],
   "host_permissions": ["<all_urls>"],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
   },
   "action": {
     "default_title": "Translucent Pop — open the quiz settings panel",

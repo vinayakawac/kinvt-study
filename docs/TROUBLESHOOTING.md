@@ -46,5 +46,21 @@ Use `test-harness/` — see [SETUP.md](SETUP.md#local-preview-no-browser-extensi
 ## Firefox-specific issues
 
 - Temporary add-ons (`about:debugging` → "Load Temporary Add-on…") are removed on restart — this is expected, not a bug.
-- Firefox's MV3 `service_worker` background support requires Firefox 121+ (declared in `manifest.json`'s `browser_specific_settings.gecko.strict_min_version`). Older Firefox versions aren't supported.
 - The settings sidecar uses `sidebar_action` on Firefox instead of Chrome's `sidePanel` API — both point at the same `sidepanel.html`, so behavior should be identical; if the sidebar doesn't open on icon click, check `background.js#openSidecar()`'s Firefox branch (`api.sidebarAction.toggle()`).
+
+### "background.service_worker is currently disabled. Add background.scripts."
+
+Seen when loading as a temporary add-on in Firefox or a Firefox fork (Zen Browser, LibreWolf, etc). `background.service_worker` support in MV3 is still behind a flag in many Firefox builds — even fairly recent ones — regardless of the `strict_min_version` declared in `browser_specific_settings.gecko`. It isn't specific to old versions; it depends on that flag being enabled.
+
+Fixed by declaring **both** keys in `manifest.json`:
+
+```json
+"background": {
+  "service_worker": "background.js",
+  "scripts": ["background.js"]
+}
+```
+
+Chrome/Edge use `service_worker`; Firefox falls back to `scripts` (a classic non-persistent background page) when the service-worker flag isn't enabled. `background.js` itself needs no changes for this — it's a single plain script either way, no `importScripts`/ES modules to reconcile between the two loading modes.
+
+If you still see the error after this change, check `about:config` for `extensions.background.service_worker.enabled` — some builds need it flipped on explicitly, or just rely on the `scripts` fallback working regardless.
