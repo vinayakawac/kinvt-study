@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Translucent glassmorphism MCQ quiz extension for exam prep (UPSC, KPSC/KAS, SSC, Banking, and more) — 16-topic offline library, no AI, near-zero CPU.",
+  "license": "MIT",
   "scripts": {
     "build": "node scripts/build.js"
   }
