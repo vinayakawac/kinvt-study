@@ -70,3 +70,7 @@ test-harness/             Local preview pages (quiz card, sidepanel, background 
 ## Privacy
 
 Settings, stats, and the quiz payload live in the browser's local extension storage. No accounts, no analytics. The only network activity is the once-daily content sync against the public `kinvt-study` repo.
+
+## Documentation
+
+See [docs/](docs/) for setup, architecture, the content-sync mechanics, a full permissions breakdown, error-handling principles, troubleshooting, and FAQ.
