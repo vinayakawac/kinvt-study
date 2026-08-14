@@ -4,14 +4,10 @@ A translucent, near-zero-CPU MCQ quiz browser extension for competitive-exam pre
 
 ## Setup
 
-```bash
-npm run build
-```
+No build step needed — `src/` is a complete, ready-to-load extension.
 
-Then load it unpacked:
-
-- **Chrome / Edge / Brave**: `chrome://extensions` → enable Developer Mode → "Load unpacked" → select `build/` (or `src/` directly for faster iteration).
-- **Firefox**: `about:debugging#/runtime/this-firefox` → "Load Temporary Add-on…" → select `manifest.json` inside `build/` or `src/`.
+- **Chrome / Edge / Brave**: `chrome://extensions` → enable Developer Mode → "Load unpacked" → select `src/`.
+- **Firefox**: `about:debugging#/runtime/this-firefox` → "Load Temporary Add-on…" → select `manifest.json` inside `src/`.
 
 ## Documentation
 
