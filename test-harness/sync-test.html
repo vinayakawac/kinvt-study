@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8" /><title>Sync Test</title></head>
+<body>
+  <pre id="out">running...</pre>
+  <script src="chrome-mock.js"></script>
+  <script src="../src/core/browser-api.js"></script>
+  <script src="../src/core/categories.js"></script>
+  <script src="../src/core/storage.js"></script>
+  <script src="../src/core/quiz-engine.js"></script>
+  <script src="../src/core/content-sync.js"></script>
+  <script>
+    // Simulate what a real daily background sync would fetch from GitHub,
+    // without waiting on CDN propagation: intercept fetch calls aimed at
+    // raw.githubusercontent.com and return a payload containing the new
+    // question we just pushed to the real repo, exercising the exact same
+    // QuizPop.contentSync.syncAll() + quiz-engine merge code the extension runs.
+    const realFetch = window.fetch;
+    window.fetch = function (url, opts) {
+      if (String(url).includes("raw.githubusercontent.com") && String(url).includes("general-knowledge")) {
+        return realFetch("../src/data/general-knowledge.json").then(async (res) => {
+          const data = await res.json();
+          data.push({
+            id: "gk-0021",
+            category: "general-knowledge",
+            question: "Which is the smallest country in the world by area?",
+            options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
+            correctAnswerIndex: 1,
+            explanation: "Vatican City is about 0.49 sq km.",
+          });
+          return new Response(JSON.stringify(data), { status: 200 });
+        });
+      }
+      if (String(url).includes("raw.githubusercontent.com")) {
+        return Promise.resolve(new Response("[]", { status: 200 }));
+      }
+      return realFetch(url, opts);
+    };
+
+    localStorage.clear();
+
+    QuizPop.contentSync
+      .syncAll()
+      .then((updated) => QuizPop.quizEngine.loadQuestionBank(["general-knowledge"]).then((bank) => ({ updated, bank })))
+      .then(({ updated, bank }) => {
+        const hasNew = bank.some((q) => q.id === "gk-0021");
+        document.getElementById("out").textContent = JSON.stringify(
+          { syncUpdatedAny: updated, bankSize: bank.length, containsNewQuestion: hasNew },
+          null,
+          2
+        );
+      })
+      .catch((e) => (document.getElementById("out").textContent = "ERROR: " + e.message));
+  </script>
+</body>
+</html>

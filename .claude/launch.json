@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "quizpop-preview",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["test-harness/serve.js"],
+      "port": 8792
+    }
+  ]
+}
