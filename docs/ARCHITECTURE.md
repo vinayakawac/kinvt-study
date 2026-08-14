@@ -30,22 +30,19 @@ background.js (service worker, sleeps when idle)
 
 ## Data flow for one popup
 
-There are two independent ways a quiz shows up, and they diverge deliberately:
+Both the automatic alarm and "Quiz me now" want the same outcome — a translucent overlay injected into the tab the user is actually browsing — and share the injection logic to get there (`tryInjectOverlay()`). They differ only in what happens when that's not possible.
 
-**Automatic (alarm-triggered), or a restricted page**
-1. `chrome.alarms` fires the popup alarm.
-2. `background.js#buildQuiz()` reads settings (`selectedCategories`/`topics`), loads each selected topic's bundled `data/*.json`, merges in any synced overrides (see below), shuffles, and slices to `perQuiz` questions.
-3. The payload is stashed in `chrome.storage.session` (`pendingQuiz`) and a "showing" guard timestamp is set so multiple alarms can't stack popups.
-4. `background.js` finds a real browser tab (`getActiveContentTab()`, deliberately not just "last focused window" — see [ERROR_HANDLING.md](ERROR_HANDLING.md#4-quizzes-opened-as-a-floating-popup-window-instead-of-an-in-page-overlay)) and tries `chrome.scripting.executeScript` on it to inject `ui-core.js` + `overlay.js`. If that throws (restricted page, no tab found), it opens `quiz-window.html` instead — this is the *only* surface where a real window ever appears.
-5. The injected/opened surface asks the service worker for the payload via `chrome.runtime.sendMessage({type:'GET_PENDING_QUIZ'})`, with a `storage.session` read as a fallback if that doesn't return a payload in time.
-6. Answers are recorded locally; when the quiz finishes, `QUIZ_RESULT` is sent back to update `stats` in `storage.local`, which the sidepanel listens for live via `storage.onChanged`.
+**Building + injecting (shared by both triggers)**
+1. `background.js#buildQuiz()` reads settings (`selectedCategories`/`topics`), loads each selected topic's bundled `data/*.json`, merges in any synced overrides (see below), shuffles, and slices to `perQuiz` questions.
+2. `tryInjectOverlay(quiz)` stashes the payload in `chrome.storage.session` (`pendingQuiz`), finds a real browser tab via `getActiveContentTab()` (deliberately not just "last focused window" — see [ERROR_HANDLING.md](ERROR_HANDLING.md#4-quizzes-opened-as-a-floating-popup-window-instead-of-an-in-page-overlay)), and tries `chrome.scripting.executeScript` on it to inject `ui-core.js` + `overlay.js`. Returns whether that succeeded.
+3. The injected surface asks the service worker for the payload via `chrome.runtime.sendMessage({type:'GET_PENDING_QUIZ'})`, with a `storage.session` read as a fallback if that doesn't return a payload in time.
+4. Answers are recorded locally; when the quiz finishes, `QUIZ_RESULT` is sent back to update `stats` in `storage.local`, which the sidepanel listens for live via `storage.onChanged`.
 
-**Manual ("Quiz me now" in the sidecar)**
-1. `sidepanel.js` sends `{ type: 'BUILD_QUIZ' }`; `background.js` just calls `buildQuiz()` and returns the payload directly — no tab lookup, no injection, no window, no "showing" guard to get stuck on.
-2. `sidepanel.js` hides its settings sections (`#settingsView`) and renders the card straight into its own page (`#inlineQuiz`) via `window.TPQ_UI.create(...)`, using the same `ui-core.js` the other two surfaces use. No shadow root is needed here — the sidecar is already an isolated extension page.
-3. On finish, `sidepanel.js` sends `QUIZ_RESULT` itself (same message, same handler). On close, the settings sections reappear.
+**When injection isn't possible** (restricted page, or no tab found) — the two triggers diverge:
+- **Automatic (alarm-triggered)**: `showQuiz()` falls back to `chrome.windows.create()` opening `quiz-window.html` — a real, unavoidable OS window, since the alarm has no other surface to show anything on. This also carries a "don't stack multiple popups" guard (`SHOWING_KEY`) that only applies to this path.
+- **Manual ("Quiz me now")**: the `BUILD_QUIZ` message handler returns `{ quiz, injected: false }` instead of ever opening a window. `sidepanel.js` renders the card directly into its own page (`#inlineQuiz`) via `window.TPQ_UI.create(...)` — the same `ui-core.js` the other two surfaces use, no shadow root needed since the sidecar is already an isolated extension page — hiding its settings sections (`#settingsView`) while the card is up and restoring them on close. On finish, `sidepanel.js` sends `QUIZ_RESULT` itself.
 
-This means "Quiz me now" always works regardless of what tab is active or focused — including from `chrome://extensions`/`about:debugging` — since it never needs a tab at all.
+This means "Quiz me now" always shows *something* regardless of what tab is active — the translucent overlay on your actual page when a tab is available (the common case), or the same card rendered right in the sidecar when it isn't (e.g. from `chrome://extensions`) — and never opens an OS window either way.
 
 ## Background content sync (no user interaction)
 

@@ -229,15 +229,35 @@ async function getActiveContentTab() {
   return null;
 }
 
-/* ---------- showing the quiz ---------- */
+/* ---------- injecting the translucent overlay into a real tab ---------- */
+
+async function tryInjectOverlay(quiz) {
+  await api.storage.session.set({ [PENDING_KEY]: quiz });
+
+  const tab = await getActiveContentTab();
+  if (!(tab && tab.id != null && typeof tab.url === 'string' && /^(https?|file):/i.test(tab.url))) {
+    return false;
+  }
+
+  try {
+    await api.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ['ui-core.js', 'overlay.js']
+    });
+    return true;
+  } catch (e) {
+    // Restricted page (chrome://, store pages, …) or injection failure.
+    return false;
+  }
+}
+
+/* ---------- showing the quiz (automatic alarm popup) ---------- */
 
 async function showQuiz(force) {
   // One quiz at a time for the *auto* popup: if one was shown recently, don't
-  // stack another. A manual "Quiz me now" click is an explicit user action —
-  // it always goes through, even if a previous auto/manual quiz never sent
-  // back QUIZ_CLOSED/QUIZ_RESULT (e.g. injection silently no-op'd on a tiny
-  // viewport). Without `force`, that stale guard could make every subsequent
-  // click do nothing for up to SHOWING_TTL_MS with no visible feedback.
+  // stack another. A manual "Quiz me now" click never goes through this
+  // function at all (see the BUILD_QUIZ message case below), so this guard
+  // only ever applies to the alarm-triggered path it's meant for.
   if (!force) {
     const cur = await api.storage.session.get(SHOWING_KEY);
     if (cur && cur[SHOWING_KEY] && Date.now() - cur[SHOWING_KEY] < SHOWING_TTL_MS) return;
@@ -246,23 +266,8 @@ async function showQuiz(force) {
   const quiz = await buildQuiz();
   if (!quiz) return;
 
-  await api.storage.session.set({ [PENDING_KEY]: quiz, [SHOWING_KEY]: Date.now() });
-
-  // Preferred path: translucent overlay injected into the focused tab.
-  const tab = await getActiveContentTab();
-
-  if (tab && tab.id != null && typeof tab.url === 'string' && /^(https?|file):/i.test(tab.url)) {
-    try {
-      await api.scripting.executeScript({
-        target: { tabId: tab.id },
-        files: ['ui-core.js', 'overlay.js']
-      });
-      return;
-    } catch (e) {
-      // Restricted page (chrome://, store pages, …) or injection failure.
-      // Fall through to the dedicated window below.
-    }
-  }
+  await api.storage.session.set({ [SHOWING_KEY]: Date.now() });
+  if (await tryInjectOverlay(quiz)) return;
 
   // Fallback path: small standalone popup window (works everywhere).
   try {
@@ -353,9 +358,16 @@ api.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         await ensureAlarm();
         return { ok: true };
 
-      case 'BUILD_QUIZ': {          // "Quiz me now" from the settings sidecar — rendered inline in the
-        const quiz = await buildQuiz();  // sidecar itself, so this has no side effects: no tab injection,
-        return { quiz };                 // no popup window, no "don't stack" guard to get stuck on.
+      case 'BUILD_QUIZ': {          // "Quiz me now" from the settings sidecar
+        const quiz = await buildQuiz();
+        if (!quiz) return { quiz: null };
+        // Prefer showing it as a translucent overlay on the tab the user is
+        // actually browsing — same as the automatic popup. Never falls back
+        // to a popup window here (unlike showQuiz()): a real OS window is
+        // strictly worse than the sidecar's own frameless page, which the
+        // sidecar renders into itself when `injected` comes back false.
+        const injected = await tryInjectOverlay(quiz);
+        return { quiz, injected };
       }
 
       case 'GET_PENDING_QUIZ': {    // overlay / window asks for its payload

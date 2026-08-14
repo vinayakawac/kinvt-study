@@ -201,50 +201,63 @@
     return Array.prototype.slice.call(document.querySelectorAll('#cats input'));
   }
 
-  function showQuizNotAvailable() {
+  function flashButton(text, ok) {
     var b = $('startNow');
     var span = b.querySelector('span');
     if (flashTimer) clearTimeout(flashTimer);
-    span.textContent = 'No questions selected';
-    flashTimer = setTimeout(function () { span.textContent = 'Quiz me now'; }, 2200);
+    span.textContent = text;
+    if (ok) b.classList.add('ok');
+    flashTimer = setTimeout(function () {
+      span.textContent = 'Quiz me now';
+      b.classList.remove('ok');
+    }, 2200);
   }
 
-  // "Quiz me now" renders straight into the sidecar's own page — just the
-  // card, nothing else. No tab injection, no separate popup window: the
-  // sidecar is already a frameless, docked surface, so there's nothing to
-  // gain from routing this through background.js's tab/window logic, which
-  // exists for the *automatic* alarm-driven popup instead.
+  function renderInlineQuiz(quiz) {
+    $('settingsView').hidden = true;
+    var quizEl = $('inlineQuiz');
+    quizEl.hidden = false;
+    quizEl.innerHTML = '';
+
+    window.TPQ_UI.create(quizEl, {
+      questions: quiz.questions,
+      title: quiz.title,
+      durationSec: quiz.durationSec,
+      theme: settings.theme,
+      glass: settings.glass,
+      glassCustom: settings.glassCustom,
+      onFinish: function (correct, total) {
+        Promise.resolve(api.runtime.sendMessage({ type: 'QUIZ_RESULT', correct: correct, total: total }))
+          .catch(function () {});
+      },
+      onClose: function () {
+        quizEl.hidden = true;
+        quizEl.innerHTML = '';
+        $('settingsView').hidden = false;
+      }
+    });
+  }
+
+  // "Quiz me now" prefers showing the translucent card as an overlay on the
+  // tab the user is actually browsing — same as the automatic popup.
+  // background.js only falls back to returning the quiz payload (instead of
+  // injecting it) when there's genuinely no browser tab to inject into (a
+  // restricted page, or none open) — in that case, and only then, this
+  // renders the card directly into the sidecar's own page. Either way, a
+  // real OS popup window is never used for a manual click.
   function startInlineQuiz() {
     return Promise.resolve(api.runtime.sendMessage({ type: 'BUILD_QUIZ' }))
       .catch(function () { return null; })
       .then(function (res) {
-        var quiz = res && res.quiz;
-        if (!quiz) {
-          showQuizNotAvailable();
+        if (!res || !res.quiz) {
+          flashButton('No questions selected');
           return;
         }
-        $('settingsView').hidden = true;
-        var quizEl = $('inlineQuiz');
-        quizEl.hidden = false;
-        quizEl.innerHTML = '';
-
-        window.TPQ_UI.create(quizEl, {
-          questions: quiz.questions,
-          title: quiz.title,
-          durationSec: quiz.durationSec,
-          theme: settings.theme,
-          glass: settings.glass,
-          glassCustom: settings.glassCustom,
-          onFinish: function (correct, total) {
-            Promise.resolve(api.runtime.sendMessage({ type: 'QUIZ_RESULT', correct: correct, total: total }))
-              .catch(function () {});
-          },
-          onClose: function () {
-            quizEl.hidden = true;
-            quizEl.innerHTML = '';
-            $('settingsView').hidden = false;
-          }
-        });
+        if (res.injected) {
+          flashButton('Quiz launched — answer it on the page', true);
+          return;
+        }
+        renderInlineQuiz(res.quiz);
       });
   }
 
