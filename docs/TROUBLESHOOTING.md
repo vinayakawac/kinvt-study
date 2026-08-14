@@ -8,6 +8,10 @@
 4. Auto-popups only inject into **http(s)/file** tabs (`overlay.js`'s guard) or fall back to a popup window. If your active tab was a `chrome://` or extension-store page at the moment the alarm fired, the overlay silently skips that cycle — wait for the next one, or click **Quiz me now** instead.
 5. If injection AND the window fallback both silently fail (rare), nothing will visibly happen. Check the service worker console for a rejected promise around `showQuiz()`.
 
+## The quiz opens in a separate floating window instead of over the page
+
+If you get a small window with its own title bar/minimize/close buttons instead of a translucent card injected into your current tab, that's the `quiz-window.html` fallback — it's supposed to only appear on restricted pages (`chrome://`, extension stores) where injection is blocked. Seeing it on an ordinary webpage was a real bug on some browsers/forks (Zen Browser included) whose sidebar is implemented as its own top-level window, confusing the "which window am I injecting into" lookup. Fixed via `getActiveContentTab()` — see [ERROR_HANDLING.md](ERROR_HANDLING.md#4-quizzes-opened-as-a-floating-popup-window-instead-of-an-in-page-overlay). If it recurs on a browser we haven't tested against, check what `chrome.windows.getLastFocused({windowTypes:['normal']})` actually returns there — it may need a different `windowTypes` value or a different fallback strategy for that browser's window model.
+
 ## "Quiz me now" works once, then does nothing on later clicks
 
 This was a real bug — the auto-popup's "don't stack multiple quizzes" guard could get stuck if the first quiz never sent back `QUIZ_CLOSED`/`QUIZ_RESULT`, silently blocking every subsequent manual click for up to 5 minutes with no visible error. Fixed: "Quiz me now" now always forces a fresh quiz regardless of that guard (see [ERROR_HANDLING.md](ERROR_HANDLING.md#3-quiz-me-now-could-silently-stop-working-after-the-first-click)). If it recurs, check that `sidepanel.js`'s `startNow` handler sends `{ type: 'START_QUIZ' }` and that `background.js`'s handler for it calls `showQuiz(true)`, not the unforced `showQuiz()`.

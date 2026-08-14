@@ -44,6 +44,14 @@ Fixed by giving `showQuiz()` an optional `force` parameter: the alarm-triggered 
 
 **Lesson**: a "don't stack automatic events" guard and "the user explicitly asked for this" are different situations — collapsing them into the same code path means a stuck guard state silently defeats deliberate user action, with no visible error to explain why.
 
+### 4. Quizzes opened as a floating popup window instead of an in-page overlay
+
+`showQuiz()` looked up a tab to inject into via `chrome.tabs.query({ active: true, lastFocusedWindow: true })`. That resolves to whatever window the browser considers "last focused" — normally the browser window you're looking at. But some browsers/forks (reported on Zen Browser) implement the settings sidebar as its own top-level window rather than as part of the main browser window. Clicking "Quiz me now" from inside that sidebar can make "last focused window" mean the sidebar's own window, which has no `http(s)` tabs in it at all — the tab lookup silently comes back empty, injection is skipped, and `showQuiz()` falls through to the `quiz-window.html` popup-window fallback every time, even though a perfectly good browser tab was open the whole time.
+
+Fixed with `getActiveContentTab()`: it explicitly asks for a `'normal'`-type window via `chrome.windows.getLastFocused({ windowTypes: ['normal'] })` before querying that window's active tab, sidestepping sidebar/panel/popup windows entirely. Falls back to a broader `chrome.tabs.query({ active: true, windowType: 'normal' })` if that first lookup fails for any reason.
+
+**Lesson**: "last focused window" is not the same thing as "the window with the content tab I want," especially once a browser has more than one kind of top-level window (a sidebar, a picture-in-picture window, a detached panel). Be explicit about the window *type* you actually need rather than relying on focus order.
+
 ## If you're adding new async logic here
 
 - Prefer returning `null`/`undefined`/`false` for "didn't work, try the next thing" and reserve throwing for genuinely unexpected states.
