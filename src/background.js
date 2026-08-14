@@ -203,6 +203,32 @@ async function buildQuiz() {
   };
 }
 
+/* ---------- finding a real browser tab to inject into ---------- */
+
+async function getActiveContentTab() {
+  // `lastFocusedWindow: true` can resolve to a non-content window instead of
+  // the actual browser window with tabs — some browsers/forks implement a
+  // sidebar as its own top-level window, so a click from inside it can make
+  // "last focused window" mean the sidebar itself (no matching http/https
+  // tab there), silently sending every quiz to the popup-window fallback
+  // instead of the intended in-page overlay. Explicitly asking for a
+  // 'normal' window sidesteps that.
+  try {
+    const win = await api.windows.getLastFocused({ windowTypes: ['normal'] });
+    if (win && win.id != null) {
+      const tabs = await api.tabs.query({ active: true, windowId: win.id });
+      if (tabs && tabs[0]) return tabs[0];
+    }
+  } catch (e) { /* fall through to the broader query below */ }
+
+  try {
+    const tabs = await api.tabs.query({ active: true, windowType: 'normal' });
+    return (tabs && tabs[0]) || null;
+  } catch (e) { /* tabs.query needs no extra permission; ignore failures */ }
+
+  return null;
+}
+
 /* ---------- showing the quiz ---------- */
 
 async function showQuiz(force) {
@@ -223,11 +249,7 @@ async function showQuiz(force) {
   await api.storage.session.set({ [PENDING_KEY]: quiz, [SHOWING_KEY]: Date.now() });
 
   // Preferred path: translucent overlay injected into the focused tab.
-  let tab = null;
-  try {
-    const tabs = await api.tabs.query({ active: true, lastFocusedWindow: true });
-    tab = tabs && tabs[0];
-  } catch (e) { /* tabs.query needs no extra permission; ignore failures */ }
+  const tab = await getActiveContentTab();
 
   if (tab && tab.id != null && typeof tab.url === 'string' && /^(https?|file):/i.test(tab.url)) {
     try {

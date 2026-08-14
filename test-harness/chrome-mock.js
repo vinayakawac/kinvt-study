@@ -132,6 +132,7 @@
         console.log("[mock] windows.create", opts);
         return Promise.resolve({ id: 1 });
       },
+      getLastFocused: () => Promise.resolve({ id: 1, type: "normal", focused: true }),
     },
     action: {
       onClicked: { addListener: (fn) => listeners.actionClicked.push(fn) },
