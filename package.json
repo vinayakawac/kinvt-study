@@ -1,10 +1,9 @@
 {
-  "name": "quiz-pop-exam-prep",
+  "name": "translucent-pop",
   "version": "1.0.0",
   "private": true,
-  "description": "Translucent MCQ exam-prep browser extension (General Knowledge, UPSC, KPSC/KAS) — offline question bank, no AI.",
+  "description": "Translucent glassmorphism MCQ quiz extension for exam prep (UPSC, KPSC/KAS, SSC, Banking, and more) — 16-topic offline library, no AI, near-zero CPU.",
   "scripts": {
-    "build": "node scripts/build.js",
-    "icons": "node scripts/generate-icons.js"
+    "build": "node scripts/build.js"
   }
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8" /><title>Background Logic Test</title></head>
+<body>
+  <pre id="out">running…</pre>
+  <script src="chrome-mock.js"></script>
+  <script>
+    // Simulate a background sync fetch hitting the real kinvt-study repo
+    // without waiting on GitHub CDN propagation: intercept fetch calls aimed
+    // at raw.githubusercontent.com and inject one extra test question,
+    // exercising the exact same syncContent()/buildQuiz() merge code the
+    // extension runs (loaded unmodified below as background.js).
+    var realFetch = window.fetch;
+    window.fetch = function (url, opts) {
+      var u = String(url);
+      if (u.indexOf('raw.githubusercontent.com') !== -1 && u.indexOf('upsc') !== -1) {
+        return realFetch('../src/data/upsc.json').then(function (res) {
+          return res.json();
+        }).then(function (data) {
+          data.questions = data.questions.concat([{
+            id: 'upsc-sync-test',
+            category: 'upsc',
+            topic: 'Test',
+            difficulty: 'easy',
+            question: 'This question only exists via background sync.',
+            options: ['A', 'B', 'C', 'D'],
+            answer: 0,
+            explanation: 'Proves syncContent() merged a remote question in.'
+          }]);
+          return new Response(JSON.stringify(data), { status: 200 });
+        });
+      }
+      if (u.indexOf('raw.githubusercontent.com') !== -1) {
+        return Promise.resolve(new Response('{"questions":[]}', { status: 200 }));
+      }
+      return realFetch(url, opts);
+    };
+  </script>
+  <script src="../src/background.js"></script>
+  <script>
+    localStorage.clear();
+
+    Promise.resolve()
+      .then(function () { return syncContent(); })
+      .then(function () { return buildQuiz(); })
+      .then(function (quiz) {
+        var hasSyncQuestion = quiz && quiz.questions.some(function (q) { return q.id === 'upsc-sync-test'; });
+        return chrome.storage.local.get('lastSyncAt').then(function (res) {
+          document.getElementById('out').textContent = JSON.stringify({
+            quizBuilt: !!quiz,
+            questionCount: quiz ? quiz.questions.length : 0,
+            title: quiz ? quiz.title : null,
+            lastSyncAt: res.lastSyncAt || null,
+            note: 'quizBuilt/questionCount are from a random default-topic draw; ' +
+                  'hasSyncQuestion only true if the draw happened to include it.',
+            hasSyncQuestionInThisDraw: hasSyncQuestion
+          }, null, 2);
+        });
+      })
+      .catch(function (e) {
+        document.getElementById('out').textContent = 'ERROR: ' + e.message;
+      });
+  </script>
+</body>
+</html>

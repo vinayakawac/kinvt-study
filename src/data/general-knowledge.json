@@ -1,22 +1,306 @@
-[
-  { "id": "gk-0001", "category": "general-knowledge", "question": "Who is known as the 'Father of the Nation' in India?", "options": ["Jawaharlal Nehru", "Mahatma Gandhi", "Sardar Patel", "Subhas Chandra Bose"], "correctAnswerIndex": 1, "explanation": "Gandhi led India's non-violent independence movement." },
-  { "id": "gk-0002", "category": "general-knowledge", "question": "Which is the largest planet in our solar system?", "options": ["Earth", "Saturn", "Jupiter", "Neptune"], "correctAnswerIndex": 2, "explanation": "Jupiter is over 11 times Earth's diameter." },
-  { "id": "gk-0003", "category": "general-knowledge", "question": "What is the currency of Japan?", "options": ["Won", "Yuan", "Yen", "Ringgit"], "correctAnswerIndex": 2, "explanation": "Won is Korea's currency, Yuan is China's." },
-  { "id": "gk-0004", "category": "general-knowledge", "question": "Which gas do plants primarily absorb for photosynthesis?", "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"], "correctAnswerIndex": 2, "explanation": "Plants release oxygen as a byproduct, not absorb it." },
-  { "id": "gk-0005", "category": "general-knowledge", "question": "The Great Wall of China was built primarily to defend against invasions from which direction?", "options": ["South", "North", "East", "West"], "correctAnswerIndex": 1, "explanation": "It guarded against northern nomadic groups like the Mongols." },
-  { "id": "gk-0006", "category": "general-knowledge", "question": "Which organ in the human body produces insulin?", "options": ["Liver", "Kidney", "Pancreas", "Spleen"], "correctAnswerIndex": 2, "explanation": "Insulin comes from beta cells in the pancreas." },
-  { "id": "gk-0007", "category": "general-knowledge", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["Charles Dickens", "William Shakespeare", "Leo Tolstoy", "Mark Twain"], "correctAnswerIndex": 1, "explanation": "Shakespeare wrote it around 1595." },
-  { "id": "gk-0008", "category": "general-knowledge", "question": "What is the chemical symbol for gold?", "options": ["Ag", "Au", "Gd", "Go"], "correctAnswerIndex": 1, "explanation": "Au comes from the Latin 'aurum'; Ag is silver." },
-  { "id": "gk-0009", "category": "general-knowledge", "question": "Which country hosted the 2016 Summer Olympics?", "options": ["China", "United Kingdom", "Brazil", "Japan"], "correctAnswerIndex": 2, "explanation": "Rio de Janeiro hosted the 2016 Games." },
-  { "id": "gk-0010", "category": "general-knowledge", "question": "The Sahara Desert is located primarily on which continent?", "options": ["Asia", "Africa", "Australia", "South America"], "correctAnswerIndex": 1, "explanation": "It spans most of North Africa." },
-  { "id": "gk-0011", "category": "general-knowledge", "question": "Which is the longest river in the world?", "options": ["Amazon", "Yangtze", "Nile", "Mississippi"], "correctAnswerIndex": 2, "explanation": "The Nile runs about 6,650 km through northeast Africa." },
-  { "id": "gk-0012", "category": "general-knowledge", "question": "Who painted the Mona Lisa?", "options": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"], "correctAnswerIndex": 2, "explanation": "Da Vinci painted it in the early 1500s." },
-  { "id": "gk-0013", "category": "general-knowledge", "question": "What is the smallest prime number?", "options": ["0", "1", "2", "3"], "correctAnswerIndex": 2, "explanation": "1 isn't prime by definition; 2 is the smallest and only even prime." },
-  { "id": "gk-0014", "category": "general-knowledge", "question": "Which planet is known as the 'Red Planet'?", "options": ["Venus", "Mars", "Mercury", "Jupiter"], "correctAnswerIndex": 1, "explanation": "Iron oxide (rust) on its surface gives Mars its color." },
-  { "id": "gk-0015", "category": "general-knowledge", "question": "The United Nations was founded in which year?", "options": ["1918", "1945", "1950", "1939"], "correctAnswerIndex": 1, "explanation": "The UN was founded right after World War II ended." },
-  { "id": "gk-0016", "category": "general-knowledge", "question": "Which is the largest mammal in the world?", "options": ["African elephant", "Blue whale", "Giraffe", "Polar bear"], "correctAnswerIndex": 1, "explanation": "Blue whales can reach around 30 meters long." },
-  { "id": "gk-0017", "category": "general-knowledge", "question": "What does 'www' stand for in a website address?", "options": ["World Wide Web", "World Wide Wire", "Web Wide World", "Wide World Web"], "correctAnswerIndex": 0, "explanation": "Coined by Tim Berners-Lee in 1989." },
-  { "id": "gk-0018", "category": "general-knowledge", "question": "Which country is known as the 'Land of the Rising Sun'?", "options": ["China", "South Korea", "Japan", "Thailand"], "correctAnswerIndex": 2, "explanation": "'Nihon/Nippon' literally translates to 'origin of the sun'." },
-  { "id": "gk-0019", "category": "general-knowledge", "question": "How many continents are there on Earth?", "options": ["5", "6", "7", "8"], "correctAnswerIndex": 2, "explanation": "The commonly taught model lists 7 continents." },
-  { "id": "gk-0020", "category": "general-knowledge", "question": "Which vitamin is primarily produced when skin is exposed to sunlight?", "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin K"], "correctAnswerIndex": 2, "explanation": "UVB rays trigger vitamin D synthesis in the skin." }
-]
+{
+  "name": "General Knowledge",
+  "description": "Foundational GK for any competitive exam: science, geography, India and the world.",
+  "questions": [
+    {
+      "id": "gk-001",
+      "category": "general-knowledge",
+      "topic": "Space",
+      "difficulty": "easy",
+      "question": "Which is the largest planet in our solar system?",
+      "options": ["Jupiter", "Saturn", "Neptune", "Earth"],
+      "answer": 0,
+      "explanation": "Jupiter is the largest planet — roughly 11 times Earth's diameter and more than twice as massive as all the other planets combined."
+    },
+    {
+      "id": "gk-002",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "Who wrote India's national anthem, 'Jana Gana Mana'?",
+      "options": ["Bankim Chandra Chatterjee", "Rabindranath Tagore", "Sarojini Naidu", "Subramania Bharati"],
+      "answer": 1,
+      "explanation": "Rabindranath Tagore wrote 'Jana Gana Mana' in Bengali; it was adopted as the national anthem in 1950. Bankim Chandra wrote 'Vande Mataram'."
+    },
+    {
+      "id": "gk-003",
+      "category": "general-knowledge",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which is the longest river in India?",
+      "options": ["Godavari", "Krishna", "Ganga", "Brahmaputra"],
+      "answer": 2,
+      "explanation": "The Ganga (about 2,525 km) is India's longest river. The Godavari is the longest river flowing entirely within India."
+    },
+    {
+      "id": "gk-004",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "Who was the first President of India?",
+      "options": ["Dr. Rajendra Prasad", "Dr. S. Radhakrishnan", "Jawaharlal Nehru", "C. Rajagopalachari"],
+      "answer": 0,
+      "explanation": "Dr. Rajendra Prasad served as the first President from 1950 to 1962 — the only President elected to two full terms."
+    },
+    {
+      "id": "gk-005",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "Which is the smallest state of India by area?",
+      "options": ["Goa", "Sikkim", "Tripura", "Nagaland"],
+      "answer": 0,
+      "explanation": "Goa (~3,702 km²) is the smallest state by area; Sikkim is second-smallest."
+    },
+    {
+      "id": "gk-006",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "What is the national animal of India?",
+      "options": ["Royal Bengal Tiger", "Asiatic Lion", "Indian Elephant", "Snow Leopard"],
+      "answer": 0,
+      "explanation": "The Royal Bengal Tiger has been India's national animal since 1973, when Project Tiger was launched."
+    },
+    {
+      "id": "gk-007",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "Who is known as the 'Father of the Indian Constitution'?",
+      "options": ["Dr. B. R. Ambedkar", "Mahatma Gandhi", "Sardar Vallabhbhai Patel", "Dr. Rajendra Prasad"],
+      "answer": 0,
+      "explanation": "Dr. B. R. Ambedkar chaired the Constitution's Drafting Committee and is regarded as its principal architect."
+    },
+    {
+      "id": "gk-008",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "Which Indian city is famously known as the 'Silicon Valley of India'?",
+      "options": ["Hyderabad", "Pune", "Bengaluru", "Chennai"],
+      "answer": 2,
+      "explanation": "Bengaluru is India's top IT and startup hub, earning it the 'Silicon Valley of India' title."
+    },
+    {
+      "id": "gk-009",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "Who was the first Indian to win a Nobel Prize?",
+      "options": ["C. V. Raman", "Rabindranath Tagore", "Mother Teresa", "Amartya Sen"],
+      "answer": 1,
+      "explanation": "Rabindranath Tagore won the Nobel Prize in Literature in 1913 for 'Gitanjali' — the first Indian laureate."
+    },
+    {
+      "id": "gk-010",
+      "category": "general-knowledge",
+      "topic": "World",
+      "difficulty": "easy",
+      "question": "What is the currency of Japan?",
+      "options": ["Yuan", "Won", "Yen", "Ringgit"],
+      "answer": 2,
+      "explanation": "Japan uses the Yen (¥). Yuan is China's currency, Won is Korea's, and Ringgit is Malaysia's."
+    },
+    {
+      "id": "gk-011",
+      "category": "general-knowledge",
+      "topic": "World",
+      "difficulty": "medium",
+      "question": "Which country is the most populous in the world (as of 2023–24)?",
+      "options": ["China", "India", "United States", "Indonesia"],
+      "answer": 1,
+      "explanation": "According to UN estimates, India overtook China as the world's most populous country in April 2023."
+    },
+    {
+      "id": "gk-012",
+      "category": "general-knowledge",
+      "topic": "Science",
+      "difficulty": "easy",
+      "question": "What is the chemical symbol for gold?",
+      "options": ["Ag", "Au", "Gd", "Pb"],
+      "answer": 1,
+      "explanation": "Gold's symbol is Au, from the Latin 'aurum'. Ag is silver, Gd is gadolinium, Pb is lead."
+    },
+    {
+      "id": "gk-013",
+      "category": "general-knowledge",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "Which is the highest mountain peak in the world?",
+      "options": ["K2", "Kangchenjunga", "Mount Everest", "Nanda Devi"],
+      "answer": 2,
+      "explanation": "Mount Everest (8,849 m) in the Himalayas is the world's highest peak; K2 is second."
+    },
+    {
+      "id": "gk-014",
+      "category": "general-knowledge",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "Which is the largest ocean on Earth?",
+      "options": ["Pacific", "Atlantic", "Indian", "Arctic"],
+      "answer": 0,
+      "explanation": "The Pacific Ocean covers about a third of the Earth's surface — larger than all land area combined."
+    },
+    {
+      "id": "gk-015",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "What is the national flower of India?",
+      "options": ["Rose", "Lotus", "Marigold", "Jasmine"],
+      "answer": 1,
+      "explanation": "The Lotus (Nelumbo nucifera) is India's national flower — a symbol of purity and detachment."
+    },
+    {
+      "id": "gk-016",
+      "category": "general-knowledge",
+      "topic": "Science",
+      "difficulty": "easy",
+      "question": "Which vitamin is produced in the human skin on exposure to sunlight?",
+      "options": ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"],
+      "answer": 3,
+      "explanation": "UV-B sunlight converts a cholesterol derivative in the skin into Vitamin D — hence its 'sunshine vitamin' nickname."
+    },
+    {
+      "id": "gk-017",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "How many states does India currently have?",
+      "options": ["26", "28", "29", "30"],
+      "answer": 1,
+      "explanation": "After the 2019 bifurcation of Jammu & Kashmir, India has 28 states and 8 Union Territories."
+    },
+    {
+      "id": "gk-018",
+      "category": "general-knowledge",
+      "topic": "World",
+      "difficulty": "easy",
+      "question": "What is the capital of Australia?",
+      "options": ["Sydney", "Melbourne", "Canberra", "Perth"],
+      "answer": 2,
+      "explanation": "Canberra, purpose-built as a compromise between rivals Sydney and Melbourne, became the capital in 1913."
+    },
+    {
+      "id": "gk-019",
+      "category": "general-knowledge",
+      "topic": "Science",
+      "difficulty": "easy",
+      "question": "Who discovered penicillin?",
+      "options": ["Louis Pasteur", "Alexander Fleming", "Edward Jenner", "Robert Koch"],
+      "answer": 1,
+      "explanation": "Alexander Fleming discovered penicillin in 1928 when mould contaminated a petri dish — the world's first antibiotic."
+    },
+    {
+      "id": "gk-020",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "The Red Fort is located in which city?",
+      "options": ["Agra", "Delhi", "Jaipur", "Lucknow"],
+      "answer": 1,
+      "explanation": "The Red Fort was built by Shah Jahan in Delhi (1639–48); the Prime Minister hoists the flag here on Independence Day."
+    },
+    {
+      "id": "gk-021",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "What is the national bird of India?",
+      "options": ["Indian Peacock", "Great Hornbill", "Sarus Crane", "White-throated Kingfisher"],
+      "answer": 0,
+      "explanation": "The Indian Peacock (Pavo cristatus) was declared the national bird in 1963."
+    },
+    {
+      "id": "gk-022",
+      "category": "general-knowledge",
+      "topic": "Science",
+      "difficulty": "easy",
+      "question": "Which gas do plants primarily absorb from the atmosphere for photosynthesis?",
+      "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
+      "answer": 2,
+      "explanation": "Plants take in carbon dioxide and release oxygen during photosynthesis, using sunlight energy."
+    },
+    {
+      "id": "gk-023",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "Who was the first Prime Minister of independent India?",
+      "options": ["Sardar Vallabhbhai Patel", "Jawaharlal Nehru", "Lal Bahadur Shastri", "Indira Gandhi"],
+      "answer": 1,
+      "explanation": "Jawaharlal Nehru served as Prime Minister from 1947 until his death in 1964 — the longest tenure in Indian history."
+    },
+    {
+      "id": "gk-024",
+      "category": "general-knowledge",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "The Great Barrier Reef, the world's largest coral reef system, is located off the coast of which country?",
+      "options": ["Brazil", "Australia", "Indonesia", "Philippines"],
+      "answer": 1,
+      "explanation": "The Great Barrier Reef stretches ~2,300 km along Australia's Queensland coast and is visible from space."
+    },
+    {
+      "id": "gk-025",
+      "category": "general-knowledge",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "Which is the smallest continent in the world?",
+      "options": ["Australia", "Europe", "Antarctica", "South America"],
+      "answer": 0,
+      "explanation": "Australia is the smallest continent at about 8.6 million km² — though it's the sixth-largest country."
+    },
+    {
+      "id": "gk-026",
+      "category": "general-knowledge",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "How many bones are there in an adult human body?",
+      "options": ["196", "206", "216", "226"],
+      "answer": 1,
+      "explanation": "Adults have 206 bones. Babies are born with about 300, some of which fuse as they grow."
+    },
+    {
+      "id": "gk-027",
+      "category": "general-knowledge",
+      "topic": "Space",
+      "difficulty": "easy",
+      "question": "Which planet is known as the 'Red Planet'?",
+      "options": ["Venus", "Mars", "Jupiter", "Mercury"],
+      "answer": 1,
+      "explanation": "Iron oxide (rust) on Mars' surface gives it the reddish colour that earned it the 'Red Planet' name."
+    },
+    {
+      "id": "gk-028",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "medium",
+      "question": "In which year was the ₹ (Indian Rupee) symbol officially adopted?",
+      "options": ["2005", "2008", "2010", "2012"],
+      "answer": 2,
+      "explanation": "The ₹ symbol, designed by D. Udaya Kumar, was adopted by the Government of India on 15 July 2010."
+    },
+    {
+      "id": "gk-029",
+      "category": "general-knowledge",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "Which is the longest bone in the human body?",
+      "options": ["Tibia", "Fibula", "Femur", "Humerus"],
+      "answer": 2,
+      "explanation": "The femur (thigh bone) is the longest, heaviest and strongest bone in the human body."
+    },
+    {
+      "id": "gk-030",
+      "category": "general-knowledge",
+      "topic": "India",
+      "difficulty": "easy",
+      "question": "Which Indian state is popularly known as 'God's Own Country'?",
+      "options": ["Goa", "Kerala", "Himachal Pradesh", "Uttarakhand"],
+      "answer": 1,
+      "explanation": "Kerala earned the tourism tagline 'God's Own Country' for its backwaters, greenery and beaches."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Translucent Pop — Quiz Window Preview</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      font: 14.5px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #eef0ff; background: #0d0f22;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 10px 10px 16px;
+    }
+    .win-bar { width: 100%; max-width: 400px; display: flex; align-items: center; gap: 8px; padding: 6px 6px 12px; }
+    .win-logo { width: 26px; height: 26px; border-radius: 7px; flex: none; background: #7c3aed; display: grid; place-items: center; }
+    .win-logo svg { width: 15px; height: 15px; }
+    .win-name { font-weight: 700; font-size: 13.5px; letter-spacing: .2px; }
+    .win-sub { font-size: 11px; opacity: .55; }
+    .win-close { margin-left: auto; border: 0; background: rgba(255,255,255,.08); color: inherit; cursor: pointer; padding: 6px 10px; border-radius: 8px; }
+    .win-close svg { display: block; width: 13px; height: 13px; }
+    .win-close:hover { background: rgba(255,255,255,.16); }
+    #card { width: 100%; max-width: 400px; flex: 1; }
+  </style>
+</head>
+<body>
+  <div class="win-bar">
+    <div class="win-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg></div>
+    <div>
+      <div class="win-name">Translucent Pop</div>
+      <div class="win-sub">local quiz · no AI · no network</div>
+    </div>
+    <button type="button" class="win-close" id="closeWin" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></button>
+  </div>
+  <div id="card"></div>
+
+  <script src="chrome-mock.js"></script>
+  <script>
+    // Seed a pending quiz in mock storage.session so quiz-window.js (loaded
+    // unmodified below) has something to render, exactly like background.js
+    // would stash before opening this window.
+    chrome.storage.session.set({ pendingQuiz: {
+      questions: [
+        { id: 'w1', question: 'Which committee recommended Panchayati Raj in India?', options: ['Balwant Rai Mehta', 'Sarkaria', 'Ashok Mehta', 'Singhvi'], answer: 0, explanation: 'Its 1957 report proposed the three-tier system.' }
+      ],
+      title: 'UPSC / Civil Services',
+      durationSec: 45,
+      theme: 'dark',
+      glass: 'balanced'
+    }});
+  </script>
+  <script src="../src/ui-core.js"></script>
+  <script src="../src/quiz-window.js"></script>
+</body>
+</html>

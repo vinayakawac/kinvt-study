@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Translucent Pop — Quiz Card Preview</title>
+  <style>
+    body {
+      margin: 0; min-height: 100vh;
+      font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #1b1030, #2a1a4a) fixed;
+      background-image:
+        linear-gradient(135deg, rgba(139,92,246,.15), rgba(0,0,0,0) 60%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><text x="4" y="20" font-size="14" fill="rgba(255,255,255,0.05)">example.com/article</text></svg>');
+      display: flex; align-items: flex-end; justify-content: flex-end;
+      padding: 24px;
+    }
+    .controls {
+      position: fixed; top: 16px; left: 16px; z-index: 10;
+      background: rgba(0,0,0,.4); padding: 10px; border-radius: 10px;
+      display: flex; gap: 8px; flex-wrap: wrap; max-width: 280px;
+    }
+    .controls button {
+      font: inherit; font-size: 11px; padding: 5px 8px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.1); color: #fff; cursor: pointer;
+    }
+    #card { width: 400px; max-width: calc(100vw - 48px); }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button data-theme="dark">Dark</button>
+    <button data-theme="light">Light</button>
+    <button data-glass="clear">Clear</button>
+    <button data-glass="balanced">Balanced</button>
+    <button data-glass="frosted">Frosted</button>
+    <button id="reload">Reload card</button>
+  </div>
+  <div id="card"></div>
+
+  <script src="../src/ui-core.js"></script>
+  <script>
+    var theme = 'dark';
+    var glass = 'balanced';
+
+    var QUESTIONS = [
+      { id: 'demo-1', question: 'Which river is known as the lifeline of Karnataka?', options: ['Krishna', 'Tungabhadra', 'Kaveri', 'Sharavathi'], answer: 2, explanation: 'The Kaveri dispute with Tamil Nadu has run for over a century.' },
+      { id: 'demo-2', question: 'GST was implemented in India in which year?', options: ['2015', '2016', '2017', '2019'], answer: 2, explanation: 'GST rolled out on 1 July 2017.' },
+      { id: 'demo-3', question: 'Who chaired the Constitution Drafting Committee?', options: ['Nehru', 'Ambedkar', 'Patel', 'Prasad'], answer: 1 }
+    ];
+
+    function renderCard() {
+      var container = document.getElementById('card');
+      container.innerHTML = '';
+      window.TPQ_UI.create(container, {
+        questions: QUESTIONS.slice(),
+        title: 'UPSC / Civil Services',
+        durationSec: 45,
+        theme: theme,
+        glass: glass,
+        onFinish: function (score, total) { console.log('finished', score, '/', total); },
+        onClose: function () { console.log('closed'); }
+      });
+    }
+
+    document.querySelectorAll('[data-theme]').forEach(function (b) {
+      b.addEventListener('click', function () { theme = b.dataset.theme; renderCard(); });
+    });
+    document.querySelectorAll('[data-glass]').forEach(function (b) {
+      b.addEventListener('click', function () { glass = b.dataset.glass; renderCard(); });
+    });
+    document.getElementById('reload').addEventListener('click', renderCard);
+
+    renderCard();
+  </script>
+</body>
+</html>
