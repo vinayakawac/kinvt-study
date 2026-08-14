@@ -1,5 +1,5 @@
 /*
- * Translucent Pop — background service worker
+ * Kinvt-study — background service worker
  * ---------------------------------------------------------------
  * Low-CPU design:
  *  - Scheduling uses chrome/browser.alarms → the service worker sleeps
@@ -353,9 +353,10 @@ api.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         await ensureAlarm();
         return { ok: true };
 
-      case 'START_QUIZ':            // "Quiz me now" from the settings sidecar — always forces a fresh quiz
-        await showQuiz(true);
-        return { ok: true };
+      case 'BUILD_QUIZ': {          // "Quiz me now" from the settings sidecar — rendered inline in the
+        const quiz = await buildQuiz();  // sidecar itself, so this has no side effects: no tab injection,
+        return { quiz };                 // no popup window, no "don't stack" guard to get stuck on.
+      }
 
       case 'GET_PENDING_QUIZ': {    // overlay / window asks for its payload
         const got = await api.storage.session.get(PENDING_KEY);

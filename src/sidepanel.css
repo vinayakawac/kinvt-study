@@ -1,4 +1,4 @@
-/* Translucent Pop — settings side panel styles (glassmorphism, dark-first)
+/* Kinvt-study — settings side panel styles (glassmorphism, dark-first)
    Used by the Chrome/Edge side panel, the Firefox sidebar, and the
    windowed fallback (body gets class "windowed"). */
 
@@ -52,6 +52,15 @@ body.sidepanel .top { grid-column: 1 / -1; }
 body.sidepanel .stats { grid-column: 1 / -1; }
 body.sidepanel .primary { grid-column: 1 / -1; }
 body.sidepanel footer { grid-column: 1 / -1; }
+body.sidepanel .inline-quiz { grid-column: 1 / -1; }
+
+/* Transparent wrapper: its children (the settings cards) join the parent
+   grid directly, as if this div weren't there — so hiding/showing it as a
+   whole doesn't collapse the two-pane layout when it's visible. */
+#settingsView { display: contents; }
+
+.inline-quiz { display: flex; justify-content: center; padding: 8px 0; }
+.inline-quiz > * { width: 100%; max-width: 420px; }
 
 /* windowed fallback (very old browsers without a side panel API) */
 body.windowed {

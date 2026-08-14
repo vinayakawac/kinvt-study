@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Translucent Pop — settings preview</title>
+  <title>Kinvt-study — settings preview</title>
   <link rel="stylesheet" href="../src/sidepanel.css">
 </head>
 <body class="sidepanel">
@@ -11,11 +11,14 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg>
     </div>
     <div class="brand">
-      <h1>Translucent Pop</h1>
+      <h1>Kinvt-study</h1>
       <p class="tag">Local quiz · no AI · near-zero CPU</p>
     </div>
   </header>
 
+  <div id="inlineQuiz" class="inline-quiz" hidden></div>
+
+  <div id="settingsView">
   <section class="card">
     <div class="row">
       <span class="lbl">Quiz popups</span>
@@ -122,8 +125,10 @@
     Questions are bundled on-device. No network calls, no AI, no accounts, no data collection.
     This panel stays open while you browse — answers update the stats above live.
   </footer>
+  </div>
 
   <script src="chrome-mock.js"></script>
+  <script src="../src/ui-core.js"></script>
   <script src="../src/sidepanel.js"></script>
 </body>
 </html>

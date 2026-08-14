@@ -1,5 +1,5 @@
 /*
- * Translucent Pop — overlay content script (overlay.js)
+ * Kinvt-study — overlay content script (overlay.js)
  * ---------------------------------------------------------------
  * Injected into the user's active tab by background.js (ui-core.js is
  * injected first and defines window.TPQ_UI in this isolated world).

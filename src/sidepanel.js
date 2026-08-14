@@ -1,5 +1,5 @@
 /*
- * Translucent Pop — settings side panel logic (sidepanel.js)
+ * Kinvt-study — settings side panel logic (sidepanel.js)
  * Runs inside the Chrome/Edge side panel, the Firefox sidebar, or a
  * windowed fallback (body class "windowed").
  *
@@ -201,16 +201,51 @@
     return Array.prototype.slice.call(document.querySelectorAll('#cats input'));
   }
 
-  function flashLaunched() {
+  function showQuizNotAvailable() {
     var b = $('startNow');
     var span = b.querySelector('span');
     if (flashTimer) clearTimeout(flashTimer);
-    span.textContent = 'Quiz launched — answer it in the page';
-    b.classList.add('ok');
-    flashTimer = setTimeout(function () {
-      span.textContent = 'Quiz me now';
-      b.classList.remove('ok');
-    }, 2200);
+    span.textContent = 'No questions selected';
+    flashTimer = setTimeout(function () { span.textContent = 'Quiz me now'; }, 2200);
+  }
+
+  // "Quiz me now" renders straight into the sidecar's own page — just the
+  // card, nothing else. No tab injection, no separate popup window: the
+  // sidecar is already a frameless, docked surface, so there's nothing to
+  // gain from routing this through background.js's tab/window logic, which
+  // exists for the *automatic* alarm-driven popup instead.
+  function startInlineQuiz() {
+    return Promise.resolve(api.runtime.sendMessage({ type: 'BUILD_QUIZ' }))
+      .catch(function () { return null; })
+      .then(function (res) {
+        var quiz = res && res.quiz;
+        if (!quiz) {
+          showQuizNotAvailable();
+          return;
+        }
+        $('settingsView').hidden = true;
+        var quizEl = $('inlineQuiz');
+        quizEl.hidden = false;
+        quizEl.innerHTML = '';
+
+        window.TPQ_UI.create(quizEl, {
+          questions: quiz.questions,
+          title: quiz.title,
+          durationSec: quiz.durationSec,
+          theme: settings.theme,
+          glass: settings.glass,
+          glassCustom: settings.glassCustom,
+          onFinish: function (correct, total) {
+            Promise.resolve(api.runtime.sendMessage({ type: 'QUIZ_RESULT', correct: correct, total: total }))
+              .catch(function () {});
+          },
+          onClose: function () {
+            quizEl.hidden = true;
+            quizEl.innerHTML = '';
+            $('settingsView').hidden = false;
+          }
+        });
+      });
   }
 
   function init() {
@@ -320,14 +355,7 @@
         });
         save();
       });
-      $('startNow').addEventListener('click', function () {
-        Promise.resolve(api.runtime.sendMessage({ type: 'START_QUIZ' }))
-          .catch(function () {})
-          .then(function () {
-            if (isWindowed) window.close();  // popup window fallback
-            else flashLaunched();            // sidecar stays open
-          });
-      });
+      $('startNow').addEventListener('click', startInlineQuiz);
     }).catch(function (err) {
       document.body.insertAdjacentHTML(
         'beforeend',

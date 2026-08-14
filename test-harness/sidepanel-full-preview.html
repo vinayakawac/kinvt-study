@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Kinvt-study — settings</title>
-  <link rel="stylesheet" href="sidepanel.css">
+  <title>Kinvt-study — settings + background preview</title>
+  <link rel="stylesheet" href="../src/sidepanel.css">
 </head>
 <body class="sidepanel">
   <header class="top">
@@ -16,8 +16,6 @@
     </div>
   </header>
 
-  <!-- "Quiz me now" renders straight in here — just the card, nothing else,
-       no separate window ever. Settings below are hidden while it's up. -->
   <div id="inlineQuiz" class="inline-quiz" hidden></div>
 
   <div id="settingsView">
@@ -129,7 +127,12 @@
   </footer>
   </div>
 
-  <script src="ui-core.js"></script>
-  <script src="sidepanel.js"></script>
+  <script src="chrome-mock.js"></script>
+  <!-- background.js registers the BUILD_QUIZ message handler sidepanel.js
+       calls; loading both here (unlike sidepanel-preview.html, which tests
+       the settings UI in isolation) exercises the real round-trip. -->
+  <script src="../src/background.js"></script>
+  <script src="../src/ui-core.js"></script>
+  <script src="../src/sidepanel.js"></script>
 </body>
 </html>

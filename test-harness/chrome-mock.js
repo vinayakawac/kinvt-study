@@ -1,4 +1,4 @@
-// Stubs the extension API surface Translucent Pop uses, so its real,
+// Stubs the extension API surface Kinvt-study uses, so its real,
 // unmodified source files (background.js, sidepanel.js, ui-core.js,
 // overlay.js) can run in a plain browser tab for visual/behavioral testing.
 // storage.local/session are backed by two separate in-memory+localStorage
@@ -82,17 +82,23 @@
       onStartup: { addListener: (fn) => listeners.startup.push(fn) },
       onMessage: { addListener: (fn) => listeners.message.push(fn) },
       sendMessage: (msg) => {
-        // Mirrors real chrome.runtime.sendMessage: resolves undefined when
-        // no listener calls sendResponse (e.g. no background page loaded
-        // in this harness page), instead of inventing a fake response.
+        // Mirrors real chrome.runtime.sendMessage: resolves undefined only
+        // when there's truly no listener to respond (e.g. no background
+        // page loaded in this harness page) — not merely because the one
+        // listener that exists happens to answer asynchronously. Real
+        // Chrome keeps the message channel open indefinitely once a
+        // listener returns `true` (which background.js's does); resolving
+        // early here previously made every BUILD_QUIZ/GET_PENDING_QUIZ
+        // round-trip look like "no listener" even with background.js loaded.
+        if (!listeners.message.length) return Promise.resolve(undefined);
         return new Promise((resolve) => {
           let responded = false;
           const sendResponse = (res) => {
+            if (responded) return;
             responded = true;
             resolve(res);
           };
           listeners.message.forEach((fn) => fn(msg, {}, sendResponse));
-          if (!responded) resolve(undefined);
         });
       },
     },

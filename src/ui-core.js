@@ -1,5 +1,5 @@
 /*
- * Translucent Pop — shared quiz card UI (ui-core.js)
+ * Kinvt-study — shared quiz card UI (ui-core.js)
  * ---------------------------------------------------------------
  * Classic (non-module) script: defines window.TPQ_UI.
  * Loaded two ways:

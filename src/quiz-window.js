@@ -1,5 +1,5 @@
 /*
- * Translucent Pop — fallback quiz window (quiz-window.js)
+ * Kinvt-study — fallback quiz window (quiz-window.js)
  * ---------------------------------------------------------------
  * Extension page shown in a small dedicated popup window when the
  * overlay cannot be injected (chrome:// pages, stores, blocked tabs).

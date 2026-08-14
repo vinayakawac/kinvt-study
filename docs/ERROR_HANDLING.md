@@ -40,9 +40,11 @@ Fixed by splitting into two functions: `done(v)` only settles on a **truthy** pa
 
 `background.js#showQuiz()` sets a `quizShowing` timestamp in `storage.session` *before* it knows whether a quiz card actually ends up visible, as a guard against the auto-popup alarm stacking multiple cards if it fires again before the last one was answered. That guard is checked on every call to `showQuiz()`, including ones triggered by the sidepanel's "Quiz me now" button. If the first quiz never sends back `QUIZ_CLOSED`/`QUIZ_RESULT` — e.g. injection silently no-op'd because the tab's viewport was too small (`overlay.js`'s `innerWidth < 340 || innerHeight < 380` guard), or the card was dismissed some other way — the guard stays "stuck" for up to `SHOWING_TTL_MS` (5 minutes), during which every subsequent "Quiz me now" click does nothing at all, with no feedback that anything went wrong.
 
-Fixed by giving `showQuiz()` an optional `force` parameter: the alarm-triggered call stays unforced (so the stacking guard still does its job for automatic popups), but the `START_QUIZ` message handler behind "Quiz me now" now calls `showQuiz(true)`, always bypassing the guard. An explicit user click should never silently no-op.
+Fixed at the time by giving `showQuiz()` an optional `force` parameter, so an explicit "Quiz me now" click always bypassed the guard rather than risk silently no-op'ing.
 
 **Lesson**: a "don't stack automatic events" guard and "the user explicitly asked for this" are different situations — collapsing them into the same code path means a stuck guard state silently defeats deliberate user action, with no visible error to explain why.
+
+*Superseded by §6 below*: "Quiz me now" no longer calls `showQuiz()` at all, so this specific guard can no longer affect it either way. `showQuiz()`'s `force` parameter still exists and is harmless, but is currently unused — nothing calls `showQuiz(true)` anymore.
 
 ### 4. Quizzes opened as a floating popup window instead of an in-page overlay
 
@@ -51,6 +53,8 @@ Fixed by giving `showQuiz()` an optional `force` parameter: the alarm-triggered 
 Fixed with `getActiveContentTab()`: it explicitly asks for a `'normal'`-type window via `chrome.windows.getLastFocused({ windowTypes: ['normal'] })` before querying that window's active tab, sidestepping sidebar/panel/popup windows entirely. Falls back to a broader `chrome.tabs.query({ active: true, windowType: 'normal' })` if that first lookup fails for any reason.
 
 **Lesson**: "last focused window" is not the same thing as "the window with the content tab I want," especially once a browser has more than one kind of top-level window (a sidebar, a picture-in-picture window, a detached panel). Be explicit about the window *type* you actually need rather than relying on focus order.
+
+*Narrowed by §6 below*: this fix still matters for the automatic alarm-triggered popup, but "Quiz me now" no longer does any tab lookup at all, so it can't hit this failure mode either way.
 
 ### 5. The overlay's own styles never reached inside its shadow root
 
@@ -63,6 +67,16 @@ Fixed by using `container.getRootNode()` instead, which correctly walks up to th
 Added `test-harness/overlay-preview.html`, which builds a real `attachShadow()` host on top of a mock "host page," to catch this exact class of bug going forward — the earlier test pages structurally couldn't have caught it no matter how much they were used, since they never involved a shadow root at all.
 
 **Lesson**: a property check like `container.shadowRoot` is really asking "is `container` a shadow host," which is a much narrower question than "is `container` rendered inside a shadow tree." When testing DOM/styling code meant to work inside a shadow root, the test needs an *actual* shadow root, not a stand-in `<div>` — the two are not equivalent for anything CSS-scoping related, and a passing test against the stand-in proves nothing about the real path.
+
+### 6. "Quiz me now" showed a real OS window, which no amount of styling can fix
+
+Even after §4's tab-detection fix, testing from a restricted page (`chrome://extensions`, a debugging/management page) still opened `quiz-window.html` in a real `chrome.windows.create({type:'popup'})` window — correctly, by design, since injection into those pages is blocked by the browser itself for every extension, with no override available. But that window *always* carries a minimum OS-drawn title bar with minimize/close controls — every browser enforces this deliberately, so a page can never impersonate a chromeless native window for phishing purposes. No CSS or window-creation flag can remove it. That's a hard ceiling on how "just the card, nothing else" a real window can ever look, no matter how the card itself is styled.
+
+The fix wasn't to style the window better — it was to stop needing a window at all for the manual case. "Quiz me now" is clicked from the settings sidecar, which is *already* a frameless, docked, extension-owned page (a Chrome/Edge side panel or Firefox sidebar) with zero OS chrome of its own. There was never a reason to route it through `showQuiz()`'s tab-injection/window-fallback machinery in the first place — that machinery exists to solve "get a card onto *some other page* I don't control," which isn't the situation here at all.
+
+Reworked so `background.js` exposes a `BUILD_QUIZ` message that just calls `buildQuiz()` and returns the payload — no tab lookup, no `chrome.scripting`, no `chrome.windows.create`, no "showing" guard. `sidepanel.js` renders the result straight into its own page via the same `ui-core.js` the other two surfaces use (no shadow root needed, since the sidecar page is already isolated), hiding its settings sections while the card is up and restoring them on close. The result really is just the card, with no OS window ever involved — because there's no window to have OS chrome in the first place.
+
+**Lesson**: when a constraint turns out to be enforced by the platform itself (here: browsers refusing to let *any* extension draw a truly chromeless window), the fix isn't a smarter workaround for that constraint — it's asking whether the constrained path was ever the right one for this particular caller. The automatic alarm-triggered popup genuinely needs to reach an arbitrary tab it doesn't control, so its window fallback (and that fallback's inherent OS chrome) is unavoidable and correct. The manual button click never had that requirement — it was just reusing the same code path by default.
 
 ## If you're adding new async logic here
 

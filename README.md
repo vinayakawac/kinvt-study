@@ -1,4 +1,4 @@
-# Translucent Pop — Smart Quiz
+# Kinvt-study — Smart Quiz
 
 A translucent, near-zero-CPU MCQ quiz browser extension for competitive-exam prep. While you browse, a frosted-glass card periodically slides up over the page and asks you 1–5 questions — General Knowledge, UPSC, KPSC/KAS, SSC, Banking, and more, across 336 bundled questions in 16 topics. Local-first and no AI: questions are static JSON, bundled offline and also kept fresh via a small daily background sync, with no clicks required.
 
