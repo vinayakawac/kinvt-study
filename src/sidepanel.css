@@ -27,7 +27,9 @@ body.light {
   --hover: rgba(70, 80, 160, .10);
 }
 
-html { min-width: 320px; }
+/* No min-width here: Chrome/Edge's side panel and Firefox's sidebar can both
+   be resized narrower than a typical 320px column, and the layout below
+   needs to actually reflow to that instead of forcing horizontal clipping. */
 
 body {
   margin: 0;
@@ -41,7 +43,7 @@ body.sidepanel {
   min-height: 100vh;
   padding: 16px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 12px;
   align-items: start;
   align-content: start;
@@ -81,7 +83,8 @@ body.windowed #cats { display: block; }
 
 .row {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 10px; padding: 7px 0;
+  flex-wrap: wrap;
+  gap: 6px 10px; padding: 7px 0;
 }
 .row + .row { border-top: 1px solid var(--card-border); }
 .lbl { color: var(--muted); white-space: nowrap; }
@@ -92,10 +95,16 @@ select {
   border: 1px solid var(--card-border);
   border-radius: 6px;
   padding: 4px 6px;
-  max-width: 150px;
+  max-width: 100%;
+  min-width: 0;
   cursor: pointer;
 }
 select:focus { outline: 2px solid rgba(139, 92, 246, .7); }
+/* Firefox (unlike Chrome) honors these on the native <option> popup list —
+   without them it falls back to the OS light theme, which reads as washed-out
+   gray text on white against the rest of this dark UI. */
+select option { background: #1b1e3d; color: var(--text); }
+body.light select option { background: #ffffff; color: var(--text); }
 
 /* ---------- toggle switch ---------- */
 .switch { position: relative; width: 38px; height: 21px; flex: none; }
@@ -234,7 +243,7 @@ body.light .cat .ico { color: #7c3aed; }
 .glass-custom { border-top: 0; padding-top: 2px; }
 .glass-custom .lbl b { color: var(--accent-hover); font-weight: 700; }
 input[type="range"] {
-  width: 130px; accent-color: var(--accent);
+  width: 100%; max-width: 130px; accent-color: var(--accent);
   cursor: pointer;
 }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; padding: 10px 6px; }

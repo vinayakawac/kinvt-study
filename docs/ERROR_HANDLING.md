@@ -36,6 +36,14 @@ Fixed by splitting into two functions: `done(v)` only settles on a **truthy** pa
 
 **Lesson**: a "primary path, then fallback" pattern needs the primary path's *failure* to be distinguishable from its *success* at the point where you decide whether to keep trying. Collapsing both into a single `done()` call silently deletes the fallback.
 
+### 3. "Quiz me now" could silently stop working after the first click
+
+`background.js#showQuiz()` sets a `quizShowing` timestamp in `storage.session` *before* it knows whether a quiz card actually ends up visible, as a guard against the auto-popup alarm stacking multiple cards if it fires again before the last one was answered. That guard is checked on every call to `showQuiz()`, including ones triggered by the sidepanel's "Quiz me now" button. If the first quiz never sends back `QUIZ_CLOSED`/`QUIZ_RESULT` — e.g. injection silently no-op'd because the tab's viewport was too small (`overlay.js`'s `innerWidth < 340 || innerHeight < 380` guard), or the card was dismissed some other way — the guard stays "stuck" for up to `SHOWING_TTL_MS` (5 minutes), during which every subsequent "Quiz me now" click does nothing at all, with no feedback that anything went wrong.
+
+Fixed by giving `showQuiz()` an optional `force` parameter: the alarm-triggered call stays unforced (so the stacking guard still does its job for automatic popups), but the `START_QUIZ` message handler behind "Quiz me now" now calls `showQuiz(true)`, always bypassing the guard. An explicit user click should never silently no-op.
+
+**Lesson**: a "don't stack automatic events" guard and "the user explicitly asked for this" are different situations — collapsing them into the same code path means a stuck guard state silently defeats deliberate user action, with no visible error to explain why.
+
 ## If you're adding new async logic here
 
 - Prefer returning `null`/`undefined`/`false` for "didn't work, try the next thing" and reserve throwing for genuinely unexpected states.

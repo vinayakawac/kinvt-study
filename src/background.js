@@ -205,10 +205,17 @@ async function buildQuiz() {
 
 /* ---------- showing the quiz ---------- */
 
-async function showQuiz() {
-  // One quiz at a time: if a quiz was shown recently, don't stack another.
-  const cur = await api.storage.session.get(SHOWING_KEY);
-  if (cur && cur[SHOWING_KEY] && Date.now() - cur[SHOWING_KEY] < SHOWING_TTL_MS) return;
+async function showQuiz(force) {
+  // One quiz at a time for the *auto* popup: if one was shown recently, don't
+  // stack another. A manual "Quiz me now" click is an explicit user action —
+  // it always goes through, even if a previous auto/manual quiz never sent
+  // back QUIZ_CLOSED/QUIZ_RESULT (e.g. injection silently no-op'd on a tiny
+  // viewport). Without `force`, that stale guard could make every subsequent
+  // click do nothing for up to SHOWING_TTL_MS with no visible feedback.
+  if (!force) {
+    const cur = await api.storage.session.get(SHOWING_KEY);
+    if (cur && cur[SHOWING_KEY] && Date.now() - cur[SHOWING_KEY] < SHOWING_TTL_MS) return;
+  }
 
   const quiz = await buildQuiz();
   if (!quiz) return;
@@ -324,8 +331,8 @@ api.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         await ensureAlarm();
         return { ok: true };
 
-      case 'START_QUIZ':            // "Quiz me now" from the toolbar popup
-        await showQuiz();
+      case 'START_QUIZ':            // "Quiz me now" from the settings sidecar — always forces a fresh quiz
+        await showQuiz(true);
         return { ok: true };
 
       case 'GET_PENDING_QUIZ': {    // overlay / window asks for its payload

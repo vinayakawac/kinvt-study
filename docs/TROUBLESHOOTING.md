@@ -8,6 +8,10 @@
 4. Auto-popups only inject into **http(s)/file** tabs (`overlay.js`'s guard) or fall back to a popup window. If your active tab was a `chrome://` or extension-store page at the moment the alarm fired, the overlay silently skips that cycle — wait for the next one, or click **Quiz me now** instead.
 5. If injection AND the window fallback both silently fail (rare), nothing will visibly happen. Check the service worker console for a rejected promise around `showQuiz()`.
 
+## "Quiz me now" works once, then does nothing on later clicks
+
+This was a real bug — the auto-popup's "don't stack multiple quizzes" guard could get stuck if the first quiz never sent back `QUIZ_CLOSED`/`QUIZ_RESULT`, silently blocking every subsequent manual click for up to 5 minutes with no visible error. Fixed: "Quiz me now" now always forces a fresh quiz regardless of that guard (see [ERROR_HANDLING.md](ERROR_HANDLING.md#3-quiz-me-now-could-silently-stop-working-after-the-first-click)). If it recurs, check that `sidepanel.js`'s `startNow` handler sends `{ type: 'START_QUIZ' }` and that `background.js`'s handler for it calls `showQuiz(true)`, not the unforced `showQuiz()`.
+
 ## The quiz card closes almost instantly / can't click anything
 
 This was a real bug in an earlier version — `ui-core.js` was treating the "auto-close after N seconds" setting as milliseconds, so the card closed in ~45ms instead of 45 seconds. It's fixed (see [ERROR_HANDLING.md](ERROR_HANDLING.md#1-auto-close-timer-used-seconds-as-milliseconds)). If you see this again after a code change, check `durationMs` in `ui-core.js`'s `create()` is actually `cfg.durationSec * 1000`, not the raw settings value.
@@ -19,6 +23,14 @@ This was also a real bug — the payload-fetch fallback (service worker → `sto
 ## A settings toggle doesn't visually update (e.g. the glass intensity slider stays showing when it shouldn't)
 
 Check for a `[hidden]` vs. `display: flex/grid` CSS specificity conflict. Any element toggled via the `hidden` HTML attribute needs `[hidden] { display: none !important; }` declared somewhere in that stylesheet — a class like `.row { display: flex; }` at equal specificity to the browser's default `[hidden]` rule will win unpredictably depending on stylesheet order, and can make a "hidden" element stay visible. `sidepanel.css` already has this rule at the top; if you add a new stylesheet, make sure it does too.
+
+## The sidecar looks cut off / not responsive in a narrow sidebar or side panel
+
+`sidepanel.css` previously had `html { min-width: 320px; }`, which forced the whole page to refuse to shrink below 320px — if the actual Chrome side panel or Firefox sidebar was resized narrower than that (or a fork like Zen Browser defaults to a narrower one), content just got clipped instead of reflowing to a single column. Fixed by removing that hard floor and letting the two-pane grid (`grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr))`) actually collapse to one column below 320px, plus making `.row` wrap and the `<select>`/range inputs shrink instead of holding a fixed width. If a similar clipping issue shows up again, check for any fixed `px` width/min-width on a top-level element that doesn't have a corresponding `max-width: 100%` or wrap behavior.
+
+## Dropdown menu (`<select>`) options are washed-out/hard to read
+
+Firefox (unlike Chrome, which always renders `<select>` popups with the OS native theme regardless of CSS) partially honors `color`/`background` on `<option>` elements. Without explicit styling there, it falls back to the OS light theme for the popup list even though the closed `<select>` itself is styled dark — producing light-gray-on-white text that clashes with the rest of the UI. Fixed with explicit `select option { background; color; }` rules in `sidepanel.css` (dark and light theme variants). This only affects Firefox-family browsers; Chrome's native dropdown styling can't be overridden by CSS at all, by design.
 
 ## Library topics don't reflect recent content updates
 
