@@ -4,14 +4,21 @@ A translucent, always-on-top MCQ quiz popup for competitive-exam prep. It sits i
 
 ## Setup
 
-Download the installer from Releases, or build it yourself:
+Download the installer from Releases, or build it yourself — see
+[docs/DESKTOP_BUILD.md](docs/DESKTOP_BUILD.md).
+
+There are two shells over the same UI. **Tauri is what you want**; Electron
+exists as a fallback for machines without a C++ toolchain.
+
+| | Tauri | Electron |
+|---|---|---|
+| Executable | **3.3 MB** | 78 MB |
+| Idle memory | **29 MB**, 1 process | 92 MB, 4 processes |
+| Needs | Rust + MSVC linker | Node + npm only |
 
 ```bash
-cd desktop
-cargo build --release
+cd desktop/tauri && cargo build --release   # -> target/release/kinvt-study.exe
 ```
-
-The executable lands in `desktop/target/release/`.
 
 **Using it**
 
