@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "identifier": "com.kinvtstudy.quiz",
   "build": {
-    "frontendDist": "ui"
+    "frontendDist": "../ui"
   },
   "app": {
     "withGlobalTauri": true,
@@ -17,11 +17,9 @@
         "height": 460,
         "resizable": false,
         "center": false,
-
         "transparent": true,
         "decorations": false,
         "alwaysOnTop": true,
-
         "visible": false,
         "skipTaskbar": true,
         "shadow": false
@@ -33,8 +31,12 @@
   },
   "bundle": {
     "active": true,
-    "targets": ["nsis"],
-    "icon": ["icons/icon.ico"],
+    "targets": [
+      "nsis"
+    ],
+    "icon": [
+      "../icons/icon.ico"
+    ],
     "windows": {
       "nsis": {
         "installMode": "currentUser"

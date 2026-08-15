@@ -94,6 +94,59 @@
     return fetch('library.json').then(function (r) { return r.json(); });
   }
 
+
+  /* ---------- daily content sync ----------
+   * Questions ship bundled so the app is fully functional offline, but a
+   * bundled bank only changes when the app is reinstalled. Syncing from the
+   * public repo once a day decouples content freshness from app releases:
+   * push a question, every install picks it up within a day.
+   *
+   * Merged by `id` — same id updates that question, a new id adds one.
+   * A failed fetch leaves the bundled copy untouched, so the library can
+   * never end up empty.
+   */
+
+  var REMOTE_BASE = 'https://raw.githubusercontent.com/vinayakawac/kinvt-study/main/';
+  var SYNC_KEY = 'kinvt.remoteLibrary';
+  var SYNC_AT_KEY = 'kinvt.lastSyncAt';
+  var SYNC_EVERY_MS = 24 * 60 * 60 * 1000;
+
+  function getRemoteLibrary() { return readJSON(SYNC_KEY, {}); }
+
+  function mergeById(bundled, remote) {
+    if (!remote || !remote.length) return bundled;
+    var map = new Map(bundled.map(function (q) { return [q.id, q]; }));
+    remote.forEach(function (q) { map.set(q.id, q); });
+    return Array.from(map.values());
+  }
+
+  function syncContent(force) {
+    var last = parseInt(localStorage.getItem(SYNC_AT_KEY) || '0', 10);
+    if (!force && Date.now() - last < SYNC_EVERY_MS) return Promise.resolve(false);
+
+    return loadLibrary().then(function (catalog) {
+      return Promise.all(catalog.map(function (cat) {
+        return fetch(REMOTE_BASE + cat.file + '?cb=' + Date.now(), { cache: 'no-store' })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) {
+            return (d && Array.isArray(d.questions)) ? { id: cat.id, questions: d.questions } : null;
+          })
+          .catch(function () { return null; }); // offline — keep the bundled copy
+      }));
+    }).then(function (results) {
+      var store = getRemoteLibrary();
+      var updated = false;
+      results.forEach(function (r) {
+        if (r) { store[r.id] = { questions: r.questions, updatedAt: Date.now() }; updated = true; }
+      });
+      if (updated) {
+        localStorage.setItem(SYNC_KEY, JSON.stringify(store));
+        localStorage.setItem(SYNC_AT_KEY, String(Date.now()));
+      }
+      return updated;
+    }).catch(function () { return false; });
+  }
+
   // Builds one quiz from the selected topics. Resolves null when nothing is
   // selected or no bank could be read, so callers can stay quiet rather than
   // showing an empty card.
@@ -107,7 +160,13 @@
       return Promise.all(wanted.map(function (cat) {
         return fetch(cat.file)
           .then(function (r) { return r.json(); })
-          .then(function (d) { return { label: cat.label, questions: d.questions || [] }; })
+          .then(function (d) {
+            var remote = getRemoteLibrary()[cat.id];
+            return {
+              label: cat.label,
+              questions: mergeById(d.questions || [], remote && remote.questions)
+            };
+          })
           .catch(function () { return { label: cat.label, questions: [] }; });
       })).then(function (loaded) {
         var bank = [];
@@ -145,6 +204,8 @@
     recordResult: recordResult,
     resetStats: resetStats,
     loadLibrary: loadLibrary,
-    buildQuiz: buildQuiz
+    buildQuiz: buildQuiz,
+    syncContent: syncContent,
+    lastSyncAt: function () { return parseInt(localStorage.getItem(SYNC_AT_KEY) || '0', 10); }
   };
 })(window);

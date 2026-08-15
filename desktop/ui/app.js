@@ -88,5 +88,10 @@
     if (e.key === 'kinvt.settings') scheduleNext();
   });
 
+  // Refresh the question bank in the background. Failure is fine — the
+  // bundled banks are what actually get used if this never succeeds.
+  window.KinvtQuiz.syncContent();
+  setInterval(function () { window.KinvtQuiz.syncContent(); }, 6 * 60 * 60 * 1000);
+
   scheduleNext();
 })();
