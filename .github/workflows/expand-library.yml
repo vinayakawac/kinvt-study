@@ -1,0 +1,70 @@
+name: Expand question library
+
+# Manual only. This is the expensive one — filling 16 topics to 150 questions
+# is thousands of generated questions and many API calls, so it should never
+# fire on a schedule by accident.
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Questions per topic'
+        required: false
+        default: '150'
+      only_topic:
+        description: 'Single topic id (blank = all)'
+        required: false
+        default: ''
+      max_calls:
+        description: 'Hard ceiling on API calls (cost guard)'
+        required: false
+        default: '60'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TARGET_COUNT: ${{ inputs.target }}
+          ONLY_TOPIC: ${{ inputs.only_topic }}
+          MAX_CALLS: ${{ inputs.max_calls }}
+        run: node scripts/expand-library.mjs
+
+      # Every topic must pass. A failure here leaves the PR open rather than
+      # merging thousands of unchecked questions.
+      - name: Validate every topic
+        run: |
+          fail=0
+          for f in data/*.json; do
+            node scripts/validate-questions.mjs "$f" || fail=1
+          done
+          exit $fail
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'Expand question library'
+          branch: bot/expand-library
+          delete-branch: true
+          title: 'Expand question library'
+          body: |
+            Generated to top topics up toward the requested count, then
+            validated for schema, duplicate ids, duplicate wording, distinct
+            options, and answer indices in range.
+
+            **Validation cannot verify that a fact is true.** This PR may add
+            hundreds of questions — sample a dozen across different topics
+            against their `source` URLs before merging. Nothing reaches the
+            app until this is merged.
+          labels: automated

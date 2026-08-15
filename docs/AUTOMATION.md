@@ -58,3 +58,40 @@ PR then waits for you.
 
 Delete the workflow file, or disable it in the Actions tab. The app keeps
 working — bundled questions ship with it and the sync simply finds nothing new.
+
+
+## Expanding the library to 150+ per topic
+
+`scripts/expand-library.mjs` tops every topic up to a target count. The
+library ships with 336 questions across 16 topics; 150 each means ~2,400, so
+this generates roughly 2,000 questions.
+
+Run it from **Actions → Expand question library → Run workflow**:
+
+- `target` — questions per topic (default 150)
+- `only_topic` — a single topic id, or blank for all
+- `max_calls` — hard ceiling on API calls, purely a cost guard (default 60)
+
+It is **manual only**. Filling every topic is many API calls, so it must never
+fire on a schedule by accident.
+
+### Run it in stages
+
+`max_calls` stops the run when the ceiling is hit, and progress is written to
+disk after **every batch** — so an interrupted run keeps everything it made.
+Re-running continues from wherever each topic got to, because the script reads
+the current counts each time.
+
+Doing one topic at a time (`only_topic`) is the sane way to start: check that
+topic's output quality before spending calls on the other fifteen.
+
+### The accuracy caveat, stated once more
+
+Static topics are generated from the model's subject knowledge, not from
+fetched source text. Validation catches malformed questions and out-of-range
+answer keys; it cannot tell you whether a fact is right.
+
+At this volume you cannot check every question, so check a *sample* — a dozen
+spread across topics, against their `source` URLs. If the sample is clean the
+batch is probably fine; if you find two wrong, reject the batch. A wrong answer
+key is worse than a missing question, because you will memorise it.
