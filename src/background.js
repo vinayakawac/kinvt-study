@@ -23,6 +23,7 @@ const PENDING_KEY = 'pendingQuiz';   // storage.session: quiz payload awaiting a
 const SHOWING_KEY = 'quizShowing';   // storage.session: timestamp of a quiz currently on screen
 const SHOWING_TTL_MS = 5 * 60 * 1000;
 const QUIZ_WINDOW_KEY = 'quizWindowId'; // storage.session: id of the open quiz window
+const ACTIVE_KEY = 'activeOverlayQuiz'; // storage.session: overlay quiz in progress, for following across tabs
 
 // Public, free content repo the library also syncs from in the background —
 // no server to run, no cost, and the extension needs no runtime permission
@@ -279,6 +280,18 @@ async function tryInjectOverlay(quiz) {
     // too small to fit a card). Treat that as "not shown" so the caller can
     // fall back, rather than reporting success for a card nobody can see.
     const outcome = results && results[0] && results[0].result;
+    if (outcome === 'shown') {
+      // Remember it so it can follow the user to another tab. An overlay
+      // lives in one tab's DOM, so switching tabs would otherwise lose it.
+      await api.storage.session.set({
+        [ACTIVE_KEY]: {
+          quiz,
+          startIndex: quiz.startIndex || 0,
+          startScore: quiz.startScore || 0,
+          tabId: tab.id
+        }
+      });
+    }
     return outcome || 'no-result-from-page';
   } catch (e) {
     // Permission not granted, restricted page, or injection failure. The
@@ -486,6 +499,17 @@ api.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         return { pendingQuiz: quiz };
       }
 
+      case 'QUIZ_PROGRESS': {       // overlay advanced — remember where, so a
+        const got = await api.storage.session.get(ACTIVE_KEY); // tab switch resumes here
+        const active = got && got[ACTIVE_KEY];
+        if (active) {
+          active.startIndex = Math.max(0, msg.idx | 0);
+          active.startScore = Math.max(0, msg.score | 0);
+          await api.storage.session.set({ [ACTIVE_KEY]: active });
+        }
+        return { ok: true };
+      }
+
       case 'QUIZ_RESULT': {         // user finished the quiz
         const got = await api.storage.local.get({ stats: DEFAULT_STATS });
         const stats = { ...DEFAULT_STATS, ...(got.stats || {}) };
@@ -495,12 +519,13 @@ api.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         stats.correct += correct;
         stats.streak = (total > 0 && correct === total) ? stats.streak + 1 : 0;
         await api.storage.local.set({ stats });
-        await api.storage.session.remove(SHOWING_KEY);
+        await api.storage.session.remove([SHOWING_KEY, ACTIVE_KEY]);
         return { ok: true };
       }
 
       case 'QUIZ_CLOSED':           // user dismissed the quiz early
-        await api.storage.session.remove(SHOWING_KEY);
+        // Stop following it around: the quiz is over.
+        await api.storage.session.remove([SHOWING_KEY, ACTIVE_KEY]);
         return { ok: true };
 
       default:
@@ -514,3 +539,46 @@ api.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
   return true; // keep the message channel open for the async response
 });
+
+
+/* ---------- following the overlay across tabs ----------
+ * An overlay lives in one tab's DOM, so switching tabs would otherwise
+ * leave the quiz behind. Track the in-progress quiz and re-draw it on
+ * whichever tab becomes active, resuming at the same question and score.
+ * Nothing polls: this is a plain event listener, so it costs nothing until
+ * the user actually switches tabs, and only acts while a quiz is open.
+ */
+
+async function followOverlayToTab(tabId) {
+  const got = await api.storage.session.get(ACTIVE_KEY);
+  const active = got && got[ACTIVE_KEY];
+  if (!active || !active.quiz) return;
+  if (active.tabId === tabId) return; // already on this tab
+
+  const resumed = Object.assign({}, active.quiz, {
+    startIndex: active.startIndex || 0,
+    startScore: active.startScore || 0
+  });
+
+  try {
+    await api.scripting.executeScript({ target: { tabId }, files: ['ui-core.js', 'overlay.js'] });
+    const results = await api.scripting.executeScript({
+      target: { tabId },
+      func: (payload) => window.__tpqShowQuiz(payload),
+      args: [resumed]
+    });
+    if (results && results[0] && results[0].result === 'shown') {
+      active.tabId = tabId;
+      await api.storage.session.set({ [ACTIVE_KEY]: active });
+    }
+  } catch (e) {
+    // Restricted page or no permission — the quiz stays remembered, so it
+    // reappears on the next tab that does allow drawing.
+  }
+}
+
+if (api.tabs && api.tabs.onActivated) {
+  api.tabs.onActivated.addListener((info) => {
+    if (info && info.tabId != null) followOverlayToTab(info.tabId);
+  });
+}

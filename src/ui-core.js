@@ -192,8 +192,8 @@
     ensureFontFace();
     addStyles(container, CSS);
 
-    var idx = 0;
-    var score = 0;
+    var idx = Math.max(0, Math.min(cfg.startIndex | 0, questions.length - 1));
+    var score = Math.max(0, cfg.startScore | 0);
     var answered = false;
     var finished = false;
     var closeTimer = null;
@@ -327,11 +327,18 @@
       fbExpl.textContent = q.explanation || '';
       fbEl.classList.add('tpq-show');
       nextEl.classList.add('tpq-show');
+      reportProgress();
+    }
+
+    function reportProgress() {
+      if (typeof cfg.onProgress === 'function') {
+        try { cfg.onProgress(idx, score); } catch (e) { /* noop */ }
+      }
     }
 
     function next() {
       if (!answered || finished) return;
-      if (idx + 1 < questions.length) { idx++; renderQuestion(); startCountdown(); }
+      if (idx + 1 < questions.length) { idx++; renderQuestion(); startCountdown(); reportProgress(); }
       else { renderSummary(); }
     }
 

@@ -81,6 +81,13 @@
       theme: payload.theme || 'dark',
       glass: payload.glass || 'balanced',
       glassCustom: payload.glassCustom || 70,
+      // Resume point, so the card can be rebuilt on another tab without
+      // throwing away the user's place in the quiz.
+      startIndex: payload.startIndex || 0,
+      startScore: payload.startScore || 0,
+      onProgress: function (idx, score) {
+        send('QUIZ_PROGRESS', { idx: idx, score: score });
+      },
       onFinish: function (correct, total) {
         send('QUIZ_RESULT', { correct: correct, total: total });
       },
