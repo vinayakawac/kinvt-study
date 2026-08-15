@@ -235,9 +235,17 @@ async function tryInjectOverlay(quiz) {
   await api.storage.session.set({ [PENDING_KEY]: quiz });
 
   const tab = await getActiveContentTab();
-  if (!(tab && tab.id != null && typeof tab.url === 'string' && /^(https?|file):/i.test(tab.url))) {
-    return false;
-  }
+  if (!tab || tab.id == null) return false;
+
+  // `tab.url` is only readable when the host permission covering that tab is
+  // actually GRANTED — and Firefox MV3 (Zen included) treats `host_permissions`
+  // as opt-in rather than granting them at install, so `url` can be undefined
+  // even though the manifest declares <all_urls>. Treating "URL unknown" as
+  // "restricted page" therefore skipped injection on every ordinary tab and
+  // fell back to the sidecar every time. Only bail when the URL is known AND
+  // clearly not injectable; otherwise attempt it and let executeScript be the
+  // authority, since it throws precisely when it isn't permitted.
+  if (typeof tab.url === 'string' && !/^(https?|file):/i.test(tab.url)) return false;
 
   try {
     await api.scripting.executeScript({
@@ -246,7 +254,8 @@ async function tryInjectOverlay(quiz) {
     });
     return true;
   } catch (e) {
-    // Restricted page (chrome://, store pages, …) or injection failure.
+    // Restricted page (chrome://, store pages, …), permission not granted,
+    // or injection failure.
     return false;
   }
 }

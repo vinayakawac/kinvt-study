@@ -125,7 +125,23 @@
       onAlarm: { addListener: () => {} },
     },
     tabs: {
-      query: () => Promise.resolve([{ id: 1, url: "https://example.com" }]),
+      // `url` is only present when the covering host permission is actually
+      // granted — mirror that, so the Firefox-MV3 case (declared but not yet
+      // granted, so `url` is undefined) is reachable in tests by setting
+      // window.__tpqMockHostGranted = false before calling.
+      query: () =>
+        Promise.resolve([
+          window.__tpqMockHostGranted === false
+            ? { id: 1 }
+            : { id: 1, url: "https://example.com" },
+        ]),
+    },
+    permissions: {
+      contains: () => Promise.resolve(window.__tpqMockHostGranted !== false),
+      request: () => {
+        window.__tpqMockHostGranted = true;
+        return Promise.resolve(true);
+      },
     },
     scripting: {
       executeScript: (opts) => {

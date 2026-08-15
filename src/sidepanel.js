@@ -245,8 +245,28 @@
   // restricted page, or none open) — in that case, and only then, this
   // renders the card directly into the sidecar's own page. Either way, a
   // real OS popup window is never used for a manual click.
+  // Firefox MV3 (Zen included) treats `host_permissions` as opt-in rather
+  // than granting them at install, so <all_urls> can be declared-but-not-held
+  // — which silently blocks every injection until the user approves it.
+  // Chrome grants it at install, so `contains` is already true there and this
+  // is a no-op. Must run inside the click handler: `permissions.request()`
+  // requires a user gesture, and a "Quiz me now" click is one.
+  function ensureHostPermission() {
+    var HOST = { origins: ['<all_urls>'] };
+    if (!api.permissions || typeof api.permissions.contains !== 'function') {
+      return Promise.resolve(true);
+    }
+    return Promise.resolve(api.permissions.contains(HOST))
+      .then(function (granted) {
+        if (granted) return true;
+        return Promise.resolve(api.permissions.request(HOST)).catch(function () { return false; });
+      })
+      .catch(function () { return false; });
+  }
+
   function startInlineQuiz() {
-    return Promise.resolve(api.runtime.sendMessage({ type: 'BUILD_QUIZ' }))
+    return ensureHostPermission()
+      .then(function () { return api.runtime.sendMessage({ type: 'BUILD_QUIZ' }); })
       .catch(function () { return null; })
       .then(function (res) {
         if (!res || !res.quiz) {

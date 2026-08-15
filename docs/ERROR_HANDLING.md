@@ -78,6 +78,18 @@ The first fix attempt went too far in the other direction: it made "Quiz me now"
 
 **Lesson**: when a constraint turns out to be enforced by the platform itself (here: browsers refusing to let *any* extension draw a truly chromeless window), don't over-correct by removing the *good* part of the original behavior along with the bad part. The goal was never "no tab injection" — it was "no OS window." Conflating the two meant the first fix solved a problem the user didn't have (an ugly window) by breaking a feature they did want (the overlay showing up on their actual page).
 
+### 7. Every injection was skipped on Firefox because `tab.url` was undefined
+
+`tryInjectOverlay()` guarded injection with `typeof tab.url === 'string' && /^(https?|file):/i.test(tab.url)` — i.e. "only inject if I can see the URL and it looks injectable." Reasonable on Chrome. But `tab.url` is only populated when the host permission covering that tab is actually **granted**, and Firefox MV3 (Zen included) treats `host_permissions` as *opt-in*: `<all_urls>` being declared in the manifest doesn't mean it's held. Chrome grants it at install; Firefox waits for the user to approve it.
+
+So on Firefox, `tab.url` came back `undefined` for every ordinary tab, the guard read that as "not injectable," and injection was skipped without ever being attempted — sending every single quiz to the fallback path. The symptom looked like the overlay feature was simply broken ("the quiz always opens in the side panel"), with nothing in the console, because from the code's perspective nothing failed: it correctly did what it was told, on wrong information.
+
+Two-part fix:
+- `tryInjectOverlay()` no longer treats *unknown* as *restricted*. It bails only when the URL is known **and** clearly not injectable; otherwise it attempts `executeScript` and lets that be the authority, since it throws precisely when injection isn't permitted.
+- `sidepanel.js#ensureHostPermission()` calls `permissions.request({origins:['<all_urls>']})` when the permission isn't yet held, from inside the "Quiz me now" click handler — `permissions.request()` requires a user gesture, and a button click is one. On Chrome `contains()` is already true, so it's a no-op there.
+
+**Lesson**: a permission-gated field being absent means "I'm not allowed to see this," not "this doesn't exist" — and those imply opposite actions (retry vs. give up). Guarding an operation on data whose *availability* depends on the very permission the operation needs makes the check fail exactly when it matters most. Prefer attempting the real operation and handling its failure over pre-screening with metadata you may not be entitled to read.
+
 ## If you're adding new async logic here
 
 - Prefer returning `null`/`undefined`/`false` for "didn't work, try the next thing" and reserve throwing for genuinely unexpected states.
