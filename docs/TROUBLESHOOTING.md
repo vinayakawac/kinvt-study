@@ -14,6 +14,10 @@ If you get a small window with its own title bar/minimize/close buttons, that's 
 
 For the automatic popup specifically: seeing this window on an *ordinary* webpage (not a restricted page) was a real bug on some browsers/forks (Zen Browser included) whose sidebar is implemented as its own top-level window, confusing the "which window am I injecting into" lookup. Fixed via `getActiveContentTab()` — see [ERROR_HANDLING.md](ERROR_HANDLING.md#4-quizzes-opened-as-a-floating-popup-window-instead-of-an-in-page-overlay). If it recurs on a browser we haven't tested against, check what `chrome.windows.getLastFocused({windowTypes:['normal']})` actually returns there.
 
+## The overlay worked once on a tab, then never again on that same tab
+
+Was a real bug: `overlay.js` bailed out early if a previous card's host node was still in the page (`#__tpq_overlay_host__`), so any card left behind blocked every later injection on that tab permanently. It now replaces the stale node instead. See [ERROR_HANDLING.md](ERROR_HANDLING.md#8-the-overlays-payload-handshake-was-unreliable-and-one-stale-card-blocked-it-forever). To check for a leftover node, run `document.getElementById('__tpq_overlay_host__')` in the *page's* console (not the service worker's).
+
 ## "Quiz me now" always renders in the side panel instead of on the page
 
 Expected only when there's genuinely no injectable tab. If it happens on *every* ordinary webpage, the likely cause is a missing host permission: Firefox MV3 (Zen included) treats `host_permissions` as opt-in, so `<all_urls>` can be declared in the manifest without being granted — which both blocks injection and makes `tab.url` read as `undefined`. Clicking "Quiz me now" now prompts for that permission via `ensureHostPermission()`; approve it and the on-page overlay starts working (the automatic popup benefits too). You can also grant it manually: Firefox `about:addons` → the extension → Permissions → enable access to all sites. See [ERROR_HANDLING.md](ERROR_HANDLING.md#7-every-injection-was-skipped-on-firefox-because-taburl-was-undefined) for the underlying bug this exposed.

@@ -90,6 +90,18 @@ Two-part fix:
 
 **Lesson**: a permission-gated field being absent means "I'm not allowed to see this," not "this doesn't exist" — and those imply opposite actions (retry vs. give up). Guarding an operation on data whose *availability* depends on the very permission the operation needs makes the check fail exactly when it matters most. Prefer attempting the real operation and handling its failure over pre-screening with metadata you may not be entitled to read.
 
+### 8. The overlay's payload handshake was unreliable, and one stale card blocked it forever
+
+§7 fixed the guard that skipped injection, but the overlay still failed to appear on Chrome too — so the cause was downstream of injection. Two independent problems, both in `overlay.js`:
+
+**The payload handshake.** The injected script fetched its own quiz: ask the service worker via `sendMessage({type:'GET_PENDING_QUIZ'})`, and fall back to reading `chrome.storage.session` directly. Both links are unreliable *from a content script specifically* — `chrome.storage.session` is closed to content scripts in Chrome MV3 unless `setAccessLevel()` explicitly opens it (it was never called), and the message path races the service worker waking up. When both came up empty the script returned silently, having successfully injected and then rendered nothing. From `background.js`'s perspective injection had *succeeded*, so it reported success and never fell back — the worst combination: no card, and no fallback either.
+
+**The stale-card guard.** `if (document.getElementById(HOST_ID)) return;` was meant to prevent stacking two cards. But nothing guaranteed the old host node was ever removed — if a card was left in the DOM for any reason, that check made **every subsequent injection on that page silently no-op, permanently**. This matches the reported symptom of the popup working once and then never again on the same tab.
+
+Fixed by removing the handshake entirely: `overlay.js` now only *defines* `window.__tpqShowQuiz(payload)`, and `background.js` hands the quiz straight to it as an `executeScript` `args` value — nothing to time out, nothing to be denied, no dependence on content-script storage access. The stale-card check now *replaces* the old node instead of bailing. `__tpqShowQuiz` also returns `'shown'` or a short refusal reason (`'fullscreen'`, `'viewport-too-small'`, …), which `tryInjectOverlay()` reads back so "the page declined" is distinguishable from "injection worked" — previously both looked identical, which is exactly why this failed silently.
+
+**Lesson**: two things here. First, injecting a script successfully is not the same as that script *doing* anything — if the caller's success signal stops at "the injection call resolved," every failure inside the injected code is invisible and unrecoverable. Have the injected code report its own outcome. Second, prefer passing data *in* over having injected code go fetch it: a content script runs in the most permission-constrained context in the extension, so any API it has to call is a link that can fail in ways the privileged side never sees.
+
 ## If you're adding new async logic here
 
 - Prefer returning `null`/`undefined`/`false` for "didn't work, try the next thing" and reserve throwing for genuinely unexpected states.

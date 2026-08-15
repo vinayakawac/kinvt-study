@@ -4,6 +4,16 @@
  * Injected into the user's active tab by background.js (ui-core.js is
  * injected first and defines window.TPQ_UI in this isolated world).
  *
+ * This file only *defines* window.__tpqShowQuiz(payload). background.js
+ * then calls it with the quiz passed directly as an executeScript `args`
+ * value. It deliberately does NOT fetch its own payload: the previous
+ * design asked the service worker for it and fell back to reading
+ * chrome.storage.session, and both links are unreliable from a content
+ * script — storage.session is closed to content scripts in Chrome MV3
+ * unless setAccessLevel() opens it, and the message round-trip races the
+ * worker waking up. Passing the payload in as an argument removes the
+ * whole handshake, so there is nothing left to time out or be denied.
+ *
  * - Renders the quiz inside a shadow root → the page's CSS cannot break
  *   the card, and ours cannot leak into the page.
  * - The card is genuinely translucent: rgba glass + backdrop-filter blur
@@ -17,6 +27,7 @@
   'use strict';
 
   var HOST_ID = '__tpq_overlay_host__';
+  var api = (typeof browser !== 'undefined' && browser) ? browser : chrome;
 
   function send(type, data) {
     try {
@@ -25,46 +36,21 @@
     } catch (e) { /* noop */ }
   }
 
-  if (document.getElementById(HOST_ID)) return; // already showing
+  // Returns a short string on refusal so background.js can tell "the page
+  // said no" apart from "injection itself failed", instead of both looking
+  // like a silent no-op.
+  window.__tpqShowQuiz = function (payload) {
+    var existing = document.getElementById(HOST_ID);
+    if (existing) {
+      // A stale card from a previous quiz would otherwise block every later
+      // one forever. Replace it rather than bailing out.
+      if (existing.parentNode) existing.parentNode.removeChild(existing);
+    }
 
-  // Don't disturb fullscreen video/presentations or tiny viewports.
-  if (document.fullscreenElement || document.webkitFullscreenElement) return;
-  if (globalThis.innerWidth < 340 || globalThis.innerHeight < 380) return;
-
-  var api = (typeof browser !== 'undefined' && browser) ? browser : chrome;
-  if (!api || !api.runtime || !api.runtime.id) return; // not an extension context
-
-  if (typeof window.TPQ_UI !== 'object' || !window.TPQ_UI.create) return;
-
-  /* ---- fetch the payload queued by background.js ---- */
-  function getPayload() {
-    return new Promise(function (resolve) {
-      var settled = false;
-      // A truthy payload always wins and settles immediately. A falsy/failed
-      // result must NOT settle — otherwise it locks out the storage fallback
-      // below, which exists precisely for when the primary path comes back
-      // empty (e.g. "receiving end does not exist" while the worker wakes).
-      var done = function (v) { if (!settled && v) { settled = true; resolve(v); } };
-      var giveUp = function () { if (!settled) { settled = true; resolve(null); } };
-
-      // Primary: ask the (just-woke, still-alive) service worker.
-      Promise.resolve(api.runtime.sendMessage({ type: 'GET_PENDING_QUIZ' }))
-        .then(function (res) { done(res && res.pendingQuiz); })
-        .catch(function () { /* fall through to the storage fallback below */ });
-
-      // Fallback: storage.session snapshot (in case the worker went away).
-      setTimeout(function () {
-        Promise.resolve(api.storage.session.get('pendingQuiz'))
-          .then(function (got) { done(got && got.pendingQuiz); })
-          .catch(function () { /* fall through to the final give-up timeout */ });
-      }, 400);
-
-      setTimeout(giveUp, 2500); // give up quietly
-    });
-  }
-
-  getPayload().then(function (payload) {
-    if (!payload || !Array.isArray(payload.questions) || !payload.questions.length) return;
+    if (document.fullscreenElement || document.webkitFullscreenElement) return 'fullscreen';
+    if (globalThis.innerWidth < 340 || globalThis.innerHeight < 380) return 'viewport-too-small';
+    if (typeof window.TPQ_UI !== 'object' || !window.TPQ_UI.create) return 'ui-core-missing';
+    if (!payload || !Array.isArray(payload.questions) || !payload.questions.length) return 'no-questions';
 
     var host = document.createElement('div');
     host.id = HOST_ID;
@@ -79,7 +65,7 @@
     try {
       shadow = host.attachShadow({ mode: 'open' });
     } catch (e) {
-      return; // shadow DOM unavailable — bail out
+      return 'no-shadow-dom';
     }
 
     var wrap = document.createElement('div');
@@ -103,5 +89,7 @@
         if (host.parentNode) host.parentNode.removeChild(host);
       }
     });
-  });
+
+    return 'shown';
+  };
 })();

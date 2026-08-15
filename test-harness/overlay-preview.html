@@ -21,26 +21,28 @@
   <p>This paragraph exists to prove the extension's <a href="#">styles don't affect the host page</a>, and vice versa. The overlay below is injected exactly the way <code>overlay.js</code> does it in production: a host <code>&lt;div&gt;</code> with a real <code>attachShadow()</code> shadow root, matching what actually runs when the extension injects into a real tab.</p>
 
   <script src="chrome-mock.js"></script>
-  <script>
-    chrome.storage.session.set({
-      pendingQuiz: {
-        questions: [
-          {
-            id: 'ov-1',
-            question: 'On which date was the Constitution of India adopted by the Constituent Assembly?',
-            options: ['26 January 1950', '26 November 1949', '15 August 1947', '26 January 1949'],
-            answer: 1,
-            explanation: 'It was adopted on 26 November 1949 and came into effect on 26 January 1950.'
-          }
-        ],
-        title: 'UPSC / Civil Services',
-        durationSec: 45,
-        theme: 'dark',
-        glass: 'balanced'
-      }
-    });
-  </script>
   <script src="../src/ui-core.js"></script>
   <script src="../src/overlay.js"></script>
+  <script>
+    // Mirrors exactly what background.js#tryInjectOverlay does after
+    // injecting the two files: hand the payload straight to the function
+    // overlay.js defined. window.__tpqShowQuizResult is left behind so the
+    // refusal reason (or 'shown') can be asserted from a test.
+    window.__tpqShowQuizResult = window.__tpqShowQuiz({
+      questions: [
+        {
+          id: 'ov-1',
+          question: 'On which date was the Constitution of India adopted by the Constituent Assembly?',
+          options: ['26 January 1950', '26 November 1949', '15 August 1947', '26 January 1949'],
+          answer: 1,
+          explanation: 'It was adopted on 26 November 1949 and came into effect on 26 January 1950.'
+        }
+      ],
+      title: 'UPSC / Civil Services',
+      durationSec: 45,
+      theme: 'dark',
+      glass: 'balanced'
+    });
+  </script>
 </body>
 </html>

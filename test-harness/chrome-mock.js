@@ -144,9 +144,18 @@
       },
     },
     scripting: {
+      // Mirrors the real API's shape closely enough to exercise the
+      // func+args injection path: `files` is a no-op here (the harness page
+      // already loads those scripts itself), while `func` is actually
+      // invoked with `args` and its return value wrapped in the
+      // [{result}] array real Chrome/Firefox hand back.
       executeScript: (opts) => {
         console.log("[mock] scripting.executeScript", opts);
-        return Promise.resolve();
+        if (typeof opts.func === "function") {
+          const result = opts.func.apply(null, opts.args || []);
+          return Promise.resolve([{ result }]);
+        }
+        return Promise.resolve([{ result: undefined }]);
       },
     },
     windows: {

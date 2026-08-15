@@ -232,6 +232,8 @@ async function getActiveContentTab() {
 /* ---------- injecting the translucent overlay into a real tab ---------- */
 
 async function tryInjectOverlay(quiz) {
+  // Kept for the quiz-window.html fallback, which is a real extension page
+  // and can read storage.session normally. The overlay no longer uses it.
   await api.storage.session.set({ [PENDING_KEY]: quiz });
 
   const tab = await getActiveContentTab();
@@ -248,11 +250,26 @@ async function tryInjectOverlay(quiz) {
   if (typeof tab.url === 'string' && !/^(https?|file):/i.test(tab.url)) return false;
 
   try {
+    // ui-core.js + overlay.js only *define* things in the tab's isolated
+    // world; the second call hands the quiz straight to the function they
+    // defined. Passing the payload as an `args` value avoids the old
+    // storage/message handshake, which content scripts can't rely on.
     await api.scripting.executeScript({
       target: { tabId: tab.id },
       files: ['ui-core.js', 'overlay.js']
     });
-    return true;
+
+    const results = await api.scripting.executeScript({
+      target: { tabId: tab.id },
+      func: (payload) => window.__tpqShowQuiz(payload),
+      args: [quiz]
+    });
+
+    // The page can still decline for its own reasons (fullscreen, a viewport
+    // too small to fit a card). Treat that as "not shown" so the caller can
+    // fall back, rather than reporting success for a card nobody can see.
+    const outcome = results && results[0] && results[0].result;
+    return outcome === 'shown';
   } catch (e) {
     // Restricted page (chrome://, store pages, …), permission not granted,
     // or injection failure.
