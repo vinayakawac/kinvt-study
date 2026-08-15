@@ -32,7 +32,7 @@ cd desktop/tauri && cargo build --release   # -> target/release/kinvt-study.exe
 
 ## Why a desktop app and not a browser extension
 
-This started as a Chrome/Firefox extension (kept in [extension-archive/](extension-archive/)). The popup needed to be transparent, frameless, always-on-top and independent of the browser — and a browser extension can't do all four:
+This started as a Chrome/Firefox extension. The popup needed to be transparent, frameless, always-on-top and independent of the browser — and a browser extension can't do all four:
 
 - Extension popup windows **can't be transparent** (an OS window has an opaque backing surface and no page behind it to show through) and **can't drop their title bar** — browsers enforce that so pages can't impersonate native windows.
 - An in-page overlay can be transparent and chromeless, but **lives in one tab's DOM**, so it dies when you switch tabs or minimise the browser.
@@ -41,8 +41,11 @@ Those are browser security boundaries, not missing features. A native window has
 
 ## Documentation
 
-- [docs/DESKTOP_BUILD.md](docs/DESKTOP_BUILD.md) — build prerequisites, and how to preview the UI without building.
-- [docs/](docs/) — architecture, content pipeline, error handling, troubleshooting, FAQ. Some pages still describe the extension; they are being ported.
+- [docs/DESKTOP_BUILD.md](docs/DESKTOP_BUILD.md) — building the .exe, toolchain prerequisites, previewing the UI without building.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — the shell, the shared `ui/` folder, and why the shell owns so little.
+- [docs/CONTENT.md](docs/CONTENT.md) — question schema, adding topics, the daily sync.
+- [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) — nothing appears, card cut off, grey halo, build failures.
+- [docs/ERROR_HANDLING.md](docs/ERROR_HANDLING.md), [docs/FAQ.md](docs/FAQ.md)
 
 ## License
 

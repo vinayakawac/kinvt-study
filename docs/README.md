@@ -1,9 +1,8 @@
 # Documentation
 
-- **[SETUP.md](SETUP.md)** — build, load unpacked (Chrome/Edge/Firefox), and local preview without a browser.
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** — surfaces, files, data flow, and why it stays cheap on CPU.
-- **[CONTENT_SYNC.md](CONTENT_SYNC.md)** — how the no-interaction daily content sync works, and how to publish new questions.
-- **[PERMISSIONS.md](PERMISSIONS.md)** — every permission requested, and exactly why.
-- **[ERROR_HANDLING.md](ERROR_HANDLING.md)** — failure-handling principles, and two real bugs found/fixed during development.
-- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** — symptom-to-fix guide for common issues.
-- **[FAQ.md](FAQ.md)** — quick answers to common questions.
+- **[DESKTOP_BUILD.md](DESKTOP_BUILD.md)** — building the .exe (Tauri and Electron), toolchain prerequisites, and previewing the UI without building.
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** — how the Rust/Electron shell, the shared `ui/` folder, and the quiz engine fit together.
+- **[CONTENT.md](CONTENT.md)** — the question library: schema, adding topics, and the daily sync.
+- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** — symptom-to-cause for the app not appearing, sizing problems, and build failures.
+- **[ERROR_HANDLING.md](ERROR_HANDLING.md)** — how failures are handled, and the bugs this project actually hit.
+- **[FAQ.md](FAQ.md)** — short answers.
