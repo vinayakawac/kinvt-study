@@ -1,17 +1,36 @@
 # Kinvt-study — Smart Quiz
 
-A translucent, near-zero-CPU MCQ quiz browser extension for competitive-exam prep. While you browse, a frosted-glass card periodically slides up over the page and asks you 1–5 questions — General Knowledge, UPSC, KPSC/KAS, SSC, Banking, and more, across 336 bundled questions in 16 topics. Local-first and no AI: questions are static JSON, bundled offline and also kept fresh via a small daily background sync, with no clicks required.
+A translucent, always-on-top MCQ quiz popup for competitive-exam prep. It sits in your system tray and, on a schedule you choose, floats a frosted-glass card over whatever you're doing with 1–5 questions — General Knowledge, UPSC, KPSC/KAS, SSC, Banking and more, across 336 bundled questions in 16 topics. Local-first and no AI: every question is static JSON that ships with the app.
 
 ## Setup
 
-No build step needed — `src/` is a complete, ready-to-load extension.
+Download the installer from Releases, or build it yourself:
 
-- **Chrome / Edge / Brave**: `chrome://extensions` → enable Developer Mode → "Load unpacked" → select `src/`.
-- **Firefox**: `about:debugging#/runtime/this-firefox` → "Load Temporary Add-on…" → select `manifest.json` inside `src/`.
+```bash
+cd desktop
+cargo build --release
+```
+
+The executable lands in `desktop/target/release/`.
+
+**Using it**
+
+- It lives in the **system tray** — right-click for *Quiz me now*, *Settings*, or *Quit*.
+- Press **Ctrl + Shift + Q** from any application for a quiz on demand.
+- Otherwise it pops up on its own every 15 minutes – 2 hours, configurable in Settings.
+
+## Why a desktop app and not a browser extension
+
+This started as a Chrome/Firefox extension (see [docs/HISTORY.md](docs/HISTORY.md)). The popup needed to be transparent, frameless, always-on-top and independent of the browser — and a browser extension can't do all four:
+
+- Extension popup windows **can't be transparent** (an OS window has an opaque backing surface and no page behind it to show through) and **can't drop their title bar** — browsers enforce that so pages can't impersonate native windows.
+- An in-page overlay can be transparent and chromeless, but **lives in one tab's DOM**, so it dies when you switch tabs or minimise the browser.
+
+Those are browser security boundaries, not missing features. A native window has none of them, so the app does what the extension structurally never could.
 
 ## Documentation
 
-See [docs/](docs/) for architecture, the content-sync mechanics, permissions, error handling, troubleshooting, and FAQ.
+See [docs/](docs/) for architecture, the content pipeline, error handling, troubleshooting, and FAQ.
 
 ## License
 

@@ -1,3 +1,6 @@
 build/
 node_modules/
 *.zip
+
+# Rust / Tauri build output — large and fully regenerable
+desktop/target/

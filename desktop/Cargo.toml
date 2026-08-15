@@ -1,0 +1,26 @@
+[package]
+name = "kinvt-study"
+version = "1.0.0"
+description = "Translucent MCQ quiz popups for competitive-exam prep — local-first, no AI"
+authors = ["Vinayaka"]
+license = "MIT"
+edition = "2021"
+rust-version = "1.77"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-global-shortcut = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+# A study popup has no business being a large download or holding memory it
+# does not need. These are the standard size-first settings.
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

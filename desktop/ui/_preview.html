@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kinvt-study — desktop card preview</title>
+  <style>
+    @font-face { font-family:'KinvtPoppins'; font-style:normal; font-weight:400; font-display:swap; src:url('fonts/poppins-400.woff2') format('woff2'); }
+    @font-face { font-family:'KinvtPoppins'; font-style:normal; font-weight:600; font-display:swap; src:url('fonts/poppins-600.woff2') format('woff2'); }
+    @font-face { font-family:'KinvtPoppins'; font-style:normal; font-weight:700; font-display:swap; src:url('fonts/poppins-700.woff2') format('woff2'); }
+    * { box-sizing: border-box; }
+    /* Stand-in for "whatever is behind a transparent window" — a real
+       desktop, so the glass has something to composite against. */
+    body {
+      margin: 0; min-height: 100vh; padding: 40px;
+      background:
+        radial-gradient(circle at 20% 30%, #3a5a7a, transparent 45%),
+        radial-gradient(circle at 80% 70%, #7a5a3a, transparent 45%),
+        linear-gradient(135deg, #24303c, #3c3040);
+      font: 14.5px/1.55 'KinvtPoppins','Poppins',sans-serif;
+    }
+    #card { width: 400px; }
+    #card .tpq-card { max-height: none; border-radius: 14px; box-shadow: 0 10px 40px rgba(0,0,0,.45); }
+  </style>
+</head>
+<body>
+  <div id="card"></div>
+  <script src="_preview-shim.js"></script>
+  <script src="ui-core.js"></script>
+  <script src="quiz-engine.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // The Rust side would emit this from the tray or the hotkey.
+    window.__TAURI__.event.emit('start-quiz');
+  </script>
+</body>
+</html>

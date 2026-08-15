@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kinvt-study</title>
+  <style>
+    @font-face { font-family:'KinvtPoppins'; font-style:normal; font-weight:400; font-display:swap; src:url('fonts/poppins-400.woff2') format('woff2'); }
+    @font-face { font-family:'KinvtPoppins'; font-style:normal; font-weight:600; font-display:swap; src:url('fonts/poppins-600.woff2') format('woff2'); }
+    @font-face { font-family:'KinvtPoppins'; font-style:normal; font-weight:700; font-display:swap; src:url('fonts/poppins-700.woff2') format('woff2'); }
+
+    * { box-sizing: border-box; }
+
+    /* The window itself is transparent, so the page must not paint a
+       background — otherwise the "transparent" window shows up as an opaque
+       rectangle. Only the card paints, and it paints its own glass. */
+    html, body {
+      margin: 0;
+      background: transparent;
+      overflow: hidden;
+      font: 14.5px/1.55 'KinvtPoppins','Poppins',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      /* The window has no title bar, so the card's header doubles as the
+         drag handle (see .tpq-head below). */
+      user-select: none;
+      cursor: default;
+    }
+
+    #card { padding: 0; }
+
+    /* Real desktop glass: unlike the browser popup window, this genuinely
+       composites against whatever is behind the window. */
+    #card .tpq-card {
+      max-height: none;
+      border-radius: 14px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.45);
+    }
+
+    /* Frameless windows need an explicit drag region. */
+    #card .tpq-head { -webkit-app-region: drag; }
+    #card .tpq-head button { -webkit-app-region: no-drag; }
+  </style>
+</head>
+<body>
+  <div id="card"></div>
+  <script src="ui-core.js"></script>
+  <script src="quiz-engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

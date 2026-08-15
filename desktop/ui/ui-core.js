@@ -220,10 +220,12 @@
     /* ---- apply the glass & transparency setting (inline overrides) ---- */
     var gv = glassVals(cfg);
     var isLight = themeCls === 'tpq-light';
-    card.style.background = 'rgba(' + (isLight ? '255,255,255' : '27,29,54') + ',' + gv.o.toFixed(2) + ')';
+    // These inline values override the stylesheet, so they must carry the
+    // same palette — the recolour is invisible at runtime otherwise.
+    card.style.background = 'rgba(' + (isLight ? '245,241,221' : '28,27,25') + ',' + gv.o.toFixed(2) + ')';
     card.style.webkitBackdropFilter = 'blur(' + gv.blur + 'px)';
     card.style.backdropFilter = 'blur(' + gv.blur + 'px)';
-    card.style.borderColor = 'rgba(' + (isLight ? '124,58,237' : '255,255,255') + ',' + gv.border.toFixed(2) + ')';
+    card.style.borderColor = 'rgba(' + (isLight ? '28,27,25' : '245,241,221') + ',' + gv.border.toFixed(2) + ')';
     var title  = container.querySelector('.tpq-cat');
     var meta   = container.querySelector('.tpq-meta');
     var body   = container.querySelector('.tpq-body');
