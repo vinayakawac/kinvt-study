@@ -8,50 +8,42 @@
     @font-face { font-family:'KinvtPoppins'; font-style:normal; font-weight:400; font-display:swap; src:url('fonts/poppins-400.woff2') format('woff2'); }
     @font-face { font-family:'KinvtPoppins'; font-style:normal; font-weight:600; font-display:swap; src:url('fonts/poppins-600.woff2') format('woff2'); }
     @font-face { font-family:'KinvtPoppins'; font-style:normal; font-weight:700; font-display:swap; src:url('fonts/poppins-700.woff2') format('woff2'); }
+
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
-    body {
+
+    /* Nothing but the card. The window's own title bar is drawn by the
+       browser and cannot be removed by an extension, so the least-chrome
+       result available is to add none of our own: no header, no padding,
+       no scrollbars — the card fills the window edge to edge. */
+    html, body {
       margin: 0;
-      min-height: 100vh;
-      font: 14.5px/1.55 'KinvtPoppins', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #f5f1dd;
+      height: 100%;
+      overflow: hidden;
       background: #1c1b19;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 10px 10px 16px;
+      color: #f5f1dd;
+      font: 14.5px/1.55 'KinvtPoppins', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
-    .win-bar {
-      width: 100%;
-      max-width: 400px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 6px 12px;
+
+    #card { height: 100%; }
+    /* The shared card caps itself at 400px wide and 74vh tall for the
+       on-page overlay; in its own window it should use the whole thing. */
+    #card .tpq-card {
+      max-width: none;
+      max-height: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 0;
+      animation: none;
     }
-    .win-logo {
-      width: 26px; height: 26px; border-radius: 7px; flex: none;
-      background: #f5f1dd;
-      color: #1c1b19;
-      display: grid; place-items: center;
-    }
-    .win-logo svg { width: 15px; height: 15px; }
-    .win-name { font-weight: 700; font-size: 13.5px; letter-spacing: .2px; }
-    .win-sub { font-size: 11px; opacity: .55; }
-    .win-close {
-      margin-left: auto; border: 0; background: rgba(245,241,221,.08);
-      color: inherit; cursor: pointer;
-      padding: 6px 10px; border-radius: 8px;
-    }
-    .win-close svg { display: block; width: 13px; height: 13px; }
-    .win-close:hover { background: rgba(245,241,221,.16); }
-    #card { width: 100%; max-width: 400px; flex: 1; }
+
     .empty {
-      text-align: center; padding: 40px 16px;
-      background: rgba(245,241,221,.06); border: 1px solid rgba(245,241,221,.14);
-      border-radius: 18px;
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 24px;
     }
-    .empty .ico { width: 40px; height: 40px; margin: 0 auto; color: #f5f1dd; opacity: .8; }
+    .empty .ico { width: 40px; height: 40px; color: #f5f1dd; opacity: .8; }
     .empty .ico svg { display: block; width: 100%; height: 100%; }
     .empty p { opacity: .75; margin: 10px 0 16px; }
     .empty button {
@@ -63,14 +55,6 @@
   </style>
 </head>
 <body>
-  <div class="win-bar">
-    <div class="win-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg></div>
-    <div>
-      <div class="win-name">Kinvt-study</div>
-      <div class="win-sub">local quiz · no AI · no network</div>
-    </div>
-    <button type="button" class="win-close" id="closeWin" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></button>
-  </div>
   <div id="card"></div>
   <script src="ui-core.js"></script>
   <script src="quiz-window.js"></script>

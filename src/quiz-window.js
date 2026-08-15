@@ -11,6 +11,8 @@
   var api = (typeof browser !== 'undefined' && browser) ? browser : chrome;
 
   var card = document.getElementById('card');
+  // The window has no chrome of its own any more — the card's own × closes
+  // it via onClose below. This stays tolerant in case the markup changes.
   var closeBtn = document.getElementById('closeWin');
 
   function send(type, data) {
@@ -55,7 +57,7 @@
     document.getElementById('emptyClose').addEventListener('click', function () { window.close(); });
   }
 
-  closeBtn.addEventListener('click', function () { window.close(); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { window.close(); });
 
   // background.js reuses this window rather than stacking a new one for each
   // quiz, so an already-open page has to re-read the payload when told to.

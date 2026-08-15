@@ -324,9 +324,12 @@ async function openQuizWindow(quiz) {
   try {
     const win = await api.windows.create({
       url: api.runtime.getURL('quiz-window.html'),
+      // 'popup' already gives the most minimal frame a browser will draw
+      // (title + close only, no address/bookmark bars). The remaining title
+      // bar is not removable by an extension at all.
       type: 'popup',
-      width: 430,
-      height: 640,
+      width: 420,
+      height: 590,
       focused: true
     });
     if (win && win.id != null) {
