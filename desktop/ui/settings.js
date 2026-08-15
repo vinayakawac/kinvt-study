@@ -230,8 +230,9 @@
     });
 
     $('startNow').addEventListener('click', function () {
+      // Only emit — the quiz window shows itself once the card is built.
+      // Showing it here first would flash an empty transparent window.
       emit('start-quiz');
-      invoke('show_quiz');
       var span = this.querySelector('span');
       if (flashTimer) clearTimeout(flashTimer);
       span.textContent = 'Quiz launched';

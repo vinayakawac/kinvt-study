@@ -1,0 +1,16 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Kinvt-study needs the event bus (tray/hotkey -> quiz window) and basic window control. Custom commands (show_quiz, hide_quiz, resize_quiz, open_settings) are allowed without an entry here, but core plugin APIs are denied unless granted — without this, event.emit/listen silently fail and no quiz ever appears.",
+  "windows": ["quiz", "settings"],
+  "permissions": [
+    "core:default",
+    "core:event:default",
+    "core:window:allow-show",
+    "core:window:allow-hide",
+    "core:window:allow-set-size",
+    "core:window:allow-set-focus",
+    "core:window:allow-start-dragging",
+    "global-shortcut:default"
+  ]
+}

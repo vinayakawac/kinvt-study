@@ -94,3 +94,19 @@ Fixed by declaring **both** keys in `manifest.json`:
 Chrome/Edge use `service_worker`; Firefox falls back to `scripts` (a classic non-persistent background page) when the service-worker flag isn't enabled. `background.js` itself needs no changes for this — it's a single plain script either way, no `importScripts`/ES modules to reconcile between the two loading modes.
 
 If you still see the error after this change, check `about:config` for `extensions.background.service_worker.enabled` — some builds need it flipped on explicitly, or just rely on the `scripts` fallback working regardless.
+
+## Tauri: the app runs but no quiz ever appears
+
+Tauri v2 gates frontend access to core plugin APIs behind a capabilities
+file. Custom commands declared in `invoke_handler!` are callable without one,
+but `event.emit` / `event.listen` are **core** APIs and are denied unless
+granted — silently, from the UI's point of view.
+
+The result is a very confusing failure: `invoke('show_quiz')` works (it is a
+custom command), so the window is shown, but it is shown empty and the window
+is transparent, so nothing is visible. Meanwhile the event that would have
+built the card never arrives. Everything looks like it worked.
+
+Fixed by `desktop/tauri/capabilities/default.json` granting `core:event:default`
+and the window permissions the UI uses. If you add a new core API call to the
+UI, add its permission there too — otherwise it will fail the same silent way.
