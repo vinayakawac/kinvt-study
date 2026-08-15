@@ -24,17 +24,21 @@
       cursor: default;
     }
 
-    /* Breathing room so the card's drop shadow and rounded corners are not
-       clipped by the window edge — that clipping is what produced the hard
-       line along the bottom of the popup. */
-    #card { padding: 10px 14px 16px; }
+    /* Small inset so the rounded corners aren't shaved by the window edge.
+       Kept tight: every transparent pixel here is window area, and anything
+       painted in it shows as a rectangle. */
+    #card { padding: 6px; }
 
     /* Real desktop glass: unlike the browser popup window, this genuinely
        composites against whatever is behind the window. */
     #card .tpq-card {
       max-height: none;
       border-radius: 14px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.45);
+      /* No box-shadow. Over a transparent window WebView2 composites the
+         shadow's alpha against nothing, so instead of a soft glow it paints
+         a grey haze clipped to the window's rectangle. The window floats
+         above everything anyway, so the shadow bought nothing. */
+      box-shadow: none;
     }
 
     /* Frameless windows need an explicit drag region. */
