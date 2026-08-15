@@ -89,8 +89,13 @@ fn main() {
             let quit = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
             let menu = Menu::with_items(app, &[&quiz_now, &settings, &quit])?;
 
+            let tray_icon = app
+                .default_window_icon()
+                .cloned()
+                .ok_or("no default window icon — check bundle.icon in tauri.conf.json")?;
+
             TrayIconBuilder::with_id("tray")
-                .icon(app.default_window_icon().unwrap().clone())
+                .icon(tray_icon)
                 .tooltip("Kinvt-study — local quiz, no AI")
                 .menu(&menu)
                 .show_menu_on_left_click(true)
@@ -142,6 +147,12 @@ fn main() {
                     eprintln!("could not register Ctrl+Shift+Q: {e}");
                 }
             }
+
+            // Opening the app has to show something. The quiz window is hidden
+            // until it has a quiz, and Windows 11 tucks new tray icons into the
+            // overflow flyout, so without this a manual launch looks like
+            // nothing happened at all.
+            open_settings(app.handle().clone());
 
             Ok(())
         })

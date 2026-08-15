@@ -22,7 +22,11 @@ cd desktop/tauri && cargo build --release   # -> target/release/kinvt-study.exe
 
 **Using it**
 
-- It lives in the **system tray** — right-click for *Quiz me now*, *Settings*, or *Quit*.
+- Running the .exe opens **Settings** so you can see it started. Close that
+  window and it keeps running in the tray — it does not quit.
+- It lives in the **system tray** — right-click for *Quiz me now*, *Settings*,
+  or *Quit*. On Windows 11 new tray icons are hidden in the overflow flyout:
+  click the **`^`** chevron near the clock, and drag the icon out to pin it.
 - Press **Ctrl + Shift + Q** from any application for a quiz on demand.
 - Otherwise it pops up on its own every 15 minutes – 2 hours, configurable in Settings.
 
