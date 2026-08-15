@@ -18,8 +18,14 @@
         linear-gradient(135deg, #24303c, #3c3040);
       font: 14.5px/1.55 'KinvtPoppins','Poppins',sans-serif;
     }
-    #card { width: 400px; }
-    #card .tpq-card { max-height: none; border-radius: 14px; box-shadow: 0 10px 40px rgba(0,0,0,.45); }
+    /* Must mirror index.html exactly, or this previews something the app
+       never renders — which is how the overflowing Next button was missed. */
+    #card { width: 412px; padding: 6px; }
+    /* flex:1 1 auto lets this shrink inside the card instead of growing it,
+       so the Next button got laid out past the card's clipped bottom.
+       flex:none makes the body take its natural height and the card grow. */
+    #card .tpq-body { overflow: visible; max-height: none; flex: none; }
+    #card .tpq-card { max-height: none; height: auto; border-radius: 14px; box-shadow: none; }
   </style>
 </head>
 <body>

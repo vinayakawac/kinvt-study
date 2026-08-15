@@ -22,6 +22,7 @@
 
   function hide() {
     open = false;
+    lastH = 0;
     cardEl.innerHTML = '';
     invoke('hide_quiz');
     scheduleNext(); // resume the countdown to the next automatic popup
@@ -29,15 +30,25 @@
 
   // A transparent window shows its unused area as a floating rectangle, so
   // the window has to track the card's real height rather than guess it.
+  var lastH = 0;
+
   function fitWindow() {
-    var card = cardEl.querySelector('.tpq-card');
-    if (!card) return;
-    // Measure the padded wrapper, not the card: the card's drop shadow and
-    // rounded corners extend past its own box, and sizing the window to the
-    // card alone clipped them into a hard edge along the bottom.
-    var h = Math.ceil(document.body.scrollHeight);
-    if (h > 0) invoke('resize_quiz', { height: h });
+    // Measure the wrapper, not the card, so the padding that keeps the
+    // rounded corners off the window edge is included.
+    var h = Math.ceil(cardEl.getBoundingClientRect().height);
+    if (h > 0 && h !== lastH) {
+      lastH = h;
+      invoke('resize_quiz', { height: h });
+    }
   }
+
+  // Calling fitWindow() at hand-picked moments measured the card before the
+  // browser had laid out the new content — so revealing the feedback panel
+  // grew the card but not the window, and the Next button ended up below the
+  // window's bottom edge with no way to scroll to it. An observer fires after
+  // layout, every time, without having to predict which actions resize things.
+  var cardObserver = new ResizeObserver(function () { fitWindow(); });
+  cardObserver.observe(cardEl);
 
   function startQuiz() {
     if (open) return; // never stack two cards in one window

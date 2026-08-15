@@ -49,7 +49,9 @@ fn hide_quiz(app: tauri::AppHandle) {
 #[tauri::command]
 fn resize_quiz(app: tauri::AppHandle, height: f64) {
     if let Some(win) = app.get_webview_window(QUIZ_WINDOW) {
-        let clamped = height.clamp(160.0, 900.0);
+        // Upper bound only guards against a runaway value; a 5-question quiz
+        // with explanations legitimately exceeds 900px.
+        let clamped = height.clamp(160.0, 1400.0);
         let _ = win.set_size(tauri::LogicalSize::new(412.0, clamped));
     }
 }

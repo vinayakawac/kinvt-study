@@ -28,11 +28,20 @@
        Kept tight: every transparent pixel here is window area, and anything
        painted in it shows as a rectangle. */
     #card { padding: 6px; }
+    /* Let the card's body expand instead of scrolling inside a fixed height. */
+    /* flex:1 1 auto lets this shrink inside the card instead of growing it,
+       so the Next button got laid out past the card's clipped bottom.
+       flex:none makes the body take its natural height and the card grow. */
+    #card .tpq-body { overflow: visible; max-height: none; flex: none; }
 
     /* Real desktop glass: unlike the browser popup window, this genuinely
        composites against whatever is behind the window. */
     #card .tpq-card {
+      /* The window grows to fit, so the card must not cap or scroll itself —
+         an inner scroll region would hide the Next button instead of the
+         window simply getting taller. */
       max-height: none;
+      height: auto;
       border-radius: 14px;
       /* No box-shadow. Over a transparent window WebView2 composites the
          shadow's alpha against nothing, so instead of a soft glow it paints
