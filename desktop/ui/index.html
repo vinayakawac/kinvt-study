@@ -24,7 +24,10 @@
       cursor: default;
     }
 
-    #card { padding: 0; }
+    /* Breathing room so the card's drop shadow and rounded corners are not
+       clipped by the window edge — that clipping is what produced the hard
+       line along the bottom of the popup. */
+    #card { padding: 10px 14px 16px; }
 
     /* Real desktop glass: unlike the browser popup window, this genuinely
        composites against whatever is behind the window. */

@@ -32,7 +32,10 @@
   function fitWindow() {
     var card = cardEl.querySelector('.tpq-card');
     if (!card) return;
-    var h = Math.ceil(card.getBoundingClientRect().height);
+    // Measure the padded wrapper, not the card: the card's drop shadow and
+    // rounded corners extend past its own box, and sizing the window to the
+    // card alone clipped them into a hard edge along the bottom.
+    var h = Math.ceil(document.body.scrollHeight);
     if (h > 0) invoke('resize_quiz', { height: h });
   }
 
@@ -50,6 +53,7 @@
         theme: quiz.theme,
         glass: quiz.glass,
         glassCustom: quiz.glassCustom,
+        skipSummary: true,   // answer-and-done, no summary screen
         onProgress: fitWindow,   // each question is a different height
         onFinish: function (correct, total) {
           window.KinvtQuiz.recordResult(correct, total);

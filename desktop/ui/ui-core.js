@@ -328,8 +328,17 @@
         (correct ? 'Correct!' : 'Not quite — correct answer: ' + LETTERS[q.answer] + '. ' + q.options[q.answer]);
       fbExpl.textContent = q.explanation || '';
       fbEl.classList.add('tpq-show');
-      nextEl.classList.add('tpq-show');
       reportProgress();
+
+      var isLast = (idx + 1 >= questions.length);
+      if (isLast && cfg.skipSummary) {
+        // Nothing left to advance to — give the explanation time to be read,
+        // then go. Showing a button that only says "Done" is a dead click.
+        stopCountdown();
+        closeTimer = setTimeout(finishQuietly, 2600);
+      } else {
+        nextEl.classList.add('tpq-show');
+      }
     }
 
     function reportProgress() {
@@ -341,7 +350,20 @@
     function next() {
       if (!answered || finished) return;
       if (idx + 1 < questions.length) { idx++; renderQuestion(); startCountdown(); reportProgress(); }
+      else if (cfg.skipSummary) { finishQuietly(); }
       else { renderSummary(); }
+    }
+
+    // Answer-and-done: no summary card, no Done button to dismiss. The last
+    // answer's feedback stays up long enough to read, then the card leaves.
+    function finishQuietly() {
+      if (finished) return;
+      finished = true;
+      stopCountdown();
+      if (typeof cfg.onFinish === 'function') {
+        try { cfg.onFinish(score, questions.length); } catch (e) { /* noop */ }
+      }
+      close();
     }
 
     function close() {
