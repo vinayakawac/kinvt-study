@@ -22,6 +22,7 @@ const SYNC_PERIOD_MINUTES = 24 * 60; // once a day, no user interaction needed
 const PENDING_KEY = 'pendingQuiz';   // storage.session: quiz payload awaiting a UI
 const SHOWING_KEY = 'quizShowing';   // storage.session: timestamp of a quiz currently on screen
 const SHOWING_TTL_MS = 5 * 60 * 1000;
+const QUIZ_WINDOW_KEY = 'quizWindowId'; // storage.session: id of the open quiz window
 
 // Public, free content repo the library also syncs from in the background —
 // no server to run, no cost, and the extension needs no runtime permission
@@ -37,6 +38,9 @@ const DEFAULT_SETTINGS = {
   theme: 'dark',          // 'dark' | 'light' | 'auto'
   glass: 'balanced',      // 'clear' | 'balanced' | 'frosted' | 'custom'
   glassCustom: 70,        // custom glass intensity (35–92)
+  surface: 'window',      // 'window' = separate popup window that outlives tab
+                          // switches and minimising; 'overlay' = chromeless
+                          // card drawn on the page you're browsing
   topics: {               // library topics — default ON for the core four
     'general-knowledge': true,
     'upsc': true,
@@ -285,6 +289,78 @@ async function tryInjectOverlay(quiz) {
   }
 }
 
+/* ---------- the quiz as its own window ----------
+ * A separate browser window is the only surface that outlives switching
+ * tabs and minimising the browser — an in-page overlay lives in one tab's
+ * DOM, so it goes away with that tab. The trade-off is that the window
+ * carries an OS title bar which no extension can remove.
+ *
+ * Note: MV3 has no "always on top" — that existed only in the removed
+ * Chrome Apps API. This window survives tab switches and minimising, but
+ * other windows can still cover it, like any ordinary window.
+ */
+
+async function openQuizWindow(quiz) {
+  await api.storage.session.set({ [PENDING_KEY]: quiz });
+
+  // Reuse the window if one is already up, so repeated clicks focus the
+  // existing quiz instead of littering the desktop with stacked windows.
+  try {
+    const got = await api.storage.session.get(QUIZ_WINDOW_KEY);
+    const existingId = got && got[QUIZ_WINDOW_KEY];
+    if (existingId != null) {
+      const win = await api.windows.get(existingId);
+      if (win) {
+        await api.windows.update(existingId, { focused: true, drawAttention: true });
+        // The page is already open, so it won't re-read storage on its own.
+        await api.runtime.sendMessage({ type: 'QUIZ_WINDOW_RELOAD' }).catch(() => {});
+        return 'shown';
+      }
+    }
+  } catch (e) {
+    // Stale id (window was closed) — fall through and make a new one.
+  }
+
+  try {
+    const win = await api.windows.create({
+      url: api.runtime.getURL('quiz-window.html'),
+      type: 'popup',
+      width: 430,
+      height: 640,
+      focused: true
+    });
+    if (win && win.id != null) {
+      await api.storage.session.set({ [QUIZ_WINDOW_KEY]: win.id });
+    }
+    return 'shown';
+  } catch (e) {
+    return 'window-failed:' + (e && e.message ? e.message : String(e));
+  }
+}
+
+// Drop the remembered id when the user closes the quiz window, so the next
+// quiz opens a fresh one instead of trying to focus a window that is gone.
+if (api.windows && api.windows.onRemoved) {
+  api.windows.onRemoved.addListener((windowId) => {
+    api.storage.session.get(QUIZ_WINDOW_KEY).then((got) => {
+      if (got && got[QUIZ_WINDOW_KEY] === windowId) {
+        api.storage.session.remove(QUIZ_WINDOW_KEY);
+      }
+    }).catch(() => {});
+  });
+}
+
+// Honours the user's chosen surface, falling back to the other one rather
+// than showing nothing (e.g. overlay chosen but the tab is a restricted page).
+async function presentQuiz(quiz, surface) {
+  if (surface === 'overlay') {
+    const reason = await tryInjectOverlay(quiz);
+    if (reason === 'shown') return 'shown';
+    return openQuizWindow(quiz);
+  }
+  return openQuizWindow(quiz);
+}
+
 /* ---------- showing the quiz (automatic alarm popup) ---------- */
 
 async function showQuiz(force) {
@@ -301,18 +377,9 @@ async function showQuiz(force) {
   if (!quiz) return;
 
   await api.storage.session.set({ [SHOWING_KEY]: Date.now() });
-  if ((await tryInjectOverlay(quiz)) === 'shown') return;
 
-  // Fallback path: small standalone popup window (works everywhere).
-  try {
-    await api.windows.create({
-      url: api.runtime.getURL('quiz-window.html'),
-      type: 'popup',
-      width: 420,
-      height: 660,
-      focused: true
-    });
-  } catch (e) { /* give up quietly */ }
+  const settings = await getSettings();
+  await presentQuiz(quiz, settings.surface);
 }
 
 /* ---------- toolbar click: open the settings sidecar ---------- */
@@ -395,6 +462,11 @@ api.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       case 'BUILD_QUIZ': {          // "Quiz me now" from the settings sidecar
         const quiz = await buildQuiz();
         if (!quiz) return { quiz: null };
+        const settings = await getSettings();
+        const shownVia = await presentQuiz(quiz, settings.surface);
+        // Handled outside the panel (window or on-page overlay) — the panel
+        // should not also render it inline.
+        if (shownVia === 'shown') return { quiz, injected: true, reason: 'shown' };
         // Prefer showing it as a translucent overlay on the tab the user is
         // actually browsing — same as the automatic popup. Never falls back
         // to a popup window here (unlike showQuiz()): a real OS window is

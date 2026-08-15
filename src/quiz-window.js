@@ -57,6 +57,14 @@
 
   closeBtn.addEventListener('click', function () { window.close(); });
 
+  // background.js reuses this window rather than stacking a new one for each
+  // quiz, so an already-open page has to re-read the payload when told to.
+  try {
+    api.runtime.onMessage.addListener(function (msg) {
+      if (msg && msg.type === 'QUIZ_WINDOW_RELOAD') location.reload();
+    });
+  } catch (e) { /* noop */ }
+
   getPayload().then(function (payload) {
     if (!payload || !Array.isArray(payload.questions) || !payload.questions.length) {
       showEmpty();

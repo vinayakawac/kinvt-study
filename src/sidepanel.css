@@ -199,18 +199,52 @@ body.light .link { color: var(--text); }
   align-content: start;
 }
 
+/* Collapsible group header — a real <button> so it is keyboard-operable. */
 .group-hdr {
   grid-column: 1 / -1;
-  margin: 8px 2px 2px;
+  width: 100%;
+  margin: 6px 0 2px;
+  font: inherit;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--muted);
+  background: none;
+  border: 0;
   border-top: 1px solid var(--card-border);
-  padding-top: 8px;
+  padding: 10px 2px 6px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  text-align: left;
 }
 .group-hdr:first-of-type { border-top: 0; }
+.group-hdr:hover { color: var(--text); }
+.group-hdr .chev {
+  width: 12px; height: 12px; flex: none;
+  transition: transform .15s ease;
+}
+.group-hdr[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.group-hdr .group-count {
+  margin-left: auto;
+  font-size: 9.5px;
+  letter-spacing: 0;
+  opacity: .7;
+  background: var(--hover);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+
+/* Sits in the same grid track as the header so the two-column topic grid
+   still works inside an expanded group. */
+.group-body {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0 12px;
+}
 
 .cat {
   display: flex; align-items: center; gap: 10px;

@@ -27,6 +27,7 @@
     theme: 'dark',
     glass: 'balanced',
     glassCustom: 70,
+    surface: 'window',
     topics: {
       'general-knowledge': true,
       'upsc': true,
@@ -139,13 +140,36 @@
       (groups[g] = groups[g] || []).push(cat);
     });
 
+    // Each group collapses, so 16 topics don't force a long scroll. Groups
+    // with nothing selected start collapsed — you're most likely to want the
+    // ones you're actually using in view.
     Object.keys(groups).forEach(function (groupName) {
-      var h = document.createElement('div');
+      var items = groups[groupName];
+      var anySelected = items.some(function (cat) { return settings.topics[cat.id]; });
+
+      var h = document.createElement('button');
+      h.type = 'button';
       h.className = 'group-hdr';
-      h.textContent = groupName;
+      h.setAttribute('aria-expanded', String(anySelected));
+      h.innerHTML =
+        '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" ' +
+        'stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>' +
+        '<span>' + groupName + '</span>' +
+        '<span class="group-count">' + items.length + '</span>';
       wrap.appendChild(h);
 
-      groups[groupName].forEach(function (cat) {
+      var body = document.createElement('div');
+      body.className = 'group-body';
+      body.hidden = !anySelected;
+      wrap.appendChild(body);
+
+      h.addEventListener('click', function () {
+        var open = body.hidden;
+        body.hidden = !open;
+        h.setAttribute('aria-expanded', String(open));
+      });
+
+      items.forEach(function (cat) {
         var checked = settings.topics[cat.id] ? 'checked' : '';
         var label = document.createElement('label');
         label.className = 'cat';
@@ -154,7 +178,7 @@
           '<span class="box"></span>' +
           '<span class="ico">' + (ICONS[cat.icon] || '') + '</span>' +
           '<span class="txt"><b>' + cat.label + '</b><i>' + cat.blurb + '</i></span>';
-        wrap.appendChild(label);
+        body.appendChild(label);
       });
     });
 
@@ -332,6 +356,7 @@
       $('perQuiz').value = String(settings.perQuiz);
       $('duration').value = String(settings.durationSec);
       $('theme').value = settings.theme;
+      $('surface').value = settings.surface;
 
       applyTheme(settings.theme);
       renderLibrary(catalog);
@@ -360,14 +385,26 @@
           var show = !q || text.indexOf(q) !== -1;
           row.style.display = show ? '' : 'none';
         });
+        // Topics now live inside a .group-body rather than as siblings of the
+        // header, and a collapsed group would hide its own matches — so while
+        // filtering, force matching groups open and hide empty ones entirely.
         Array.prototype.slice.call(document.querySelectorAll('.group-hdr')).forEach(function (h) {
-          var sib = h.nextElementSibling;
-          var anyVisible = false;
-          while (sib && !sib.classList.contains('group-hdr')) {
-            if (sib.style.display !== 'none') anyVisible = true;
-            sib = sib.nextElementSibling;
+          var body = h.nextElementSibling;
+          if (!body || !body.classList.contains('group-body')) return;
+          var anyVisible = Array.prototype.slice
+            .call(body.querySelectorAll('.cat'))
+            .some(function (row) { return row.style.display !== 'none'; });
+
+          h.style.display = (anyVisible || !q) ? '' : 'none';
+          if (q) {
+            body.hidden = !anyVisible;
+          } else {
+            // Query cleared — restore the "open only if it has a selection"
+            // default rather than leaving everything expanded.
+            var anyChecked = !!body.querySelector('input:checked');
+            body.hidden = !anyChecked;
           }
-          h.style.display = anyVisible || !q ? '' : 'none';
+          h.setAttribute('aria-expanded', String(!body.hidden));
         });
       });
 
@@ -385,6 +422,10 @@
       });
       $('duration').addEventListener('change', function () {
         settings.durationSec = parseInt(this.value, 10) || 45;
+        save();
+      });
+      $('surface').addEventListener('change', function () {
+        settings.surface = this.value;
         save();
       });
       $('theme').addEventListener('change', function () {
