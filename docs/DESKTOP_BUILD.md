@@ -88,3 +88,15 @@ stubs `window.__TAURI__` — `invoke()` records calls into
 show/resize the window, and the event bus is real pub/sub so `start-quiz`
 genuinely drives the flow. Only the Rust shell (window flags, tray, hotkey)
 needs a real build to verify.
+
+## Installer vs standalone
+
+`cargo build --release` produces a **standalone, portable** `kinvt-study.exe`
+(~3.4 MB) that needs no installation — copy it anywhere and run it.
+
+`cargo tauri build` additionally wraps it in an NSIS installer, but that step
+downloads NSIS from GitHub at bundle time and will fail with
+`failed to bundle project 'timeout: global'` on a restricted or slow network.
+That failure affects only the installer; the `.exe` itself is already built
+and fully working by that point — look for
+`Built application at: …/kinvt-study.exe` earlier in the output.
