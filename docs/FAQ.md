@@ -1,7 +1,9 @@
 # FAQ
 
 **Does it use AI?**
-No. Every question is static JSON bundled with the app. Nothing is generated, and no model is ever called.
+The *app* does not — it never calls a model, and runs fully offline against static JSON.
+
+Authoring is a different question. 15 of the 16 topics are hand-written. The **current-affairs** bank is drafted monthly by an automated pipeline that reads Wikipedia's Current Events portal and generates questions, gated by automated validation ([AUTOMATION.md](AUTOMATION.md)). Validation catches malformed questions and out-of-range answer keys, but it cannot verify that a fact is true — so every generated question carries a `source` URL. Treat current-affairs answers with more scepticism than the rest.
 
 **Does it send my data anywhere?**
 No. The only network request is a once-daily fetch of public question JSON from [kinvt-study](https://github.com/vinayakawac/kinvt-study). It is an unauthenticated `GET` of public files — nothing about you is included, and nothing is ever uploaded. Settings and stats stay in local storage on your machine.

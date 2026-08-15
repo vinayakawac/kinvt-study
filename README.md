@@ -1,6 +1,6 @@
 # Kinvt-study — Smart Quiz
 
-A translucent, always-on-top MCQ quiz popup for competitive-exam prep. It sits in your system tray and, on a schedule you choose, floats a frosted-glass card over whatever you're doing with 1–5 questions — General Knowledge, UPSC, KPSC/KAS, SSC, Banking and more, across 336 bundled questions in 16 topics. Local-first and no AI: every question is static JSON that ships with the app.
+A translucent, always-on-top MCQ quiz popup for competitive-exam prep. It sits in your system tray and, on a schedule you choose, floats a frosted-glass card over whatever you're doing with 1–5 questions — General Knowledge, UPSC, KPSC/KAS, SSC, Banking and more, across 336 bundled questions in 16 topics. Local-first: the app itself runs entirely offline against static JSON, calls no model, and collects nothing. Most topics are hand-written; the current-affairs bank is refreshed monthly by an automated pipeline ([docs/AUTOMATION.md](docs/AUTOMATION.md)).
 
 ## Setup
 

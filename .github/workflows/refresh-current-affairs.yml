@@ -1,0 +1,67 @@
+name: Refresh current affairs
+
+# Monthly, plus a manual button. Current-affairs sections are examined in
+# monthly digests, so a faster cadence adds review burden without adding
+# exam-relevant material.
+on:
+  schedule:
+    - cron: '0 2 1 * *'      # 02:00 UTC on the 1st
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'How many questions to draft'
+        required: false
+        default: '15'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Draft questions from Wikipedia Current Events
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          QUESTION_COUNT: ${{ inputs.count || '15' }}
+        run: node scripts/generate-current-affairs.mjs data/current-affairs.json
+
+      # The gate. Auto-merge happens below, so if this fails the PR stays open
+      # for a human instead of shipping malformed questions to every install.
+      - name: Validate
+        run: node scripts/validate-questions.mjs data/current-affairs.json
+
+      - name: Keep the app's bundled copy identical
+        run: cp data/current-affairs.json desktop/ui/data/current-affairs.json
+
+      - name: Open pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'Refresh current-affairs questions'
+          branch: bot/current-affairs
+          delete-branch: true
+          title: 'Refresh current-affairs questions'
+          body: |
+            Drafted from Wikipedia's Current Events portal and validated for
+            schema, duplicate ids, duplicate wording, distinct options, and
+            answer indices in range.
+
+            **Validation cannot check whether a fact is true.** Every question
+            carries a `source` URL — spot-check a few before trusting the batch.
+            If anything looks wrong, close this PR; nothing ships until it merges.
+          labels: automated
+
+      # Only reached if validation passed, since a failed step ends the job.
+      - name: Auto-merge
+        if: steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge --squash --admin "${{ steps.cpr.outputs.pull-request-number }}"
