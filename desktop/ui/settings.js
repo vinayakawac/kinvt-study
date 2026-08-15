@@ -155,6 +155,8 @@
     $('stCorrect').textContent = st.correct;
     $('stAcc').textContent = st.answered ? Math.round((st.correct / st.answered) * 100) + '%' : '–';
     $('stStreak').textContent = st.streak;
+    var rev = $('stReview');
+    if (rev) rev.textContent = window.KinvtQuiz.reviewCount();
   }
 
   function allBoxes() {

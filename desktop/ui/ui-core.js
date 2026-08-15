@@ -328,6 +328,11 @@
         (correct ? 'Correct!' : 'Not quite — correct answer: ' + LETTERS[q.answer] + '. ' + q.options[q.answer]);
       fbExpl.textContent = q.explanation || '';
       fbEl.classList.add('tpq-show');
+      // Per-answer, so callers can track which specific questions were missed.
+      // onFinish only carries a score, which cannot drive review.
+      if (typeof cfg.onAnswer === 'function') {
+        try { cfg.onAnswer(q, correct); } catch (e) { /* noop */ }
+      }
       reportProgress();
 
       var isLast = (idx + 1 >= questions.length);

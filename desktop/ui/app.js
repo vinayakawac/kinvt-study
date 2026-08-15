@@ -66,6 +66,9 @@
         glassCustom: quiz.glassCustom,
         skipSummary: true,   // answer-and-done, no summary screen
         onProgress: fitWindow,   // each question is a different height
+        onAnswer: function (question, wasCorrect) {
+          window.KinvtQuiz.recordAnswer(question, wasCorrect);
+        },
         onFinish: function (correct, total) {
           window.KinvtQuiz.recordResult(correct, total);
           fitWindow();
