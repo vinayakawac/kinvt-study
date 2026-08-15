@@ -21,7 +21,7 @@ The executable lands in `desktop/target/release/`.
 
 ## Why a desktop app and not a browser extension
 
-This started as a Chrome/Firefox extension (see [docs/HISTORY.md](docs/HISTORY.md)). The popup needed to be transparent, frameless, always-on-top and independent of the browser — and a browser extension can't do all four:
+This started as a Chrome/Firefox extension (kept in [extension-archive/](extension-archive/)). The popup needed to be transparent, frameless, always-on-top and independent of the browser — and a browser extension can't do all four:
 
 - Extension popup windows **can't be transparent** (an OS window has an opaque backing surface and no page behind it to show through) and **can't drop their title bar** — browsers enforce that so pages can't impersonate native windows.
 - An in-page overlay can be transparent and chromeless, but **lives in one tab's DOM**, so it dies when you switch tabs or minimise the browser.
@@ -30,7 +30,8 @@ Those are browser security boundaries, not missing features. A native window has
 
 ## Documentation
 
-See [docs/](docs/) for architecture, the content pipeline, error handling, troubleshooting, and FAQ.
+- [docs/DESKTOP_BUILD.md](docs/DESKTOP_BUILD.md) — build prerequisites, and how to preview the UI without building.
+- [docs/](docs/) — architecture, content pipeline, error handling, troubleshooting, FAQ. Some pages still describe the extension; they are being ported.
 
 ## License
 
