@@ -237,7 +237,7 @@ async function tryInjectOverlay(quiz) {
   await api.storage.session.set({ [PENDING_KEY]: quiz });
 
   const tab = await getActiveContentTab();
-  if (!tab || tab.id == null) return false;
+  if (!tab || tab.id == null) return 'no-tab-found';
 
   // `tab.url` is only readable when the host permission covering that tab is
   // actually GRANTED — and Firefox MV3 (Zen included) treats `host_permissions`
@@ -247,7 +247,13 @@ async function tryInjectOverlay(quiz) {
   // fell back to the sidecar every time. Only bail when the URL is known AND
   // clearly not injectable; otherwise attempt it and let executeScript be the
   // authority, since it throws precisely when it isn't permitted.
-  if (typeof tab.url === 'string' && !/^(https?|file):/i.test(tab.url)) return false;
+  if (typeof tab.url === 'string' && !/^(https?|file):/i.test(tab.url)) {
+    // Browsers block content-script injection into their own internal pages
+    // (chrome://, about:, extension stores, the extensions/debugging pages)
+    // for every extension, with no override. Report which scheme so the UI
+    // can say so plainly instead of silently doing something unexpected.
+    return 'restricted-page:' + String(tab.url).split(':')[0];
+  }
 
   try {
     // ui-core.js + overlay.js only *define* things in the tab's isolated
@@ -269,11 +275,13 @@ async function tryInjectOverlay(quiz) {
     // too small to fit a card). Treat that as "not shown" so the caller can
     // fall back, rather than reporting success for a card nobody can see.
     const outcome = results && results[0] && results[0].result;
-    return outcome === 'shown';
+    return outcome || 'no-result-from-page';
   } catch (e) {
-    // Restricted page (chrome://, store pages, …), permission not granted,
-    // or injection failure.
-    return false;
+    // Permission not granted, restricted page, or injection failure. The
+    // message matters — "Cannot access contents of the page" (permission)
+    // and "No tab with id" (tab closed) need very different responses, and
+    // collapsing them into `false` is what made this so hard to diagnose.
+    return 'inject-failed:' + (e && e.message ? e.message : String(e));
   }
 }
 
@@ -293,7 +301,7 @@ async function showQuiz(force) {
   if (!quiz) return;
 
   await api.storage.session.set({ [SHOWING_KEY]: Date.now() });
-  if (await tryInjectOverlay(quiz)) return;
+  if ((await tryInjectOverlay(quiz)) === 'shown') return;
 
   // Fallback path: small standalone popup window (works everywhere).
   try {
@@ -392,8 +400,8 @@ api.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         // to a popup window here (unlike showQuiz()): a real OS window is
         // strictly worse than the sidecar's own frameless page, which the
         // sidecar renders into itself when `injected` comes back false.
-        const injected = await tryInjectOverlay(quiz);
-        return { quiz, injected };
+        const reason = await tryInjectOverlay(quiz);
+        return { quiz, injected: reason === 'shown', reason };
       }
 
       case 'GET_PENDING_QUIZ': {    // overlay / window asks for its payload

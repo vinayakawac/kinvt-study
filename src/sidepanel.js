@@ -213,6 +213,29 @@
     }, 2200);
   }
 
+  function explainReason(reason) {
+    var r = String(reason || '');
+    if (r.indexOf('restricted-page:') === 0) {
+      return 'Showing here because this browser blocks extensions from drawing on ' +
+             r.split(':')[1] + ': pages. Switch to a normal website tab for the on-page popup.';
+    }
+    if (r === 'no-tab-found') return 'Showing here — no open website tab was found to draw on.';
+    if (r === 'fullscreen') return 'Showing here — the page is fullscreen.';
+    if (r === 'viewport-too-small') return 'Showing here — that tab is too small to fit the card.';
+    if (r.indexOf('inject-failed:') === 0) {
+      return 'Showing here — the page could not be drawn on (' + r.slice(14) + ').';
+    }
+    return 'Showing here — the on-page popup was unavailable (' + (r || 'unknown') + ').';
+  }
+
+  function showFallbackReason(reason) {
+    var el = $('syncStatus');
+    if (!el) return;
+    var prev = el.textContent;
+    el.textContent = explainReason(reason);
+    setTimeout(function () { el.textContent = prev; }, 9000);
+  }
+
   function renderInlineQuiz(quiz) {
     $('settingsView').hidden = true;
     var quizEl = $('inlineQuiz');
@@ -277,6 +300,10 @@
           flashButton('Quiz launched — answer it on the page', true);
           return;
         }
+        // Falling back to the panel is legitimate, but it should never be
+        // silent — otherwise "why isn't it appearing on my page?" has no
+        // answer anywhere in the UI. Say why, in plain language.
+        showFallbackReason(res.reason);
         renderInlineQuiz(res.quiz);
       });
   }
