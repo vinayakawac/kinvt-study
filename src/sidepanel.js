@@ -228,21 +228,26 @@
     return 'Showing here — the on-page popup was unavailable (' + (r || 'unknown') + ').';
   }
 
-  function showFallbackReason(reason) {
-    var el = $('syncStatus');
-    if (!el) return;
-    var prev = el.textContent;
-    el.textContent = explainReason(reason);
-    setTimeout(function () { el.textContent = prev; }, 9000);
-  }
-
-  function renderInlineQuiz(quiz) {
+  function renderInlineQuiz(quiz, reason) {
     $('settingsView').hidden = true;
     var quizEl = $('inlineQuiz');
     quizEl.hidden = false;
     quizEl.innerHTML = '';
 
-    window.TPQ_UI.create(quizEl, {
+    // The explanation has to live HERE, not in the settings view: rendering
+    // the card hides #settingsView, so anything written into it (the sync
+    // status line) is hidden in the same tick and can never be read.
+    if (reason) {
+      var note = document.createElement('p');
+      note.className = 'fallback-note';
+      note.textContent = explainReason(reason);
+      quizEl.appendChild(note);
+    }
+
+    var cardHost = document.createElement('div');
+    quizEl.appendChild(cardHost);
+
+    window.TPQ_UI.create(cardHost, {
       questions: quiz.questions,
       title: quiz.title,
       durationSec: quiz.durationSec,
@@ -303,8 +308,7 @@
         // Falling back to the panel is legitimate, but it should never be
         // silent — otherwise "why isn't it appearing on my page?" has no
         // answer anywhere in the UI. Say why, in plain language.
-        showFallbackReason(res.reason);
-        renderInlineQuiz(res.quiz);
+        renderInlineQuiz(res.quiz, res.reason);
       });
   }
 

@@ -93,7 +93,9 @@ body.sidepanel .inline-quiz { grid-column: 1 / -1; }
    whole doesn't collapse the two-pane layout when it's visible. */
 #settingsView { display: contents; }
 
-.inline-quiz { display: flex; justify-content: center; padding: 8px 0; }
+/* Column, not row: the fallback note must stack above the card rather than
+   sit beside it (the container can hold both). */
+.inline-quiz { display: flex; flex-direction: column; align-items: center; padding: 8px 0; }
 .inline-quiz > * { width: 100%; max-width: 420px; }
 
 /* windowed fallback (very old browsers without a side panel API) */
@@ -312,3 +314,17 @@ input[type="range"] {
 .primary.ok { background: var(--ok); color: #1c1b19; }
 
 footer { text-align: center; font-size: 10px; color: var(--muted); }
+
+/* Explains why the card is rendering here instead of on the page. Lives
+   inside .inline-quiz (not the settings view, which is hidden while the
+   card is up, where it would be invisible). */
+.fallback-note {
+  margin: 0 0 10px;
+  padding: 9px 11px;
+  border-radius: 9px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--text);
+  background: rgba(220, 154, 133, .12);
+  border: 1px solid rgba(220, 154, 133, .38);
+}
