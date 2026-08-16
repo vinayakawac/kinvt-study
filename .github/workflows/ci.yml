@@ -21,6 +21,12 @@ jobs:
       - name: Library wiring
         run: node scripts/check-library.mjs
 
+      # The root data/ feed is what installed copies fetch daily. If it drifts
+      # from desktop/ui the repo still looks correct while every install
+      # quietly serves stale questions.
+      - name: Sync feed is current
+        run: node scripts/sync-feed.mjs --check
+
       # Without --require-source, because the questions written before sources
       # were required would otherwise fail. Generated content is validated
       # with the flag on, in expand-library.yml.

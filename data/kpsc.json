@@ -1,0 +1,1096 @@
+{
+  "name": "KPSC / KAS (Karnataka)",
+  "description": "Karnataka-focused questions for KPSC / KAS: state history, geography, polity and culture.",
+  "questions": [
+    {
+      "id": "kp-001",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "What is the capital of Karnataka?",
+      "options": [
+        "Mysuru",
+        "Bengaluru",
+        "Hubballi",
+        "Mangaluru"
+      ],
+      "answer": 1,
+      "explanation": "Bengaluru has been the capital of Karnataka (earlier Mysore State) since 1956."
+    },
+    {
+      "id": "kp-002",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "easy",
+      "question": "The famous temples of Belur and Halebidu were built by which dynasty?",
+      "options": [
+        "The Chalukyas",
+        "The Hoysalas",
+        "The Rashtrakutas",
+        "The Vijayanagara kings"
+      ],
+      "answer": 1,
+      "explanation": "The Hoysalas (10th–14th century) built the star-shaped Chennakeshava (Belur) and Hoysaleshwara (Halebidu) temples — masterpieces of soapstone carving."
+    },
+    {
+      "id": "kp-003",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "easy",
+      "question": "The Vidhana Soudha in Bengaluru is the seat of which institution?",
+      "options": [
+        "The Karnataka High Court",
+        "The Karnataka State Legislature",
+        "The Chief Minister's residence",
+        "The Raj Bhavan"
+      ],
+      "answer": 1,
+      "explanation": "The Vidhana Soudha houses the Karnataka Legislative Assembly and Legislative Council. Built by Kengal Hanumanthaiah, it was completed in 1956."
+    },
+    {
+      "id": "kp-004",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Who was the first Chief Minister of Karnataka (then Mysore State)?",
+      "options": [
+        "K. Chengalaraya Reddy",
+        "S. Nijalingappa",
+        "D. Devaraj Urs",
+        "Veerendra Patil"
+      ],
+      "answer": 0,
+      "explanation": "K. Chengalaraya (K. C.) Reddy became the first Chief Minister of Mysore State in 1947, after independence."
+    },
+    {
+      "id": "kp-005",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "The river Kaveri originates from which place in Karnataka?",
+      "options": [
+        "Talakaveri (Kodagu)",
+        "Kemmangundi",
+        "Kudremukh",
+        "Yana"
+      ],
+      "answer": 0,
+      "explanation": "The Kaveri rises at Talakaveri on the Brahmagiri hills in Kodagu district and flows ~800 km to the Bay of Bengal."
+    },
+    {
+      "id": "kp-006",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "Jog Falls, one of India's highest waterfalls, is formed by which river?",
+      "options": [
+        "Sharavati",
+        "Kali",
+        "Netravati",
+        "Tunga"
+      ],
+      "answer": 0,
+      "explanation": "Jog Falls (253 m) in Shivamogga district is formed by the Sharavati river plunging in four cascades — Raja, Rani, Rover and Rocket."
+    },
+    {
+      "id": "kp-007",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Rani Chennamma of Kittur led an armed rebellion in 1824 against whom?",
+      "options": [
+        "The Mughals",
+        "The Marathas",
+        "The British East India Company",
+        "The Nizam of Hyderabad"
+      ],
+      "answer": 2,
+      "explanation": "Kittur Rani Chennamma fought the British East India Company in 1824 against the Doctrine of Lapse annexation — decades before the 1857 revolt."
+    },
+    {
+      "id": "kp-008",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "easy",
+      "question": "The world-famous Dasara (Nadahabba) festival is celebrated most grandly in which Karnataka city?",
+      "options": [
+        "Mysuru",
+        "Bengaluru",
+        "Belagavi",
+        "Mangaluru"
+      ],
+      "answer": 0,
+      "explanation": "Mysuru Dasara, a 10-day royal festival with the Jamboo Savari procession, has been celebrated for over 400 years under the Wodeyars."
+    },
+    {
+      "id": "kp-009",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "easy",
+      "question": "What is the official language of Karnataka?",
+      "options": [
+        "Kannada",
+        "Tulu",
+        "Konkani",
+        "Kodava"
+      ],
+      "answer": 0,
+      "explanation": "Kannada is Karnataka's official language — one of India's classical languages, with over 2,000 years of literary history."
+    },
+    {
+      "id": "kp-010",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "Which Karnataka district is most famous for coffee plantations?",
+      "options": [
+        "Kodagu",
+        "Ballari",
+        "Gadag",
+        "Raichur"
+      ],
+      "answer": 0,
+      "explanation": "Kodagu (Coorg) is Karnataka's largest coffee-producing district; the state grows ~70% of India's coffee."
+    },
+    {
+      "id": "kp-011",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Vijayanagara Empire was founded in 1336 by whom?",
+      "options": [
+        "Krishnadevaraya",
+        "Harihara I and Bukka Raya I",
+        "Vidyaranya alone",
+        "Deva Raya II"
+      ],
+      "answer": 1,
+      "explanation": "Brothers Harihara I and Bukka Raya I founded the empire in 1336 on the banks of the Tungabhadra, guided by saint Vidyaranya."
+    },
+    {
+      "id": "kp-012",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "The UNESCO World Heritage ruins of Hampi lie on the banks of which river?",
+      "options": [
+        "Krishna",
+        "Tungabhadra",
+        "Kaveri",
+        "Malaprabha"
+      ],
+      "answer": 1,
+      "explanation": "Hampi, the capital of the Vijayanagara Empire, stands on the Tungabhadra river in Vijayanagara district."
+    },
+    {
+      "id": "kp-013",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "hard",
+      "question": "'Kavirajamarga', the earliest available Kannada literary work, was composed during the reign of which Rashtrakuta king?",
+      "options": [
+        "Amoghavarsha I",
+        "Krishna III",
+        "Dhruva",
+        "Govinda III"
+      ],
+      "answer": 0,
+      "explanation": "Written by the poet Srivijaya around 850 CE in the court of Amoghavarsha I (Nrupatunga), 'Kavirajamarga' is a treatise on poetics."
+    },
+    {
+      "id": "kp-014",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "easy",
+      "question": "Bengaluru city was founded in 1537 by which chieftain?",
+      "options": [
+        "Kempe Gowda I",
+        "Hyder Ali",
+        "Tipu Sultan",
+        "Krishnaraja Wodeyar III"
+      ],
+      "answer": 0,
+      "explanation": "Kempe Gowda I, a feudatory of the Vijayanagara Empire, founded Bengaluru in 1537, building its mud fort and petes."
+    },
+    {
+      "id": "kp-015",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "easy",
+      "question": "Tipu Sultan, the 'Tiger of Mysore', was the ruler of which kingdom?",
+      "options": [
+        "Hyderabad",
+        "Mysore",
+        "Travancore",
+        "The Maratha Empire"
+      ],
+      "answer": 1,
+      "explanation": "Tipu Sultan ruled the Kingdom of Mysore (1782–1799) and died defending Srirangapatna in the Fourth Anglo-Mysore War."
+    },
+    {
+      "id": "kp-016",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which Karnataka city houses the state's major seaport — the New Mangalore Port?",
+      "options": [
+        "Karwar",
+        "Mangaluru",
+        "Honnavar",
+        "Bhatkal"
+      ],
+      "answer": 1,
+      "explanation": "New Mangalore Port at Panambur (Mangaluru) is Karnataka's only major port, handling coffee, cashew and crude oil trade."
+    },
+    {
+      "id": "kp-017",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "easy",
+      "question": "The Gol Gumbaz, famous for its whispering gallery, is located in which city?",
+      "options": [
+        "Vijayapura (Bijapur)",
+        "Kalaburagi",
+        "Bidar",
+        "Belagavi"
+      ],
+      "answer": 0,
+      "explanation": "Gol Gumbaz in Vijayapura is the mausoleum of Adil Shahi Sultan Mohammed Adil Shah — its dome is among the largest in the world."
+    },
+    {
+      "id": "kp-018",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "easy",
+      "question": "Karnataka was formed on 1 November 1956. What was the state called before it was renamed in 1973?",
+      "options": [
+        "Mysore State",
+        "Kodagu State",
+        "Hyderabad-Karnataka",
+        "Kannada Nadu"
+      ],
+      "answer": 0,
+      "explanation": "The state was created as Mysore State on 1 November 1956 and renamed Karnataka on 1 November 1973 — now celebrated as Kannada Rajyotsava."
+    },
+    {
+      "id": "kp-019",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which is the highest peak in Karnataka?",
+      "options": [
+        "Kudremukh",
+        "Mullayyanagiri",
+        "Kumara Parvatha",
+        "Brahmagiri"
+      ],
+      "answer": 1,
+      "explanation": "Mullayyanagiri (1,930 m) in the Baba Budangiri range of Chikkamagaluru district is Karnataka's highest peak."
+    },
+    {
+      "id": "kp-020",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Halmidi inscription (~450 CE) is famous as what?",
+      "options": [
+        "The earliest known Kannada inscription",
+        "The first Telugu inscription",
+        "The earliest Sanskrit work of Karnataka",
+        "The first Kannada newspaper"
+      ],
+      "answer": 0,
+      "explanation": "Found in Hassan district, the Halmidi inscription is the earliest known full-length Kannada inscription, dating to about 450 CE."
+    },
+    {
+      "id": "kp-021",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Chennakeshava Temple at Belur (1117 CE) was commissioned during the reign of which Hoysala king?",
+      "options": [
+        "Vishnuvardhana",
+        "Veera Ballala II",
+        "Narasimha I",
+        "Vira Someshwara"
+      ],
+      "answer": 0,
+      "explanation": "King Vishnuvardhana built the Chennakeshava Temple at Belur in 1117 CE to commemorate his victory over the Cholas at Talakad."
+    },
+    {
+      "id": "kp-022",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Who was the Maharaja of Mysore when the state acceded to the Indian Union in 1947?",
+      "options": [
+        "Jayachamarajendra Wodeyar",
+        "Krishnaraja Wodeyar IV",
+        "Chamaraja Wodeyar X",
+        "Kanthirava Narasaraja II"
+      ],
+      "answer": 0,
+      "explanation": "Maharaja Jayachamarajendra Wodeyar signed the Instrument of Accession in 1947 and later served as Governor of Madras and Mysore."
+    },
+    {
+      "id": "kp-023",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Which is the largest district of Karnataka by area?",
+      "options": [
+        "Belagavi",
+        "Kalaburagi",
+        "Ballari",
+        "Shivamogga"
+      ],
+      "answer": 0,
+      "explanation": "Belagavi (~13,415 km²) is Karnataka's largest district by area, in the state's northwest bordering Maharashtra and Goa."
+    },
+    {
+      "id": "kp-024",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "The Hampi ruins now fall under which district, carved out in 2020?",
+      "options": [
+        "Ballari",
+        "Vijayanagara",
+        "Koppal",
+        "Raichur"
+      ],
+      "answer": 1,
+      "explanation": "Vijayanagara district (headquarters Hospete) was carved out of Ballari district in 2020, taking Hampi with it."
+    },
+    {
+      "id": "kp-025",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Who is remembered as 'Karnataka Kulapurohita' — the high priest of the Karnataka unification movement?",
+      "options": [
+        "Aluru Venkata Rao",
+        "Kuvempu",
+        "Kengal Hanumanthaiah",
+        "S. Nijalingappa"
+      ],
+      "answer": 0,
+      "explanation": "Aluru Venkata Rao's 1917 book 'Karnataka Gatha Vaibhava' inspired the Ekikarana (unification) movement, earning him the title Karnataka Kulapurohita."
+    },
+    {
+      "id": "kp-026",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "easy",
+      "question": "What is the state tree of Karnataka?",
+      "options": [
+        "Sandalwood",
+        "Banyan",
+        "Peepal",
+        "Coconut"
+      ],
+      "answer": 0,
+      "explanation": "Sandalwood (Santalum album) is Karnataka's state tree — the state is famous for Mysore sandalwood. The state animal is the Asian Elephant."
+    },
+    {
+      "id": "kp-027",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Kudremukh National Park is located in which district of Karnataka?",
+      "options": [
+        "Chikkamagaluru",
+        "Kodagu",
+        "Shivamogga",
+        "Uttara Kannada"
+      ],
+      "answer": 0,
+      "explanation": "Kudremukh National Park (horse-face peak, 1,894 m) lies in Chikkamagaluru district in the Western Ghats — a UNESCO World Heritage cluster."
+    },
+    {
+      "id": "kp-028",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "The Krishna Raja Sagara (KRS) dam near Mysuru is built across which river?",
+      "options": [
+        "Kaveri",
+        "Krishna",
+        "Tungabhadra",
+        "Hemavati"
+      ],
+      "answer": 0,
+      "explanation": "The KRS dam, designed by Sir M. Visvesvaraya and completed in 1932, is built across the Kaveri and created the Brindavan Gardens."
+    },
+    {
+      "id": "kp-029",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "easy",
+      "question": "Which Kannada poet, author of 'Sri Ramayana Darshanam', is honoured as Karnataka's 'Rashtrakavi' (national poet)?",
+      "options": [
+        "Kuvempu",
+        "D. R. Bendre",
+        "G. S. Shivarudrappa",
+        "Masti Venkatesha Iyengar"
+      ],
+      "answer": 0,
+      "explanation": "Kuvempu (K. V. Puttappa) was the first Kannada Jnanpith awardee (1967) and was named Rashtrakavi; 'Jaya Bharata Jananiya Tanujate' is his anthem."
+    },
+    {
+      "id": "kp-030",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "easy",
+      "question": "Engineers' Day in India (15 September) honours which Karnataka-born engineer-statesman?",
+      "options": [
+        "Sir M. Visvesvaraya",
+        "Vikram Sarabhai",
+        "Satish Dhawan",
+        "Homi J. Bhabha"
+      ],
+      "answer": 0,
+      "explanation": "Sir M. Visvesvaraya (born 15 Sept 1861, Muddenahalli) — KRS dam, Bharat Ratna 1955 — is honoured on Engineers' Day for his contributions."
+    },
+    {
+      "id": "kp-031",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Badami Chalukya ruler Pulakeshin II is remembered for defeating which northern emperor on the Narmada?",
+      "options": [
+        "Harshavardhana",
+        "Chandragupta II",
+        "Kanishka",
+        "Samudragupta"
+      ],
+      "answer": 0,
+      "explanation": "Pulakeshin II checked Harshavardhana's southward advance at the Narmada, an event recorded in the Aihole inscription. Harsha's expansion stopped there.",
+      "source": "https://en.wikipedia.org/wiki/Pulakeshin_II"
+    },
+    {
+      "id": "kp-032",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Aihole inscription, praising Pulakeshin II, was composed by which court poet?",
+      "options": [
+        "Ravikirti",
+        "Pampa",
+        "Ranna",
+        "Harisena"
+      ],
+      "answer": 0,
+      "explanation": "Ravikirti composed the Aihole prashasti in Sanskrit. Harisena wrote the comparable Allahabad pillar inscription for Samudragupta, and Pampa and Ranna were later Kannada poets.",
+      "source": "https://en.wikipedia.org/wiki/Aihole_inscription"
+    },
+    {
+      "id": "kp-033",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Rashtrakuta dynasty ruled from which capital?",
+      "options": [
+        "Manyakheta",
+        "Badami",
+        "Dwarasamudra",
+        "Hampi"
+      ],
+      "answer": 0,
+      "explanation": "The Rashtrakutas ruled from Manyakheta, modern Malkhed in Kalaburagi district. Badami was the Chalukya capital, Dwarasamudra the Hoysala one and Hampi the Vijayanagara one.",
+      "source": "https://en.wikipedia.org/wiki/Rashtrakuta_dynasty"
+    },
+    {
+      "id": "kp-034",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Kailasa temple at Ellora, carved from a single rock, was built under which dynasty of Karnataka origin?",
+      "options": [
+        "Rashtrakuta",
+        "Hoysala",
+        "Kadamba",
+        "Ganga"
+      ],
+      "answer": 0,
+      "explanation": "The Rashtrakuta king Krishna I commissioned the monolithic Kailasa temple at Ellora. The Hoysalas built in soapstone much later and further south.",
+      "source": "https://en.wikipedia.org/wiki/Kailasa_Temple,_Ellora"
+    },
+    {
+      "id": "kp-035",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Kadamba dynasty, among the earliest to rule from Karnataka, had its capital at",
+      "options": [
+        "Banavasi",
+        "Talakadu",
+        "Halebidu",
+        "Srirangapatna"
+      ],
+      "answer": 0,
+      "explanation": "Banavasi in Uttara Kannada was the Kadamba capital, founded by Mayurasharma. Talakadu was a Western Ganga centre and Halebidu the Hoysala capital.",
+      "source": "https://en.wikipedia.org/wiki/Kadamba_dynasty"
+    },
+    {
+      "id": "kp-036",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The colossal Gommateshwara statue at Shravanabelagola was commissioned by",
+      "options": [
+        "Chavundaraya",
+        "Mayurasharma",
+        "Vishnuvardhana",
+        "Krishnadevaraya"
+      ],
+      "answer": 0,
+      "explanation": "Chavundaraya, a Western Ganga minister and commander, had the monolith of Bahubali carved around 981 CE. Vishnuvardhana was a later Hoysala king.",
+      "source": "https://en.wikipedia.org/wiki/Gommateshwara_statue"
+    },
+    {
+      "id": "kp-037",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Krishnadevaraya, the best-known Vijayanagara emperor, belonged to which dynasty?",
+      "options": [
+        "Tuluva",
+        "Sangama",
+        "Saluva",
+        "Aravidu"
+      ],
+      "answer": 0,
+      "explanation": "Krishnadevaraya belonged to the Tuluva dynasty, the third of the four Vijayanagara lines. Sangama was the founding dynasty and Aravidu the last.",
+      "source": "https://en.wikipedia.org/wiki/Krishnadevaraya"
+    },
+    {
+      "id": "kp-038",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Battle of Talikota in 1565, which broke Vijayanagara power, was fought against",
+      "options": [
+        "A confederacy of Deccan Sultanates",
+        "The Mughals under Akbar",
+        "The Portuguese",
+        "The Marathas"
+      ],
+      "answer": 0,
+      "explanation": "An alliance of the Deccan Sultanates defeated Vijayanagara at Talikota, after which Hampi was sacked. The Mughals had not yet reached the Deccan in force.",
+      "source": "https://en.wikipedia.org/wiki/Battle_of_Talikota"
+    },
+    {
+      "id": "kp-039",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Hyder Ali rose to power in Mysore as a commander under which ruling house?",
+      "options": [
+        "The Wadiyars",
+        "The Nayakas of Keladi",
+        "The Adil Shahis",
+        "The Hoysalas"
+      ],
+      "answer": 0,
+      "explanation": "Hyder Ali served the Wadiyar rulers of Mysore before taking effective control of the kingdom. His son Tipu Sultan succeeded him.",
+      "source": "https://en.wikipedia.org/wiki/Hyder_Ali"
+    },
+    {
+      "id": "kp-040",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Onake Obavva is remembered for defending which fort against Hyder Ali's forces?",
+      "options": [
+        "Chitradurga",
+        "Bidar",
+        "Srirangapatna",
+        "Bellary"
+      ],
+      "answer": 0,
+      "explanation": "Onake Obavva defended a narrow opening in the Chitradurga fort wall using a pestle. The fort is known for its seven concentric walls.",
+      "source": "https://en.wikipedia.org/wiki/Onake_Obavva"
+    },
+    {
+      "id": "kp-041",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Keladi or Nayaka rulers of Ikkeri are associated with which region of Karnataka?",
+      "options": [
+        "Malnad and the coast",
+        "The northern plains",
+        "The Kolar gold belt",
+        "The Raichur doab"
+      ],
+      "answer": 0,
+      "explanation": "The Keladi Nayakas ruled the Malnad and coastal tract from Ikkeri and later Bidnur. Queen Chennamma of Keladi famously sheltered Rajaram from the Mughals.",
+      "source": "https://en.wikipedia.org/wiki/Keladi_Nayaka"
+    },
+    {
+      "id": "kp-042",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Ekikarana movement in Karnataka campaigned for what?",
+      "options": [
+        "Unification of Kannada-speaking areas into one state",
+        "Abolition of the zamindari system",
+        "Separate electorates",
+        "Nationalisation of the gold mines"
+      ],
+      "answer": 0,
+      "explanation": "Ekikarana was the movement to bring Kannada-speaking regions, then scattered across several administrations, into a single state, achieved in 1956.",
+      "source": "https://en.wikipedia.org/wiki/Unification_of_Karnataka"
+    },
+    {
+      "id": "kp-043",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which is the largest river basin in Karnataka by area within the state?",
+      "options": [
+        "Krishna",
+        "Kaveri",
+        "Godavari",
+        "Sharavathi"
+      ],
+      "answer": 0,
+      "explanation": "The Krishna basin covers the largest share of Karnataka, draining the northern districts. The Kaveri basin dominates the south.",
+      "source": "https://en.wikipedia.org/wiki/Krishna_River"
+    },
+    {
+      "id": "kp-044",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Tungabhadra river is formed by the confluence of the Tunga and Bhadra near which town?",
+      "options": [
+        "Koodli",
+        "Srirangapatna",
+        "Talakadu",
+        "Sringeri"
+      ],
+      "answer": 0,
+      "explanation": "The Tunga and Bhadra meet at Koodli in Shivamogga district to form the Tungabhadra, a major tributary of the Krishna.",
+      "source": "https://en.wikipedia.org/wiki/Tungabhadra_River"
+    },
+    {
+      "id": "kp-045",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Which Karnataka region is known as the Malnad?",
+      "options": [
+        "The hilly Western Ghats belt",
+        "The dry northern plains",
+        "The coastal strip",
+        "The Kolar plateau"
+      ],
+      "answer": 0,
+      "explanation": "Malnad means hill country and refers to the Western Ghats belt of high rainfall and dense forest. The coastal strip is Karavali and the interior plateau Bayaluseeme.",
+      "source": "https://en.wikipedia.org/wiki/Malenadu"
+    },
+    {
+      "id": "kp-046",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Karnataka's coastal region is commonly known as",
+      "options": [
+        "Karavali",
+        "Malnad",
+        "Bayaluseeme",
+        "Doab"
+      ],
+      "answer": 0,
+      "explanation": "Karavali is the coastal belt covering Uttara Kannada, Udupi and Dakshina Kannada. Malnad is the hill country inland of it.",
+      "source": "https://en.wikipedia.org/wiki/Canara"
+    },
+    {
+      "id": "kp-047",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Kolar region of Karnataka was historically famous for mining which mineral?",
+      "options": [
+        "Gold",
+        "Iron ore",
+        "Coal",
+        "Bauxite"
+      ],
+      "answer": 0,
+      "explanation": "The Kolar Gold Fields were among the deepest gold mines in the world before closing in 2001. Ballari and Chitradurga are the iron ore districts instead.",
+      "source": "https://en.wikipedia.org/wiki/Kolar_Gold_Fields"
+    },
+    {
+      "id": "kp-048",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "The Sharavathi river drains into which body of water?",
+      "options": [
+        "The Arabian Sea",
+        "The Bay of Bengal",
+        "The Krishna river",
+        "The Kaveri river"
+      ],
+      "answer": 0,
+      "explanation": "The Sharavathi is a west-flowing river reaching the Arabian Sea near Honnavar, plunging over Jog Falls on the way. The Kaveri and Krishna flow east.",
+      "source": "https://en.wikipedia.org/wiki/Sharavathi"
+    },
+    {
+      "id": "kp-049",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Bandipur National Park, a tiger reserve in Karnataka, lies in which district?",
+      "options": [
+        "Chamarajanagar",
+        "Kodagu",
+        "Hassan",
+        "Shivamogga"
+      ],
+      "answer": 0,
+      "explanation": "Bandipur lies in Chamarajanagar district, adjoining Nagarhole in Karnataka and Mudumalai in Tamil Nadu as part of the Nilgiri Biosphere Reserve.",
+      "source": "https://en.wikipedia.org/wiki/Bandipur_National_Park"
+    },
+    {
+      "id": "kp-050",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which Karnataka district is the leading producer of iron ore?",
+      "options": [
+        "Ballari",
+        "Udupi",
+        "Kodagu",
+        "Mandya"
+      ],
+      "answer": 0,
+      "explanation": "Ballari is Karnataka's principal iron ore district, with Chitradurga and Tumakuru also significant. Kodagu and Mandya are agricultural districts.",
+      "source": "https://en.wikipedia.org/wiki/Bellary_district"
+    },
+    {
+      "id": "kp-051",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "The Deccan plateau region of northern Karnataka is drained mainly by which two rivers?",
+      "options": [
+        "Krishna and Bhima",
+        "Kaveri and Kabini",
+        "Sharavathi and Kali",
+        "Netravati and Gurupura"
+      ],
+      "answer": 0,
+      "explanation": "The Krishna and its tributary the Bhima drain the northern Karnataka plateau. The Netravati and Gurupura are short coastal rivers near Mangaluru.",
+      "source": "https://en.wikipedia.org/wiki/Bhima_River"
+    },
+    {
+      "id": "kp-052",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Who is the constitutional head of the state of Karnataka?",
+      "options": [
+        "The Governor",
+        "The Chief Minister",
+        "The Chief Justice of the High Court",
+        "The Speaker"
+      ],
+      "answer": 0,
+      "explanation": "The Governor is the constitutional head of a state, appointed by the President, while the Chief Minister heads the elected government and exercises real executive power.",
+      "source": "https://en.wikipedia.org/wiki/Governor_(India)"
+    },
+    {
+      "id": "kp-053",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The High Court of Karnataka has its principal seat at which city?",
+      "options": [
+        "Bengaluru",
+        "Mysuru",
+        "Dharwad",
+        "Kalaburagi"
+      ],
+      "answer": 0,
+      "explanation": "The principal seat is at Bengaluru, with permanent benches at Dharwad and Kalaburagi to serve the northern districts.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka_High_Court"
+    },
+    {
+      "id": "kp-054",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "How many seats does Karnataka have in the Lok Sabha?",
+      "options": [
+        "28",
+        "20",
+        "38",
+        "12"
+      ],
+      "answer": 0,
+      "explanation": "Karnataka elects 28 members to the Lok Sabha and has 12 Rajya Sabha seats, reflecting its population share.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka"
+    },
+    {
+      "id": "kp-055",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Karnataka Lokayukta is an institution established to investigate",
+      "options": [
+        "Corruption and maladministration by public servants",
+        "Election disputes",
+        "Land acquisition appeals",
+        "Inter-state water disputes"
+      ],
+      "answer": 0,
+      "explanation": "The Lokayukta inquires into allegations of corruption and maladministration against public servants. Water disputes go to tribunals constituted under central law.",
+      "source": "https://en.wikipedia.org/wiki/Lokayukta"
+    },
+    {
+      "id": "kp-056",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "The Kaveri water dispute primarily involves Karnataka and which other state?",
+      "options": [
+        "Tamil Nadu",
+        "Andhra Pradesh",
+        "Maharashtra",
+        "Goa"
+      ],
+      "answer": 0,
+      "explanation": "The long-running Kaveri dispute is chiefly between Karnataka and Tamil Nadu, with Kerala and Puducherry also parties. The Krishna dispute involves Maharashtra and Andhra Pradesh instead.",
+      "source": "https://en.wikipedia.org/wiki/Kaveri_River_water_dispute"
+    },
+    {
+      "id": "kp-057",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Yakshagana, a traditional dance-drama, belongs chiefly to which part of Karnataka?",
+      "options": [
+        "The coastal and Malnad districts",
+        "The Kalyana-Karnataka region",
+        "The Bengaluru plateau",
+        "The Raichur doab"
+      ],
+      "answer": 0,
+      "explanation": "Yakshagana is performed mainly in the coastal and Malnad districts, combining dance, music and elaborate costume to tell epic stories.",
+      "source": "https://en.wikipedia.org/wiki/Yakshagana"
+    },
+    {
+      "id": "kp-058",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "hard",
+      "question": "The Vachana literary tradition of Kannada is associated with which twelfth-century reform movement?",
+      "options": [
+        "The Lingayat or Veerashaiva movement",
+        "The Bhakti movement of Bengal",
+        "Jainism under the Gangas",
+        "The Sufi silsilas"
+      ],
+      "answer": 0,
+      "explanation": "Vachanas are terse prose-poems by Basavanna and other sharanas of the Lingayat movement, rejecting caste and ritual. They are a landmark of Kannada literature.",
+      "source": "https://en.wikipedia.org/wiki/Vachana_sahitya"
+    },
+    {
+      "id": "kp-059",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Basavanna, the social reformer and Vachana poet, served as a minister in whose court?",
+      "options": [
+        "Bijjala of the Kalachuris",
+        "Krishnadevaraya",
+        "Vishnuvardhana",
+        "Tipu Sultan"
+      ],
+      "answer": 0,
+      "explanation": "Basavanna was a minister in the court of the Kalachuri king Bijjala at Kalyana. Vishnuvardhana was an earlier Hoysala ruler.",
+      "source": "https://en.wikipedia.org/wiki/Basava"
+    },
+    {
+      "id": "kp-060",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "How many Kannada writers have received the Jnanpith Award, the highest literary honour in India?",
+      "options": [
+        "Eight",
+        "Three",
+        "Five",
+        "Twelve"
+      ],
+      "answer": 0,
+      "explanation": "Kannada has eight Jnanpith laureates, the joint highest for any Indian language, beginning with K. V. Puttappa and including Masti, Bendre and U. R. Ananthamurthy.",
+      "source": "https://en.wikipedia.org/wiki/Jnanpith_Award"
+    },
+    {
+      "id": "kp-061",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "hard",
+      "question": "Purandara Dasa, born in Karnataka, is revered as the father of which musical tradition?",
+      "options": [
+        "Carnatic music",
+        "Hindustani music",
+        "Yakshagana music",
+        "Dhrupad"
+      ],
+      "answer": 0,
+      "explanation": "Purandara Dasa systematised the teaching of Carnatic music and is called its Pitamaha. He composed extensively in Kannada as part of the Haridasa movement.",
+      "source": "https://en.wikipedia.org/wiki/Purandara_Dasa"
+    },
+    {
+      "id": "kp-062",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Bhimsen Joshi, the Hindustani vocalist born in Karnataka, belonged to which gharana?",
+      "options": [
+        "Kirana",
+        "Gwalior",
+        "Jaipur",
+        "Agra"
+      ],
+      "answer": 0,
+      "explanation": "Bhimsen Joshi was the foremost exponent of the Kirana gharana and received the Bharat Ratna in 2008.",
+      "source": "https://en.wikipedia.org/wiki/Bhimsen_Joshi"
+    },
+    {
+      "id": "kp-063",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Bengaluru is known as the Silicon Valley of India chiefly because of which industry?",
+      "options": [
+        "Information technology",
+        "Textiles",
+        "Shipbuilding",
+        "Petrochemicals"
+      ],
+      "answer": 0,
+      "explanation": "Bengaluru is India's largest IT export centre, hosting software and services firms alongside aerospace and defence research establishments.",
+      "source": "https://en.wikipedia.org/wiki/Bangalore"
+    },
+    {
+      "id": "kp-064",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which crop is Karnataka the largest producer of in India?",
+      "options": [
+        "Coffee",
+        "Wheat",
+        "Jute",
+        "Tea"
+      ],
+      "answer": 0,
+      "explanation": "Karnataka produces the bulk of India's coffee, centred on Kodagu, Chikkamagaluru and Hassan. Wheat and jute belong to the northern and eastern states.",
+      "source": "https://en.wikipedia.org/wiki/Coffee_production_in_India"
+    },
+    {
+      "id": "kp-065",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "hard",
+      "question": "Karnataka is India's leading producer of which mineral used in the aerospace industry?",
+      "options": [
+        "Gold",
+        "Coal",
+        "Petroleum",
+        "Uranium"
+      ],
+      "answer": 0,
+      "explanation": "Karnataka leads India in gold production, with Hutti in Raichur district the main working mine. India has no significant petroleum output from the state.",
+      "source": "https://en.wikipedia.org/wiki/Hutti_Gold_Mines"
+    },
+    {
+      "id": "kp-066",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Hindustan Aeronautics Limited, India's main aircraft manufacturer, is headquartered in which city?",
+      "options": [
+        "Bengaluru",
+        "Hyderabad",
+        "Nashik",
+        "Kanpur"
+      ],
+      "answer": 0,
+      "explanation": "HAL is headquartered at Bengaluru, though it operates divisions at Nashik, Kanpur and elsewhere.",
+      "source": "https://en.wikipedia.org/wiki/Hindustan_Aeronautics_Limited"
+    },
+    {
+      "id": "kp-067",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Nagarhole National Park is also known by which name?",
+      "options": [
+        "Rajiv Gandhi National Park",
+        "Anshi National Park",
+        "Bannerghatta National Park",
+        "Kudremukh National Park"
+      ],
+      "answer": 0,
+      "explanation": "Nagarhole is officially the Rajiv Gandhi National Park, part of the Nilgiri Biosphere Reserve alongside Bandipur.",
+      "source": "https://en.wikipedia.org/wiki/Nagarhole_National_Park"
+    },
+    {
+      "id": "kp-068",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "hard",
+      "question": "What is the state animal of Karnataka?",
+      "options": [
+        "Indian elephant",
+        "Bengal tiger",
+        "Indian bison",
+        "Sloth bear"
+      ],
+      "answer": 0,
+      "explanation": "The Indian elephant is the state animal and the Indian roller the state bird. Karnataka holds one of India's largest wild elephant populations.",
+      "source": "https://en.wikipedia.org/wiki/Indian_elephant"
+    },
+    {
+      "id": "kp-069",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Ranganathittu, a well-known bird sanctuary in Karnataka, lies on which river?",
+      "options": [
+        "Kaveri",
+        "Krishna",
+        "Sharavathi",
+        "Tungabhadra"
+      ],
+      "answer": 0,
+      "explanation": "Ranganathittu Bird Sanctuary sits on islets in the Kaveri near Srirangapatna in Mandya district.",
+      "source": "https://en.wikipedia.org/wiki/Ranganathittu_Bird_Sanctuary"
+    },
+    {
+      "id": "kp-070",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "The Western Ghats were inscribed as a UNESCO World Heritage Site primarily for which value?",
+      "options": [
+        "Biodiversity",
+        "Industrial heritage",
+        "Colonial architecture",
+        "Mineral wealth"
+      ],
+      "answer": 0,
+      "explanation": "The Western Ghats were listed for their exceptional biodiversity and high levels of endemism, being one of the world's recognised hotspots.",
+      "source": "https://en.wikipedia.org/wiki/Western_Ghats"
+    }
+  ]
+}

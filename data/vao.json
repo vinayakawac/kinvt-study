@@ -1,0 +1,710 @@
+{
+  "name": "Village Administrative Officer (KEA)",
+  "description": "KEA Karnataka Village Administrative Officer (RPC) — Karnataka general knowledge, land revenue administration, general English and computer knowledge.",
+  "questions": [
+    {
+      "id": "va-001",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "easy",
+      "question": "Which Act is the principal law governing land revenue administration in Karnataka?",
+      "options": [
+        "The Karnataka Land Revenue Act, 1964",
+        "The Karnataka Land Reforms Act, 1961",
+        "The Transfer of Property Act, 1882",
+        "The Registration Act, 1908"
+      ],
+      "answer": 0,
+      "explanation": "The Karnataka Land Revenue Act of 1964 governs revenue administration, survey, records of rights and the revenue hierarchy. The Land Reforms Act of 1961 deals separately with tenancy and ceiling on holdings.",
+      "source": "https://en.wikipedia.org/wiki/Land_revenue_in_India"
+    },
+    {
+      "id": "va-002",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "In Karnataka, the document commonly called the RTC or Pahani is a record of",
+      "options": [
+        "Rights, tenancy and crops of a land parcel",
+        "Birth and death registrations",
+        "Municipal property tax paid",
+        "Caste and income of a family"
+      ],
+      "answer": 0,
+      "explanation": "RTC stands for Record of Rights, Tenancy and Crops and shows ownership, extent, tenancy and the crops grown on a survey number. It is issued by the revenue department, not a municipal or civil registration body.",
+      "source": "https://en.wikipedia.org/wiki/Record_of_Rights"
+    },
+    {
+      "id": "va-003",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Karnataka's programme to computerise land records, making RTCs available digitally, is known as",
+      "options": [
+        "Bhoomi",
+        "Nemmadi",
+        "Sakala",
+        "Kaveri"
+      ],
+      "answer": 0,
+      "explanation": "Bhoomi computerised Karnataka's land records and was among the earliest such projects in India. Sakala guarantees time-bound delivery of services and Kaveri handles property registration.",
+      "source": "https://en.wikipedia.org/wiki/Bhoomi_(software)"
+    },
+    {
+      "id": "va-004",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "The process of recording a change of ownership in the record of rights after a sale or inheritance is called",
+      "options": [
+        "Mutation",
+        "Partition",
+        "Attestation",
+        "Assessment"
+      ],
+      "answer": 0,
+      "explanation": "Mutation, or khata change, updates the record of rights to reflect a new owner. Partition divides a holding among co-owners and assessment fixes the revenue payable on it.",
+      "source": "https://en.wikipedia.org/wiki/Mutation_(land_records)"
+    },
+    {
+      "id": "va-005",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Which officer heads the revenue administration of a district in Karnataka?",
+      "options": [
+        "The Deputy Commissioner",
+        "The Tahsildar",
+        "The Revenue Inspector",
+        "The Assistant Commissioner"
+      ],
+      "answer": 0,
+      "explanation": "The Deputy Commissioner, who is also the District Magistrate, heads district revenue administration. The Assistant Commissioner heads a sub-division and the Tahsildar a taluk below that.",
+      "source": "https://en.wikipedia.org/wiki/District_magistrate"
+    },
+    {
+      "id": "va-006",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "In the Karnataka revenue hierarchy, which officer is in charge of a taluk?",
+      "options": [
+        "Tahsildar",
+        "Deputy Commissioner",
+        "Village Accountant",
+        "Divisional Commissioner"
+      ],
+      "answer": 0,
+      "explanation": "The Tahsildar heads a taluk and is the principal revenue officer at that level. The Village Accountant works at the village level and the Divisional Commissioner oversees several districts.",
+      "source": "https://en.wikipedia.org/wiki/Tehsildar"
+    },
+    {
+      "id": "va-007",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "The smallest unit of land for which a separate record is maintained in the revenue records is the",
+      "options": [
+        "Survey number",
+        "Taluk",
+        "Hobli",
+        "District"
+      ],
+      "answer": 0,
+      "explanation": "The survey number, further divided into hissa or sub-numbers, is the basic unit of land record. Hobli, taluk and district are progressively larger administrative divisions.",
+      "source": "https://en.wikipedia.org/wiki/Cadastre"
+    },
+    {
+      "id": "va-008",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "In Karnataka revenue terminology, a group of villages forming an administrative unit below the taluk is called a",
+      "options": [
+        "Hobli",
+        "Hissa",
+        "Podi",
+        "Tippan"
+      ],
+      "answer": 0,
+      "explanation": "A hobli is a cluster of villages within a taluk, historically supervised by a revenue inspector. Hissa is a sub-division of a survey number, podi the process of sub-dividing, and tippan the survey sketch.",
+      "source": "https://en.wikipedia.org/wiki/Hobli"
+    },
+    {
+      "id": "va-009",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Land classified in Karnataka revenue records as unassessed government waste land available for assignment is generally called",
+      "options": [
+        "Gomala or government land",
+        "Inam land",
+        "Patta land",
+        "Watan land"
+      ],
+      "answer": 0,
+      "explanation": "Gomala and similar categories are government land, often grazing land, held by the state. Patta land is privately held with title, while inam and watan were older grant tenures largely abolished after independence.",
+      "source": "https://en.wikipedia.org/wiki/Land_tenure"
+    },
+    {
+      "id": "va-010",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "In Karnataka land records, the sketch showing the boundaries and measurements of a survey number is known as the",
+      "options": [
+        "Tippan",
+        "Pahani",
+        "Khata",
+        "Akarband"
+      ],
+      "answer": 0,
+      "explanation": "The tippan is the field measurement sketch of a survey number. The pahani records rights and crops, the khata records the holder for tax purposes, and the akarband records assessment details.",
+      "source": "https://en.wikipedia.org/wiki/Cadastre"
+    },
+    {
+      "id": "va-011",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "easy",
+      "question": "What is the capital of Karnataka?",
+      "options": [
+        "Bengaluru",
+        "Mysuru",
+        "Hubballi",
+        "Kalaburagi"
+      ],
+      "answer": 0,
+      "explanation": "Bengaluru is the state capital and seat of the legislature. Mysuru was the capital of the princely state of Mysore before the seat shifted.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka"
+    },
+    {
+      "id": "va-012",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "The state of Mysore was renamed Karnataka in which year?",
+      "options": [
+        "1973",
+        "1956",
+        "1947",
+        "1985"
+      ],
+      "answer": 0,
+      "explanation": "The state was renamed Karnataka in 1973. It had been formed as the enlarged State of Mysore in 1956 under the States Reorganisation Act.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka"
+    },
+    {
+      "id": "va-013",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "How many revenue divisions does Karnataka have?",
+      "options": [
+        "Four",
+        "Two",
+        "Six",
+        "Eight"
+      ],
+      "answer": 0,
+      "explanation": "Karnataka has four revenue divisions: Bengaluru, Mysuru, Belagavi and Kalaburagi, each headed by a Divisional Commissioner overseeing several districts.",
+      "source": "https://en.wikipedia.org/wiki/List_of_districts_of_Karnataka"
+    },
+    {
+      "id": "va-014",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which river is the longest flowing through Karnataka and is central to its irrigation?",
+      "options": [
+        "Krishna",
+        "Kaveri",
+        "Tungabhadra",
+        "Sharavathi"
+      ],
+      "answer": 0,
+      "explanation": "The Krishna has the longest course through Karnataka and the largest basin in the state. The Kaveri is central to the southern districts, and the Tungabhadra is a tributary of the Krishna.",
+      "source": "https://en.wikipedia.org/wiki/Krishna_River"
+    },
+    {
+      "id": "va-015",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Jog Falls, one of India's highest waterfalls, is formed by which river?",
+      "options": [
+        "Sharavathi",
+        "Kaveri",
+        "Kali",
+        "Netravati"
+      ],
+      "answer": 0,
+      "explanation": "Jog Falls in Shivamogga district is formed by the Sharavathi river. The Kaveri forms Shivanasamudra falls, a different and lower cascade.",
+      "source": "https://en.wikipedia.org/wiki/Jog_Falls"
+    },
+    {
+      "id": "va-016",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "hard",
+      "question": "The Hampi group of monuments, a UNESCO World Heritage Site in Karnataka, was the capital of which empire?",
+      "options": [
+        "Vijayanagara",
+        "Hoysala",
+        "Chalukya",
+        "Rashtrakuta"
+      ],
+      "answer": 0,
+      "explanation": "Hampi was the capital of the Vijayanagara Empire. The Hoysalas ruled from Halebidu and Belur, the Badami Chalukyas from Badami, and the Rashtrakutas from Manyakheta.",
+      "source": "https://en.wikipedia.org/wiki/Hampi"
+    },
+    {
+      "id": "va-017",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which is the official language of Karnataka?",
+      "options": [
+        "Kannada",
+        "Telugu",
+        "Tulu",
+        "Konkani"
+      ],
+      "answer": 0,
+      "explanation": "Kannada is the official language of the state and one of the classical languages of India. Tulu and Konkani are spoken in coastal Karnataka but are not the official state language.",
+      "source": "https://en.wikipedia.org/wiki/Kannada"
+    },
+    {
+      "id": "va-018",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "hard",
+      "question": "The Hoysala temples at Belur and Halebidu are located in which district of Karnataka?",
+      "options": [
+        "Hassan",
+        "Mysuru",
+        "Tumakuru",
+        "Chikkamagaluru"
+      ],
+      "answer": 0,
+      "explanation": "Belur and Halebidu, the Hoysala capitals renowned for their soapstone carving, are both in Hassan district.",
+      "source": "https://en.wikipedia.org/wiki/Hoysala_architecture"
+    },
+    {
+      "id": "va-019",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka city is known as the coffee capital of India for the trade centred on it?",
+      "options": [
+        "Chikkamagaluru",
+        "Belagavi",
+        "Ballari",
+        "Raichur"
+      ],
+      "answer": 0,
+      "explanation": "Chikkamagaluru is where coffee cultivation in India began and remains the centre of the growing region. Belagavi, Ballari and Raichur are not coffee districts.",
+      "source": "https://en.wikipedia.org/wiki/Chikkamagaluru"
+    },
+    {
+      "id": "va-020",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "hard",
+      "question": "The Karnataka legislature is bicameral, with the upper house called the",
+      "options": [
+        "Vidhana Parishat",
+        "Vidhana Sabha",
+        "Rajya Sabha",
+        "Lok Sabha"
+      ],
+      "answer": 0,
+      "explanation": "The Vidhana Parishat is Karnataka's Legislative Council, the permanent upper house. The Vidhana Sabha is the directly elected lower house, while the Rajya Sabha and Lok Sabha are the houses of Parliament.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka_Legislative_Council"
+    },
+    {
+      "id": "va-021",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Panchayati raj institutions were given constitutional status by which amendment?",
+      "options": [
+        "73rd Amendment",
+        "74th Amendment",
+        "42nd Amendment",
+        "61st Amendment"
+      ],
+      "answer": 0,
+      "explanation": "The 73rd Amendment of 1992 gave constitutional status to panchayats. The 74th did the same for urban local bodies, and the 61st lowered the voting age.",
+      "source": "https://en.wikipedia.org/wiki/73rd_Amendment_of_the_Constitution_of_India"
+    },
+    {
+      "id": "va-022",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "In the three-tier panchayati raj system, which body operates at the village level?",
+      "options": [
+        "Gram Panchayat",
+        "Taluk Panchayat",
+        "Zilla Panchayat",
+        "Municipal Corporation"
+      ],
+      "answer": 0,
+      "explanation": "The Gram Panchayat is the village-level tier, with the Taluk Panchayat at the intermediate level and the Zilla Panchayat at the district level. Municipal corporations govern urban areas instead.",
+      "source": "https://en.wikipedia.org/wiki/Panchayati_raj_in_India"
+    },
+    {
+      "id": "va-023",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Gram Sabha in a panchayati raj system consists of",
+      "options": [
+        "All registered voters of the village",
+        "Only elected panchayat members",
+        "Government officials of the taluk",
+        "Landowners of the village"
+      ],
+      "answer": 0,
+      "explanation": "The Gram Sabha is the assembly of all registered voters in the panchayat area, making it the primary body of direct democracy. The Gram Panchayat is the smaller elected body answerable to it.",
+      "source": "https://en.wikipedia.org/wiki/Gram_sabha"
+    },
+    {
+      "id": "va-024",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Which constitutional body conducts elections to state legislative assemblies in India?",
+      "options": [
+        "The Election Commission of India",
+        "The State Election Commission",
+        "The Union Public Service Commission",
+        "The Finance Commission"
+      ],
+      "answer": 0,
+      "explanation": "The Election Commission of India conducts elections to Parliament and the state legislatures. State Election Commissions handle panchayat and municipal elections only.",
+      "source": "https://en.wikipedia.org/wiki/Election_Commission_of_India"
+    },
+    {
+      "id": "va-025",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "The Right to Information Act came into force in India in which year?",
+      "options": [
+        "2005",
+        "2002",
+        "2009",
+        "1998"
+      ],
+      "answer": 0,
+      "explanation": "The Right to Information Act was enacted in 2005, replacing the earlier Freedom of Information Act of 2002 which had never been brought fully into force.",
+      "source": "https://en.wikipedia.org/wiki/Right_to_Information_Act,_2005"
+    },
+    {
+      "id": "va-026",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Which ruler of Mysore fought the Anglo-Mysore Wars and died defending Srirangapatna in 1799?",
+      "options": [
+        "Tipu Sultan",
+        "Hyder Ali",
+        "Krishnaraja Wadiyar III",
+        "Chikka Devaraja Wadiyar"
+      ],
+      "answer": 0,
+      "explanation": "Tipu Sultan died in 1799 during the fall of Srirangapatna in the Fourth Anglo-Mysore War. His father Hyder Ali had died earlier, in 1782, during the second war.",
+      "source": "https://en.wikipedia.org/wiki/Tipu_Sultan"
+    },
+    {
+      "id": "va-027",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Kittur Rani Chennamma is remembered for leading an armed resistance against the British in which year?",
+      "options": [
+        "1824",
+        "1857",
+        "1857 at Jhansi",
+        "1799"
+      ],
+      "answer": 0,
+      "explanation": "Chennamma of Kittur resisted the British in 1824, decades before the revolt of 1857, after they refused to recognise her adopted heir under the doctrine of lapse.",
+      "source": "https://en.wikipedia.org/wiki/Kittur_Chennamma"
+    },
+    {
+      "id": "va-028",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Badami Chalukyas ruled from Badami in which present-day Karnataka district?",
+      "options": [
+        "Bagalkot",
+        "Vijayapura",
+        "Dharwad",
+        "Koppal"
+      ],
+      "answer": 0,
+      "explanation": "Badami, the Chalukya capital famed for its rock-cut cave temples, is in Bagalkot district. Vijayapura is known instead for the Adil Shahi monuments such as the Gol Gumbaz.",
+      "source": "https://en.wikipedia.org/wiki/Chalukya_dynasty"
+    },
+    {
+      "id": "va-029",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which two states border Karnataka to the north?",
+      "options": [
+        "Maharashtra and Goa",
+        "Telangana and Andhra Pradesh",
+        "Kerala and Tamil Nadu",
+        "Odisha and Chhattisgarh"
+      ],
+      "answer": 0,
+      "explanation": "Goa and Maharashtra lie to the north and north-west of Karnataka. Telangana and Andhra Pradesh are to the east, and Kerala and Tamil Nadu to the south.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka"
+    },
+    {
+      "id": "va-030",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The black cotton soil found in northern Karnataka is formed from the weathering of",
+      "options": [
+        "Basalt lava",
+        "Granite",
+        "Limestone",
+        "Sandstone"
+      ],
+      "answer": 0,
+      "explanation": "Black or regur soil forms from weathered Deccan trap basalt and retains moisture well, which suits cotton. Red soils in Karnataka derive largely from granite and gneiss instead.",
+      "source": "https://en.wikipedia.org/wiki/Vertisol"
+    },
+    {
+      "id": "va-031",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Which Karnataka district receives the highest rainfall, lying in the Western Ghats belt?",
+      "options": [
+        "Udupi and Dakshina Kannada coastal belt",
+        "Ballari",
+        "Raichur",
+        "Kalaburagi"
+      ],
+      "answer": 0,
+      "explanation": "The coastal and Malnad belt including Udupi, Dakshina Kannada, Uttara Kannada and Kodagu gets the heaviest monsoon rainfall. Ballari, Raichur and Kalaburagi lie in the dry northern plains.",
+      "source": "https://en.wikipedia.org/wiki/Geography_of_Karnataka"
+    },
+    {
+      "id": "va-032",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "easy",
+      "question": "Which of these is an input device?",
+      "options": [
+        "Keyboard",
+        "Monitor",
+        "Printer",
+        "Speaker"
+      ],
+      "answer": 0,
+      "explanation": "A keyboard sends data into the computer, making it an input device. Monitors, printers and speakers all present output to the user.",
+      "source": "https://en.wikipedia.org/wiki/Input_device"
+    },
+    {
+      "id": "va-033",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "easy",
+      "question": "What does CPU stand for?",
+      "options": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Program Utility",
+        "Control Panel Unit"
+      ],
+      "answer": 0,
+      "explanation": "CPU stands for Central Processing Unit, the component that executes instructions. It is often called the brain of the computer.",
+      "source": "https://en.wikipedia.org/wiki/Central_processing_unit"
+    },
+    {
+      "id": "va-034",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "In a spreadsheet program, which symbol usually begins a formula?",
+      "options": [
+        "=",
+        "#",
+        "@",
+        "&"
+      ],
+      "answer": 0,
+      "explanation": "A formula in spreadsheets such as Excel or Calc begins with an equals sign, which tells the program to compute rather than store literal text.",
+      "source": "https://en.wikipedia.org/wiki/Spreadsheet"
+    },
+    {
+      "id": "va-035",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "Which file extension normally indicates a portable document that preserves formatting across devices?",
+      "options": [
+        ".pdf",
+        ".txt",
+        ".exe",
+        ".zip"
+      ],
+      "answer": 0,
+      "explanation": "PDF, the Portable Document Format, preserves layout and fonts across systems. TXT holds plain text with no formatting, EXE is an executable, and ZIP an archive.",
+      "source": "https://en.wikipedia.org/wiki/PDF"
+    },
+    {
+      "id": "va-036",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "In an email, the BCC field is used to",
+      "options": [
+        "Send a copy without other recipients seeing that address",
+        "Mark the message as urgent",
+        "Attach a file",
+        "Reply to all recipients"
+      ],
+      "answer": 0,
+      "explanation": "BCC stands for blind carbon copy, so those addresses are hidden from all other recipients. CC recipients are visible to everyone on the message.",
+      "source": "https://en.wikipedia.org/wiki/Blind_carbon_copy"
+    },
+    {
+      "id": "va-037",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "hard",
+      "question": "What does the abbreviation URL stand for?",
+      "options": [
+        "Uniform Resource Locator",
+        "Universal Reference Link",
+        "Unified Retrieval Language",
+        "User Registered Location"
+      ],
+      "answer": 0,
+      "explanation": "A Uniform Resource Locator is the address identifying a resource on the web, such as a page or file.",
+      "source": "https://en.wikipedia.org/wiki/URL"
+    },
+    {
+      "id": "va-038",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "easy",
+      "question": "Choose the correctly spelt word.",
+      "options": [
+        "Accommodation",
+        "Acomodation",
+        "Accomodation",
+        "Acommodation"
+      ],
+      "answer": 0,
+      "explanation": "Accommodation takes a double c and a double m. The other spellings each drop one of those doubled letters.",
+      "source": "https://en.wikipedia.org/wiki/English_orthography"
+    },
+    {
+      "id": "va-039",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Identify the synonym of the word 'diligent'.",
+      "options": [
+        "Hardworking",
+        "Careless",
+        "Hesitant",
+        "Wealthy"
+      ],
+      "answer": 0,
+      "explanation": "Diligent means showing persistent and careful effort, so hardworking is the closest synonym. Careless is its opposite.",
+      "source": "https://en.wikipedia.org/wiki/Synonym"
+    },
+    {
+      "id": "va-040",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Choose the correct passive form: 'The clerk verified the records.'",
+      "options": [
+        "The records were verified by the clerk",
+        "The records are verifying by the clerk",
+        "The clerk was verified the records",
+        "The records have verify by the clerk"
+      ],
+      "answer": 0,
+      "explanation": "A simple past active sentence becomes the passive with 'was' or 'were' plus the past participle, giving 'were verified by the clerk' for a plural subject.",
+      "source": "https://en.wikipedia.org/wiki/English_passive_voice"
+    },
+    {
+      "id": "va-041",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Fill in the blank: 'He has been working here ____ 2015.'",
+      "options": [
+        "since",
+        "for",
+        "from",
+        "during"
+      ],
+      "answer": 0,
+      "explanation": "'Since' is used with a point in time such as a year, while 'for' is used with a duration such as ten years. 'From' needs a matching 'to' in this construction.",
+      "source": "https://en.wikipedia.org/wiki/English_prepositions"
+    },
+    {
+      "id": "va-042",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "hard",
+      "question": "What is the antonym of 'scarce'?",
+      "options": [
+        "Abundant",
+        "Rare",
+        "Limited",
+        "Meagre"
+      ],
+      "answer": 0,
+      "explanation": "Scarce means in short supply, so abundant is its opposite. Rare, limited and meagre are all near-synonyms of scarce rather than antonyms.",
+      "source": "https://en.wikipedia.org/wiki/Opposite_(semantics)"
+    },
+    {
+      "id": "va-043",
+      "category": "vao",
+      "topic": "Current Affairs",
+      "difficulty": "medium",
+      "question": "Which scheme guarantees a hundred days of wage employment in a financial year to rural households in India?",
+      "options": [
+        "MGNREGA",
+        "PM-KISAN",
+        "Ayushman Bharat",
+        "PMAY"
+      ],
+      "answer": 0,
+      "explanation": "MGNREGA guarantees a hundred days of unskilled wage employment per rural household each year. PM-KISAN gives income support to farmers, Ayushman Bharat health cover, and PMAY housing.",
+      "source": "https://en.wikipedia.org/wiki/Mahatma_Gandhi_National_Rural_Employment_Guarantee_Act,_2005"
+    },
+    {
+      "id": "va-044",
+      "category": "vao",
+      "topic": "Current Affairs",
+      "difficulty": "medium",
+      "question": "Karnataka's guarantee of time-bound delivery of citizen services is provided under which Act?",
+      "options": [
+        "The Sakala Act",
+        "The RTI Act",
+        "The Bhoomi Act",
+        "The Kaveri Act"
+      ],
+      "answer": 0,
+      "explanation": "The Karnataka Sakala Services Act guarantees delivery of notified services within a stated time and provides compensation for delay. RTI covers access to information rather than service delivery.",
+      "source": "https://en.wikipedia.org/wiki/Sakala_(Karnataka)"
+    }
+  ]
+}

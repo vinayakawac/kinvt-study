@@ -1,0 +1,20 @@
+[
+  { "id": "upsc",              "label": "UPSC / Civil Services",  "icon": "landmark",  "group": "Exam Prep",  "blurb": "Prelims-style: polity · history · economy", "file": "data/upsc.json" },
+  { "id": "kpsc",              "label": "KPSC / KAS (Karnataka)",  "icon": "target",    "group": "Exam Prep",  "blurb": "Karnataka state focus: history · geography", "file": "data/kpsc.json" },
+  { "id": "ssc",               "label": "SSC CGL / CHSL",          "icon": "clipboard", "group": "Exam Prep",  "blurb": "Reasoning · quant · English", "file": "data/ssc.json" },
+  { "id": "banking",           "label": "Banking & Finance",       "icon": "briefcase", "group": "Exam Prep",  "blurb": "IBPS · SBI · RBI awareness", "file": "data/banking.json" },
+  { "id": "railways",          "label": "Railways (RRB)",          "icon": "train",     "group": "Exam Prep",  "blurb": "RRB NTPC · Group D", "file": "data/railways.json" },
+  { "id": "defence",           "label": "Defence (NDA / CDS)",     "icon": "shield",    "group": "Exam Prep",  "blurb": "NDA · CDS · AFCAT basics", "file": "data/defence.json" },
+  { "id": "land-surveyor",     "label": "Land Surveyor (KEA)",     "icon": "compass",   "group": "Exam Prep",  "blurb": "Survey methods · physics · maths · GK", "file": "data/land-surveyor.json" },
+  { "id": "vao",               "label": "Village Admin Officer",   "icon": "home",      "group": "Exam Prep",  "blurb": "Karnataka GK · revenue administration", "file": "data/vao.json" },
+  { "id": "general-knowledge", "label": "General Knowledge",       "icon": "globe",     "group": "Subjects",   "blurb": "Everyday GK · India & world", "file": "data/general-knowledge.json" },
+  { "id": "current-affairs",   "label": "Current Affairs 2025–26", "icon": "newspaper", "group": "Subjects",   "blurb": "Recent events · verified facts", "file": "data/current-affairs.json" },
+  { "id": "constitution-polity", "label": "Constitution & Polity", "icon": "scales",    "group": "Subjects",   "blurb": "Constitution · amendments · bodies", "file": "data/constitution-polity.json" },
+  { "id": "indian-history",    "label": "Indian History",          "icon": "scroll",    "group": "Subjects",   "blurb": "Ancient · medieval · modern", "file": "data/indian-history.json" },
+  { "id": "geography",         "label": "Geography",               "icon": "map",       "group": "Subjects",   "blurb": "India & world · physical geography", "file": "data/geography.json" },
+  { "id": "economy",           "label": "Economy",                 "icon": "rupee",     "group": "Subjects",   "blurb": "Basics · budget · institutions", "file": "data/economy.json" },
+  { "id": "science-tech",      "label": "Science & Technology",    "icon": "flask",     "group": "Subjects",   "blurb": "Physics · biology · space · IT", "file": "data/science-tech.json" },
+  { "id": "environment",       "label": "Environment & Ecology",   "icon": "leaf",      "group": "Subjects",   "blurb": "Ecology · conventions · parks", "file": "data/environment.json" },
+  { "id": "sports",            "label": "Sports",                  "icon": "medal",     "group": "Subjects",   "blurb": "Olympics · cricket · legends", "file": "data/sports.json" },
+  { "id": "karnataka-gk",      "label": "Karnataka GK",            "icon": "map-pin",   "group": "Subjects",   "blurb": "State culture · economy · people", "file": "data/karnataka-gk.json" }
+]

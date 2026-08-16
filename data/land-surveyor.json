@@ -1,0 +1,742 @@
+{
+  "name": "Land Surveyor (KEA)",
+  "description": "KEA/KPSC Karnataka Land Surveyor (RPC) — Paper-I general knowledge and Paper-II survey methods, physics, mathematics and computer applications.",
+  "questions": [
+    {
+      "id": "ls-001",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "easy",
+      "question": "A Gunter's chain used in land surveying is how long?",
+      "options": [
+        "66 feet",
+        "100 feet",
+        "33 feet",
+        "20 metres"
+      ],
+      "answer": 0,
+      "explanation": "Gunter's chain is 66 feet long and divided into 100 links, which makes 10 square chains exactly one acre. The engineer's chain is 100 feet, and metric chains are 20 or 30 metres.",
+      "source": "https://en.wikipedia.org/wiki/Gunter%27s_chain"
+    },
+    {
+      "id": "ls-002",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "If a chain used for measurement is too long, the measured length of a line will be",
+      "options": [
+        "Greater than the true length",
+        "Less than the true length",
+        "Equal to the true length",
+        "Unaffected by the chain length"
+      ],
+      "answer": 1,
+      "explanation": "A chain that is too long covers more ground per chain-length, so fewer chain-lengths are counted and the measured value comes out smaller than the truth. The true length is therefore greater, which is why the correction is added.",
+      "source": "https://en.wikipedia.org/wiki/Surveying"
+    },
+    {
+      "id": "ls-003",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "In chain surveying, the process of establishing intermediate points on a survey line is called",
+      "options": [
+        "Ranging",
+        "Offsetting",
+        "Traversing",
+        "Levelling"
+      ],
+      "answer": 0,
+      "explanation": "Ranging fixes intermediate points on the straight line between two stations so that the chain can be laid accurately. Offsetting measures lateral distances to detail from that line.",
+      "source": "https://en.wikipedia.org/wiki/Surveying"
+    },
+    {
+      "id": "ls-004",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "hard",
+      "question": "In a metric chain of 20 metres, how many links are there?",
+      "options": [
+        "80",
+        "100",
+        "150",
+        "200"
+      ],
+      "answer": 1,
+      "explanation": "A 20 metre metric chain has 100 links, so each link is 0.2 metre. The 30 metre metric chain has 150 links of the same 0.2 metre size.",
+      "source": "https://en.wikipedia.org/wiki/Surveying"
+    },
+    {
+      "id": "ls-005",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "Which offset is measured at right angles to the survey line?",
+      "options": [
+        "Oblique offset",
+        "Perpendicular offset",
+        "Tie line",
+        "Chainage"
+      ],
+      "answer": 1,
+      "explanation": "A perpendicular offset is taken at right angles to the chain line, usually with a cross staff or optical square. An oblique offset is taken at any other angle and needs two measurements to fix the point.",
+      "source": "https://en.wikipedia.org/wiki/Surveying"
+    },
+    {
+      "id": "ls-006",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "easy",
+      "question": "A prismatic compass is graduated from 0° to 360° in which system of bearings?",
+      "options": [
+        "Quadrantal bearing",
+        "Whole circle bearing",
+        "Reduced bearing",
+        "Magnetic declination"
+      ],
+      "answer": 1,
+      "explanation": "The prismatic compass reads whole circle bearings from 0° to 360° measured clockwise from north. The surveyor's compass instead reads quadrantal or reduced bearings from 0° to 90° in each quadrant.",
+      "source": "https://en.wikipedia.org/wiki/Compass_survey"
+    },
+    {
+      "id": "ls-007",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "medium",
+      "question": "The horizontal angle between the true meridian and the magnetic meridian is called",
+      "options": [
+        "Magnetic declination",
+        "Dip",
+        "Local attraction",
+        "Bearing"
+      ],
+      "answer": 0,
+      "explanation": "Magnetic declination is the angle between true north and magnetic north at a place. Dip is the vertical angle the needle makes with the horizontal, and local attraction is a disturbance from nearby iron.",
+      "source": "https://en.wikipedia.org/wiki/Magnetic_declination"
+    },
+    {
+      "id": "ls-008",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "hard",
+      "question": "The whole circle bearing of a line is 210°. Its reduced bearing is",
+      "options": [
+        "S 30° W",
+        "N 30° E",
+        "S 30° E",
+        "N 30° W"
+      ],
+      "answer": 0,
+      "explanation": "A bearing between 180° and 270° lies in the third quadrant, so the reduced bearing is measured from south towards west as WCB minus 180°, giving S 30° W.",
+      "source": "https://en.wikipedia.org/wiki/Bearing_(navigation)"
+    },
+    {
+      "id": "ls-009",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "medium",
+      "question": "Local attraction in compass surveying is detected by checking that",
+      "options": [
+        "The fore and back bearings of a line differ by exactly 180°",
+        "The sum of all interior angles equals 360°",
+        "The needle points to true north",
+        "The chain length is correct"
+      ],
+      "answer": 0,
+      "explanation": "For an undisturbed line the fore bearing and back bearing must differ by exactly 180°. A departure from that difference shows one or both stations are affected by local attraction.",
+      "source": "https://en.wikipedia.org/wiki/Compass_survey"
+    },
+    {
+      "id": "ls-010",
+      "category": "land-surveyor",
+      "topic": "Plane Table",
+      "difficulty": "medium",
+      "question": "Which accessory of a plane table is used for sighting objects and drawing the ray?",
+      "options": [
+        "Alidade",
+        "Trough compass",
+        "Plumbing fork",
+        "Spirit level"
+      ],
+      "answer": 0,
+      "explanation": "The alidade carries the sight vanes and its bevelled edge draws the ray on the sheet. The plumbing fork centres the table over the ground station and the trough compass orients it to magnetic north.",
+      "source": "https://en.wikipedia.org/wiki/Plane_table"
+    },
+    {
+      "id": "ls-011",
+      "category": "land-surveyor",
+      "topic": "Plane Table",
+      "difficulty": "hard",
+      "question": "Which plane table method is used to locate the position of the table itself from two or more already-plotted points?",
+      "options": [
+        "Radiation",
+        "Intersection",
+        "Traversing",
+        "Resection"
+      ],
+      "answer": 3,
+      "explanation": "Resection fixes the instrument station by sighting points that are already plotted. Radiation and intersection instead plot new detail from a known station, and traversing runs a connected series of lines.",
+      "source": "https://en.wikipedia.org/wiki/Plane_table"
+    },
+    {
+      "id": "ls-012",
+      "category": "land-surveyor",
+      "topic": "Plane Table",
+      "difficulty": "medium",
+      "question": "The three-point problem in plane tabling is solved by which of these methods?",
+      "options": [
+        "Bessel's method",
+        "Bowditch's rule",
+        "Simpson's rule",
+        "Rise and fall method"
+      ],
+      "answer": 0,
+      "explanation": "Bessel's graphical method, along with the tracing paper and trial-and-error methods, solves the three-point problem. Bowditch's rule adjusts traverse closing error and the rise and fall method reduces level readings.",
+      "source": "https://en.wikipedia.org/wiki/Plane_table"
+    },
+    {
+      "id": "ls-013",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "easy",
+      "question": "In levelling, a benchmark is best described as",
+      "options": [
+        "A point of known elevation",
+        "The height of the instrument",
+        "A staff reading taken on a turning point",
+        "The difference between two readings"
+      ],
+      "answer": 0,
+      "explanation": "A benchmark is a fixed reference point whose elevation is known relative to a datum. Height of instrument and staff readings are values computed or observed during the work, not fixed references.",
+      "source": "https://en.wikipedia.org/wiki/Benchmark_(surveying)"
+    },
+    {
+      "id": "ls-014",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "The first staff reading taken after setting up a level on a point of known elevation is called",
+      "options": [
+        "Fore sight",
+        "Back sight",
+        "Intermediate sight",
+        "Change point"
+      ],
+      "answer": 1,
+      "explanation": "A back sight is the first reading after setting up, taken on a point of known elevation to establish the height of the instrument. A fore sight is the last reading before shifting the instrument.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-015",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "In the height of instrument method of reducing levels, the height of instrument equals",
+      "options": [
+        "Reduced level of the point plus back sight",
+        "Reduced level minus fore sight",
+        "Back sight minus fore sight",
+        "The sum of all rises"
+      ],
+      "answer": 0,
+      "explanation": "Height of instrument is the reduced level of the benchmark plus the back sight taken on it, and the reduced level of any other point is then that height minus the staff reading there.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-016",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "hard",
+      "question": "In the rise and fall method, the arithmetic check is that the sum of back sights minus the sum of fore sights equals",
+      "options": [
+        "The sum of rises minus the sum of falls, and the last reduced level minus the first",
+        "The number of change points",
+        "The height of instrument",
+        "Zero in all cases"
+      ],
+      "answer": 0,
+      "explanation": "All three quantities must agree: the difference of back and fore sight totals, the difference of rise and fall totals, and the difference between the last and first reduced levels. Any mismatch signals an arithmetic error.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-017",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "Which type of level has a telescope rigidly fixed to its vertical spindle?",
+      "options": [
+        "Dumpy level",
+        "Tilting level",
+        "Automatic level",
+        "Abney level"
+      ],
+      "answer": 0,
+      "explanation": "In a dumpy level the telescope is rigidly attached so it cannot be tilted independently. A tilting level allows small tilts of the telescope, and an automatic level uses a compensator to level the line of sight.",
+      "source": "https://en.wikipedia.org/wiki/Dumpy_level"
+    },
+    {
+      "id": "ls-018",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "medium",
+      "question": "A contour line on a map joins points of equal",
+      "options": [
+        "Elevation",
+        "Horizontal distance",
+        "Magnetic bearing",
+        "Slope"
+      ],
+      "answer": 0,
+      "explanation": "A contour joins points at the same elevation above a datum. The spacing between contours indicates slope, but the line itself is defined by constant height.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-019",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "medium",
+      "question": "Contour lines that are closely spaced on a map indicate",
+      "options": [
+        "A steep slope",
+        "A gentle slope",
+        "Flat ground",
+        "A vertical cliff only"
+      ],
+      "answer": 0,
+      "explanation": "Close spacing means a large change of height over a short horizontal distance, which is a steep slope. Widely spaced contours indicate gentle ground, and equally spaced ones a uniform slope.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-020",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "hard",
+      "question": "Two contour lines of different elevation can cross each other only in the case of",
+      "options": [
+        "An overhanging cliff",
+        "A valley",
+        "A ridge",
+        "A saddle"
+      ],
+      "answer": 0,
+      "explanation": "Contours normally never cross, because one ground point cannot have two elevations. An overhanging cliff or cave is the sole exception, where rock lies above ground of a different height.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-021",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "medium",
+      "question": "A theodolite whose telescope can be revolved through 180° in a vertical plane about its horizontal axis is called a",
+      "options": [
+        "Transit theodolite",
+        "Non-transit theodolite",
+        "Tacheometer",
+        "Clinometer"
+      ],
+      "answer": 0,
+      "explanation": "A transit theodolite allows the telescope to be reversed, or transited, through the vertical plane. Non-transit instruments cannot do this, which limits the checks available to the observer.",
+      "source": "https://en.wikipedia.org/wiki/Theodolite"
+    },
+    {
+      "id": "ls-022",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "hard",
+      "question": "Observing a horizontal angle on both face left and face right chiefly eliminates",
+      "options": [
+        "Instrumental errors of collimation and trunnion axis",
+        "Errors due to poor weather",
+        "Errors in chain length",
+        "Magnetic declination"
+      ],
+      "answer": 0,
+      "explanation": "Taking the mean of face left and face right readings cancels instrumental errors such as line of collimation and trunnion axis misalignment, because they act with opposite sign on the two faces.",
+      "source": "https://en.wikipedia.org/wiki/Theodolite"
+    },
+    {
+      "id": "ls-023",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "hard",
+      "question": "Bowditch's rule is used in traverse computation to",
+      "options": [
+        "Distribute the closing error in latitudes and departures",
+        "Reduce staff readings to levels",
+        "Compute the area of a plot",
+        "Correct for magnetic declination"
+      ],
+      "answer": 0,
+      "explanation": "Bowditch's or the compass rule distributes closing error in proportion to the lengths of the traverse legs. Transit rule distributes it in proportion to latitudes and departures instead.",
+      "source": "https://en.wikipedia.org/wiki/Traverse_(surveying)"
+    },
+    {
+      "id": "ls-024",
+      "category": "land-surveyor",
+      "topic": "Tacheometry",
+      "difficulty": "hard",
+      "question": "The multiplying constant of an ordinary stadia tacheometer is usually taken as",
+      "options": [
+        "100",
+        "50",
+        "10",
+        "1000"
+      ],
+      "answer": 0,
+      "explanation": "The multiplying constant is normally 100, so the horizontal distance is about 100 times the staff intercept. The additive constant is small and often nearly zero in anallatic instruments.",
+      "source": "https://en.wikipedia.org/wiki/Tacheometry"
+    },
+    {
+      "id": "ls-025",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "medium",
+      "question": "A total station combines a theodolite with which additional instrument?",
+      "options": [
+        "An electronic distance measuring device",
+        "A plane table",
+        "A prismatic compass",
+        "A dumpy level"
+      ],
+      "answer": 0,
+      "explanation": "A total station integrates an electronic theodolite with an EDM and a data recorder, so angles and distances are captured together. It replaces the separate chain and theodolite workflow.",
+      "source": "https://en.wikipedia.org/wiki/Total_station"
+    },
+    {
+      "id": "ls-026",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "medium",
+      "question": "Electronic distance measurement instruments determine distance principally by measuring",
+      "options": [
+        "The travel time or phase shift of an electromagnetic wave",
+        "The angle subtended by a staff",
+        "Magnetic field strength",
+        "Atmospheric pressure difference"
+      ],
+      "answer": 0,
+      "explanation": "EDM sends a modulated light or microwave signal to a reflector and derives the distance from the return travel time or phase difference. Staff intercepts belong to tacheometry, not EDM.",
+      "source": "https://en.wikipedia.org/wiki/Electronic_distance_measurement"
+    },
+    {
+      "id": "ls-027",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "medium",
+      "question": "The Global Positioning System fixes a receiver's position using which principle?",
+      "options": [
+        "Trilateration from satellite ranges",
+        "Triangulation of magnetic bearings",
+        "Barometric levelling",
+        "Stadia tacheometry"
+      ],
+      "answer": 0,
+      "explanation": "A GPS receiver measures its distance to several satellites and solves for position by trilateration, needing at least four satellites to resolve position and clock error together.",
+      "source": "https://en.wikipedia.org/wiki/Global_Positioning_System"
+    },
+    {
+      "id": "ls-028",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "hard",
+      "question": "India's own satellite navigation system is known as",
+      "options": [
+        "NavIC",
+        "GLONASS",
+        "Galileo",
+        "BeiDou"
+      ],
+      "answer": 0,
+      "explanation": "NavIC, from the Indian Regional Navigation Satellite System, is developed by ISRO. GLONASS is Russian, Galileo European and BeiDou Chinese.",
+      "source": "https://en.wikipedia.org/wiki/Indian_Regional_Navigation_Satellite_System"
+    },
+    {
+      "id": "ls-029",
+      "category": "land-surveyor",
+      "topic": "Remote Sensing",
+      "difficulty": "medium",
+      "question": "In a geographic information system, data represented as a grid of cells is called",
+      "options": [
+        "Raster data",
+        "Vector data",
+        "Attribute data",
+        "Metadata"
+      ],
+      "answer": 0,
+      "explanation": "Raster data stores information in a grid of cells or pixels, suited to continuous surfaces. Vector data uses points, lines and polygons, which suits discrete features such as parcel boundaries.",
+      "source": "https://en.wikipedia.org/wiki/GIS_file_format"
+    },
+    {
+      "id": "ls-030",
+      "category": "land-surveyor",
+      "topic": "Remote Sensing",
+      "difficulty": "medium",
+      "question": "A remote sensing system that supplies its own energy source, such as radar, is described as",
+      "options": [
+        "Active",
+        "Passive",
+        "Thermal",
+        "Optical"
+      ],
+      "answer": 0,
+      "explanation": "Active systems emit their own radiation and record what returns, so they work at night and through cloud. Passive systems such as ordinary optical sensors depend on reflected sunlight.",
+      "source": "https://en.wikipedia.org/wiki/Remote_sensing"
+    },
+    {
+      "id": "ls-031",
+      "category": "land-surveyor",
+      "topic": "Survey Organisation",
+      "difficulty": "medium",
+      "question": "The Survey of India, the country's national mapping agency, has its headquarters at",
+      "options": [
+        "Dehradun",
+        "New Delhi",
+        "Hyderabad",
+        "Kolkata"
+      ],
+      "answer": 0,
+      "explanation": "The Survey of India is headquartered at Dehradun. Hyderabad hosts the National Remote Sensing Centre, which handles satellite data rather than national mapping.",
+      "source": "https://en.wikipedia.org/wiki/Survey_of_India"
+    },
+    {
+      "id": "ls-032",
+      "category": "land-surveyor",
+      "topic": "Survey Organisation",
+      "difficulty": "hard",
+      "question": "The Great Trigonometrical Survey of India was begun in 1802 under the direction of",
+      "options": [
+        "William Lambton",
+        "George Everest",
+        "James Rennell",
+        "Colin Mackenzie"
+      ],
+      "answer": 0,
+      "explanation": "William Lambton started the Great Trigonometrical Survey in 1802 and George Everest carried it forward as his successor. James Rennell was the first Surveyor General of Bengal, decades earlier.",
+      "source": "https://en.wikipedia.org/wiki/Great_Trigonometrical_Survey"
+    },
+    {
+      "id": "ls-033",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "easy",
+      "question": "The SI unit of force is the",
+      "options": [
+        "Newton",
+        "Joule",
+        "Watt",
+        "Pascal"
+      ],
+      "answer": 0,
+      "explanation": "One newton is the force that accelerates one kilogram at one metre per second squared. The joule is energy, the watt power, and the pascal pressure.",
+      "source": "https://en.wikipedia.org/wiki/Newton_(unit)"
+    },
+    {
+      "id": "ls-034",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "Which quantity is a vector?",
+      "options": [
+        "Velocity",
+        "Speed",
+        "Mass",
+        "Temperature"
+      ],
+      "answer": 0,
+      "explanation": "Velocity has both magnitude and direction, so it is a vector. Speed is the magnitude of velocity alone, and mass and temperature are scalars.",
+      "source": "https://en.wikipedia.org/wiki/Euclidean_vector"
+    },
+    {
+      "id": "ls-035",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "The bending of light as it passes from air into water is called",
+      "options": [
+        "Refraction",
+        "Reflection",
+        "Diffraction",
+        "Dispersion"
+      ],
+      "answer": 0,
+      "explanation": "Refraction is the change of direction caused by a change in the speed of light between media. Reflection returns light from a surface, and dispersion separates it into colours.",
+      "source": "https://en.wikipedia.org/wiki/Refraction"
+    },
+    {
+      "id": "ls-036",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "hard",
+      "question": "According to Newton's second law, the net force on a body equals",
+      "options": [
+        "The rate of change of its momentum",
+        "Its mass times its velocity",
+        "Its weight divided by gravity",
+        "The work done on it"
+      ],
+      "answer": 0,
+      "explanation": "The second law states that force is the rate of change of momentum, which reduces to mass times acceleration when mass is constant. Mass times velocity is momentum itself, not force.",
+      "source": "https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion"
+    },
+    {
+      "id": "ls-037",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "easy",
+      "question": "The area of a triangle with base 12 cm and height 5 cm is",
+      "options": [
+        "30 sq cm",
+        "60 sq cm",
+        "17 sq cm",
+        "25 sq cm"
+      ],
+      "answer": 0,
+      "explanation": "The area is half the base times the height, so half of 12 times 5 gives 30 square centimetres. Sixty would be the answer if the halving were forgotten.",
+      "source": "https://en.wikipedia.org/wiki/Triangle"
+    },
+    {
+      "id": "ls-038",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "In a right-angled triangle the sides are 9 cm and 12 cm about the right angle. The hypotenuse is",
+      "options": [
+        "15 cm",
+        "21 cm",
+        "13 cm",
+        "18 cm"
+      ],
+      "answer": 0,
+      "explanation": "By Pythagoras the hypotenuse is the square root of 81 plus 144, which is the square root of 225, or 15 centimetres. Adding the sides directly would wrongly give 21.",
+      "source": "https://en.wikipedia.org/wiki/Pythagorean_theorem"
+    },
+    {
+      "id": "ls-039",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "One hectare is equal to how many square metres?",
+      "options": [
+        "10,000",
+        "1,000",
+        "100",
+        "100,000"
+      ],
+      "answer": 0,
+      "explanation": "A hectare is a square of 100 metres a side, so 10,000 square metres. It is roughly 2.47 acres, and is the standard unit in Indian land records alongside the acre and guntha.",
+      "source": "https://en.wikipedia.org/wiki/Hectare"
+    },
+    {
+      "id": "ls-040",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "hard",
+      "question": "If the sum of the interior angles of a polygon is 1080°, the polygon has how many sides?",
+      "options": [
+        "Eight",
+        "Six",
+        "Ten",
+        "Nine"
+      ],
+      "answer": 0,
+      "explanation": "The sum of interior angles is 180 times two less than the number of sides. Setting that equal to 1080 gives six for the bracket, so the polygon has eight sides.",
+      "source": "https://en.wikipedia.org/wiki/Polygon"
+    },
+    {
+      "id": "ls-041",
+      "category": "land-surveyor",
+      "topic": "Computer Applications",
+      "difficulty": "easy",
+      "question": "In computing, which of these is an example of system software?",
+      "options": [
+        "An operating system",
+        "A spreadsheet",
+        "A web browser",
+        "An image editor"
+      ],
+      "answer": 0,
+      "explanation": "An operating system manages the hardware and provides services to other programs, which makes it system software. Spreadsheets, browsers and image editors are application software running on top of it.",
+      "source": "https://en.wikipedia.org/wiki/System_software"
+    },
+    {
+      "id": "ls-042",
+      "category": "land-surveyor",
+      "topic": "Computer Applications",
+      "difficulty": "medium",
+      "question": "One kilobyte is conventionally taken as how many bytes?",
+      "options": [
+        "1024",
+        "1000 exactly in all contexts",
+        "512",
+        "2048"
+      ],
+      "answer": 0,
+      "explanation": "In the binary convention used for memory, a kilobyte is 2 to the power 10, or 1024 bytes. Storage manufacturers often use the decimal 1000, which is why advertised disk capacity looks smaller once formatted.",
+      "source": "https://en.wikipedia.org/wiki/Kilobyte"
+    },
+    {
+      "id": "ls-043",
+      "category": "land-surveyor",
+      "topic": "Computer Applications",
+      "difficulty": "medium",
+      "question": "Which type of computer memory loses its contents when power is switched off?",
+      "options": [
+        "RAM",
+        "ROM",
+        "Hard disk",
+        "Flash memory"
+      ],
+      "answer": 0,
+      "explanation": "RAM is volatile and clears when power is removed. ROM, hard disks and flash memory all retain data without power, which is why programs are stored there and loaded into RAM to run.",
+      "source": "https://en.wikipedia.org/wiki/Random-access_memory"
+    },
+    {
+      "id": "ls-044",
+      "category": "land-surveyor",
+      "topic": "General Knowledge",
+      "difficulty": "medium",
+      "question": "India's Five-Year Plans were formulated by which body until it was replaced in 2015?",
+      "options": [
+        "The Planning Commission",
+        "The Finance Commission",
+        "NITI Aayog",
+        "The Reserve Bank of India"
+      ],
+      "answer": 0,
+      "explanation": "The Planning Commission drew up the Five-Year Plans from 1950 until NITI Aayog replaced it in 2015. The Finance Commission is a separate constitutional body dealing with tax devolution.",
+      "source": "https://en.wikipedia.org/wiki/Planning_Commission_(India)"
+    },
+    {
+      "id": "ls-045",
+      "category": "land-surveyor",
+      "topic": "General Knowledge",
+      "difficulty": "medium",
+      "question": "The Union Budget of India is presented in Parliament under which Article of the Constitution?",
+      "options": [
+        "Article 112",
+        "Article 110",
+        "Article 265",
+        "Article 280"
+      ],
+      "answer": 0,
+      "explanation": "Article 112 provides for the annual financial statement, commonly called the Budget. Article 110 defines a Money Bill, 265 bars taxation without authority of law, and 280 sets up the Finance Commission.",
+      "source": "https://en.wikipedia.org/wiki/Union_budget_of_India"
+    },
+    {
+      "id": "ls-046",
+      "category": "land-surveyor",
+      "topic": "General Knowledge",
+      "difficulty": "easy",
+      "question": "Which award is India's highest civilian honour?",
+      "options": [
+        "Bharat Ratna",
+        "Padma Vibhushan",
+        "Param Vir Chakra",
+        "Padma Bhushan"
+      ],
+      "answer": 0,
+      "explanation": "The Bharat Ratna is the highest civilian award, ahead of the Padma Vibhushan, Padma Bhushan and Padma Shri. The Param Vir Chakra is the highest wartime military decoration.",
+      "source": "https://en.wikipedia.org/wiki/Bharat_Ratna"
+    }
+  ]
+}

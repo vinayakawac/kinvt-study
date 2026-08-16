@@ -21,10 +21,12 @@ const MAX_CALLS = Number(process.env.MAX_CALLS || 200);  // cost ceiling
 // Overridable so a model upgrade is an input change, not a code change.
 const MODEL = process.env.MODEL || 'claude-sonnet-5';
 
-// Content lives under desktop/ui and nowhere else. This used to read
-// library.json from the repo root, where it has never existed, so the script
-// threw before generating anything — which is why this pipeline had never
-// successfully run.
+// The banks exist in two places on purpose:
+//   desktop/ui/data/  — bundled into the .exe, what the app ships with
+//   data/             — the sync feed, fetched at runtime from raw.github by
+//                       every installed copy (see REMOTE_BASE in quiz-engine)
+// Editing one without the other silently freezes the feed, so writes go to
+// both. desktop/ui is the source of truth; sync-feed.mjs regenerates the root.
 const UI_DIR = path.join('desktop', 'ui');
 const library = JSON.parse(fs.readFileSync(path.join(UI_DIR, 'library.json'), 'utf8'));
 let calls = 0;
