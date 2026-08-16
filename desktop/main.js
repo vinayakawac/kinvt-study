@@ -17,7 +17,7 @@
  */
 'use strict';
 
-const { app, BrowserWindow, Tray, Menu, globalShortcut, ipcMain, screen, nativeTheme, shell } = require('electron');
+const { app, BrowserWindow, Tray, Menu, globalShortcut, ipcMain, screen, nativeTheme, nativeImage } = require('electron');
 const path = require('path');
 
 const CARD_WIDTH = 400;
@@ -185,7 +185,18 @@ if (!app.requestSingleInstanceLock()) {
   app.whenReady().then(() => {
     createQuizWindow();
 
-    tray = new Tray(path.join(__dirname, 'icons', 'icon.png'));
+    // A missing icon must not cost us the tray: without a tray this app has no
+    // way to be reached at all — the quiz window is hidden and skips the
+    // taskbar, so the process would run completely invisibly. Electron accepts
+    // an empty image and still creates a (blank) tray entry, which is far
+    // better than throwing out of whenReady and leaving nothing.
+    const iconPath = path.join(__dirname, 'icons', 'icon.png');
+    try {
+      tray = new Tray(iconPath);
+    } catch (e) {
+      console.error('Tray icon failed to load from ' + iconPath + ': ' + e.message);
+      tray = new Tray(nativeImage.createEmpty());
+    }
     tray.setToolTip('Kinvt-study — local quiz, no AI');
     tray.setContextMenu(Menu.buildFromTemplate([
       { label: 'Quiz me now', click: startQuiz },
@@ -194,12 +205,21 @@ if (!app.requestSingleInstanceLock()) {
       { label: 'Quit', click: () => { app.isQuitting = true; app.quit(); } }
     ]));
     tray.on('double-click', startQuiz);
+    // Single click is what most people try first on Windows.
+    tray.on('click', openSettings);
 
     if (!globalShortcut.register('Control+Shift+Q', startQuiz)) {
       // Another app already owns the combination. Not fatal — the tray and
       // the interval timer still work.
       console.warn('Could not register Ctrl+Shift+Q; it is already in use.');
     }
+
+    // Launching the app has to show something. The quiz window starts hidden
+    // and skips the taskbar, and Windows 11 buries new tray icons in the
+    // overflow flyout — so without this, double-clicking the exe looks exactly
+    // like nothing happened. The Tauri shell already did this; Electron did
+    // not, which is why it appeared to run only in the background.
+    openSettings();
   });
 
   app.on('will-quit', () => globalShortcut.unregisterAll());

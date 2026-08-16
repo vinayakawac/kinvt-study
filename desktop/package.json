@@ -16,7 +16,7 @@
   "build": {
     "appId": "com.kinvtstudy.quiz",
     "productName": "Kinvt-study",
-    "files": ["main.js", "preload.js", "ui/**/*", "!ui/_preview*"],
+    "files": ["main.js", "preload.js", "ui/**/*", "!ui/_preview*", "icons/**/*"],
     "win": {
       "target": ["nsis", "portable"],
       "icon": "icons/icon.ico"
