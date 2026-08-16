@@ -11,7 +11,7 @@
 
 const { contextBridge, ipcRenderer } = require('electron');
 
-const ALLOWED = ['show_quiz', 'hide_quiz', 'resize_quiz', 'open_settings'];
+const ALLOWED = ['show_quiz', 'hide_quiz', 'resize_quiz', 'open_settings', 'set_titlebar_theme'];
 
 contextBridge.exposeInMainWorld('__TAURI__', {
   core: {

@@ -17,7 +17,7 @@
  */
 'use strict';
 
-const { app, BrowserWindow, Tray, Menu, globalShortcut, ipcMain, screen } = require('electron');
+const { app, BrowserWindow, Tray, Menu, globalShortcut, ipcMain, screen, nativeTheme, shell } = require('electron');
 const path = require('path');
 
 const CARD_WIDTH = 400;
@@ -109,6 +109,20 @@ function openSettings() {
   settingsWin.setMenuBarVisibility(false);
   settingsWin.loadFile(path.join(__dirname, 'ui', 'settings.html'));
 }
+
+// The OS draws the caption, so a dark app otherwise wears a light grey title
+// bar with a hard seam across the top. Setting themeSource makes Windows draw
+// its dark caption instead, and it follows the page when the theme changes.
+//
+// This gets close to the page rather than matching it exactly. Electron has no
+// route to DWM's caption colour, and the exact-match alternative —
+// titleBarStyle 'hidden' with a titleBarOverlay — removes the native caption
+// and pushes page content under the window controls, which needs a drag region
+// and top clearance the shared stylesheet does not have. The Tauri shell, which
+// is the one the README recommends, does match exactly via DWM.
+ipcMain.handle('set_titlebar_theme', (_e, { dark }) => {
+  nativeTheme.themeSource = dark ? 'dark' : 'light';
+});
 
 /* ---------- IPC from the webview ---------- */
 
