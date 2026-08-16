@@ -91,6 +91,10 @@
              window.matchMedia('(prefers-color-scheme: light)').matches) {
       document.body.classList.add('light');
     }
+    // The OS draws the title bar, so it has to be told separately — otherwise
+    // a light page keeps a dark caption and the window looks half-themed.
+    var dark = !document.body.classList.contains('light');
+    try { invoke('set_titlebar_theme', { dark: dark }); } catch (e) { /* not in the shell */ }
   }
 
   function renderLibrary(catalog) {

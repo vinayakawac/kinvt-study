@@ -44,6 +44,8 @@
   --on-accent: #1c1b19;   /* text that sits on top of --accent */
   --ok: #b9cfa2;          /* soft sage — correct */
   --bad: #dc9a85;         /* soft terracotta — incorrect */
+  --scroll-thumb: rgba(245, 241, 221, .20);
+  --scroll-thumb-hover: rgba(245, 241, 221, .38);
 }
 
 body.light {
@@ -59,6 +61,42 @@ body.light {
   --on-accent: #f5f1dd;
   --ok: #5d7a45;
   --bad: #b4573c;
+  --scroll-thumb: rgba(28, 27, 25, .22);
+  --scroll-thumb-hover: rgba(28, 27, 25, .42);
+}
+
+/* ---- scrollbars ----
+   The webview's default scrollbar is a light system-grey slab that ignores
+   the page entirely, so on a dark window it reads as a bright seam down the
+   right edge. These follow the theme instead.
+
+   The thumb is drawn with a transparent border and background-clip, which
+   insets it inside the gutter — that gives a slim floating bar without
+   shrinking the hit area a user has to aim at.
+
+   Deliberately NOT using the standard `scrollbar-width` / `scrollbar-color`
+   properties: from Chromium 121, setting either one on an element makes
+   Chromium ignore that element's ::-webkit-scrollbar rules entirely. Both
+   shells here are Chromium (WebView2 and Electron), so adding them would
+   silently throw away everything below. One approach or the other, not both. */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-corner { background: transparent; }
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  background-clip: content-box;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  transition: background .15s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:active {
+  background: var(--scroll-thumb-hover);
+  background-clip: content-box;
 }
 
 /* No min-width here: Chrome/Edge's side panel and Firefox's sidebar can both

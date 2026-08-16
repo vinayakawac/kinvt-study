@@ -56,6 +56,69 @@ fn resize_quiz(app: tauri::AppHandle, height: f64) {
     }
 }
 
+/// Paint the window's title bar to match the page background.
+///
+/// A decorated window gets its caption from the OS, so a dark app ends up
+/// wearing a light grey title bar with a hard seam across the top. Windows 11
+/// (build 22000+) exposes the caption, text and border colours through DWM,
+/// which is the only way to match the page exactly — the `theme` window
+/// option only picks between the two stock light and dark captions.
+///
+/// COLORREF is 0x00BBGGRR, not RGB, so the bytes are reversed against the CSS
+/// hex: #1c1b19 becomes 0x00191B1C.
+///
+/// Failures are ignored on purpose. On Windows 10 these attributes are simply
+/// unsupported, and a stock title bar is a fine outcome — it must not stop the
+/// window from opening.
+#[cfg(windows)]
+fn paint_titlebar(window: &tauri::WebviewWindow, dark: bool) {
+    use windows::Win32::Foundation::HWND;
+    use windows::Win32::Graphics::Dwm::{
+        DwmSetWindowAttribute, DWMWA_BORDER_COLOR, DWMWA_CAPTION_COLOR, DWMWA_TEXT_COLOR,
+        DWMWA_USE_IMMERSIVE_DARK_MODE,
+    };
+
+    let Ok(handle) = window.hwnd() else { return };
+    let hwnd = HWND(handle.0 as _);
+
+    // Mirrors --bg and --text in settings.css.
+    let (caption, text) = if dark {
+        (0x0019_1B1Cu32, 0x00DD_F1F5u32) // #1c1b19 caption, #f5f1dd text
+    } else {
+        (0x00DD_F1F5u32, 0x0019_1B1Cu32) // #f5f1dd caption, #1c1b19 text
+    };
+    let immersive: i32 = i32::from(dark);
+
+    unsafe {
+        let attr = |a, ptr: *const std::ffi::c_void, size| {
+            let _ = DwmSetWindowAttribute(hwnd, a, ptr, size);
+        };
+        // Immersive dark mode first: it also darkens the system control
+        // glyphs, which the caption colour alone does not touch.
+        attr(
+            DWMWA_USE_IMMERSIVE_DARK_MODE,
+            std::ptr::addr_of!(immersive).cast(),
+            4,
+        );
+        attr(DWMWA_CAPTION_COLOR, std::ptr::addr_of!(caption).cast(), 4);
+        attr(DWMWA_TEXT_COLOR, std::ptr::addr_of!(text).cast(), 4);
+        attr(DWMWA_BORDER_COLOR, std::ptr::addr_of!(caption).cast(), 4);
+    }
+}
+
+#[cfg(not(windows))]
+fn paint_titlebar(_window: &tauri::WebviewWindow, _dark: bool) {}
+
+/// Called by the settings page whenever the theme changes, so the caption
+/// follows the page rather than being painted once at startup and then
+/// disagreeing with it.
+#[tauri::command]
+fn set_titlebar_theme(app: tauri::AppHandle, dark: bool) {
+    if let Some(win) = app.get_webview_window(SETTINGS_WINDOW) {
+        paint_titlebar(&win, dark);
+    }
+}
+
 /// Settings live in their own ordinary window — it wants normal decorations
 /// and a solid background, unlike the quiz card.
 #[tauri::command]
@@ -65,7 +128,7 @@ fn open_settings(app: tauri::AppHandle) {
         let _ = win.set_focus();
         return;
     }
-    let _ = WebviewWindowBuilder::new(
+    if let Ok(win) = WebviewWindowBuilder::new(
         &app,
         SETTINGS_WINDOW,
         WebviewUrl::App("settings.html".into()),
@@ -73,7 +136,13 @@ fn open_settings(app: tauri::AppHandle) {
     .title("Kinvt-study — Settings")
     .inner_size(520.0, 700.0)
     .resizable(true)
-    .build();
+    .build()
+    {
+        // Dark is the app's default theme. The page corrects this over IPC
+        // once it has read the stored setting, but painting here first avoids
+        // a light caption flashing on every launch.
+        paint_titlebar(&win, true);
+    }
 }
 
 fn main() {
@@ -82,7 +151,8 @@ fn main() {
             show_quiz,
             hide_quiz,
             resize_quiz,
-            open_settings
+            open_settings,
+            set_titlebar_theme
         ])
         .setup(|app| {
             // ---- system tray ----
