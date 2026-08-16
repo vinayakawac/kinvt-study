@@ -1075,6 +1075,1302 @@
       "answer": 1,
       "explanation": "C. V. Raman won the 1930 Nobel Prize in Physics for the Raman effect. Chandrasekhar won in 1983 for stellar structure, while Bose and Bhabha never received the prize.",
       "source": "https://en.wikipedia.org/wiki/C._V._Raman"
+    },
+    {
+      "id": "up-070",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Permanent Settlement of Bengal in 1793 was introduced by which Governor-General?",
+      "options": [
+        "Lord Cornwallis",
+        "Warren Hastings",
+        "Lord Wellesley",
+        "Lord Hastings"
+      ],
+      "answer": 0,
+      "explanation": "Lord Cornwallis introduced the Permanent Settlement, fixing land revenue with zamindars in perpetuity. Warren Hastings preceded him and Wellesley is associated with the subsidiary alliance system.",
+      "source": "https://en.wikipedia.org/wiki/Permanent_Settlement"
+    },
+    {
+      "id": "up-071",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Subsidiary Alliance system in India was devised by which Governor-General?",
+      "options": [
+        "Lord Wellesley",
+        "Lord Dalhousie",
+        "Lord Cornwallis",
+        "Lord Curzon"
+      ],
+      "answer": 0,
+      "explanation": "Lord Wellesley used the subsidiary alliance to bring Indian states under British control by stationing troops at their expense. Dalhousie later used the doctrine of lapse for outright annexation.",
+      "source": "https://en.wikipedia.org/wiki/Subsidiary_alliance"
+    },
+    {
+      "id": "up-072",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Which Indus Valley site is known for its dockyard, indicating maritime trade?",
+      "options": [
+        "Lothal",
+        "Harappa",
+        "Kalibangan",
+        "Dholavira"
+      ],
+      "answer": 0,
+      "explanation": "Lothal in Gujarat has a large brick basin identified as a dockyard. Kalibangan is known for ploughed fields and Dholavira for its water management and signboard.",
+      "source": "https://en.wikipedia.org/wiki/Lothal"
+    },
+    {
+      "id": "up-073",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Ashoka embraced Buddhism after the conquest of which kingdom?",
+      "options": [
+        "Kalinga",
+        "Magadha",
+        "Avanti",
+        "Kosala"
+      ],
+      "answer": 0,
+      "explanation": "The bloodshed of the Kalinga war led Ashoka to Buddhism, as recorded in his thirteenth rock edict. Magadha was already the Mauryan heartland.",
+      "source": "https://en.wikipedia.org/wiki/Kalinga_War"
+    },
+    {
+      "id": "up-074",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Gupta ruler who assumed the title 'Vikramaditya' and is credited with defeating the Shakas was",
+      "options": [
+        "Chandragupta II",
+        "Samudragupta",
+        "Skandagupta",
+        "Kumaragupta I"
+      ],
+      "answer": 0,
+      "explanation": "Chandragupta II took the title Vikramaditya after defeating the Western Shakas. Samudragupta is known from the Allahabad pillar inscription and Skandagupta for repelling the Hunas.",
+      "source": "https://en.wikipedia.org/wiki/Chandragupta_II"
+    },
+    {
+      "id": "up-075",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Who founded the Arya Samaj in 1875?",
+      "options": [
+        "Dayananda Saraswati",
+        "Raja Ram Mohan Roy",
+        "Swami Vivekananda",
+        "Keshab Chandra Sen"
+      ],
+      "answer": 0,
+      "explanation": "Dayananda Saraswati founded the Arya Samaj with the call to return to the Vedas. Ram Mohan Roy founded the Brahmo Samaj decades earlier, and Vivekananda the Ramakrishna Mission later.",
+      "source": "https://en.wikipedia.org/wiki/Arya_Samaj"
+    },
+    {
+      "id": "up-076",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Non-Cooperation Movement was launched by Mahatma Gandhi in which year?",
+      "options": [
+        "1920",
+        "1930",
+        "1942",
+        "1917"
+      ],
+      "answer": 0,
+      "explanation": "Non-Cooperation began in 1920 and was withdrawn after Chauri Chaura in 1922. Civil Disobedience followed in 1930 and Quit India in 1942.",
+      "source": "https://en.wikipedia.org/wiki/Non-cooperation_movement"
+    },
+    {
+      "id": "up-077",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Cabinet Mission Plan of 1946 proposed which arrangement for India?",
+      "options": [
+        "A federal union with grouping of provinces",
+        "Immediate partition into two dominions",
+        "Continued direct British rule for ten years",
+        "A unitary state with no provincial autonomy"
+      ],
+      "answer": 0,
+      "explanation": "The Cabinet Mission proposed a loose federal union with provinces grouped into sections, rejecting a separate Pakistan. Partition came instead through the Mountbatten Plan of 1947.",
+      "source": "https://en.wikipedia.org/wiki/1946_Cabinet_Mission_to_India"
+    },
+    {
+      "id": "up-078",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Who wrote the book 'Poverty and Un-British Rule in India', setting out the drain of wealth theory?",
+      "options": [
+        "Dadabhai Naoroji",
+        "Gopal Krishna Gokhale",
+        "R. C. Dutt",
+        "M. G. Ranade"
+      ],
+      "answer": 0,
+      "explanation": "Dadabhai Naoroji set out the drain of wealth theory in this work. R. C. Dutt wrote the Economic History of India, developing related arguments.",
+      "source": "https://en.wikipedia.org/wiki/Dadabhai_Naoroji"
+    },
+    {
+      "id": "up-079",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Indian National Army was reorganised and led from 1943 by",
+      "options": [
+        "Subhas Chandra Bose",
+        "Rash Behari Bose",
+        "Mohan Singh",
+        "Bhagat Singh"
+      ],
+      "answer": 0,
+      "explanation": "Subhas Chandra Bose took command of the INA in 1943 after Rash Behari Bose handed it over. Mohan Singh had raised the first INA in 1942, and Bhagat Singh had been executed in 1931.",
+      "source": "https://en.wikipedia.org/wiki/Indian_National_Army"
+    },
+    {
+      "id": "up-080",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Vernacular Press Act of 1878 was enacted during the viceroyalty of",
+      "options": [
+        "Lord Lytton",
+        "Lord Ripon",
+        "Lord Curzon",
+        "Lord Dufferin"
+      ],
+      "answer": 0,
+      "explanation": "Lord Lytton passed the Vernacular Press Act to curb Indian-language newspapers. His successor Lord Ripon repealed it in 1882.",
+      "source": "https://en.wikipedia.org/wiki/Vernacular_Press_Act"
+    },
+    {
+      "id": "up-081",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Morley-Minto Reforms of 1909 are chiefly remembered for introducing",
+      "options": [
+        "Separate electorates for Muslims",
+        "Provincial autonomy",
+        "Universal adult franchise",
+        "Dyarchy in the provinces"
+      ],
+      "answer": 0,
+      "explanation": "The Indian Councils Act of 1909 introduced separate electorates for Muslims. Dyarchy came with the 1919 reforms and provincial autonomy with the Government of India Act of 1935.",
+      "source": "https://en.wikipedia.org/wiki/Indian_Councils_Act_1909"
+    },
+    {
+      "id": "up-082",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which strait separates the Andaman Islands from the Nicobar Islands?",
+      "options": [
+        "Ten Degree Channel",
+        "Palk Strait",
+        "Duncan Passage",
+        "Nine Degree Channel"
+      ],
+      "answer": 0,
+      "explanation": "The Ten Degree Channel lies between the Andaman and Nicobar groups. The Nine Degree Channel separates Lakshadweep islands, and Duncan Passage lies within the Andamans.",
+      "source": "https://en.wikipedia.org/wiki/Ten_Degree_Channel"
+    },
+    {
+      "id": "up-083",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which Indian state has the longest coastline?",
+      "options": [
+        "Gujarat",
+        "Tamil Nadu",
+        "Andhra Pradesh",
+        "Maharashtra"
+      ],
+      "answer": 0,
+      "explanation": "Gujarat has the longest coastline of any Indian state, owing to its deeply indented shore and the gulfs of Kachchh and Khambhat.",
+      "source": "https://en.wikipedia.org/wiki/Geography_of_India"
+    },
+    {
+      "id": "up-084",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "The Narmada and Tapi rivers are unusual among peninsular rivers because they",
+      "options": [
+        "Flow westward into the Arabian Sea through rift valleys",
+        "Are entirely rain-fed and seasonal",
+        "Originate in the Himalayas",
+        "Form large deltas on the east coast"
+      ],
+      "answer": 0,
+      "explanation": "The Narmada and Tapi flow west through rift valleys and form estuaries rather than deltas, unlike most peninsular rivers which flow east into the Bay of Bengal.",
+      "source": "https://en.wikipedia.org/wiki/Narmada_River"
+    },
+    {
+      "id": "up-085",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which is the largest freshwater lake in India by area?",
+      "options": [
+        "Wular Lake",
+        "Chilika Lake",
+        "Vembanad Lake",
+        "Sambhar Lake"
+      ],
+      "answer": 0,
+      "explanation": "Wular Lake in Jammu and Kashmir is India's largest freshwater lake. Chilika and Vembanad are brackish lagoons and Sambhar is a salt lake.",
+      "source": "https://en.wikipedia.org/wiki/Wular_Lake"
+    },
+    {
+      "id": "up-086",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Deccan Plateau is bounded on the north by which range?",
+      "options": [
+        "Satpura range",
+        "Aravalli range",
+        "Shivalik range",
+        "Karakoram range"
+      ],
+      "answer": 0,
+      "explanation": "The Satpura range marks the northern edge of the Deccan Plateau. The Aravallis lie further north-west in Rajasthan and the Shivaliks form the Himalayan foothills.",
+      "source": "https://en.wikipedia.org/wiki/Deccan_Plateau"
+    },
+    {
+      "id": "up-087",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Which local wind brings destructive summer storms to eastern India, known as Kalbaisakhi?",
+      "options": [
+        "Norwesters",
+        "Loo",
+        "Mango showers",
+        "Trade winds"
+      ],
+      "answer": 0,
+      "explanation": "Norwesters, called Kalbaisakhi in Bengal, are violent pre-monsoon thunderstorms. The Loo is a hot dry wind of the northern plains and mango showers are pre-monsoon rain in the south.",
+      "source": "https://en.wikipedia.org/wiki/Nor%27wester_(storm)"
+    },
+    {
+      "id": "up-088",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Indian Standard Time meridian passes through which longitude?",
+      "options": [
+        "82°30′ E",
+        "80°00′ E",
+        "75°30′ E",
+        "90°00′ E"
+      ],
+      "answer": 0,
+      "explanation": "IST is based on the 82°30′ E meridian passing near Mirzapur, which is five and a half hours ahead of Greenwich.",
+      "source": "https://en.wikipedia.org/wiki/Indian_Standard_Time"
+    },
+    {
+      "id": "up-089",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which Indian state shares the longest border with Bangladesh?",
+      "options": [
+        "West Bengal",
+        "Assam",
+        "Tripura",
+        "Meghalaya"
+      ],
+      "answer": 0,
+      "explanation": "West Bengal has the longest stretch of the India-Bangladesh border. Tripura, Assam, Meghalaya and Mizoram share shorter sections.",
+      "source": "https://en.wikipedia.org/wiki/Bangladesh%E2%80%93India_border"
+    },
+    {
+      "id": "up-090",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Laterite soil in India is formed chiefly as a result of",
+      "options": [
+        "Intense leaching in high rainfall and high temperature",
+        "Deposition by rivers in floodplains",
+        "Weathering of basaltic lava",
+        "Wind deposition in arid regions"
+      ],
+      "answer": 0,
+      "explanation": "Laterite forms where heavy rain and heat leach away silica, leaving iron and aluminium oxides. Alluvium is river-deposited and black soil derives from basalt.",
+      "source": "https://en.wikipedia.org/wiki/Laterite"
+    },
+    {
+      "id": "up-091",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Sundarbans, the world's largest mangrove forest, lies in the delta of which river system?",
+      "options": [
+        "Ganga-Brahmaputra",
+        "Godavari-Krishna",
+        "Mahanadi",
+        "Narmada-Tapi"
+      ],
+      "answer": 0,
+      "explanation": "The Sundarbans occupy the Ganga-Brahmaputra-Meghna delta across India and Bangladesh. The Narmada and Tapi form estuaries rather than deltas.",
+      "source": "https://en.wikipedia.org/wiki/Sundarbans"
+    },
+    {
+      "id": "up-092",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which pass connects India with China in Sikkim and was reopened for border trade in 2006?",
+      "options": [
+        "Nathu La",
+        "Zoji La",
+        "Bomdi La",
+        "Rohtang Pass"
+      ],
+      "answer": 0,
+      "explanation": "Nathu La in Sikkim reopened for trade in 2006 after being closed since the 1962 war. Zoji La and Rohtang are internal passes in the western Himalaya.",
+      "source": "https://en.wikipedia.org/wiki/Nathu_La"
+    },
+    {
+      "id": "up-093",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "El Nino, which can weaken the Indian monsoon, refers to the warming of which ocean region?",
+      "options": [
+        "The central and eastern equatorial Pacific",
+        "The northern Indian Ocean",
+        "The North Atlantic",
+        "The Southern Ocean"
+      ],
+      "answer": 0,
+      "explanation": "El Nino is the warming of the central and eastern equatorial Pacific, which shifts atmospheric circulation and is often associated with deficient Indian monsoon rainfall.",
+      "source": "https://en.wikipedia.org/wiki/El_Ni%C3%B1o"
+    },
+    {
+      "id": "up-094",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "The cash reserve ratio in India refers to the share of deposits banks must hold",
+      "options": [
+        "As reserves with the Reserve Bank of India",
+        "In government securities",
+        "As cash in their own vaults only",
+        "As loans to priority sectors"
+      ],
+      "answer": 0,
+      "explanation": "CRR is the proportion of net demand and time liabilities kept as reserves with the RBI. The statutory liquidity ratio is the separate requirement to hold liquid assets such as government securities.",
+      "source": "https://en.wikipedia.org/wiki/Cash_reserve_ratio"
+    },
+    {
+      "id": "up-095",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which rate is the interest at which the Reserve Bank of India lends to commercial banks against securities?",
+      "options": [
+        "Repo rate",
+        "Reverse repo rate",
+        "Bank rate",
+        "Base rate"
+      ],
+      "answer": 0,
+      "explanation": "The repo rate is charged when the RBI lends short term against securities. The reverse repo is the rate at which it absorbs funds from banks instead.",
+      "source": "https://en.wikipedia.org/wiki/Repurchase_agreement"
+    },
+    {
+      "id": "up-096",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "hard",
+      "question": "The Human Development Index published by UNDP combines income with which two other dimensions?",
+      "options": [
+        "Health and education",
+        "Employment and housing",
+        "Inequality and poverty",
+        "Trade and investment"
+      ],
+      "answer": 0,
+      "explanation": "HDI combines life expectancy for health, schooling measures for education, and gross national income per capita. Inequality is treated separately in the inequality-adjusted HDI.",
+      "source": "https://en.wikipedia.org/wiki/Human_Development_Index"
+    },
+    {
+      "id": "up-097",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "In India, which sector is classified as the tertiary sector?",
+      "options": [
+        "Services",
+        "Agriculture",
+        "Manufacturing",
+        "Mining"
+      ],
+      "answer": 0,
+      "explanation": "The tertiary sector covers services such as trade, transport, banking and IT. Agriculture is primary, while manufacturing and mining fall under primary and secondary activity.",
+      "source": "https://en.wikipedia.org/wiki/Three-sector_model"
+    },
+    {
+      "id": "up-098",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "hard",
+      "question": "Demand-pull inflation arises primarily from",
+      "options": [
+        "Aggregate demand exceeding aggregate supply",
+        "A rise in input costs such as wages and fuel",
+        "A fall in the money supply",
+        "An increase in imports"
+      ],
+      "answer": 0,
+      "explanation": "Demand-pull inflation occurs when demand outstrips the economy's capacity to supply. Rising input costs instead produce cost-push inflation.",
+      "source": "https://en.wikipedia.org/wiki/Demand-pull_inflation"
+    },
+    {
+      "id": "up-099",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "The Fiscal Responsibility and Budget Management Act was enacted in India in which year?",
+      "options": [
+        "2003",
+        "1991",
+        "2016",
+        "2010"
+      ],
+      "answer": 0,
+      "explanation": "The FRBM Act of 2003 set targets for reducing fiscal and revenue deficits. Liberalisation began in 1991 and the GST regime in 2017.",
+      "source": "https://en.wikipedia.org/wiki/Fiscal_Responsibility_and_Budget_Management_Act,_2003"
+    },
+    {
+      "id": "up-100",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Disguised unemployment is most characteristic of which sector in India?",
+      "options": [
+        "Agriculture",
+        "Information technology",
+        "Banking",
+        "Mining"
+      ],
+      "answer": 0,
+      "explanation": "Disguised unemployment means more people work on a holding than are needed, so removing some would not reduce output. This is typical of Indian agriculture.",
+      "source": "https://en.wikipedia.org/wiki/Disguised_unemployment"
+    },
+    {
+      "id": "up-101",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "hard",
+      "question": "The Gini coefficient is a measure of",
+      "options": [
+        "Income or wealth inequality",
+        "Inflation",
+        "Economic growth",
+        "Unemployment"
+      ],
+      "answer": 0,
+      "explanation": "The Gini coefficient runs from zero for perfect equality to one for perfect inequality. It is derived from the Lorenz curve and says nothing about growth or inflation.",
+      "source": "https://en.wikipedia.org/wiki/Gini_coefficient"
+    },
+    {
+      "id": "up-102",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which institution regulates the insurance sector in India?",
+      "options": [
+        "IRDAI",
+        "SEBI",
+        "RBI",
+        "PFRDA"
+      ],
+      "answer": 0,
+      "explanation": "The Insurance Regulatory and Development Authority of India regulates insurers. SEBI regulates securities markets, the RBI banks, and PFRDA pensions.",
+      "source": "https://en.wikipedia.org/wiki/Insurance_Regulatory_and_Development_Authority"
+    },
+    {
+      "id": "up-103",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Bank nationalisation in India first took place on a large scale in which year?",
+      "options": [
+        "1969",
+        "1955",
+        "1980",
+        "1991"
+      ],
+      "answer": 0,
+      "explanation": "Fourteen major commercial banks were nationalised in 1969, with six more in 1980. The State Bank of India had been created earlier in 1955.",
+      "source": "https://en.wikipedia.org/wiki/Nationalisation_of_banks_in_India"
+    },
+    {
+      "id": "up-104",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "The Convention on Biological Diversity was opened for signature at which summit?",
+      "options": [
+        "The 1992 Rio Earth Summit",
+        "The 1972 Stockholm Conference",
+        "The 2002 Johannesburg Summit",
+        "The 1987 Montreal meeting"
+      ],
+      "answer": 0,
+      "explanation": "The CBD was opened for signature at the Rio Earth Summit in 1992, alongside the UNFCCC. Stockholm 1972 produced the declaration that led to UNEP.",
+      "source": "https://en.wikipedia.org/wiki/Convention_on_Biological_Diversity"
+    },
+    {
+      "id": "up-105",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Which gas is chiefly responsible for the depletion of the ozone layer?",
+      "options": [
+        "Chlorofluorocarbons",
+        "Carbon dioxide",
+        "Methane",
+        "Sulphur dioxide"
+      ],
+      "answer": 0,
+      "explanation": "Chlorine released from CFCs destroys ozone catalytically in the stratosphere. Carbon dioxide and methane are greenhouse gases affecting warming rather than ozone.",
+      "source": "https://en.wikipedia.org/wiki/Ozone_depletion"
+    },
+    {
+      "id": "up-106",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "hard",
+      "question": "A biosphere reserve differs from a national park chiefly in that it",
+      "options": [
+        "Includes a core, buffer and transition zone allowing regulated human activity",
+        "Prohibits all human presence entirely",
+        "Is designated only for a single species",
+        "Is managed solely by local panchayats"
+      ],
+      "answer": 0,
+      "explanation": "Biosphere reserves are zoned into core, buffer and transition areas, permitting sustainable use outside the core. National parks apply stricter uniform protection.",
+      "source": "https://en.wikipedia.org/wiki/Biosphere_reserve"
+    },
+    {
+      "id": "up-107",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Which Indian institution releases the State of Forest Report?",
+      "options": [
+        "Forest Survey of India",
+        "Botanical Survey of India",
+        "Wildlife Institute of India",
+        "Indian Council of Forestry Research"
+      ],
+      "answer": 0,
+      "explanation": "The Forest Survey of India, based at Dehradun, assesses forest cover and publishes the biennial State of Forest Report.",
+      "source": "https://en.wikipedia.org/wiki/Forest_Survey_of_India"
+    },
+    {
+      "id": "up-108",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "The Paris Agreement adopted in 2015 aims to limit global temperature rise this century to",
+      "options": [
+        "Well below 2°C above pre-industrial levels",
+        "Exactly 3°C above present levels",
+        "Below 5°C above pre-industrial levels",
+        "No numerical target at all"
+      ],
+      "answer": 0,
+      "explanation": "The Paris Agreement seeks to hold warming well below 2°C above pre-industrial levels while pursuing efforts to limit it to 1.5°C.",
+      "source": "https://en.wikipedia.org/wiki/Paris_Agreement"
+    },
+    {
+      "id": "up-109",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "hard",
+      "question": "Eutrophication of a water body is caused primarily by",
+      "options": [
+        "Excess nutrients such as nitrates and phosphates",
+        "Rising water temperature alone",
+        "Sedimentation from erosion",
+        "Depletion of dissolved salts"
+      ],
+      "answer": 0,
+      "explanation": "Nutrient enrichment from fertiliser and sewage triggers algal blooms, which deplete dissolved oxygen when they decay and kill aquatic life.",
+      "source": "https://en.wikipedia.org/wiki/Eutrophication"
+    },
+    {
+      "id": "up-110",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "The Great Indian Bustard, a critically endangered bird, is the state bird of which state?",
+      "options": [
+        "Rajasthan",
+        "Gujarat",
+        "Madhya Pradesh",
+        "Maharashtra"
+      ],
+      "answer": 0,
+      "explanation": "The Great Indian Bustard is Rajasthan's state bird, with the Desert National Park a key habitat. Small populations survive in Gujarat and Maharashtra.",
+      "source": "https://en.wikipedia.org/wiki/Great_Indian_bustard"
+    },
+    {
+      "id": "up-111",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "India's Chandrayaan-3 mission achieved a soft landing near which region of the Moon?",
+      "options": [
+        "The south pole",
+        "The north pole",
+        "The Sea of Tranquility",
+        "The far side equator"
+      ],
+      "answer": 0,
+      "explanation": "Chandrayaan-3 landed near the lunar south pole in August 2023, making India the first country to do so.",
+      "source": "https://en.wikipedia.org/wiki/Chandrayaan-3"
+    },
+    {
+      "id": "up-112",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "Which blood group is known as the universal donor for red cell transfusion?",
+      "options": [
+        "O negative",
+        "AB positive",
+        "A positive",
+        "B negative"
+      ],
+      "answer": 0,
+      "explanation": "O negative red cells carry neither A, B nor Rh D antigens, so they can be given to almost any recipient. AB positive is the universal recipient instead.",
+      "source": "https://en.wikipedia.org/wiki/Blood_type"
+    },
+    {
+      "id": "up-113",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "hard",
+      "question": "The pH value of a neutral solution at 25°C is",
+      "options": [
+        "7",
+        "0",
+        "14",
+        "1"
+      ],
+      "answer": 0,
+      "explanation": "A neutral solution has equal hydrogen and hydroxide ion concentrations, giving pH 7 at 25°C. Values below 7 are acidic and above 7 alkaline.",
+      "source": "https://en.wikipedia.org/wiki/PH"
+    },
+    {
+      "id": "up-114",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "Which vitamin is synthesised in human skin on exposure to sunlight?",
+      "options": [
+        "Vitamin D",
+        "Vitamin C",
+        "Vitamin A",
+        "Vitamin K"
+      ],
+      "answer": 0,
+      "explanation": "Ultraviolet B light converts a cholesterol derivative in skin into vitamin D. Vitamin C and K come from diet, and vitamin A from carotenoids and animal sources.",
+      "source": "https://en.wikipedia.org/wiki/Vitamin_D"
+    },
+    {
+      "id": "up-115",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "ISRO's launch site at Sriharikota is located in which state?",
+      "options": [
+        "Andhra Pradesh",
+        "Tamil Nadu",
+        "Odisha",
+        "Kerala"
+      ],
+      "answer": 0,
+      "explanation": "The Satish Dhawan Space Centre at Sriharikota is in Andhra Pradesh. Thiruvananthapuram in Kerala hosts VSSC, which develops launch vehicles.",
+      "source": "https://en.wikipedia.org/wiki/Satish_Dhawan_Space_Centre"
+    },
+    {
+      "id": "up-116",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Comptroller and Auditor General of India is appointed by which authority?",
+      "options": [
+        "The President",
+        "The Prime Minister",
+        "Parliament by resolution",
+        "The Chief Justice of India"
+      ],
+      "answer": 0,
+      "explanation": "Article 148 provides that the President appoints the CAG, who can be removed only in the manner prescribed for a Supreme Court judge. Parliament examines the CAG's reports but does not appoint the office.",
+      "source": "https://en.wikipedia.org/wiki/Comptroller_and_Auditor_General_of_India"
+    },
+    {
+      "id": "up-117",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "Which writ is issued to a public official to compel performance of a public duty?",
+      "options": [
+        "Mandamus",
+        "Habeas corpus",
+        "Certiorari",
+        "Quo warranto"
+      ],
+      "answer": 0,
+      "explanation": "Mandamus commands an authority to perform a duty it has failed to discharge. Habeas corpus produces a detained person, certiorari quashes a lower order, and quo warranto challenges a person's title to an office.",
+      "source": "https://en.wikipedia.org/wiki/Mandamus"
+    },
+    {
+      "id": "up-118",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Finance Commission of India is constituted under which Article?",
+      "options": [
+        "Article 280",
+        "Article 148",
+        "Article 324",
+        "Article 315"
+      ],
+      "answer": 0,
+      "explanation": "Article 280 provides for a Finance Commission every five years to recommend distribution of taxes between the Union and the states. Article 324 covers the Election Commission and 315 the public service commissions.",
+      "source": "https://en.wikipedia.org/wiki/Finance_Commission"
+    },
+    {
+      "id": "up-119",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Fundamental Duties were added to the Constitution on the recommendation of which committee?",
+      "options": [
+        "Swaran Singh Committee",
+        "Sarkaria Commission",
+        "Mandal Commission",
+        "Balwant Rai Mehta Committee"
+      ],
+      "answer": 0,
+      "explanation": "The Swaran Singh Committee recommended Fundamental Duties, added by the 42nd Amendment in 1976. The Sarkaria Commission dealt with centre-state relations and Balwant Rai Mehta with panchayati raj.",
+      "source": "https://en.wikipedia.org/wiki/Fundamental_duties_of_India"
+    },
+    {
+      "id": "up-120",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "Under the Constitution, residuary powers of legislation belong to",
+      "options": [
+        "Parliament",
+        "State legislatures",
+        "Both equally",
+        "The Supreme Court"
+      ],
+      "answer": 0,
+      "explanation": "Article 248 vests residuary powers, over matters in none of the three lists, in Parliament. This follows the Canadian model of a strong centre rather than the American one.",
+      "source": "https://en.wikipedia.org/wiki/Seventh_Schedule_to_the_Constitution_of_India"
+    },
+    {
+      "id": "up-121",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "How many members can the President nominate to the Rajya Sabha?",
+      "options": [
+        "Twelve",
+        "Two",
+        "Twenty",
+        "Six"
+      ],
+      "answer": 0,
+      "explanation": "The President nominates twelve members distinguished in literature, science, art and social service. The nomination of two Anglo-Indians to the Lok Sabha was discontinued in 2020.",
+      "source": "https://en.wikipedia.org/wiki/Rajya_Sabha"
+    },
+    {
+      "id": "up-122",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Election Commission of India was made a multi-member body permanently in which year?",
+      "options": [
+        "1993",
+        "1950",
+        "1989",
+        "2000"
+      ],
+      "answer": 0,
+      "explanation": "The Commission became permanently multi-member in 1993 with two Election Commissioners alongside the Chief Election Commissioner. A brief multi-member phase in 1989 had been reversed.",
+      "source": "https://en.wikipedia.org/wiki/Election_Commission_of_India"
+    },
+    {
+      "id": "up-123",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "A Constitutional Amendment Bill affecting the federal structure requires ratification by",
+      "options": [
+        "At least half the state legislatures",
+        "All state legislatures",
+        "Two-thirds of state legislatures",
+        "No state legislature"
+      ],
+      "answer": 0,
+      "explanation": "Amendments touching federal provisions need a special majority in Parliament plus ratification by the legislatures of at least half the states. Ordinary amendments need only the special majority.",
+      "source": "https://en.wikipedia.org/wiki/Amendment_of_the_Constitution_of_India"
+    },
+    {
+      "id": "up-124",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Who presides over a joint sitting of both Houses of Parliament?",
+      "options": [
+        "The Speaker of the Lok Sabha",
+        "The Vice-President",
+        "The President",
+        "The Prime Minister"
+      ],
+      "answer": 0,
+      "explanation": "The Speaker of the Lok Sabha presides over a joint sitting. The Vice-President chairs the Rajya Sabha but does not preside over joint sittings.",
+      "source": "https://en.wikipedia.org/wiki/Parliament_of_India"
+    },
+    {
+      "id": "up-125",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "The concept of 'procedure established by law' in Article 21 was expanded to include due process in which case?",
+      "options": [
+        "Maneka Gandhi v. Union of India",
+        "A. K. Gopalan v. State of Madras",
+        "Kesavananda Bharati case",
+        "Minerva Mills case"
+      ],
+      "answer": 0,
+      "explanation": "Maneka Gandhi (1978) held that any procedure must be fair, just and reasonable, effectively importing due process. A. K. Gopalan had earlier read Article 21 narrowly.",
+      "source": "https://en.wikipedia.org/wiki/Maneka_Gandhi_v._Union_of_India"
+    },
+    {
+      "id": "up-126",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The National Human Rights Commission of India was established in which year?",
+      "options": [
+        "1993",
+        "1978",
+        "2005",
+        "1986"
+      ],
+      "answer": 0,
+      "explanation": "The NHRC was set up in 1993 under the Protection of Human Rights Act. It is a statutory body rather than a constitutional one.",
+      "source": "https://en.wikipedia.org/wiki/National_Human_Rights_Commission_(India)"
+    },
+    {
+      "id": "up-127",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Which schedule of the Constitution lists the official languages of India?",
+      "options": [
+        "Eighth Schedule",
+        "Seventh Schedule",
+        "Ninth Schedule",
+        "Sixth Schedule"
+      ],
+      "answer": 0,
+      "explanation": "The Eighth Schedule lists the scheduled languages. The Seventh contains the legislative lists, the Ninth protected laws, and the Sixth tribal area administration in the north-east.",
+      "source": "https://en.wikipedia.org/wiki/Eighth_Schedule_to_the_Constitution_of_India"
+    },
+    {
+      "id": "up-128",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Rowlatt Act of 1919 was opposed because it allowed",
+      "options": [
+        "Detention without trial",
+        "Partition of Bengal",
+        "Separate electorates",
+        "Increased land revenue"
+      ],
+      "answer": 0,
+      "explanation": "The Rowlatt Act permitted detention without trial and trial without jury, prompting nationwide protest and the events at Jallianwala Bagh.",
+      "source": "https://en.wikipedia.org/wiki/Rowlatt_Act"
+    },
+    {
+      "id": "up-129",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Government of India Act 1935 introduced which system in the provinces?",
+      "options": [
+        "Provincial autonomy",
+        "Dyarchy",
+        "Separate electorates for the first time",
+        "Direct Crown rule"
+      ],
+      "answer": 0,
+      "explanation": "The 1935 Act replaced provincial dyarchy with provincial autonomy and introduced dyarchy at the centre instead. Separate electorates dated from 1909.",
+      "source": "https://en.wikipedia.org/wiki/Government_of_India_Act_1935"
+    },
+    {
+      "id": "up-130",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Who led the Bardoli Satyagraha of 1928?",
+      "options": [
+        "Vallabhbhai Patel",
+        "Mahatma Gandhi",
+        "Jawaharlal Nehru",
+        "Rajendra Prasad"
+      ],
+      "answer": 0,
+      "explanation": "Vallabhbhai Patel led the Bardoli Satyagraha against a revenue increase, earning the title Sardar. Rajendra Prasad had earlier worked with Gandhi at Champaran.",
+      "source": "https://en.wikipedia.org/wiki/Bardoli_Satyagraha"
+    },
+    {
+      "id": "up-131",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The first session of the Indian National Congress was held in which city?",
+      "options": [
+        "Bombay",
+        "Calcutta",
+        "Madras",
+        "Poona"
+      ],
+      "answer": 0,
+      "explanation": "The first session met at Bombay in December 1885 under W. C. Bonnerjee. It had been planned for Poona but was moved because of a cholera outbreak.",
+      "source": "https://en.wikipedia.org/wiki/Indian_National_Congress"
+    },
+    {
+      "id": "up-132",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Partition of Bengal announced in 1905 was carried out by",
+      "options": [
+        "Lord Curzon",
+        "Lord Minto",
+        "Lord Hardinge",
+        "Lord Chelmsford"
+      ],
+      "answer": 0,
+      "explanation": "Lord Curzon partitioned Bengal in 1905, triggering the Swadeshi movement. The partition was annulled in 1911 under Lord Hardinge.",
+      "source": "https://en.wikipedia.org/wiki/Partition_of_Bengal_(1905)"
+    },
+    {
+      "id": "up-133",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Which movement did Mahatma Gandhi launch in Champaran in 1917?",
+      "options": [
+        "A satyagraha for indigo cultivators",
+        "The Non-Cooperation Movement",
+        "The Salt Satyagraha",
+        "The Quit India Movement"
+      ],
+      "answer": 0,
+      "explanation": "Champaran was Gandhi's first satyagraha in India, on behalf of indigo cultivators forced into the tinkathia system. Non-Cooperation followed in 1920.",
+      "source": "https://en.wikipedia.org/wiki/Champaran_Satyagraha"
+    },
+    {
+      "id": "up-134",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Third Battle of Panipat in 1761 was fought between the Marathas and",
+      "options": [
+        "Ahmad Shah Abdali",
+        "Babur",
+        "Ibrahim Lodi",
+        "Akbar"
+      ],
+      "answer": 0,
+      "explanation": "Ahmad Shah Abdali defeated the Marathas at Panipat in 1761. The first battle in 1526 was Babur against Ibrahim Lodi, and the second in 1556 involved Akbar's forces.",
+      "source": "https://en.wikipedia.org/wiki/Third_Battle_of_Panipat"
+    },
+    {
+      "id": "up-135",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Sarnath Lion Capital, adopted as India's State Emblem, was erected by which ruler?",
+      "options": [
+        "Ashoka",
+        "Chandragupta Maurya",
+        "Harsha",
+        "Kanishka"
+      ],
+      "answer": 0,
+      "explanation": "The Lion Capital was erected by Ashoka at Sarnath, where the Buddha gave his first sermon. Its wheel appears on the national flag.",
+      "source": "https://en.wikipedia.org/wiki/Lion_Capital_of_Ashoka"
+    },
+    {
+      "id": "up-136",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which crop is a kharif crop in India?",
+      "options": [
+        "Rice",
+        "Wheat",
+        "Mustard",
+        "Barley"
+      ],
+      "answer": 0,
+      "explanation": "Kharif crops are sown with the southwest monsoon and harvested in autumn, rice being the principal one. Wheat, mustard and barley are rabi crops sown in winter.",
+      "source": "https://en.wikipedia.org/wiki/Kharif_crop"
+    },
+    {
+      "id": "up-137",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "The Palghat Gap, an important break in the Western Ghats, lies between which two states?",
+      "options": [
+        "Kerala and Tamil Nadu",
+        "Karnataka and Goa",
+        "Maharashtra and Gujarat",
+        "Karnataka and Kerala"
+      ],
+      "answer": 0,
+      "explanation": "The Palghat Gap connects Kerala with Tamil Nadu and carries major road and rail routes. It also influences rainfall and species distribution across the Ghats.",
+      "source": "https://en.wikipedia.org/wiki/Palakkad_Gap"
+    },
+    {
+      "id": "up-138",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which is the highest peak of the Western Ghats?",
+      "options": [
+        "Anamudi",
+        "Doddabetta",
+        "Mullayanagiri",
+        "Kalsubai"
+      ],
+      "answer": 0,
+      "explanation": "Anamudi in Kerala is the highest peak of the Western Ghats and of peninsular India. Doddabetta is the highest in the Nilgiris and Mullayanagiri in Karnataka.",
+      "source": "https://en.wikipedia.org/wiki/Anamudi"
+    },
+    {
+      "id": "up-139",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Thar Desert lies mainly in which Indian state?",
+      "options": [
+        "Rajasthan",
+        "Gujarat",
+        "Haryana",
+        "Punjab"
+      ],
+      "answer": 0,
+      "explanation": "The Thar or Great Indian Desert lies mostly in western Rajasthan, extending into parts of Gujarat, Haryana and Punjab and across into Pakistan.",
+      "source": "https://en.wikipedia.org/wiki/Thar_Desert"
+    },
+    {
+      "id": "up-140",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "The Indian monsoon retreats from the subcontinent in which season, bringing rain to Tamil Nadu?",
+      "options": [
+        "The northeast monsoon in October to December",
+        "The southwest monsoon in June",
+        "The winter western disturbances",
+        "The pre-monsoon in April"
+      ],
+      "answer": 0,
+      "explanation": "The retreating or northeast monsoon brings most of Tamil Nadu's rainfall between October and December, when the rest of India is drying out.",
+      "source": "https://en.wikipedia.org/wiki/Monsoon_of_South_Asia"
+    },
+    {
+      "id": "up-141",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "The New Economic Policy of liberalisation in India was launched in which year?",
+      "options": [
+        "1991",
+        "1985",
+        "1980",
+        "1997"
+      ],
+      "answer": 0,
+      "explanation": "The 1991 reforms, prompted by a balance of payments crisis, liberalised industrial licensing, trade and foreign investment.",
+      "source": "https://en.wikipedia.org/wiki/Economic_liberalisation_in_India"
+    },
+    {
+      "id": "up-142",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Priority sector lending norms in India require banks to lend to sectors including",
+      "options": [
+        "Agriculture and small enterprises",
+        "Large corporations only",
+        "Foreign trade exclusively",
+        "Real estate developers"
+      ],
+      "answer": 0,
+      "explanation": "Priority sector lending directs credit to agriculture, micro and small enterprises, education, housing and weaker sections, which might otherwise be underserved.",
+      "source": "https://en.wikipedia.org/wiki/Priority_sector_lending"
+    },
+    {
+      "id": "up-143",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "hard",
+      "question": "A country's balance of payments current account records",
+      "options": [
+        "Trade in goods and services, income and transfers",
+        "Only foreign direct investment",
+        "Only government borrowing",
+        "Changes in foreign exchange reserves alone"
+      ],
+      "answer": 0,
+      "explanation": "The current account covers merchandise trade, services, primary income and current transfers. Investment flows are recorded in the capital and financial accounts.",
+      "source": "https://en.wikipedia.org/wiki/Current_account"
+    },
+    {
+      "id": "up-144",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "The Green Revolution in India was associated most closely with which crops?",
+      "options": [
+        "Wheat and rice",
+        "Cotton and jute",
+        "Tea and coffee",
+        "Pulses and oilseeds"
+      ],
+      "answer": 0,
+      "explanation": "High-yielding varieties of wheat and later rice drove the Green Revolution from the 1960s, concentrated in Punjab, Haryana and western Uttar Pradesh.",
+      "source": "https://en.wikipedia.org/wiki/Green_Revolution_in_India"
+    },
+    {
+      "id": "up-145",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Which Indian Act provides the legal framework for protecting wild animals and plants?",
+      "options": [
+        "The Wildlife Protection Act, 1972",
+        "The Forest Rights Act, 2006",
+        "The Environment Protection Act, 1986",
+        "The Biological Diversity Act, 2002"
+      ],
+      "answer": 0,
+      "explanation": "The Wildlife Protection Act of 1972 lists protected species in its schedules and provides for national parks and sanctuaries. The 1986 Act is the broader umbrella environmental law.",
+      "source": "https://en.wikipedia.org/wiki/Wildlife_Protection_Act,_1972"
+    },
+    {
+      "id": "up-146",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "hard",
+      "question": "How many biodiversity hotspots recognised globally lie wholly or partly within India?",
+      "options": [
+        "Four",
+        "One",
+        "Seven",
+        "Two"
+      ],
+      "answer": 0,
+      "explanation": "Four hotspots touch India: the Himalaya, the Western Ghats and Sri Lanka, Indo-Burma, and Sundaland covering the Nicobar Islands.",
+      "source": "https://en.wikipedia.org/wiki/Biodiversity_hotspot"
+    },
+    {
+      "id": "up-147",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "The National Green Tribunal was established in India in which year?",
+      "options": [
+        "2010",
+        "1986",
+        "2002",
+        "2016"
+      ],
+      "answer": 0,
+      "explanation": "The NGT was set up in 2010 to hear environmental cases speedily. The Environment Protection Act dates from 1986 and the Biological Diversity Act from 2002.",
+      "source": "https://en.wikipedia.org/wiki/National_Green_Tribunal"
+    },
+    {
+      "id": "up-148",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "Which part of the human brain controls balance and coordination?",
+      "options": [
+        "Cerebellum",
+        "Cerebrum",
+        "Medulla oblongata",
+        "Hypothalamus"
+      ],
+      "answer": 0,
+      "explanation": "The cerebellum coordinates movement and maintains balance. The cerebrum handles higher thought, the medulla controls breathing and heartbeat, and the hypothalamus regulates hormones.",
+      "source": "https://en.wikipedia.org/wiki/Cerebellum"
+    },
+    {
+      "id": "up-149",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "Which ISRO launch vehicle is nicknamed the 'Bahubali' for its heavy-lift capability?",
+      "options": [
+        "GSLV Mk III",
+        "PSLV",
+        "SSLV",
+        "GSLV Mk II"
+      ],
+      "answer": 0,
+      "explanation": "GSLV Mk III, later designated LVM3, is India's heaviest launcher and carried Chandrayaan-2 and Chandrayaan-3. The PSLV is a workhorse for lighter payloads.",
+      "source": "https://en.wikipedia.org/wiki/LVM3"
+    },
+    {
+      "id": "up-150",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "hard",
+      "question": "The greenhouse effect on Earth is caused by atmospheric gases absorbing which radiation?",
+      "options": [
+        "Outgoing infrared radiation",
+        "Incoming ultraviolet radiation",
+        "Visible light only",
+        "Radio waves"
+      ],
+      "answer": 0,
+      "explanation": "Greenhouse gases are largely transparent to incoming shortwave sunlight but absorb the longwave infrared the surface re-emits, trapping heat in the lower atmosphere.",
+      "source": "https://en.wikipedia.org/wiki/Greenhouse_effect"
     }
   ]
 }
