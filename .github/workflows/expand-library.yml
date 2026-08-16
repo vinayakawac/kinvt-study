@@ -18,6 +18,10 @@ on:
         description: 'Hard ceiling on API calls (cost guard)'
         required: false
         default: '60'
+      model:
+        description: 'Model to generate with'
+        required: false
+        default: 'claude-sonnet-5'
 
 permissions:
   contents: write
@@ -39,7 +43,12 @@ jobs:
           TARGET_COUNT: ${{ inputs.target }}
           ONLY_TOPIC: ${{ inputs.only_topic }}
           MAX_CALLS: ${{ inputs.max_calls }}
+          MODEL: ${{ inputs.model }}
         run: node scripts/expand-library.mjs
+
+      # A half-wired topic must not reach the PR either.
+      - name: Library wiring
+        run: node scripts/check-library.mjs
 
       # Every topic must pass. A failure here leaves the PR open rather than
       # merging thousands of unchecked questions.

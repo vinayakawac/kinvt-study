@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  content:
+    name: Question banks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Catches a half-wired topic: a bank file that does not exist, a topic
+      # missing from DEFAULT_SETTINGS so it can never be enabled, or an icon
+      # with no entry in the ICONS map. None of those throw at runtime.
+      - name: Library wiring
+        run: node scripts/check-library.mjs
+
+      # Without --require-source, because the questions written before sources
+      # were required would otherwise fail. Generated content is validated
+      # with the flag on, in expand-library.yml.
+      - name: Validate every bank
+        run: |
+          fail=0
+          for f in desktop/ui/data/*.json; do
+            node scripts/validate-questions.mjs "$f" || fail=1
+          done
+          exit $fail
+
+  app:
+    name: Tauri build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: desktop/tauri
+
+      - name: Format
+        working-directory: desktop/tauri
+        run: cargo fmt --check
+
+      - name: Clippy
+        working-directory: desktop/tauri
+        run: cargo clippy --release -- -D warnings
+
+      - name: Build
+        working-directory: desktop/tauri
+        run: cargo build --release

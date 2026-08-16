@@ -18,8 +18,15 @@ const TARGET = Number(process.env.TARGET_COUNT || 150);
 const BATCH = Number(process.env.BATCH_SIZE || 25);      // per API call
 const ONLY = process.env.ONLY_TOPIC || '';               // optional single topic
 const MAX_CALLS = Number(process.env.MAX_CALLS || 200);  // cost ceiling
+// Overridable so a model upgrade is an input change, not a code change.
+const MODEL = process.env.MODEL || 'claude-sonnet-5';
 
-const library = JSON.parse(fs.readFileSync('library.json', 'utf8'));
+// Content lives under desktop/ui and nowhere else. This used to read
+// library.json from the repo root, where it has never existed, so the script
+// threw before generating anything — which is why this pipeline had never
+// successfully run.
+const UI_DIR = path.join('desktop', 'ui');
+const library = JSON.parse(fs.readFileSync(path.join(UI_DIR, 'library.json'), 'utf8'));
 let calls = 0;
 
 const SUBJECT_HINTS = {
@@ -66,7 +73,7 @@ Return ONLY a JSON array, no prose:
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-api-key': KEY, 'anthropic-version': '2023-06-01' },
-    body: JSON.stringify({ model: 'claude-sonnet-4-5', max_tokens: 16000, messages: [{ role: 'user', content: prompt }] })
+    body: JSON.stringify({ model: MODEL, max_tokens: 16000, messages: [{ role: 'user', content: prompt }] })
   });
   calls++;
   if (!res.ok) { console.error(`  API ${res.status}: ${(await res.text()).slice(0, 300)}`); return []; }
@@ -85,7 +92,7 @@ const norm = t => String(t || '').toLowerCase().replace(/[^a-z0-9 ]/g, '').repla
 for (const topic of library) {
   if (ONLY && topic.id !== ONLY) continue;
 
-  const file = topic.file;
+  const file = path.join(UI_DIR, topic.file);
   let bank;
   try { bank = JSON.parse(fs.readFileSync(file, 'utf8')); }
   catch { bank = { name: topic.label, description: topic.blurb, questions: [] }; }
@@ -124,9 +131,9 @@ for (const topic of library) {
     }
 
     // Write after every batch so an interrupted run keeps its progress.
+    // There is one location for the banks; the old mirror-to-desktop/ui step
+    // existed only to paper over the wrong primary path.
     fs.writeFileSync(file, JSON.stringify(bank, null, 2) + '\n');
-    const mirror = path.join('desktop', 'ui', file);
-    if (fs.existsSync(path.dirname(mirror))) fs.writeFileSync(mirror, JSON.stringify(bank, null, 2) + '\n');
   }
 
   console.log(`${topic.id}: ${bank.questions.length} questions (+${added})`);
