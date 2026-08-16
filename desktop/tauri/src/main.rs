@@ -147,6 +147,18 @@ fn open_settings(app: tauri::AppHandle) {
 
 fn main() {
     tauri::Builder::default()
+        // A second launch must not start a second copy. Two instances would
+        // each own a tray icon, a popup timer and a claim on Ctrl+Shift+Q —
+        // the user would see duplicate cards and one instance would silently
+        // lose the hotkey. This must be registered before any other plugin so
+        // the duplicate exits before it builds a window or tray.
+        //
+        // The already-running instance gets the callback instead, and treats
+        // the relaunch as "show me the settings", which is the only sensible
+        // reading of double-clicking an app that is already running.
+        .plugin(tauri_plugin_single_instance::init(|app, _argv, _cwd| {
+            open_settings(app.clone());
+        }))
         .invoke_handler(tauri::generate_handler![
             show_quiz,
             hide_quiz,

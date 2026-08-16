@@ -144,6 +144,35 @@ body.windowed {
 }
 body.windowed #cats { display: block; }
 
+/* ---- Windows overlay title bar (Electron shell only) ----
+   With titleBarStyle 'hidden' there is no native caption at all: the page owns
+   the whole window and Windows paints only its three controls over the top
+   right. So the page must supply two things the caption used to give for free
+   — somewhere to grab the window, and clearance so content does not sit under
+   those controls.
+
+   The strip is a fixed ::before rather than padding alone, because
+   -webkit-app-region needs a real box to apply to; padding is not draggable.
+   Tauri keeps its native caption and never gets this class. */
+body.overlay-titlebar { padding-top: 48px; }   /* 32px strip + the usual 16px */
+
+body.overlay-titlebar::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 32px;
+  background: var(--bg);
+  -webkit-app-region: drag;
+  z-index: 20;
+}
+
+/* Anything interactive that ends up in the strip must opt out, or it becomes
+   un-clickable the moment it is draggable. */
+body.overlay-titlebar button,
+body.overlay-titlebar a,
+body.overlay-titlebar input,
+body.overlay-titlebar select { -webkit-app-region: no-drag; }
+
 /* ---------- header ---------- */
 .top { display: flex; align-items: center; gap: 10px; padding: 2px 2px 10px; }
 .logo {

@@ -22,6 +22,11 @@ const path = require('path');
 
 const CARD_WIDTH = 400;
 
+// Mirrors --bg and --text in settings.css, so the caption is the same colour
+// as the page rather than merely a dark one.
+const OVERLAY_DARK = { color: '#1c1b19', symbolColor: '#f5f1dd', height: 32 };
+const OVERLAY_LIGHT = { color: '#f5f1dd', symbolColor: '#1c1b19', height: 32 };
+
 let quizWin = null;
 let settingsWin = null;
 let tray = null;
@@ -100,6 +105,14 @@ function openSettings() {
     title: 'Kinvt-study — Settings',
     backgroundColor: '#1c1b19',
     icon: path.join(__dirname, 'icons', 'icon.png'),
+    // The OS draws the caption, so a dark app otherwise wears a light grey
+    // title bar with a hard seam across the top. An overlay is the only way
+    // Electron can colour it exactly; the Tauri shell does the same through
+    // DWM. Colours mirror --bg and --text in settings.css.
+    ...(process.platform === 'win32' ? {
+      titleBarStyle: 'hidden',
+      titleBarOverlay: OVERLAY_DARK
+    } : {}),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -108,20 +121,30 @@ function openSettings() {
   });
   settingsWin.setMenuBarVisibility(false);
   settingsWin.loadFile(path.join(__dirname, 'ui', 'settings.html'));
+
+  // Hiding the caption means the page must provide its own drag strip and
+  // clearance for the window controls. That is Electron-specific, so the flag
+  // is set from the shell rather than baked into the shared stylesheet, which
+  // Tauri also loads.
+  if (process.platform === 'win32') {
+    settingsWin.webContents.on('did-finish-load', () => {
+      settingsWin.webContents.executeJavaScript(
+        "document.body.classList.add('overlay-titlebar')"
+      ).catch(() => {});
+    });
+  }
 }
 
-// The OS draws the caption, so a dark app otherwise wears a light grey title
-// bar with a hard seam across the top. Setting themeSource makes Windows draw
-// its dark caption instead, and it follows the page when the theme changes.
-//
-// This gets close to the page rather than matching it exactly. Electron has no
-// route to DWM's caption colour, and the exact-match alternative —
-// titleBarStyle 'hidden' with a titleBarOverlay — removes the native caption
-// and pushes page content under the window controls, which needs a drag region
-// and top clearance the shared stylesheet does not have. The Tauri shell, which
-// is the one the README recommends, does match exactly via DWM.
+// The settings page reports its theme so the caption follows it, instead of
+// staying dark while the page turns light. setTitleBarOverlay throws if the
+// window was built without an overlay, which is every non-Windows platform.
 ipcMain.handle('set_titlebar_theme', (_e, { dark }) => {
   nativeTheme.themeSource = dark ? 'dark' : 'light';
+  if (process.platform !== 'win32') return;
+  if (!settingsWin || settingsWin.isDestroyed()) return;
+  try {
+    settingsWin.setTitleBarOverlay(dark ? OVERLAY_DARK : OVERLAY_LIGHT);
+  } catch (e) { /* no overlay on this window */ }
 });
 
 /* ---------- IPC from the webview ---------- */
@@ -153,7 +176,11 @@ app.on('window-all-closed', (e) => e.preventDefault());
 if (!app.requestSingleInstanceLock()) {
   app.quit();
 } else {
-  app.on('second-instance', () => startQuiz());
+  // Relaunching an app that is already running should show its window, not
+  // fire a quiz at you — the same thing the Tauri shell does. Without this the
+  // second launch would appear to do nothing at all, since the app lives in
+  // the tray and its icon is hidden in the Windows 11 overflow flyout.
+  app.on('second-instance', () => openSettings());
 
   app.whenReady().then(() => {
     createQuizWindow();
