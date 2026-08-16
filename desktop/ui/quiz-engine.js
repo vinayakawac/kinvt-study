@@ -33,6 +33,8 @@
       'banking': false,
       'railways': false,
       'defence': false,
+      'land-surveyor': false,
+      'vao': false,
       'constitution-polity': false,
       'indian-history': false,
       'geography': false,

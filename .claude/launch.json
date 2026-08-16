@@ -4,7 +4,7 @@
     {
       "name": "quizpop-preview",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["test-harness/serve.js"],
+      "runtimeArgs": ["scripts/serve-ui.js"],
       "port": 8792
     }
   ]

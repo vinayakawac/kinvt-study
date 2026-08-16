@@ -29,6 +29,8 @@ const SUBJECT_HINTS = {
   'banking': 'IBPS/SBI/RBI: banking terms, monetary policy, financial institutions, regulators',
   'railways': 'RRB NTPC/Group D: Indian Railways, general science, general awareness',
   'defence': 'NDA/CDS/AFCAT: Indian armed forces, defence exercises, equipment, military history',
+  'land-surveyor': 'KEA Karnataka Land Surveyor (RPC): chain/compass/plane table/theodolite/levelling, contours, tacheometry, total station, GPS, GIS and remote sensing, plus physics, arithmetic, algebra, geometry and computer applications',
+  'vao': 'KEA Karnataka Village Administrative Officer (RPC): Karnataka land revenue administration, records of rights and mutation, the Bhoomi land-records system, revenue hierarchy, Karnataka GK, general English and computer knowledge',
   'general-knowledge': 'everyday general knowledge: India and the world, science, geography, culture',
   'current-affairs': 'notable events of the last two years with lasting exam relevance',
   'constitution-polity': 'Indian Constitution: articles, amendments, schedules, constitutional bodies',

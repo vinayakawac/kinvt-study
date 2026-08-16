@@ -17,7 +17,8 @@ if (!topicId || !batchFile) {
 }
 
 const PREFIX = {
-  upsc: 'up', kpsc: 'kp', ssc: 'ss', banking: 'bk', railways: 'rw', defence: 'df'
+  upsc: 'up', kpsc: 'kp', ssc: 'ss', banking: 'bk', railways: 'rw', defence: 'df',
+  'land-surveyor': 'ls', vao: 'va'
 };
 const prefix = PREFIX[topicId];
 if (!prefix) { console.error(`unknown topic "${topicId}"`); process.exit(2); }

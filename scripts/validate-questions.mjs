@@ -78,6 +78,18 @@ const seenText = new Set();
     errors.push(`${at}: explanation too short to teach anything (${expl.length} chars, need 40)`);
   }
 
+  // A question phrased against "now" silently becomes wrong as the world
+  // moves on, and nothing downstream will ever catch it — the answer key
+  // still matches, so it just quietly teaches the wrong fact. Anchor to a
+  // date instead: "as of 2026", "in May 2025".
+  const qText = String(q.question || '');
+  const timeRelative = /\b(currently|at present|presently|recently|nowadays|as of now|this year|last year|newly appointed|incumbent)\b/i.test(qText)
+    || /\bcurrent\s+(chairman|president|governor|minister|chief|head|director|secretary|ceo)\b/i.test(qText);
+  // A question already carrying a year is anchored, so "as of 2026" is fine.
+  if (timeRelative && !/\b(19|20)\d{2}\b/.test(qText)) {
+    warn.push(`${at}: time-relative wording will go stale — anchor it to a date`);
+  }
+
   if (!q.source || !/^https?:\/\//.test(String(q.source))) {
     const msg = `${at}: needs a source URL so the fact can be checked by a human`;
     if (requireSource) errors.push(msg); else warn.push(msg);

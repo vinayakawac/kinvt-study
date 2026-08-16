@@ -5,6 +5,8 @@
   { "id": "banking",           "label": "Banking & Finance",       "icon": "briefcase", "group": "Exam Prep",  "blurb": "IBPS · SBI · RBI awareness", "file": "data/banking.json" },
   { "id": "railways",          "label": "Railways (RRB)",          "icon": "train",     "group": "Exam Prep",  "blurb": "RRB NTPC · Group D", "file": "data/railways.json" },
   { "id": "defence",           "label": "Defence (NDA / CDS)",     "icon": "shield",    "group": "Exam Prep",  "blurb": "NDA · CDS · AFCAT basics", "file": "data/defence.json" },
+  { "id": "land-surveyor",     "label": "Land Surveyor (KEA)",     "icon": "compass",   "group": "Exam Prep",  "blurb": "Survey methods · physics · maths · GK", "file": "data/land-surveyor.json" },
+  { "id": "vao",               "label": "Village Admin Officer",   "icon": "home",      "group": "Exam Prep",  "blurb": "Karnataka GK · revenue administration", "file": "data/vao.json" },
   { "id": "general-knowledge", "label": "General Knowledge",       "icon": "globe",     "group": "Subjects",   "blurb": "Everyday GK · India & world", "file": "data/general-knowledge.json" },
   { "id": "current-affairs",   "label": "Current Affairs 2025–26", "icon": "newspaper", "group": "Subjects",   "blurb": "Recent events · verified facts", "file": "data/current-affairs.json" },
   { "id": "constitution-polity", "label": "Constitution & Polity", "icon": "scales",    "group": "Subjects",   "blurb": "Constitution · amendments · bodies", "file": "data/constitution-polity.json" },

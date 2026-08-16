@@ -167,7 +167,7 @@
       "category": "general-knowledge",
       "topic": "India",
       "difficulty": "easy",
-      "question": "How many states does India currently have?",
+      "question": "How many states does India have, excluding union territories?",
       "options": ["26", "28", "29", "30"],
       "answer": 1,
       "explanation": "After the 2019 bifurcation of Jammu & Kashmir, India has 28 states and 8 Union Territories."
