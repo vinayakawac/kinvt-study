@@ -8,7 +8,12 @@
       "topic": "Polity",
       "difficulty": "medium",
       "question": "Under which Article of the Indian Constitution can President's Rule be imposed in a state?",
-      "options": ["Article 352", "Article 356", "Article 360", "Article 365"],
+      "options": [
+        "Article 352",
+        "Article 356",
+        "Article 360",
+        "Article 365"
+      ],
       "answer": 1,
       "explanation": "Article 356 provides for President's Rule on failure of constitutional machinery in a state. Article 352 is National Emergency, 360 is Financial Emergency."
     },
@@ -18,7 +23,12 @@
       "topic": "Polity",
       "difficulty": "easy",
       "question": "The Fundamental Rights are enshrined in which Part of the Indian Constitution?",
-      "options": ["Part II", "Part III", "Part IV", "Part V"],
+      "options": [
+        "Part II",
+        "Part III",
+        "Part IV",
+        "Part V"
+      ],
       "answer": 1,
       "explanation": "Part III (Articles 12–35) contains the Fundamental Rights. Part IV has the Directive Principles of State Policy."
     },
@@ -28,7 +38,12 @@
       "topic": "Polity",
       "difficulty": "medium",
       "question": "Who appoints the Chief Justice of India?",
-      "options": ["The Prime Minister", "The President", "The Parliament", "The Supreme Court collegium directly"],
+      "options": [
+        "The Prime Minister",
+        "The President",
+        "The Parliament",
+        "The Supreme Court collegium directly"
+      ],
       "answer": 1,
       "explanation": "The President appoints the CJI under Article 124, acting on the recommendation of the outgoing CJI / collegium (established by the Second and Third Judges Cases)."
     },
@@ -38,7 +53,12 @@
       "topic": "Polity",
       "difficulty": "medium",
       "question": "A Money Bill can be introduced in the Lok Sabha only on the recommendation of whom?",
-      "options": ["The President", "The Speaker", "The Finance Minister", "The Prime Minister"],
+      "options": [
+        "The President",
+        "The Speaker",
+        "The Finance Minister",
+        "The Prime Minister"
+      ],
       "answer": 0,
       "explanation": "Under Article 117(1), a Money Bill requires the President's recommendation before introduction in the Lok Sabha, and it cannot originate in the Rajya Sabha."
     },
@@ -48,7 +68,12 @@
       "topic": "Polity",
       "difficulty": "medium",
       "question": "The 42nd Constitutional Amendment (1976) is popularly known as what?",
-      "options": ["The Mini Constitution", "The Mother of Amendments", "The Basic Structure Amendment", "The Panchayati Raj Amendment"],
+      "options": [
+        "The Mini Constitution",
+        "The Mother of Amendments",
+        "The Basic Structure Amendment",
+        "The Panchayati Raj Amendment"
+      ],
       "answer": 0,
       "explanation": "The 42nd Amendment, passed during the Emergency, altered the Preamble and dozens of provisions — hence the 'Mini Constitution' tag."
     },
@@ -58,7 +83,12 @@
       "topic": "Polity",
       "difficulty": "easy",
       "question": "The Directive Principles of State Policy are contained in which Part of the Constitution?",
-      "options": ["Part III", "Part IV", "Part IVA", "Part V"],
+      "options": [
+        "Part III",
+        "Part IV",
+        "Part IVA",
+        "Part V"
+      ],
       "answer": 1,
       "explanation": "Part IV (Articles 36–51) lists the DPSPs, borrowed largely from the Irish Constitution. Part IVA has the Fundamental Duties."
     },
@@ -68,7 +98,12 @@
       "topic": "Polity",
       "difficulty": "easy",
       "question": "What is the term of a member of the Rajya Sabha?",
-      "options": ["4 years", "5 years", "6 years", "7 years"],
+      "options": [
+        "4 years",
+        "5 years",
+        "6 years",
+        "7 years"
+      ],
       "answer": 2,
       "explanation": "Rajya Sabha members serve 6-year terms, with one-third retiring every two years — the House is a permanent body."
     },
@@ -78,7 +113,12 @@
       "topic": "Polity",
       "difficulty": "easy",
       "question": "A National Emergency is proclaimed under which Article of the Constitution?",
-      "options": ["Article 352", "Article 356", "Article 360", "Article 365"],
+      "options": [
+        "Article 352",
+        "Article 356",
+        "Article 360",
+        "Article 365"
+      ],
       "answer": 0,
       "explanation": "Article 352 deals with National Emergency (war, external aggression, armed rebellion). It has been proclaimed three times: 1962, 1971 and 1975."
     },
@@ -88,7 +128,12 @@
       "topic": "Polity",
       "difficulty": "easy",
       "question": "Who has the power to dissolve the Lok Sabha?",
-      "options": ["The President", "The Prime Minister", "The Speaker", "The Vice-President"],
+      "options": [
+        "The President",
+        "The Prime Minister",
+        "The Speaker",
+        "The Vice-President"
+      ],
       "answer": 0,
       "explanation": "The President can dissolve the Lok Sabha under Article 85, on the advice of the Council of Ministers. The Rajya Sabha cannot be dissolved."
     },
@@ -98,7 +143,12 @@
       "topic": "Polity",
       "difficulty": "medium",
       "question": "The 73rd Constitutional Amendment Act (1992) is related to which subject?",
-      "options": ["Municipalities", "Panchayati Raj", "Goods and Services Tax", "Anti-defection"],
+      "options": [
+        "Municipalities",
+        "Panchayati Raj",
+        "Goods and Services Tax",
+        "Anti-defection"
+      ],
       "answer": 1,
       "explanation": "The 73rd Amendment constitutionalised Panchayati Raj (three-tier rural local government). The 74th Amendment covers urban Municipalities."
     },
@@ -108,7 +158,12 @@
       "topic": "History",
       "difficulty": "easy",
       "question": "In which year was the Battle of Plassey fought?",
-      "options": ["1757", "1764", "1857", "1746"],
+      "options": [
+        "1757",
+        "1764",
+        "1857",
+        "1746"
+      ],
       "answer": 0,
       "explanation": "The Battle of Plassey (23 June 1757) — Robert Clive's victory over Siraj-ud-Daulah — laid the foundation of British rule in India. Buxar followed in 1764."
     },
@@ -118,7 +173,12 @@
       "topic": "History",
       "difficulty": "medium",
       "question": "Who was the first Governor-General of independent India?",
-      "options": ["C. Rajagopalachari", "Lord Mountbatten", "Lord Canning", "Warren Hastings"],
+      "options": [
+        "C. Rajagopalachari",
+        "Lord Mountbatten",
+        "Lord Canning",
+        "Warren Hastings"
+      ],
       "answer": 1,
       "explanation": "Lord Mountbatten, the last Viceroy, became the first Governor-General of independent India (Aug 1947 – June 1948). C. Rajagopalachari was the first Indian to hold the post."
     },
@@ -128,7 +188,12 @@
       "topic": "History",
       "difficulty": "easy",
       "question": "Mahatma Gandhi's Dandi March, marking the start of the Civil Disobedience Movement, took place in which year?",
-      "options": ["1919", "1930", "1942", "1922"],
+      "options": [
+        "1919",
+        "1930",
+        "1942",
+        "1922"
+      ],
       "answer": 1,
       "explanation": "The Salt March from Sabarmati to Dandi (12 March – 6 April 1930) launched the Civil Disobedience Movement against the salt tax."
     },
@@ -138,7 +203,12 @@
       "topic": "History",
       "difficulty": "easy",
       "question": "The Jallianwala Bagh massacre took place in which year?",
-      "options": ["1919", "1921", "1917", "1922"],
+      "options": [
+        "1919",
+        "1921",
+        "1917",
+        "1922"
+      ],
       "answer": 0,
       "explanation": "On 13 April 1919 (Baisakhi), troops under General Dyer fired on an unarmed gathering at Amritsar — a turning point of the freedom struggle."
     },
@@ -148,7 +218,12 @@
       "topic": "Polity",
       "difficulty": "medium",
       "question": "On which date was the Constitution of India adopted by the Constituent Assembly?",
-      "options": ["26 January 1950", "26 November 1949", "15 August 1947", "26 January 1949"],
+      "options": [
+        "26 January 1950",
+        "26 November 1949",
+        "15 August 1947",
+        "26 January 1949"
+      ],
       "answer": 1,
       "explanation": "The Constitution was adopted on 26 November 1949 (now Constitution Day) and came into force on 26 January 1950 (Republic Day)."
     },
@@ -158,7 +233,12 @@
       "topic": "Polity",
       "difficulty": "easy",
       "question": "Who was the Chairman of the Drafting Committee of the Constituent Assembly?",
-      "options": ["Jawaharlal Nehru", "Dr. B. R. Ambedkar", "Sardar Vallabhbhai Patel", "K. M. Munshi"],
+      "options": [
+        "Jawaharlal Nehru",
+        "Dr. B. R. Ambedkar",
+        "Sardar Vallabhbhai Patel",
+        "K. M. Munshi"
+      ],
       "answer": 1,
       "explanation": "Dr. B. R. Ambedkar chaired the seven-member Drafting Committee set up on 29 August 1947."
     },
@@ -168,7 +248,12 @@
       "topic": "History",
       "difficulty": "medium",
       "question": "The Chauri Chaura incident (1922) led Mahatma Gandhi to withdraw which movement?",
-      "options": ["Civil Disobedience Movement", "Quit India Movement", "Non-Cooperation Movement", "Swadeshi Movement"],
+      "options": [
+        "Civil Disobedience Movement",
+        "Quit India Movement",
+        "Non-Cooperation Movement",
+        "Swadeshi Movement"
+      ],
       "answer": 2,
       "explanation": "After policemen were killed by a mob at Chauri Chaura (Feb 1922), Gandhi called off the Non-Cooperation Movement, insisting on non-violence."
     },
@@ -178,7 +263,12 @@
       "topic": "History",
       "difficulty": "medium",
       "question": "The Simla Agreement of 1972 was signed between India and which country?",
-      "options": ["India and China", "India and Pakistan", "India and Bangladesh", "India and Sri Lanka"],
+      "options": [
+        "India and China",
+        "India and Pakistan",
+        "India and Bangladesh",
+        "India and Sri Lanka"
+      ],
       "answer": 1,
       "explanation": "Signed by Indira Gandhi and Zulfikar Ali Bhutto after the 1971 war, the Simla Agreement committed both nations to resolving disputes bilaterally."
     },
@@ -188,7 +278,12 @@
       "topic": "Polity",
       "difficulty": "hard",
       "question": "The words 'Socialist', 'Secular' and 'Integrity' were added to the Preamble by which Constitutional Amendment?",
-      "options": ["42nd Amendment", "44th Amendment", "24th Amendment", "73rd Amendment"],
+      "options": [
+        "42nd Amendment",
+        "44th Amendment",
+        "24th Amendment",
+        "73rd Amendment"
+      ],
       "answer": 0,
       "explanation": "The 42nd Amendment (1976) added 'Socialist', 'Secular' and 'Integrity' to the Preamble during the Emergency."
     },
@@ -198,7 +293,12 @@
       "topic": "Geography",
       "difficulty": "hard",
       "question": "The Tropic of Cancer passes through how many Indian states?",
-      "options": ["6", "7", "8", "9"],
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
       "answer": 2,
       "explanation": "It passes through 8 states: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura and Mizoram."
     },
@@ -208,7 +308,12 @@
       "topic": "Geography",
       "difficulty": "medium",
       "question": "Which Indian mountain range is geologically older — the Himalayas or the Western Ghats?",
-      "options": ["The Himalayas", "The Western Ghats", "Both are the same age", "Neither — both are very young"],
+      "options": [
+        "The Himalayas",
+        "The Western Ghats",
+        "Both are the same age",
+        "Neither — both are very young"
+      ],
       "answer": 1,
       "explanation": "The Western Ghats (block mountains, formed during Gondwana breakup) are far older than the young fold mountains of the Himalayas."
     },
@@ -218,7 +323,12 @@
       "topic": "Geography",
       "difficulty": "easy",
       "question": "Which river is historically known as the 'Sorrow of Bengal'?",
-      "options": ["Kosi", "Damodar", "Hooghly", "Teesta"],
+      "options": [
+        "Kosi",
+        "Damodar",
+        "Hooghly",
+        "Teesta"
+      ],
       "answer": 1,
       "explanation": "The Damodar's devastating floods earned it the name 'Sorrow of Bengal'; the DVC project later tamed it. The Kosi is the 'Sorrow of Bihar'."
     },
@@ -228,7 +338,12 @@
       "topic": "Geography",
       "difficulty": "medium",
       "question": "The southwest monsoon normally arrives over the Kerala coast around which time?",
-      "options": ["Early April", "Early May", "Early June", "Early July"],
+      "options": [
+        "Early April",
+        "Early May",
+        "Early June",
+        "Early July"
+      ],
       "answer": 2,
       "explanation": "The monsoon 'onset' over Kerala is around 1 June (normal date), progressing northward to cover the country by mid-July."
     },
@@ -238,7 +353,12 @@
       "topic": "Economy",
       "difficulty": "easy",
       "question": "In which year was the Reserve Bank of India (RBI) established?",
-      "options": ["1935", "1947", "1949", "1950"],
+      "options": [
+        "1935",
+        "1947",
+        "1949",
+        "1950"
+      ],
       "answer": 0,
       "explanation": "The RBI began operations on 1 April 1935 under the RBI Act 1934 (Hilton Young Commission's recommendation). It was nationalised in 1949."
     },
@@ -248,7 +368,12 @@
       "topic": "Economy",
       "difficulty": "easy",
       "question": "The Goods and Services Tax (GST) came into force across India on which date?",
-      "options": ["1 July 2016", "1 July 2017", "1 April 2017", "1 January 2018"],
+      "options": [
+        "1 July 2016",
+        "1 July 2017",
+        "1 April 2017",
+        "1 January 2018"
+      ],
       "answer": 1,
       "explanation": "GST — 'One Nation, One Tax' — was launched at midnight on 1 July 2017, via the 101st Constitutional Amendment."
     },
@@ -258,7 +383,12 @@
       "topic": "Environment",
       "difficulty": "easy",
       "question": "The Ramsar Convention (1971) is related to the conservation of what?",
-      "options": ["Forests", "Wetlands", "Desertification", "The ozone layer"],
+      "options": [
+        "Forests",
+        "Wetlands",
+        "Desertification",
+        "The ozone layer"
+      ],
       "answer": 1,
       "explanation": "The Ramsar Convention is an international treaty for the conservation and wise use of wetlands; India has 80+ Ramsar sites."
     },
@@ -268,7 +398,12 @@
       "topic": "Environment",
       "difficulty": "easy",
       "question": "In which year was Project Tiger launched in India?",
-      "options": ["1970", "1972", "1973", "1980"],
+      "options": [
+        "1970",
+        "1972",
+        "1973",
+        "1980"
+      ],
       "answer": 2,
       "explanation": "Project Tiger was launched on 1 April 1973 from Jim Corbett National Park; India hosts ~70% of the world's wild tigers."
     },
@@ -278,7 +413,12 @@
       "topic": "Science",
       "difficulty": "medium",
       "question": "India's first nuclear test, code-named 'Smiling Buddha', was conducted in which year?",
-      "options": ["1964", "1974", "1998", "1968"],
+      "options": [
+        "1964",
+        "1974",
+        "1998",
+        "1968"
+      ],
       "answer": 1,
       "explanation": "'Smiling Buddha' was a peaceful nuclear explosion at Pokhran on 18 May 1974. Pokhran-II followed in 1998."
     },
@@ -288,7 +428,12 @@
       "topic": "Polity",
       "difficulty": "easy",
       "question": "Which constitutional body conducts the Civil Services Examination (IAS/IPS)?",
-      "options": ["UPSC", "SSC", "NTA", "DoPT"],
+      "options": [
+        "UPSC",
+        "SSC",
+        "NTA",
+        "DoPT"
+      ],
       "answer": 0,
       "explanation": "The Union Public Service Commission (Articles 315–323) conducts the CSE for the IAS, IPS, IFS and other All-India Services."
     },
@@ -298,9 +443,638 @@
       "topic": "History",
       "difficulty": "medium",
       "question": "The National Emergency declared on 25 June 1975 was proclaimed during the prime ministership of whom?",
-      "options": ["Jawaharlal Nehru", "Indira Gandhi", "Morarji Desai", "Rajiv Gandhi"],
+      "options": [
+        "Jawaharlal Nehru",
+        "Indira Gandhi",
+        "Morarji Desai",
+        "Rajiv Gandhi"
+      ],
       "answer": 1,
       "explanation": "Indira Gandhi's government declared the 21-month Emergency citing 'internal disturbance' — the only Emergency on that ground."
+    },
+    {
+      "id": "up-031",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "easy",
+      "question": "Which Article of the Indian Constitution abolishes untouchability?",
+      "options": [
+        "Article 14",
+        "Article 17",
+        "Article 19",
+        "Article 21"
+      ],
+      "answer": 1,
+      "explanation": "Article 17 abolishes untouchability and forbids its practice in any form. Article 14 guarantees equality before law, 19 the freedoms, and 21 protection of life and personal liberty.",
+      "source": "https://en.wikipedia.org/wiki/Fundamental_rights_in_India"
+    },
+    {
+      "id": "up-032",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Directive Principles of State Policy in the Indian Constitution were borrowed from the constitution of which country?",
+      "options": [
+        "Ireland",
+        "United States",
+        "Canada",
+        "Australia"
+      ],
+      "answer": 0,
+      "explanation": "The Directive Principles were modelled on the Irish Constitution, which had itself drawn on Spanish precedent. Fundamental Rights came from the US, federal structure with a strong centre from Canada, and the Concurrent List from Australia.",
+      "source": "https://en.wikipedia.org/wiki/Directive_Principles"
+    },
+    {
+      "id": "up-033",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Which Constitutional Amendment lowered the voting age in India from 21 to 18 years?",
+      "options": [
+        "42nd Amendment",
+        "44th Amendment",
+        "61st Amendment",
+        "73rd Amendment"
+      ],
+      "answer": 2,
+      "explanation": "The 61st Amendment of 1988 reduced the voting age to 18. The 42nd is the wide-ranging 1976 amendment, the 44th reversed much of it, and the 73rd created panchayati raj.",
+      "source": "https://en.wikipedia.org/wiki/Sixty-first_Amendment_of_the_Constitution_of_India"
+    },
+    {
+      "id": "up-034",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "In which case did the Supreme Court of India first articulate the basic structure doctrine?",
+      "options": [
+        "Golaknath v. State of Punjab",
+        "Kesavananda Bharati v. State of Kerala",
+        "Minerva Mills v. Union of India",
+        "Maneka Gandhi v. Union of India"
+      ],
+      "answer": 1,
+      "explanation": "Kesavananda Bharati (1973) held that Parliament cannot alter the Constitution's basic structure. Golaknath had earlier barred amendment of Fundamental Rights outright, while Minerva Mills later reinforced the doctrine.",
+      "source": "https://en.wikipedia.org/wiki/Kesavananda_Bharati_v._State_of_Kerala"
+    },
+    {
+      "id": "up-035",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Who is the constitutional head of the Union Public Service Commission's appointment process?",
+      "options": [
+        "The Prime Minister",
+        "The President",
+        "The Chief Justice of India",
+        "The Speaker of the Lok Sabha"
+      ],
+      "answer": 1,
+      "explanation": "Article 316 empowers the President to appoint the Chairman and members of the UPSC. The Prime Minister advises but does not appoint, and the judiciary has no role in it.",
+      "source": "https://en.wikipedia.org/wiki/Union_Public_Service_Commission"
+    },
+    {
+      "id": "up-036",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "easy",
+      "question": "How many schedules does the Constitution of India currently contain?",
+      "options": [
+        "Ten",
+        "Twelve",
+        "Fourteen",
+        "Eight"
+      ],
+      "answer": 1,
+      "explanation": "The Constitution has twelve schedules; it began with eight, and the Ninth, Tenth, Eleventh and Twelfth were added by later amendments.",
+      "source": "https://en.wikipedia.org/wiki/Constitution_of_India"
+    },
+    {
+      "id": "up-037",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Tenth Schedule of the Indian Constitution deals with which subject?",
+      "options": [
+        "Languages",
+        "Anti-defection provisions",
+        "Panchayati raj",
+        "Land reform laws"
+      ],
+      "answer": 1,
+      "explanation": "The Tenth Schedule, added by the 52nd Amendment in 1985, contains the anti-defection law. Languages are in the Eighth Schedule, panchayats in the Eleventh, and protected land reform laws in the Ninth.",
+      "source": "https://en.wikipedia.org/wiki/Anti-defection_law"
+    },
+    {
+      "id": "up-038",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "Which Article empowers the Supreme Court of India to issue writs for the enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 226",
+        "Article 136",
+        "Article 143"
+      ],
+      "answer": 0,
+      "explanation": "Article 32 gives the Supreme Court writ jurisdiction for Fundamental Rights and is itself a Fundamental Right. Article 226 gives High Courts wider writ powers, 136 covers special leave to appeal, and 143 the President's reference.",
+      "source": "https://en.wikipedia.org/wiki/Article_32_of_the_Constitution_of_India"
+    },
+    {
+      "id": "up-039",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Who administers the oath of office to the President of India?",
+      "options": [
+        "The Vice-President",
+        "The Chief Justice of India",
+        "The Speaker of the Lok Sabha",
+        "The outgoing President"
+      ],
+      "answer": 1,
+      "explanation": "Article 60 provides that the Chief Justice of India, or in their absence the senior-most Supreme Court judge, administers the President's oath.",
+      "source": "https://en.wikipedia.org/wiki/President_of_India"
+    },
+    {
+      "id": "up-040",
+      "category": "upsc",
+      "topic": "Polity",
+      "difficulty": "easy",
+      "question": "Which house of the Indian Parliament cannot be dissolved?",
+      "options": [
+        "Lok Sabha",
+        "Rajya Sabha",
+        "Both houses",
+        "Neither house"
+      ],
+      "answer": 1,
+      "explanation": "The Rajya Sabha is a permanent body with one-third of its members retiring every two years. The Lok Sabha can be dissolved by the President before its five-year term ends.",
+      "source": "https://en.wikipedia.org/wiki/Rajya_Sabha"
+    },
+    {
+      "id": "up-041",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Quit India Movement was launched in which year?",
+      "options": [
+        "1930",
+        "1942",
+        "1945",
+        "1920"
+      ],
+      "answer": 1,
+      "explanation": "Gandhi launched Quit India in August 1942 with the call to 'do or die'. 1930 saw the Civil Disobedience Movement, 1920 Non-Cooperation, and 1945 the Simla Conference.",
+      "source": "https://en.wikipedia.org/wiki/Quit_India_Movement"
+    },
+    {
+      "id": "up-042",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Who founded the Indian National Congress in 1885?",
+      "options": [
+        "Allan Octavian Hume",
+        "Dadabhai Naoroji",
+        "Womesh Chunder Bonnerjee",
+        "Surendranath Banerjee"
+      ],
+      "answer": 0,
+      "explanation": "A. O. Hume, a retired British civil servant, was the founder and first general secretary. W. C. Bonnerjee presided over the first session, and Naoroji was president three times later.",
+      "source": "https://en.wikipedia.org/wiki/Indian_National_Congress"
+    },
+    {
+      "id": "up-043",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Battle of Plassey in 1757 was fought between the British East India Company and which ruler?",
+      "options": [
+        "Tipu Sultan",
+        "Siraj-ud-Daulah",
+        "Mir Jafar",
+        "Hyder Ali"
+      ],
+      "answer": 1,
+      "explanation": "Robert Clive defeated Siraj-ud-Daulah, the Nawab of Bengal, after Mir Jafar defected and was installed in his place. Tipu Sultan and Hyder Ali fought the later Anglo-Mysore Wars.",
+      "source": "https://en.wikipedia.org/wiki/Battle_of_Plassey"
+    },
+    {
+      "id": "up-044",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Which Mughal emperor built the Taj Mahal?",
+      "options": [
+        "Akbar",
+        "Jahangir",
+        "Shah Jahan",
+        "Aurangzeb"
+      ],
+      "answer": 2,
+      "explanation": "Shah Jahan commissioned the Taj Mahal at Agra as a mausoleum for Mumtaz Mahal. Akbar built Fatehpur Sikri, and Aurangzeb, his son, later deposed him.",
+      "source": "https://en.wikipedia.org/wiki/Taj_Mahal"
+    },
+    {
+      "id": "up-045",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Doctrine of Lapse was an annexation policy associated with which Governor-General?",
+      "options": [
+        "Lord Dalhousie",
+        "Lord Curzon",
+        "Lord Ripon",
+        "Lord Cornwallis"
+      ],
+      "answer": 0,
+      "explanation": "Lord Dalhousie used the Doctrine of Lapse to annex states without a natural heir, including Satara and Jhansi. Curzon partitioned Bengal, Ripon is known for local self-government, and Cornwallis for the Permanent Settlement.",
+      "source": "https://en.wikipedia.org/wiki/Doctrine_of_lapse"
+    },
+    {
+      "id": "up-046",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Jallianwala Bagh massacre took place in which city?",
+      "options": [
+        "Lahore",
+        "Amritsar",
+        "Delhi",
+        "Kanpur"
+      ],
+      "answer": 1,
+      "explanation": "Troops under General Dyer fired on an unarmed gathering at Jallianwala Bagh in Amritsar in April 1919, killing hundreds.",
+      "source": "https://en.wikipedia.org/wiki/Jallianwala_Bagh_massacre"
+    },
+    {
+      "id": "up-047",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Ryotwari system of land revenue was introduced primarily in which region of British India?",
+      "options": [
+        "Bengal and Bihar",
+        "Madras and Bombay",
+        "Punjab and Awadh",
+        "Central Provinces"
+      ],
+      "answer": 1,
+      "explanation": "The Ryotwari system, settling revenue directly with individual cultivators, was applied mainly in the Madras and Bombay presidencies. Bengal and Bihar had the Permanent Settlement with zamindars.",
+      "source": "https://en.wikipedia.org/wiki/Ryotwari"
+    },
+    {
+      "id": "up-048",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Which session of the Indian National Congress adopted the resolution for Purna Swaraj?",
+      "options": [
+        "Lucknow 1916",
+        "Lahore 1929",
+        "Karachi 1931",
+        "Tripuri 1939"
+      ],
+      "answer": 1,
+      "explanation": "The Lahore session of December 1929, presided over by Jawaharlal Nehru, adopted Purna Swaraj, and independence was declared on 26 January 1930. The Karachi session of 1931 adopted the resolution on Fundamental Rights.",
+      "source": "https://en.wikipedia.org/wiki/Purna_Swaraj"
+    },
+    {
+      "id": "up-049",
+      "category": "upsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Ashoka's inscriptions were first successfully deciphered by which scholar?",
+      "options": [
+        "James Prinsep",
+        "William Jones",
+        "John Marshall",
+        "Alexander Cunningham"
+      ],
+      "answer": 0,
+      "explanation": "James Prinsep deciphered the Brahmi script in 1837, making Ashoka's edicts readable. Cunningham founded the Archaeological Survey, and Marshall later directed the Indus Valley excavations.",
+      "source": "https://en.wikipedia.org/wiki/James_Prinsep"
+    },
+    {
+      "id": "up-050",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "Which is the longest river flowing entirely within India?",
+      "options": [
+        "Ganga",
+        "Godavari",
+        "Narmada",
+        "Krishna"
+      ],
+      "answer": 1,
+      "explanation": "The Godavari, at roughly 1,465 km, is the longest river lying wholly within India. The Ganga is longer overall but continues into Bangladesh.",
+      "source": "https://en.wikipedia.org/wiki/Godavari_River"
+    },
+    {
+      "id": "up-051",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which mountain pass connects Srinagar with Leh?",
+      "options": [
+        "Nathu La",
+        "Zoji La",
+        "Rohtang Pass",
+        "Shipki La"
+      ],
+      "answer": 1,
+      "explanation": "Zoji La on the Srinagar–Leh highway is the key link to Ladakh. Nathu La is in Sikkim, Rohtang in Himachal Pradesh, and Shipki La on the Sutlej route to Tibet.",
+      "source": "https://en.wikipedia.org/wiki/Zoji_La"
+    },
+    {
+      "id": "up-052",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Which soil type covers the largest area of the Deccan plateau and is best suited to cotton?",
+      "options": [
+        "Alluvial soil",
+        "Black soil",
+        "Laterite soil",
+        "Red soil"
+      ],
+      "answer": 1,
+      "explanation": "Black or regur soil, formed from weathered basalt lava, retains moisture well and dominates the Deccan trap region where cotton is grown. Alluvial soil dominates the northern plains instead.",
+      "source": "https://en.wikipedia.org/wiki/Vertisol"
+    },
+    {
+      "id": "up-053",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Palk Strait separates India from which country?",
+      "options": [
+        "Sri Lanka",
+        "Maldives",
+        "Myanmar",
+        "Indonesia"
+      ],
+      "answer": 0,
+      "explanation": "The Palk Strait lies between Tamil Nadu and northern Sri Lanka, connecting the Bay of Bengal with the Palk Bay and the Gulf of Mannar.",
+      "source": "https://en.wikipedia.org/wiki/Palk_Strait"
+    },
+    {
+      "id": "up-054",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "question": "Which is the highest mountain peak located entirely within India?",
+      "options": [
+        "Kanchenjunga",
+        "Nanda Devi",
+        "Nanga Parbat",
+        "Kamet"
+      ],
+      "answer": 1,
+      "explanation": "Nanda Devi in Uttarakhand is the highest peak wholly inside India. Kanchenjunga is higher but sits on the border with Nepal.",
+      "source": "https://en.wikipedia.org/wiki/Nanda_Devi"
+    },
+    {
+      "id": "up-055",
+      "category": "upsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Western Ghats and Eastern Ghats meet at which range of hills?",
+      "options": [
+        "Nilgiri Hills",
+        "Anaimalai Hills",
+        "Cardamom Hills",
+        "Palani Hills"
+      ],
+      "answer": 0,
+      "explanation": "The Nilgiri Hills form the junction of the Western and Eastern Ghats. The Anaimalai, Cardamom and Palani hills all lie within the Western Ghats system further south.",
+      "source": "https://en.wikipedia.org/wiki/Nilgiri_Mountains"
+    },
+    {
+      "id": "up-056",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which body in India is responsible for setting the policy repo rate?",
+      "options": [
+        "The Ministry of Finance",
+        "The Monetary Policy Committee",
+        "NITI Aayog",
+        "The Securities and Exchange Board of India"
+      ],
+      "answer": 1,
+      "explanation": "The Monetary Policy Committee, constituted under the RBI Act, sets the repo rate by majority vote. SEBI regulates securities markets and NITI Aayog is a policy think tank with no rate-setting role.",
+      "source": "https://en.wikipedia.org/wiki/Reserve_Bank_of_India"
+    },
+    {
+      "id": "up-057",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "The Goods and Services Tax was introduced in India by which Constitutional Amendment?",
+      "options": [
+        "99th Amendment",
+        "101st Amendment",
+        "97th Amendment",
+        "103rd Amendment"
+      ],
+      "answer": 1,
+      "explanation": "The 101st Amendment of 2016 enabled GST and created the GST Council. The 99th created the struck-down NJAC, the 97th dealt with cooperative societies, and the 103rd with EWS reservation.",
+      "source": "https://en.wikipedia.org/wiki/Goods_and_Services_Tax_(India)"
+    },
+    {
+      "id": "up-058",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "hard",
+      "question": "In national income accounting, what does the term 'net factor income from abroad' distinguish?",
+      "options": [
+        "GDP from GNP",
+        "Nominal from real GDP",
+        "GDP from NDP",
+        "Income from expenditure method"
+      ],
+      "answer": 0,
+      "explanation": "Gross National Product equals Gross Domestic Product plus net factor income from abroad. Depreciation is what separates gross from net measures, and a price deflator separates nominal from real.",
+      "source": "https://en.wikipedia.org/wiki/Gross_national_income"
+    },
+    {
+      "id": "up-059",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which committee recommended the inflation-targeting framework adopted by the Reserve Bank of India?",
+      "options": [
+        "Narasimham Committee",
+        "Urjit Patel Committee",
+        "Kelkar Committee",
+        "Rangarajan Committee"
+      ],
+      "answer": 1,
+      "explanation": "The Urjit Patel Committee of 2014 recommended a flexible inflation-targeting regime anchored to consumer price inflation. The Narasimham committees dealt with banking sector reform.",
+      "source": "https://en.wikipedia.org/wiki/Urjit_Patel"
+    },
+    {
+      "id": "up-060",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "easy",
+      "question": "Which organisation publishes India's Consumer Price Index?",
+      "options": [
+        "Reserve Bank of India",
+        "National Statistical Office",
+        "NITI Aayog",
+        "Ministry of Commerce"
+      ],
+      "answer": 1,
+      "explanation": "The National Statistical Office under MoSPI compiles and releases the CPI. The Ministry of Commerce publishes the Wholesale Price Index instead.",
+      "source": "https://en.wikipedia.org/wiki/Ministry_of_Statistics_and_Programme_Implementation"
+    },
+    {
+      "id": "up-061",
+      "category": "upsc",
+      "topic": "Economy",
+      "difficulty": "hard",
+      "question": "What does the term 'fiscal deficit' measure in the Indian budget?",
+      "options": [
+        "Total expenditure minus total receipts excluding borrowings",
+        "Revenue expenditure minus revenue receipts",
+        "Interest payments minus revenue deficit",
+        "Capital expenditure minus capital receipts"
+      ],
+      "answer": 0,
+      "explanation": "The fiscal deficit is total expenditure less total receipts other than borrowings, so it measures how much the government must borrow. Revenue expenditure less revenue receipts is the revenue deficit.",
+      "source": "https://en.wikipedia.org/wiki/Government_budget_balance"
+    },
+    {
+      "id": "up-062",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Project Tiger was launched in India in which year?",
+      "options": [
+        "1969",
+        "1973",
+        "1986",
+        "1992"
+      ],
+      "answer": 1,
+      "explanation": "Project Tiger began in 1973 with nine reserves. The Wildlife Protection Act came in 1972 and the Environment Protection Act in 1986.",
+      "source": "https://en.wikipedia.org/wiki/Project_Tiger"
+    },
+    {
+      "id": "up-063",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "The Montreal Protocol concerns the phasing out of which class of substances?",
+      "options": [
+        "Greenhouse gases",
+        "Ozone-depleting substances",
+        "Persistent organic pollutants",
+        "Heavy metals"
+      ],
+      "answer": 1,
+      "explanation": "The Montreal Protocol of 1987 phases out ozone-depleting substances such as CFCs. Greenhouse gases fall under the Kyoto Protocol and Paris Agreement, and persistent organic pollutants under the Stockholm Convention.",
+      "source": "https://en.wikipedia.org/wiki/Montreal_Protocol"
+    },
+    {
+      "id": "up-064",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "hard",
+      "question": "Which Indian wetland was the first to be designated a Ramsar site along with Keoladeo National Park?",
+      "options": [
+        "Chilika Lake",
+        "Loktak Lake",
+        "Wular Lake",
+        "Sambhar Lake"
+      ],
+      "answer": 0,
+      "explanation": "Chilika Lake in Odisha and Keoladeo in Rajasthan were India's first two Ramsar sites, both designated in 1981. Loktak, Wular and Sambhar were added in 1990.",
+      "source": "https://en.wikipedia.org/wiki/Chilika_Lake"
+    },
+    {
+      "id": "up-065",
+      "category": "upsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "In the IUCN Red List, which category indicates the highest risk of extinction for a species still found in the wild?",
+      "options": [
+        "Vulnerable",
+        "Endangered",
+        "Critically Endangered",
+        "Near Threatened"
+      ],
+      "answer": 2,
+      "explanation": "Critically Endangered is the highest risk category for wild species, above Endangered and Vulnerable. Extinct in the Wild and Extinct lie beyond it but mean the species no longer survives in nature.",
+      "source": "https://en.wikipedia.org/wiki/IUCN_Red_List"
+    },
+    {
+      "id": "up-066",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "India's Mars Orbiter Mission was launched by which vehicle?",
+      "options": [
+        "GSLV Mk III",
+        "PSLV-C25",
+        "GSLV Mk II",
+        "SLV-3"
+      ],
+      "answer": 1,
+      "explanation": "PSLV-C25 launched the Mars Orbiter Mission in November 2013, and it entered Martian orbit the following September. The GSLV series is used for heavier geostationary payloads.",
+      "source": "https://en.wikipedia.org/wiki/Mars_Orbiter_Mission"
+    },
+    {
+      "id": "up-067",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "easy",
+      "question": "Which gas makes up the largest proportion of Earth's atmosphere?",
+      "options": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon dioxide",
+        "Argon"
+      ],
+      "answer": 1,
+      "explanation": "Nitrogen accounts for about 78% of the atmosphere by volume, with oxygen close to 21% and argon under 1%.",
+      "source": "https://en.wikipedia.org/wiki/Atmosphere_of_Earth"
+    },
+    {
+      "id": "up-068",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "hard",
+      "question": "The Bhabha Atomic Research Centre is located in which city?",
+      "options": [
+        "Kalpakkam",
+        "Trombay, Mumbai",
+        "Hyderabad",
+        "Indore"
+      ],
+      "answer": 1,
+      "explanation": "BARC's main campus is at Trombay in Mumbai. Kalpakkam hosts the Indira Gandhi Centre for Atomic Research, and Indore the Raja Ramanna Centre for Advanced Technology.",
+      "source": "https://en.wikipedia.org/wiki/Bhabha_Atomic_Research_Centre"
+    },
+    {
+      "id": "up-069",
+      "category": "upsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "Which Indian scientist received the Nobel Prize in Physics for work on the scattering of light?",
+      "options": [
+        "Homi Bhabha",
+        "C. V. Raman",
+        "S. Chandrasekhar",
+        "Satyendra Nath Bose"
+      ],
+      "answer": 1,
+      "explanation": "C. V. Raman won the 1930 Nobel Prize in Physics for the Raman effect. Chandrasekhar won in 1983 for stellar structure, while Bose and Bhabha never received the prize.",
+      "source": "https://en.wikipedia.org/wiki/C._V._Raman"
     }
   ]
 }
