@@ -1,14 +1,30 @@
-// Gate for generated current-affairs questions. The Action auto-merges when
-// this passes, so this is the only thing standing between a malformed or
-// duplicated question and every installed copy of the app.
+// Gate for every question bank, generated or hand-written. The Action
+// auto-merges when this passes, so this is the only thing standing between a
+// malformed or duplicated question and every installed copy of the app.
 //
 // It cannot check whether a fact is TRUE — no script can. It checks the
-// failures that are mechanically detectable, and the PR body carries source
-// URLs for the ones that are not.
+// failures that are mechanically detectable, and the `source` URL is what
+// lets a human check the rest.
+//
+// The topic id comes from the filename, so this works for all 16 banks. It
+// used to hard-code 'current-affairs', which silently made it useless as the
+// gate for the other 15.
+//
+// `source` is a warning by default and an error under --require-source: the
+// questions written before sources were required would otherwise fail their
+// own gate. New content is written with the flag on.
 import fs from 'node:fs';
+import path from 'node:path';
 
-const file = process.argv[2];
-if (!file) { console.error('usage: validate-questions.mjs <path>'); process.exit(2); }
+const args = process.argv.slice(2);
+const requireSource = args.includes('--require-source');
+const file = args.find(a => !a.startsWith('--'));
+if (!file) {
+  console.error('usage: validate-questions.mjs <path> [--require-source]');
+  process.exit(2);
+}
+
+const topicId = path.basename(file, '.json');
 
 const errors = [];
 const warn = [];
@@ -55,13 +71,21 @@ const seenText = new Set();
     errors.push(`${at}: answer ${q.answer} is out of range`);
   }
 
-  if (!q.explanation || !String(q.explanation).trim()) {
-    warn.push(`${at}: no explanation — the wrong-answer feedback will be blank`);
+  const expl = String(q.explanation || '').trim();
+  if (!expl) {
+    errors.push(`${at}: no explanation — the wrong-answer feedback would be blank`);
+  } else if (expl.length < 40) {
+    errors.push(`${at}: explanation too short to teach anything (${expl.length} chars, need 40)`);
   }
+
   if (!q.source || !/^https?:\/\//.test(String(q.source))) {
-    errors.push(`${at}: needs a source URL so the fact can be checked by a human`);
+    const msg = `${at}: needs a source URL so the fact can be checked by a human`;
+    if (requireSource) errors.push(msg); else warn.push(msg);
   }
-  if (q.category !== 'current-affairs') errors.push(`${at}: category must be "current-affairs"`);
+
+  if (q.category !== topicId) {
+    errors.push(`${at}: category is "${q.category}", expected "${topicId}" to match the filename`);
+  }
 });
 
 warn.forEach(w => console.log(`⚠ ${w}`));
