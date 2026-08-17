@@ -320,7 +320,7 @@
           '<div class="tpq-score">' + score + ' / ' + questions.length + '</div>' +
           '<div class="tpq-msg">' + msg + '</div>' +
           '<button type="button" class="tpq-next tpq-show">Done</button>' +
-          '<div class="tpq-hint">Tip: click the extension icon in the toolbar to browse the full library.</div>' +
+          '<div class="tpq-hint">Tip: open Settings to pick topics or turn on lightning mode.</div>' +
         '</div>';
       if (typeof cfg.onFinish === 'function') {
         try { cfg.onFinish(score, questions.length); } catch (e) { /* noop */ }

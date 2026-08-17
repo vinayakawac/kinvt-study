@@ -46,3 +46,81 @@ select, input[type="time"], input[type="number"] { min-height: 38px; }
    use the width available, so the max-width is lifted and the wrapper bounds
    it instead. */
 #kinvt-quiz-overlay .tpq-card { max-width: 100% !important; width: 100% !important; }
+
+/* ================= app shell =================
+   Four screens behind a bottom tab bar. The screens scroll; the bar does not,
+   so the primary action is always reachable without scrolling back. */
+body.sidepanel { padding: 0; display: block; }
+
+#kq-app { position: fixed; inset: 0; display: flex; flex-direction: column; background: var(--bg); }
+
+.kq-screens {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: calc(10px + env(safe-area-inset-top)) 12px 16px;
+}
+.kq-screen { display: flex; flex-direction: column; gap: 12px; min-height: 100%; }
+.kq-screen[hidden] { display: none; }
+
+/* ---- bottom tabs ---- */
+.kq-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--card-border);
+  background: var(--bg);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.kq-tab {
+  appearance: none;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 10.5px;
+  padding: 9px 4px 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  /* A 44px minimum is the smallest target a finger hits reliably. */
+  min-height: 52px;
+}
+.kq-tab svg { width: 21px; height: 21px; }
+.kq-tab.active { color: var(--text); }
+.kq-tab.active svg { stroke-width: 2.2; }
+
+/* ---- home ---- */
+.kq-hero { padding: 4px 2px 0; }
+.kq-hero h1 { margin: 0; font-size: 22px; letter-spacing: -0.2px; }
+.kq-hero .kq-sub { margin: 2px 0 16px; font-size: 12px; color: var(--muted); }
+
+.kq-figures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.kq-figures > div {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 14px 8px;
+  text-align: center;
+}
+.kq-figures b { display: block; font-size: 22px; line-height: 1.1; }
+.kq-figures span { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+
+.kq-weak { margin: 0 0 4px; font-size: 12.5px; color: var(--muted); }
+
+/* The primary action sits at the bottom of Home, where a thumb rests. */
+#kq-app .primary { position: static; margin-top: auto; }
+
+/* The header only makes sense on Home now. */
+#kq-app header.top { padding: 0 0 4px; }
+#kq-app header.top .brand h1 { font-size: 0; }   /* the hero already names the app */
+#kq-app header.top .brand .tag { font-size: 0; }
+#kq-app header.top { display: none; }
+
+footer { padding: 8px 4px 0; }

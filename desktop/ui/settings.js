@@ -110,6 +110,9 @@
     var wrap = $('cats');
     wrap.innerHTML = '';
     catalog.forEach(function (cat) { topicLabels[cat.id] = cat.label; });
+    // Published so the mobile shell can name a topic without re-reading the
+    // library; it is the same map, not a second copy that could drift.
+    window.KinvtTopicLabels = topicLabels;
 
     var groups = {};
     catalog.forEach(function (cat) {
@@ -347,6 +350,8 @@
 
     /* ---- adaptation and do-not-disturb ---- */
 
+    $('lightning').checked = settings.lightning === true;
+    $('lightning').addEventListener('change', function () { settings.lightning = this.checked; save(); });
     $('adaptive').checked = settings.adaptive !== false;
     $('respectDnd').checked = settings.respectDnd !== false;
     $('adaptive').addEventListener('change', function () { settings.adaptive = this.checked; save(); });

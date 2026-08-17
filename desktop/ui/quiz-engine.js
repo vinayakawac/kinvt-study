@@ -27,6 +27,7 @@
     glass: 'balanced',
     glassCustom: 70,
     adaptive: true,
+    lightning: false,   // keep serving questions instead of stopping after perQuiz
     respectDnd: true,
     quietStart: 1320,     // 22:00, minutes since midnight
     quietEnd: 420,        // 07:00
@@ -184,7 +185,8 @@
           durationSec: Math.round(settings.durationSec) || 45,
           theme: settings.theme || 'dark',
           glass: settings.glass || 'balanced',
-          glassCustom: settings.glassCustom | 0 || 70
+          glassCustom: settings.glassCustom | 0 || 70,
+          lightning: settings.lightning === true
         };
       });
     }).catch(function () { return null; });

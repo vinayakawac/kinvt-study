@@ -88,6 +88,7 @@ function injectShims(html) {
 const SHIM_TAIL = [
   '  <script src="shim/reminders.js"></script>',
   '  <script src="shim/scan.js"></script>',
+  '  <script src="shim/mobile-nav.js"></script>',
   '  <script src="shim/mobile-app.js"></script>'
 ].join('\n');
 

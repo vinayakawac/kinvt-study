@@ -78,8 +78,8 @@
     return present();
   }
 
-  function present() {
-    return window.KinvtQuiz.buildQuiz().then(function (quiz) {
+  function present(prebuilt) {
+    return Promise.resolve(prebuilt || window.KinvtQuiz.buildQuiz()).then(function (quiz) {
       if (!quiz) return; // nothing selected — stay quiet rather than show an empty card
       open = true;
       cardEl.innerHTML = '';
@@ -99,6 +99,14 @@
         onFinish: function (correct, total) {
           window.KinvtQuiz.recordResult(correct, total);
           fitWindow();
+          // Lightning mode keeps the card alive with a fresh batch instead of
+          // closing. Off by default here: a popup that never ends is an
+          // interruption, not a study aid.
+          if (quiz.lightning && open) {
+            window.KinvtQuiz.buildQuiz().then(function (next) {
+              if (next && next.questions.length && open) present(next);
+            });
+          }
         },
         onClose: hide
       });
