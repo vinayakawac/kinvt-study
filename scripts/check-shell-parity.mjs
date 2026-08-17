@@ -13,7 +13,13 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (...p) => fs.readFileSync(path.join(ROOT, ...p), 'utf8');
 
-const ui = ['app.js', 'settings.js'].map(f => read('desktop', 'ui', f)).join('\n');
+// Every UI module, not a hand-kept list: ui-core.js started calling invoke()
+// for source links and a fixed list would simply not have noticed.
+const UI_DIR = path.join(ROOT, 'desktop', 'ui');
+const ui = fs.readdirSync(UI_DIR)
+  .filter(f => f.endsWith('.js') && !f.startsWith('_'))
+  .map(f => read('desktop', 'ui', f))
+  .join('\n');
 
 // Every invoke('name') the UI actually makes.
 const wanted = [...new Set([...ui.matchAll(/invoke\(\s*['"]([a-z_]+)['"]/g)].map(m => m[1]))].sort();

@@ -159,6 +159,20 @@ fn read_backup(path: String) -> Result<String, String> {
     std::fs::read_to_string(&path).map_err(|e| e.to_string())
 }
 
+/// Open a question's source URL in the user's browser.
+///
+/// The card's CSP is `default-src 'self'`, so it cannot navigate to an
+/// external page — and should not: a quiz card is not a browser. The scheme
+/// check is the security boundary. Without it, this command would hand the OS
+/// whatever path the page asked for, including a local executable.
+#[tauri::command]
+fn open_url(url: String) -> Result<(), String> {
+    if !(url.starts_with("https://") || url.starts_with("http://")) {
+        return Err("only http and https URLs can be opened".into());
+    }
+    open::that(url).map_err(|e| e.to_string())
+}
+
 /// Settings live in their own ordinary window — it wants normal decorations
 /// and a solid background, unlike the quiz card.
 #[tauri::command]
@@ -207,7 +221,8 @@ fn main() {
             set_titlebar_theme,
             dnd_active,
             write_backup,
-            read_backup
+            read_backup,
+            open_url
         ])
         .setup(|app| {
             // ---- system tray ----

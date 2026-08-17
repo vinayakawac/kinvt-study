@@ -87,6 +87,9 @@
     '.tpq-feedback .tpq-verd{font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:4px}',
     '.tpq-feedback .tpq-verd svg{width:16px;height:16px;flex:none}',
     '.tpq-feedback .tpq-expl{opacity:.85}',
+    '.tpq-feedback .tpq-src{display:inline-block;margin-top:6px;font-size:12px;opacity:.7;',
+    'text-decoration:underline;cursor:pointer;color:inherit}',
+    '.tpq-feedback .tpq-src:hover{opacity:1}',
     '.tpq-next{margin-top:12px;width:100%;border:0;border-radius:9px;padding:10px;font:inherit;font-weight:700;cursor:pointer;',
     'background:#f5f1dd;color:#1c1b19;display:none;transition:background .15s}',
     '.tpq-next.tpq-show{display:block}',
@@ -209,7 +212,8 @@
         '<div class="tpq-body">' +
           '<div class="tpq-question"></div>' +
           '<div class="tpq-options"></div>' +
-          '<div class="tpq-feedback"><span class="tpq-verd"></span><span class="tpq-expl"></span></div>' +
+          '<div class="tpq-feedback"><span class="tpq-verd"></span><span class="tpq-expl"></span>' +
+            '<a class="tpq-src" href="#" hidden>Source</a></div>' +
           '<button type="button" class="tpq-next"></button>' +
         '</div>' +
       '</div>';
@@ -234,7 +238,18 @@
     var fbEl   = container.querySelector('.tpq-feedback');
     var fbVerd = container.querySelector('.tpq-verd');
     var fbExpl = container.querySelector('.tpq-expl');
+    var fbSrc  = container.querySelector('.tpq-src');
     var nextEl = container.querySelector('.tpq-next');
+
+    // The card runs under a self-only CSP, so it cannot navigate to an
+    // external page; the shell opens it in the real browser instead.
+    fbSrc.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = fbSrc.getAttribute('data-url');
+      if (!url) return;
+      if (window.__TAURI__ && window.__TAURI__.core) window.__TAURI__.core.invoke('open_url', { url: url });
+      else window.open(url, '_blank', 'noopener');
+    });
     var xEl    = container.querySelector('.tpq-x');
 
     title.textContent = cfg.title || 'Quiz';
@@ -327,6 +342,10 @@
       fbVerd.innerHTML = (correct ? ICONS.check : ICONS.x) +
         (correct ? 'Correct!' : 'Not quite — correct answer: ' + LETTERS[q.answer] + '. ' + q.options[q.answer]);
       fbExpl.textContent = q.explanation || '';
+      // A generated question is only trustworthy if the reader can check it.
+      var src = typeof q.source === 'string' && q.source.indexOf('http') === 0 ? q.source : '';
+      fbSrc.hidden = !src;
+      fbSrc.setAttribute('data-url', src);
       fbEl.classList.add('tpq-show');
       // Per-answer, so callers can track which specific questions were missed.
       // onFinish only carries a score, which cannot drive review.
