@@ -10,6 +10,120 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
+/* ================= touch and scroll =================
+   A webview brings a browser's touch defaults with it, and every one of them
+   is visible on a phone. These are the ones CSS can fix; touch.js handles the
+   press states, which need to know whether the finger moved. */
+
+html, body {
+  /* No rubber-banding the whole app when a list reaches its end, and no
+     pull-to-refresh gesture — there is nothing to refresh, and the flicker of
+     the spinner appearing over the tab bar reads as a bug. */
+  overscroll-behavior: none;
+  /* WebView inflates text on pages it judges too wide to read, which on a
+     phone silently overrides the type scale below. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  /* Chrome's grey tap flash is a browser affordance and belongs to no app.
+     Inherited, so it covers every element rather than a listed set. */
+  -webkit-tap-highlight-color: transparent;
+  /* Dragging a phone UI should scroll it, not start a text selection or pop
+     the copy/share callout. Text worth selecting opts back in below. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* The two places with words a user might actually want to copy. */
+.mq-q, .mq-expl, input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+/* Every scroller keeps its own overscroll rather than handing the leftover
+   momentum to its parent, so flicking a quiz to the bottom cannot start the
+   page behind it moving.
+
+   The scrollbar is also taken out of the layout. This webview renders a
+   classic, space-taking bar rather than the overlay one a phone browser uses,
+   and it was reserving its width on the right edge only — so a card inset by
+   12px on both sides came out 12 on the left and ~22 on the right, and the
+   content sat visibly off-centre against the tab bar below it, which is not
+   inside the scroller and so was never shifted. No Android list draws a
+   permanent scrollbar anyway. */
+.kq-screens, .mq-body, #kinvt-quiz-overlay {
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;         /* standard */
+  -ms-overflow-style: none;
+}
+.kq-screens::-webkit-scrollbar,
+.mq-body::-webkit-scrollbar,
+#kinvt-quiz-overlay::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* Removes the 300ms tap delay's last hiding places and tells the compositor
+   these elements will never be pinch targets, so a tap dispatches at once. */
+button, a, label, select, .kq-tab, .cat, .mq-opt { touch-action: manipulation; }
+
+/* ---- press feedback ----
+   :hover on a touch screen is a bug: a webview leaves the tapped element
+   hovered until something else is tapped, so the last thing pressed stays
+   lit. Every hover rule the desktop CSS sets is reverted, and the press state
+   from touch.js takes its place. */
+@media (hover: none) {
+  .cat:hover { background: none; }
+  .btn:hover { background: var(--hover); border-color: var(--card-border); }
+  .btn.danger:hover { background: none; color: var(--bad); border-color: var(--bad); }
+  .primary:hover { background: var(--accent); transform: none; }
+}
+
+/* The ripple needs somewhere to be clipped to. */
+.mq-opt, .mq-next, .mq-close, .kq-tab, .btn, .primary, .cat {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Android presses instantly and releases gently, which is the opposite of a
+   symmetric transition: the state goes on with no delay and fades off. */
+.mq-opt, .mq-next, .kq-tab, .btn, .primary, .cat {
+  transition: background-color .18s ease-out, border-color .18s ease-out, transform .18s ease-out;
+}
+.is-press {
+  transition-duration: 0s;
+  background-color: var(--hover);
+}
+.mq-opt.is-press, .cat.is-press { transform: scale(.985); }
+/* A .btn already sits on --hover, so that shade would be no feedback at all. */
+.btn.is-press { background-color: var(--card-border); }
+.mq-next.is-press, .primary.is-press {
+  transform: scale(.98);
+  background-color: var(--accent-hover, var(--accent));
+}
+.kq-tab.is-press { background-color: transparent; }   /* the ripple is the feedback */
+
+.kq-ink {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: currentColor;
+  opacity: .16;
+  transform: scale(0);
+  animation: kq-ink .45s cubic-bezier(.2, .6, .35, 1) forwards;
+}
+@keyframes kq-ink {
+  to { transform: scale(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kq-ink { animation-duration: .01s; }
+}
+
 /* Comfortable targets: the desktop rows are sized for a cursor. */
 .cat { min-height: 46px; }
 .btn { min-height: 42px; }
@@ -114,8 +228,10 @@ body.sidepanel { padding: 0; display: block; }
 
 .kq-weak { margin: 0 0 4px; font-size: 12.5px; color: var(--muted); }
 
-/* The primary action sits at the bottom of Home, where a thumb rests. */
-#kq-app .primary { position: static; margin-top: auto; }
+/* The primary action sits at the bottom of Home, where a thumb rests.
+   Relative rather than static so the ripple has a box to be clipped to; the
+   point of the override is only to drop the sticky positioning. */
+#kq-app .primary { position: relative; margin-top: auto; }
 
 /* The header only makes sense on Home now. */
 #kq-app header.top { padding: 0 0 4px; }
@@ -156,9 +272,8 @@ footer { padding: 8px 4px 0; }
   font: inherit; font-size: 15px; color: var(--text);
   background: var(--card); border: 1.5px solid var(--card-border);
   border-radius: 14px; cursor: pointer;
-  transition: background .15s, border-color .15s, transform .08s;
+  /* Press feedback comes from .is-press, not :active — see touch.js. */
 }
-.mq-opt:active { transform: scale(.985); }
 .mq-letter {
   flex: none; width: 28px; height: 28px; border-radius: 50%;
   display: grid; place-items: center;
@@ -183,4 +298,3 @@ footer { padding: 8px 4px 0; }
   font: inherit; font-size: 16px; font-weight: 700;
   background: var(--accent); color: var(--on-accent); cursor: pointer;
 }
-.mq-next:active { transform: scale(.99); }

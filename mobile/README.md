@@ -22,4 +22,6 @@ The APK lands in `mobile/android/app/build/outputs/apk/debug/`.
 First build takes about three minutes while Gradle downloads its dependencies;
 later builds are far quicker. `mobile/android/` is gitignored and regenerated,
 so `patch-android-manifest.mjs` must be re-run after any `cap add android` to
-restore the permissions and signing config.
+restore the permissions and signing config, and `make-android-icons.mjs` to
+redraw the launcher icons from the desktop mark — without it the APK ships
+Capacitor's stock icon while the desktop shows the real one.

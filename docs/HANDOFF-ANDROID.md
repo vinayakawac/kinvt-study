@@ -38,6 +38,7 @@ node scripts/build-mobile-www.mjs
 cd mobile && npm install          # first time
 npx cap add android               # first time, or after deleting mobile/android
 node ../scripts/patch-android-manifest.mjs   # re-run after EVERY cap add
+node ../scripts/make-android-icons.mjs       # likewise — else you ship Capacitor's stock icon
 npx cap sync android
 cd android && ./gradlew assembleDebug --no-daemon
 ```

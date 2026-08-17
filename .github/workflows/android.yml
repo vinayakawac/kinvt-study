@@ -60,6 +60,11 @@ jobs:
       - name: Permissions
         run: node scripts/patch-android-manifest.mjs
 
+      # mobile/android is regenerated on every run, so the launcher icons are
+      # Capacitor's stock ones until this redraws them from the desktop mark.
+      - name: Launcher icons
+        run: node scripts/make-android-icons.mjs
+
       - name: Build debug APK
         working-directory: mobile/android
         run: ./gradlew assembleDebug --no-daemon

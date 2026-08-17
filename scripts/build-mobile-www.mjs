@@ -86,10 +86,17 @@ function injectShims(html) {
 }
 
 const SHIM_TAIL = [
+  // First: it defines KinvtHaptic and delegates from the document, so it is
+  // in place before anything renders something worth pressing.
+  '  <script src="shim/touch.js"></script>',
   '  <script src="shim/reminders.js"></script>',
   '  <script src="shim/scan.js"></script>',
   '  <script src="shim/mobile-quiz.js"></script>',
   '  <script src="shim/mobile-nav.js"></script>',
+  // After mobile-nav.js: it prunes the desktop-only controls out of the cards
+  // that nav has just finished reparenting, and both defer to run behind
+  // settings.js rather than tear the elements out from under its handlers.
+  '  <script src="shim/mobile-settings.js"></script>',
   '  <script src="shim/mobile-app.js"></script>'
 ].join('\n');
 

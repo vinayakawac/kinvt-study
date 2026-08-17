@@ -14,11 +14,15 @@ import { fileURLToPath } from 'node:url';
 // root in CI and from desktop/ as an npm prebuild hook.
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UI = path.join(ROOT, 'desktop', 'ui');
+const SHIM = path.join(ROOT, 'mobile', 'src', 'shim');
 
 const TARGETS = [
   path.join(ROOT, 'desktop', 'main.js'),
   path.join(ROOT, 'desktop', 'preload.js'),
-  ...fs.readdirSync(UI).filter(f => f.endsWith('.js')).map(f => path.join(UI, f))
+  ...fs.readdirSync(UI).filter(f => f.endsWith('.js')).map(f => path.join(UI, f)),
+  // The mobile shims ship inside the APK and are not part of desktop/ui, so
+  // nothing above would have parsed them.
+  ...fs.readdirSync(SHIM).filter(f => f.endsWith('.js')).map(f => path.join(SHIM, f))
 ];
 
 const errors = [];

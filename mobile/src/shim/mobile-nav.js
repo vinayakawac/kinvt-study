@@ -92,17 +92,38 @@
     if (footer) screen('settings').appendChild(footer);
 
     // ---- tab switching ----
+    // One scroller serves all four screens, so switching tabs would otherwise
+    // carry the scroll position across — coming back to a long Library from
+    // Home would land wherever Home happened to be. Android keeps a position
+    // per tab, so the position is parked on the way out and restored on the
+    // way in.
+    var scroller = shell.querySelector('.kq-screens');
+    var parked = {};
+    var current = null;
+
     function show(id) {
+      if (current) parked[current] = scroller.scrollTop;
       TABS.forEach(function (t) {
         screen(t.id).hidden = (t.id !== id);
         shell.querySelector('[data-tab="' + t.id + '"]').classList.toggle('active', t.id === id);
       });
-      shell.querySelector('.kq-screens').scrollTop = 0;
+      current = id;
+      scroller.scrollTop = parked[id] || 0;
       if (id === 'home' || id === 'progress') refreshHome();
     }
+
     shell.querySelector('.kq-tabs').addEventListener('click', function (e) {
       var btn = e.target.closest('[data-tab]');
-      if (btn) show(btn.getAttribute('data-tab'));
+      if (!btn) return;
+      var id = btn.getAttribute('data-tab');
+      if (id === current) {
+        // Tapping the tab you are already on scrolls that screen back to the
+        // top, which is what the gesture means everywhere else on the phone.
+        scroller.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      if (global.KinvtHaptic) global.KinvtHaptic();
+      show(id);
     });
     show('home');
 
