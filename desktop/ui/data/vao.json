@@ -705,6 +705,1462 @@
       "answer": 0,
       "explanation": "The Karnataka Sakala Services Act guarantees delivery of notified services within a stated time and provides compensation for delay. RTI covers access to information rather than service delivery.",
       "source": "https://en.wikipedia.org/wiki/Sakala_(Karnataka)"
+    },
+    {
+      "id": "va-045",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "In Karnataka's revenue hierarchy, which officer works directly under the Tahsildar at the hobli level?",
+      "options": [
+        "Revenue Inspector",
+        "Deputy Commissioner",
+        "Divisional Commissioner",
+        "Assistant Commissioner"
+      ],
+      "answer": 0,
+      "explanation": "The Revenue Inspector supervises a hobli and the village accountants within it, reporting to the Tahsildar. The Assistant Commissioner heads a sub-division above the taluk.",
+      "source": "https://en.wikipedia.org/wiki/Tehsildar"
+    },
+    {
+      "id": "va-046",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "A Village Accountant in Karnataka is primarily responsible for",
+      "options": [
+        "Maintaining village land records and collecting land revenue",
+        "Conducting panchayat elections",
+        "Registering marriages",
+        "Issuing passports"
+      ],
+      "answer": 0,
+      "explanation": "The Village Accountant keeps the village land records, records crops for the RTC and collects land revenue. Registration and elections belong to other departments.",
+      "source": "https://en.wikipedia.org/wiki/Patwari"
+    },
+    {
+      "id": "va-047",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "In Karnataka land records, 'khata' refers to",
+      "options": [
+        "An account showing a person's holdings and the revenue due on them",
+        "A survey sketch of a field",
+        "A crop inspection report",
+        "A caste certificate"
+      ],
+      "answer": 0,
+      "explanation": "A khata is the account of a holder listing their land and the assessment payable. The field sketch is the tippan and the crop record part of the pahani.",
+      "source": "https://en.wikipedia.org/wiki/Cadastre"
+    },
+    {
+      "id": "va-048",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "The process of dividing a survey number into smaller numbered parts is called",
+      "options": [
+        "Podi or sub-division",
+        "Mutation",
+        "Attestation",
+        "Assessment"
+      ],
+      "answer": 0,
+      "explanation": "Podi creates hissa numbers within a survey number when land is partitioned or sold in part. Mutation instead records a change of holder.",
+      "source": "https://en.wikipedia.org/wiki/Cadastre"
+    },
+    {
+      "id": "va-049",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Which register in Karnataka records the details of land revenue assessment fixed on each survey number?",
+      "options": [
+        "Akarband",
+        "Pahani",
+        "Tippan",
+        "Khatha extract"
+      ],
+      "answer": 0,
+      "explanation": "The akarband records the assessment and classification of each survey number. The pahani records rights and crops, and the tippan is the measurement sketch.",
+      "source": "https://en.wikipedia.org/wiki/Land_revenue_in_India"
+    },
+    {
+      "id": "va-050",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "Converting agricultural land to non-agricultural use in Karnataka requires an order from",
+      "options": [
+        "The Deputy Commissioner",
+        "The Gram Panchayat",
+        "The Village Accountant",
+        "The Registrar of Societies"
+      ],
+      "answer": 0,
+      "explanation": "Land conversion is sanctioned by the Deputy Commissioner under the Karnataka Land Revenue Act. A panchayat may give a building licence but cannot convert land use.",
+      "source": "https://en.wikipedia.org/wiki/Land_revenue_in_India"
+    },
+    {
+      "id": "va-051",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "An appeal against a Tahsildar's revenue order in Karnataka ordinarily lies to the",
+      "options": [
+        "Assistant Commissioner",
+        "Chief Minister",
+        "High Court directly",
+        "Gram Panchayat"
+      ],
+      "answer": 0,
+      "explanation": "The revenue appellate ladder runs Tahsildar to Assistant Commissioner to Deputy Commissioner and then the Karnataka Appellate Tribunal, before any writ to the High Court.",
+      "source": "https://en.wikipedia.org/wiki/Revenue_court"
+    },
+    {
+      "id": "va-052",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Land granted to landless people by the government subject to conditions on sale is generally called",
+      "options": [
+        "Granted land",
+        "Inam land",
+        "Patta land",
+        "Gomala"
+      ],
+      "answer": 0,
+      "explanation": "Granted land carries a non-alienation condition for a fixed period to stop it being sold on immediately. Gomala is grazing land and inam an older grant tenure.",
+      "source": "https://en.wikipedia.org/wiki/Land_reform_in_India"
+    },
+    {
+      "id": "va-053",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "In Karnataka, the record showing the extent of land irrigated and by what source appears in the",
+      "options": [
+        "Pahani or RTC",
+        "Encumbrance certificate",
+        "Sale deed",
+        "Voter roll"
+      ],
+      "answer": 0,
+      "explanation": "The RTC carries columns for the source of irrigation and the crops grown, alongside ownership and extent. An encumbrance certificate lists registered transactions instead.",
+      "source": "https://en.wikipedia.org/wiki/Record_of_Rights"
+    },
+    {
+      "id": "va-054",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "An encumbrance certificate is obtained from which office?",
+      "options": [
+        "The Sub-Registrar",
+        "The Tahsildar",
+        "The Gram Panchayat",
+        "The Deputy Commissioner"
+      ],
+      "answer": 0,
+      "explanation": "The Sub-Registrar's office records registered transactions and issues the encumbrance certificate showing charges on a property. Revenue offices maintain possession records instead.",
+      "source": "https://en.wikipedia.org/wiki/Encumbrance_certificate"
+    },
+    {
+      "id": "va-055",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "The Karnataka portal for online property registration is known as",
+      "options": [
+        "Kaveri",
+        "Bhoomi",
+        "Sakala",
+        "Seva Sindhu"
+      ],
+      "answer": 0,
+      "explanation": "Kaveri handles registration of documents under the stamps and registration department. Bhoomi handles land records, and Sakala guarantees service timelines.",
+      "source": "https://en.wikipedia.org/wiki/Government_of_Karnataka"
+    },
+    {
+      "id": "va-056",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "A survey number's boundary dispute in Karnataka is settled by which officer's measurement?",
+      "options": [
+        "The Assistant Director of Land Records or a licensed surveyor",
+        "The Gram Panchayat president",
+        "The Sub-Registrar",
+        "The police"
+      ],
+      "answer": 0,
+      "explanation": "Boundary fixation is a survey function carried out by the survey and land records department using the tippan and hissa measurements.",
+      "source": "https://en.wikipedia.org/wiki/Cadastre"
+    },
+    {
+      "id": "va-057",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Which document proves the extent and boundaries of a rural holding for a bank loan?",
+      "options": [
+        "The RTC together with the survey sketch",
+        "A ration card",
+        "A voter identity card",
+        "An Aadhaar letter"
+      ],
+      "answer": 0,
+      "explanation": "Banks rely on the RTC for ownership and extent and the tippan or sketch for boundaries. Identity documents say nothing about land.",
+      "source": "https://en.wikipedia.org/wiki/Record_of_Rights"
+    },
+    {
+      "id": "va-058",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka city is known as the 'City of Palaces'?",
+      "options": [
+        "Mysuru",
+        "Hubballi",
+        "Ballari",
+        "Bidar"
+      ],
+      "answer": 0,
+      "explanation": "Mysuru is called the City of Palaces for the Amba Vilas palace and several others built under the Wadiyars.",
+      "source": "https://en.wikipedia.org/wiki/Mysore"
+    },
+    {
+      "id": "va-059",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka city hosts the state's second High Court bench and is a major trade centre of the north?",
+      "options": [
+        "Dharwad",
+        "Udupi",
+        "Mandya",
+        "Chamarajanagar"
+      ],
+      "answer": 0,
+      "explanation": "Dharwad, twinned with Hubballi, hosts a permanent High Court bench and is the commercial hub of north Karnataka.",
+      "source": "https://en.wikipedia.org/wiki/Dharwad"
+    },
+    {
+      "id": "va-060",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "hard",
+      "question": "The Aihole inscription describes the achievements of which dynasty?",
+      "options": [
+        "The Badami Chalukyas",
+        "The Hoysalas",
+        "The Rashtrakutas",
+        "The Kadambas"
+      ],
+      "answer": 0,
+      "explanation": "The Aihole prashasti of 634 CE praises the Chalukya king Pulakeshin II, including his check on Harshavardhana.",
+      "source": "https://en.wikipedia.org/wiki/Aihole_inscription"
+    },
+    {
+      "id": "va-061",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka town is famous for the Jain monolith of Bahubali?",
+      "options": [
+        "Shravanabelagola",
+        "Melukote",
+        "Sringeri",
+        "Gokarna"
+      ],
+      "answer": 0,
+      "explanation": "Shravanabelagola in Hassan district holds the Gommateshwara monolith, bathed in the Mahamastakabhisheka every twelve years.",
+      "source": "https://en.wikipedia.org/wiki/Shravanabelagola"
+    },
+    {
+      "id": "va-062",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "The Tungabhadra dam is located near which Karnataka town?",
+      "options": [
+        "Hosapete",
+        "Karwar",
+        "Bidar",
+        "Kolar"
+      ],
+      "answer": 0,
+      "explanation": "The Tungabhadra dam stands near Hosapete in Vijayanagara district, irrigating the Ballari and Raichur tracts.",
+      "source": "https://en.wikipedia.org/wiki/Tungabhadra_Dam"
+    },
+    {
+      "id": "va-063",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "hard",
+      "question": "Which Karnataka district is known for the Bidriware metal handicraft?",
+      "options": [
+        "Bidar",
+        "Bagalkot",
+        "Haveri",
+        "Yadgir"
+      ],
+      "answer": 0,
+      "explanation": "Bidriware, zinc alloy inlaid with silver, takes its name from Bidar where the craft developed under the Bahmani sultans.",
+      "source": "https://en.wikipedia.org/wiki/Bidriware"
+    },
+    {
+      "id": "va-064",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka place is known for its Channapatna wooden toys?",
+      "options": [
+        "Ramanagara district",
+        "Kodagu district",
+        "Udupi district",
+        "Bidar district"
+      ],
+      "answer": 0,
+      "explanation": "Channapatna in Ramanagara district is called the toy town for its lacquered wooden toys, which carry a geographical indication tag.",
+      "source": "https://en.wikipedia.org/wiki/Channapatna_toys"
+    },
+    {
+      "id": "va-065",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Kodagu district is the source of which major south Indian river?",
+      "options": [
+        "Kaveri",
+        "Krishna",
+        "Godavari",
+        "Sharavathi"
+      ],
+      "answer": 0,
+      "explanation": "The Kaveri rises at Talakaveri in Kodagu. The Krishna rises in Maharashtra and the Sharavathi within Karnataka's Malnad.",
+      "source": "https://en.wikipedia.org/wiki/Kaveri"
+    },
+    {
+      "id": "va-066",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "hard",
+      "question": "Which Karnataka fort is famed for its seven concentric walls?",
+      "options": [
+        "Chitradurga",
+        "Bidar",
+        "Srirangapatna",
+        "Belgaum"
+      ],
+      "answer": 0,
+      "explanation": "Chitradurga fort is called Elusuttina Kote, the fort of seven circles, for its layered walls built across boulder hills.",
+      "source": "https://en.wikipedia.org/wiki/Chitradurga_Fort"
+    },
+    {
+      "id": "va-067",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "How many subjects are listed in the Eleventh Schedule for devolution to panchayats?",
+      "options": [
+        "29",
+        "18",
+        "52",
+        "11"
+      ],
+      "answer": 0,
+      "explanation": "The Eleventh Schedule, added by the 73rd Amendment, lists 29 subjects that states may devolve to panchayats. The Twelfth Schedule lists 18 for municipalities.",
+      "source": "https://en.wikipedia.org/wiki/73rd_Amendment_of_the_Constitution_of_India"
+    },
+    {
+      "id": "va-068",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "What is the normal term of a panchayat under the Constitution?",
+      "options": [
+        "Five years",
+        "Three years",
+        "Six years",
+        "Four years"
+      ],
+      "answer": 0,
+      "explanation": "Article 243E fixes a five-year term, and elections must be completed before it expires or within six months of an earlier dissolution.",
+      "source": "https://en.wikipedia.org/wiki/Panchayati_raj_in_India"
+    },
+    {
+      "id": "va-069",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "Reservation of seats for women in panchayats is at least what share of the total?",
+      "options": [
+        "One third",
+        "One fifth",
+        "One half in all states",
+        "One tenth"
+      ],
+      "answer": 0,
+      "explanation": "Article 243D requires not less than one third of seats to be reserved for women. Several states, including Karnataka, have raised this to one half by their own law.",
+      "source": "https://en.wikipedia.org/wiki/Panchayati_raj_in_India"
+    },
+    {
+      "id": "va-070",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Which body recommends the distribution of finances between a state and its panchayats?",
+      "options": [
+        "The State Finance Commission",
+        "The Union Finance Commission",
+        "NITI Aayog",
+        "The State Election Commission"
+      ],
+      "answer": 0,
+      "explanation": "Article 243I requires a State Finance Commission every five years to review panchayat finances. The Union Finance Commission deals with Centre-state devolution.",
+      "source": "https://en.wikipedia.org/wiki/Finance_Commission"
+    },
+    {
+      "id": "va-071",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Under the Right to Information Act, information must ordinarily be supplied within",
+      "options": [
+        "Thirty days",
+        "Ninety days",
+        "One year",
+        "Seven days"
+      ],
+      "answer": 0,
+      "explanation": "The Act sets thirty days for an ordinary request, and forty-eight hours where life or liberty is concerned.",
+      "source": "https://en.wikipedia.org/wiki/Right_to_Information_Act,_2005"
+    },
+    {
+      "id": "va-072",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "Which Fundamental Right is described as the 'heart and soul' of the Constitution by Dr Ambedkar?",
+      "options": [
+        "The right to constitutional remedies",
+        "The right to equality",
+        "The right to freedom of religion",
+        "The right against exploitation"
+      ],
+      "answer": 0,
+      "explanation": "Ambedkar called Article 32, the right to constitutional remedies, the heart and soul of the Constitution because the other rights are unenforceable without it.",
+      "source": "https://en.wikipedia.org/wiki/Article_32_of_the_Constitution_of_India"
+    },
+    {
+      "id": "va-073",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Who was the first Chief Minister of the reorganised Mysore State in 1956?",
+      "options": [
+        "S. Nijalingappa",
+        "Kengal Hanumanthaiah",
+        "Devaraj Urs",
+        "Ramakrishna Hegde"
+      ],
+      "answer": 0,
+      "explanation": "S. Nijalingappa headed the enlarged Mysore State formed in 1956. Kengal Hanumanthaiah had earlier built the Vidhana Soudha as Chief Minister.",
+      "source": "https://en.wikipedia.org/wiki/S._Nijalingappa"
+    },
+    {
+      "id": "va-074",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Vidhana Soudha in Bengaluru was built during the tenure of which Chief Minister?",
+      "options": [
+        "Kengal Hanumanthaiah",
+        "S. Nijalingappa",
+        "Devaraj Urs",
+        "Veerendra Patil"
+      ],
+      "answer": 0,
+      "explanation": "Kengal Hanumanthaiah drove the construction of the Vidhana Soudha, completed in 1956 in a neo-Dravidian style.",
+      "source": "https://en.wikipedia.org/wiki/Vidhana_Soudha"
+    },
+    {
+      "id": "va-075",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Which Karnataka ruler is remembered for introducing land revenue reforms and a modern administration in Mysore in the eighteenth century?",
+      "options": [
+        "Hyder Ali",
+        "Krishnaraja Wadiyar IV",
+        "Chikka Devaraja Wadiyar",
+        "Kempe Gowda"
+      ],
+      "answer": 0,
+      "explanation": "Hyder Ali reorganised revenue collection and the army in Mysore. Krishnaraja Wadiyar IV ruled much later, in the era of Visvesvaraya's reforms.",
+      "source": "https://en.wikipedia.org/wiki/Hyder_Ali"
+    },
+    {
+      "id": "va-076",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which is the smallest district of Karnataka by area?",
+      "options": [
+        "Bengaluru Urban",
+        "Kodagu",
+        "Udupi",
+        "Chamarajanagar"
+      ],
+      "answer": 0,
+      "explanation": "Bengaluru Urban is the smallest by area but by far the most densely populated. Kodagu is small but larger, and Chamarajanagar is comparatively large and forested.",
+      "source": "https://en.wikipedia.org/wiki/List_of_districts_of_Karnataka"
+    },
+    {
+      "id": "va-077",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which crop dominates the irrigated command of the Krishna Raja Sagara dam?",
+      "options": [
+        "Sugarcane and paddy",
+        "Wheat and barley",
+        "Tea and rubber",
+        "Cotton and jute"
+      ],
+      "answer": 0,
+      "explanation": "The KRS command in Mandya is best known for sugarcane and paddy. Wheat and barley are northern rabi crops and tea and rubber suit heavy-rainfall hills elsewhere.",
+      "source": "https://en.wikipedia.org/wiki/Krishna_Raja_Sagara"
+    },
+    {
+      "id": "va-078",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Which Karnataka region is called Kalyana-Karnataka, formerly Hyderabad-Karnataka?",
+      "options": [
+        "The north-eastern districts around Kalaburagi",
+        "The coastal belt",
+        "The Malnad hills",
+        "The Bengaluru plateau"
+      ],
+      "answer": 0,
+      "explanation": "Kalyana-Karnataka covers Kalaburagi, Bidar, Yadgir, Raichur, Koppal, Ballari and Vijayanagara, which were once part of the Nizam's Hyderabad state.",
+      "source": "https://en.wikipedia.org/wiki/Kalyana-Karnataka"
+    },
+    {
+      "id": "va-079",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "Which shortcut copies the selected text in most Windows applications?",
+      "options": [
+        "Ctrl + C",
+        "Ctrl + V",
+        "Ctrl + X",
+        "Ctrl + P"
+      ],
+      "answer": 0,
+      "explanation": "Ctrl + C copies, Ctrl + X cuts, Ctrl + V pastes and Ctrl + P prints.",
+      "source": "https://en.wikipedia.org/wiki/Control_key"
+    },
+    {
+      "id": "va-080",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "In a spreadsheet, which function adds a range of numbers?",
+      "options": [
+        "SUM",
+        "COUNT",
+        "IF",
+        "LEN"
+      ],
+      "answer": 0,
+      "explanation": "SUM totals a range. COUNT tallies how many cells hold numbers, IF branches on a condition and LEN measures text length.",
+      "source": "https://en.wikipedia.org/wiki/Spreadsheet"
+    },
+    {
+      "id": "va-081",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "What does 'www' stand for in a web address?",
+      "options": [
+        "World Wide Web",
+        "Wide World Web",
+        "Web Wide World",
+        "World Web Wide"
+      ],
+      "answer": 0,
+      "explanation": "WWW stands for World Wide Web, the system of linked hypertext documents served over the internet.",
+      "source": "https://en.wikipedia.org/wiki/World_Wide_Web"
+    },
+    {
+      "id": "va-082",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "hard",
+      "question": "Which of these is an operating system rather than an application?",
+      "options": [
+        "Linux",
+        "Excel",
+        "Chrome",
+        "Photoshop"
+      ],
+      "answer": 0,
+      "explanation": "Linux manages hardware and runs other programs, making it an operating system. Excel, Chrome and Photoshop are applications that run on top of one.",
+      "source": "https://en.wikipedia.org/wiki/Operating_system"
+    },
+    {
+      "id": "va-083",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "A digital signature on an official document primarily ensures",
+      "options": [
+        "Authenticity and integrity of the document",
+        "Faster printing",
+        "Smaller file size",
+        "Better image quality"
+      ],
+      "answer": 0,
+      "explanation": "A digital signature proves who issued a document and that it has not been altered since. It says nothing about size or appearance.",
+      "source": "https://en.wikipedia.org/wiki/Digital_signature"
+    },
+    {
+      "id": "va-084",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Choose the correct plural: one 'crisis', many ____.",
+      "options": [
+        "crises",
+        "crisises",
+        "crisis",
+        "crisi"
+      ],
+      "answer": 0,
+      "explanation": "Crisis follows the Greek pattern and becomes crises, like thesis to theses and analysis to analyses.",
+      "source": "https://en.wikipedia.org/wiki/English_plurals"
+    },
+    {
+      "id": "va-085",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Fill in the blank: 'The records ____ verified yesterday.'",
+      "options": [
+        "were",
+        "was",
+        "are",
+        "is"
+      ],
+      "answer": 0,
+      "explanation": "Records is plural and the sentence is in the past, so the plural past form 'were' is required.",
+      "source": "https://en.wikipedia.org/wiki/English_verbs"
+    },
+    {
+      "id": "va-086",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "hard",
+      "question": "Identify the antonym of 'transparent'.",
+      "options": [
+        "Opaque",
+        "Clear",
+        "Obvious",
+        "Evident"
+      ],
+      "answer": 0,
+      "explanation": "Transparent means light passes through, so opaque is the opposite. Clear, obvious and evident are near-synonyms in its figurative sense.",
+      "source": "https://en.wikipedia.org/wiki/Opposite_(semantics)"
+    },
+    {
+      "id": "va-087",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Choose the correctly punctuated sentence.",
+      "options": [
+        "The officer said, \"Submit the form today.\"",
+        "The officer said \"Submit the form today\"",
+        "The officer said, Submit the form today.",
+        "The officer, said \"Submit the form today.\""
+      ],
+      "answer": 0,
+      "explanation": "Direct speech takes a comma before the quotation and the full stop inside the closing quotation mark.",
+      "source": "https://en.wikipedia.org/wiki/Quotation_mark"
+    },
+    {
+      "id": "va-088",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "What is the meaning of the idiom 'to turn a blind eye'?",
+      "options": [
+        "To deliberately ignore something",
+        "To lose one's sight",
+        "To watch closely",
+        "To look surprised"
+      ],
+      "answer": 0,
+      "explanation": "Turning a blind eye means choosing not to notice wrongdoing. It is deliberate, which is what distinguishes it from simply failing to see.",
+      "source": "https://en.wikipedia.org/wiki/Turn_a_blind_eye"
+    },
+    {
+      "id": "va-089",
+      "category": "vao",
+      "topic": "Current Affairs",
+      "difficulty": "medium",
+      "question": "The Jal Jeevan Mission aims to provide what to rural households?",
+      "options": [
+        "Tap water connections",
+        "Free electricity",
+        "Cooking gas cylinders",
+        "Broadband internet"
+      ],
+      "answer": 0,
+      "explanation": "Jal Jeevan Mission targets functional household tap connections in rural India. Ujjwala provides cooking gas and Saubhagya electricity connections.",
+      "source": "https://en.wikipedia.org/wiki/Jal_Jeevan_Mission"
+    },
+    {
+      "id": "va-090",
+      "category": "vao",
+      "topic": "Current Affairs",
+      "difficulty": "medium",
+      "question": "Which scheme provides health cover of five lakh rupees per family per year?",
+      "options": [
+        "Ayushman Bharat PM-JAY",
+        "PM-KISAN",
+        "MGNREGA",
+        "PMAY-G"
+      ],
+      "answer": 0,
+      "explanation": "PM-JAY under Ayushman Bharat gives secondary and tertiary hospitalisation cover of five lakh rupees a year per family. PM-KISAN is farm income support.",
+      "source": "https://en.wikipedia.org/wiki/Ayushman_Bharat_Yojana"
+    },
+    {
+      "id": "va-091",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Which officer heads a revenue division in Karnataka, above the district level?",
+      "options": [
+        "Regional or Divisional Commissioner",
+        "Tahsildar",
+        "Revenue Inspector",
+        "Village Accountant"
+      ],
+      "answer": 0,
+      "explanation": "A Divisional Commissioner supervises the Deputy Commissioners of several districts. Karnataka has four such divisions.",
+      "source": "https://en.wikipedia.org/wiki/Divisional_commissioner"
+    },
+    {
+      "id": "va-092",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Land revenue in India is a subject on which list of the Seventh Schedule?",
+      "options": [
+        "State List",
+        "Union List",
+        "Concurrent List",
+        "Residuary powers"
+      ],
+      "answer": 0,
+      "explanation": "Land and land revenue are State List subjects, which is why each state has its own land revenue Act.",
+      "source": "https://en.wikipedia.org/wiki/Seventh_Schedule_to_the_Constitution_of_India"
+    },
+    {
+      "id": "va-093",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "A 'darkhast' application in Karnataka revenue practice is a request for",
+      "options": [
+        "Grant of government land",
+        "Cancellation of a sale deed",
+        "A caste certificate",
+        "Transfer of a government servant"
+      ],
+      "answer": 0,
+      "explanation": "A darkhast is an application seeking grant of unoccupied government land, decided by the revenue authorities subject to eligibility and ceiling limits.",
+      "source": "https://en.wikipedia.org/wiki/Land_reform_in_India"
+    },
+    {
+      "id": "va-094",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Which certificate issued by the Tahsildar states a person's annual family income?",
+      "options": [
+        "Income certificate",
+        "Encumbrance certificate",
+        "Khata certificate",
+        "Possession certificate"
+      ],
+      "answer": 0,
+      "explanation": "The Tahsildar issues income and caste certificates. Encumbrance certificates come from the Sub-Registrar and khata from the local body or revenue office.",
+      "source": "https://en.wikipedia.org/wiki/Tehsildar"
+    },
+    {
+      "id": "va-095",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Land ceiling laws in India were enacted mainly to",
+      "options": [
+        "Limit how much land one family may hold and redistribute the surplus",
+        "Increase land revenue rates",
+        "Encourage large plantations",
+        "Register tenants as owners of urban plots"
+      ],
+      "answer": 0,
+      "explanation": "Ceiling legislation caps holdings and vests the surplus in the state for distribution to the landless. Tenancy laws separately conferred rights on cultivating tenants.",
+      "source": "https://en.wikipedia.org/wiki/Land_reform_in_India"
+    },
+    {
+      "id": "va-096",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "Under the Karnataka Land Reforms Act, the body that decided tenancy claims was the",
+      "options": [
+        "Land Tribunal",
+        "Gram Sabha",
+        "Lokayukta",
+        "Sub-Registrar"
+      ],
+      "answer": 0,
+      "explanation": "Land Tribunals headed by the Assistant Commissioner decided Form 7 tenancy claims and conferred occupancy rights on cultivating tenants.",
+      "source": "https://en.wikipedia.org/wiki/Land_reform_in_India"
+    },
+    {
+      "id": "va-097",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "A mutation entry becomes final in Karnataka only after",
+      "options": [
+        "It is certified following notice to interested parties",
+        "It is written in pencil by the Village Accountant",
+        "The buyer pays stamp duty",
+        "A survey number is renumbered"
+      ],
+      "answer": 0,
+      "explanation": "A mutation is first entered, then notices go to interested parties, and only after the objection period does the Revenue Inspector or Tahsildar certify it.",
+      "source": "https://en.wikipedia.org/wiki/Mutation_(land_records)"
+    },
+    {
+      "id": "va-098",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Which department maintains cadastral maps and conducts land surveys in Karnataka?",
+      "options": [
+        "Survey Settlement and Land Records",
+        "Public Works",
+        "Rural Development",
+        "Town Planning"
+      ],
+      "answer": 0,
+      "explanation": "The Department of Survey, Settlement and Land Records handles measurement, tippans, podi and cadastral maps for the state.",
+      "source": "https://en.wikipedia.org/wiki/Cadastre"
+    },
+    {
+      "id": "va-099",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "Land recorded as 'kharab' in Karnataka records refers to",
+      "options": [
+        "Land unfit for cultivation within a survey number",
+        "Land under a registered lease",
+        "Irrigated wet land",
+        "Land held by a temple"
+      ],
+      "answer": 0,
+      "explanation": "Kharab is uncultivable portion inside a survey number, such as rock, nala or a path, and is excluded from the assessed extent.",
+      "source": "https://en.wikipedia.org/wiki/Cadastre"
+    },
+    {
+      "id": "va-100",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Which natural calamity relief is administered at the district level by the Deputy Commissioner as chairman?",
+      "options": [
+        "The District Disaster Management Authority",
+        "The State Finance Commission",
+        "The Zilla Panchayat standing committee on health",
+        "The District Consumer Forum"
+      ],
+      "answer": 0,
+      "explanation": "Under the Disaster Management Act the District Disaster Management Authority is chaired by the District Magistrate, who in Karnataka is the Deputy Commissioner.",
+      "source": "https://en.wikipedia.org/wiki/National_Disaster_Management_Authority_(India)"
+    },
+    {
+      "id": "va-101",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka district is known as the 'rice bowl' of the state, irrigated by the Kaveri?",
+      "options": [
+        "Mandya",
+        "Bidar",
+        "Koppal",
+        "Uttara Kannada"
+      ],
+      "answer": 0,
+      "explanation": "Mandya, under the KRS command, is the classic paddy and sugarcane district of southern Karnataka.",
+      "source": "https://en.wikipedia.org/wiki/Mandya_district"
+    },
+    {
+      "id": "va-102",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Gokarna, a coastal pilgrimage town, is in which Karnataka district?",
+      "options": [
+        "Uttara Kannada",
+        "Udupi",
+        "Dakshina Kannada",
+        "Kodagu"
+      ],
+      "answer": 0,
+      "explanation": "Gokarna lies on the Uttara Kannada coast and is known for the Mahabaleshwar temple and its beaches.",
+      "source": "https://en.wikipedia.org/wiki/Gokarna,_Karnataka"
+    },
+    {
+      "id": "va-103",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "hard",
+      "question": "Which Karnataka town is associated with the Keladi Nayaka rulers' later capital?",
+      "options": [
+        "Bidnur or Nagara in Shivamogga",
+        "Chitradurga",
+        "Srirangapatna",
+        "Basavakalyan"
+      ],
+      "answer": 0,
+      "explanation": "The Keladi Nayakas moved their capital from Ikkeri to Bidnur, also called Nagara, in Shivamogga district.",
+      "source": "https://en.wikipedia.org/wiki/Keladi_Nayaka"
+    },
+    {
+      "id": "va-104",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka hill station in Chikkamagaluru is the highest peak in the state?",
+      "options": [
+        "Mullayanagiri",
+        "Kudremukh",
+        "Baba Budangiri",
+        "Nandi Hills"
+      ],
+      "answer": 0,
+      "explanation": "Mullayanagiri at about 1930 metres is the highest point in Karnataka. Kudremukh and Baba Budangiri are nearby but lower.",
+      "source": "https://en.wikipedia.org/wiki/Mullayanagiri"
+    },
+    {
+      "id": "va-105",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which language other than Kannada has official recognition in the coastal Karnataka district of Dakshina Kannada in common usage?",
+      "options": [
+        "Tulu",
+        "Marathi",
+        "Telugu",
+        "Odia"
+      ],
+      "answer": 0,
+      "explanation": "Tulu is widely spoken across Dakshina Kannada and Udupi, with its own literature and theatre, though Kannada remains the state's official language.",
+      "source": "https://en.wikipedia.org/wiki/Tulu_language"
+    },
+    {
+      "id": "va-106",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "hard",
+      "question": "Which Karnataka reservoir on the Krishna is the state's largest by storage?",
+      "options": [
+        "Almatti",
+        "Harangi",
+        "Vani Vilas Sagar",
+        "Hemavathi"
+      ],
+      "answer": 0,
+      "explanation": "The Almatti dam in Vijayapura district impounds the largest reservoir in Karnataka on the Krishna.",
+      "source": "https://en.wikipedia.org/wiki/Almatti_Dam"
+    },
+    {
+      "id": "va-107",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Kempe Gowda, whose name marks Bengaluru's airport, is remembered as",
+      "options": [
+        "The founder of Bengaluru",
+        "A Hoysala king",
+        "A Vijayanagara emperor",
+        "A Kannada poet"
+      ],
+      "answer": 0,
+      "explanation": "Kempe Gowda I, a chieftain under Vijayanagara, founded Bengaluru in 1537 and built its four watchtowers.",
+      "source": "https://en.wikipedia.org/wiki/Kempe_Gowda_I"
+    },
+    {
+      "id": "va-108",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka district produces the bulk of the state's sunflower and jowar in the dry north?",
+      "options": [
+        "Kalaburagi and the surrounding districts",
+        "Kodagu",
+        "Udupi",
+        "Dakshina Kannada"
+      ],
+      "answer": 0,
+      "explanation": "The dry northern districts around Kalaburagi grow jowar, sunflower, tur and other rain-fed crops, unlike the wet coastal and Malnad belts.",
+      "source": "https://en.wikipedia.org/wiki/Kalaburagi_district"
+    },
+    {
+      "id": "va-109",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Gram Panchayat's executive officer in Karnataka is designated as the",
+      "options": [
+        "Panchayat Development Officer",
+        "Tahsildar",
+        "Revenue Inspector",
+        "Deputy Commissioner"
+      ],
+      "answer": 0,
+      "explanation": "The Panchayat Development Officer is the executive head of a Gram Panchayat, working under the elected president.",
+      "source": "https://en.wikipedia.org/wiki/Panchayati_raj_in_India"
+    },
+    {
+      "id": "va-110",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "How many tiers does the panchayati raj system have in Karnataka?",
+      "options": [
+        "Three",
+        "Two",
+        "One",
+        "Four"
+      ],
+      "answer": 0,
+      "explanation": "Karnataka has Gram, Taluk and Zilla Panchayats. The Constitution allows a two-tier system only for states with under two million people.",
+      "source": "https://en.wikipedia.org/wiki/Panchayati_raj_in_India"
+    },
+    {
+      "id": "va-111",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "Which article of the Constitution provides for the Gram Sabha?",
+      "options": [
+        "Article 243A",
+        "Article 243B",
+        "Article 243C",
+        "Article 243D"
+      ],
+      "answer": 0,
+      "explanation": "Article 243A provides for the Gram Sabha to exercise powers the state legislature assigns it. 243B provides for the panchayats themselves.",
+      "source": "https://en.wikipedia.org/wiki/Gram_sabha"
+    },
+    {
+      "id": "va-112",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "A Money Bill under the Constitution can be introduced only in the",
+      "options": [
+        "Lok Sabha, on the President's recommendation",
+        "Rajya Sabha",
+        "Either house",
+        "A joint sitting"
+      ],
+      "answer": 0,
+      "explanation": "Article 110 confines Money Bills to the Lok Sabha and requires the President's recommendation. The Rajya Sabha may only suggest changes within fourteen days.",
+      "source": "https://en.wikipedia.org/wiki/Money_bill"
+    },
+    {
+      "id": "va-113",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Who administers the oath of office to a state Chief Minister?",
+      "options": [
+        "The Governor",
+        "The President",
+        "The Chief Justice of the High Court",
+        "The Speaker"
+      ],
+      "answer": 0,
+      "explanation": "The Governor appoints and swears in the Chief Minister and, on their advice, the other ministers.",
+      "source": "https://en.wikipedia.org/wiki/Governor_(India)"
+    },
+    {
+      "id": "va-114",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "The Directive Principles differ from Fundamental Rights chiefly because they are",
+      "options": [
+        "Not enforceable by any court",
+        "Applicable only to states",
+        "Listed in Part II",
+        "Amendable only by referendum"
+      ],
+      "answer": 0,
+      "explanation": "Article 37 states the Directive Principles are not enforceable by courts though fundamental to governance. Fundamental Rights are enforceable under Articles 32 and 226.",
+      "source": "https://en.wikipedia.org/wiki/Directive_Principles"
+    },
+    {
+      "id": "va-115",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Which movement did Gandhi lead in 1930 that began with a march to the sea?",
+      "options": [
+        "The Civil Disobedience Movement",
+        "The Quit India Movement",
+        "The Non-Cooperation Movement",
+        "The Khilafat Movement"
+      ],
+      "answer": 0,
+      "explanation": "The Dandi march of 1930 opened the Civil Disobedience Movement by breaking the salt law. Quit India came in 1942.",
+      "source": "https://en.wikipedia.org/wiki/Salt_March"
+    },
+    {
+      "id": "va-116",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Who was the first President of India?",
+      "options": [
+        "Rajendra Prasad",
+        "Sarvepalli Radhakrishnan",
+        "Jawaharlal Nehru",
+        "C. Rajagopalachari"
+      ],
+      "answer": 0,
+      "explanation": "Rajendra Prasad became the first President in 1950 and served two terms. Radhakrishnan was the first Vice-President and second President.",
+      "source": "https://en.wikipedia.org/wiki/Rajendra_Prasad"
+    },
+    {
+      "id": "va-117",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Indian Councils Act of 1919 is also known as the",
+      "options": [
+        "Montagu-Chelmsford Reforms",
+        "Morley-Minto Reforms",
+        "Regulating Act",
+        "Pitt's India Act"
+      ],
+      "answer": 0,
+      "explanation": "The 1919 Act implemented the Montagu-Chelmsford Reforms and introduced dyarchy in the provinces. The 1909 Act was Morley-Minto.",
+      "source": "https://en.wikipedia.org/wiki/Government_of_India_Act_1919"
+    },
+    {
+      "id": "va-118",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which Indian state has the longest coastline after Gujarat?",
+      "options": [
+        "Andhra Pradesh",
+        "Karnataka",
+        "Kerala",
+        "Odisha"
+      ],
+      "answer": 0,
+      "explanation": "Andhra Pradesh has the second longest coastline among Indian states, after Gujarat and ahead of Tamil Nadu.",
+      "source": "https://en.wikipedia.org/wiki/Geography_of_India"
+    },
+    {
+      "id": "va-119",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which winds bring the bulk of Karnataka's rainfall?",
+      "options": [
+        "The southwest monsoon",
+        "The northeast monsoon",
+        "Western disturbances",
+        "The Loo"
+      ],
+      "answer": 0,
+      "explanation": "The southwest monsoon from June to September gives most of Karnataka's rain, especially on the coast and the Ghats. The northeast monsoon matters more to Tamil Nadu.",
+      "source": "https://en.wikipedia.org/wiki/Monsoon_of_South_Asia"
+    },
+    {
+      "id": "va-120",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "The rain shadow area immediately east of the Western Ghats in Karnataka is characterised by",
+      "options": [
+        "Low rainfall and dry scrub",
+        "Dense evergreen forest",
+        "Perennial marshland",
+        "Snowfall in winter"
+      ],
+      "answer": 0,
+      "explanation": "The Ghats strip moisture from the monsoon, leaving the interior plateau dry — the reason Ballari and Vijayapura are semi-arid while the coast is drenched.",
+      "source": "https://en.wikipedia.org/wiki/Rain_shadow"
+    },
+    {
+      "id": "va-121",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "Which key combination saves a document in most Windows applications?",
+      "options": [
+        "Ctrl + S",
+        "Ctrl + A",
+        "Ctrl + Z",
+        "Ctrl + F"
+      ],
+      "answer": 0,
+      "explanation": "Ctrl + S saves. Ctrl + A selects all, Ctrl + Z undoes and Ctrl + F finds.",
+      "source": "https://en.wikipedia.org/wiki/Control_key"
+    },
+    {
+      "id": "va-122",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "A megabyte is approximately how many kilobytes?",
+      "options": [
+        "1024",
+        "100",
+        "10",
+        "1024000"
+      ],
+      "answer": 0,
+      "explanation": "In the binary convention a megabyte is 1024 kilobytes, just as a kilobyte is 1024 bytes.",
+      "source": "https://en.wikipedia.org/wiki/Megabyte"
+    },
+    {
+      "id": "va-123",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "What does a firewall on a computer network do?",
+      "options": [
+        "Filters traffic between networks according to rules",
+        "Cools the processor",
+        "Increases storage",
+        "Backs up files automatically"
+      ],
+      "answer": 0,
+      "explanation": "A firewall permits or blocks traffic by rule, guarding the boundary between networks. Cooling and backup are unrelated functions.",
+      "source": "https://en.wikipedia.org/wiki/Firewall_(computing)"
+    },
+    {
+      "id": "va-124",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "hard",
+      "question": "In a database, a primary key is a field that",
+      "options": [
+        "Uniquely identifies each record",
+        "Stores the largest value",
+        "Is always numeric",
+        "Holds the password"
+      ],
+      "answer": 0,
+      "explanation": "A primary key uniquely identifies a row and cannot be null or duplicated. It need not be numeric, though numeric keys are common.",
+      "source": "https://en.wikipedia.org/wiki/Primary_key"
+    },
+    {
+      "id": "va-125",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "Which of these is a spreadsheet application?",
+      "options": [
+        "LibreOffice Calc",
+        "LibreOffice Writer",
+        "Notepad",
+        "VLC"
+      ],
+      "answer": 0,
+      "explanation": "Calc is the spreadsheet in the LibreOffice suite. Writer is the word processor, Notepad a plain text editor and VLC a media player.",
+      "source": "https://en.wikipedia.org/wiki/LibreOffice_Calc"
+    },
+    {
+      "id": "va-126",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Choose the word that means 'happening every year'.",
+      "options": [
+        "Annual",
+        "Biennial",
+        "Perennial",
+        "Quarterly"
+      ],
+      "answer": 0,
+      "explanation": "Annual means yearly. Biennial is every two years, perennial means lasting through the years, and quarterly is four times a year.",
+      "source": "https://en.wikipedia.org/wiki/Year"
+    },
+    {
+      "id": "va-127",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Fill in the blank: 'She is senior ____ me in the department.'",
+      "options": [
+        "to",
+        "than",
+        "from",
+        "of"
+      ],
+      "answer": 0,
+      "explanation": "Comparatives of Latin origin such as senior, junior, superior and inferior take 'to' rather than 'than'.",
+      "source": "https://en.wikipedia.org/wiki/Comparison_(grammar)"
+    },
+    {
+      "id": "va-128",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "hard",
+      "question": "Identify the correctly spelt word.",
+      "options": [
+        "Bureaucracy",
+        "Beauracracy",
+        "Bureacracy",
+        "Buraeucracy"
+      ],
+      "answer": 0,
+      "explanation": "Bureaucracy keeps the French 'bureau' intact and adds -cracy. The other spellings all transpose the vowels of bureau.",
+      "source": "https://en.wikipedia.org/wiki/Bureaucracy"
+    },
+    {
+      "id": "va-129",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Change to indirect speech: He said, 'I am busy today.'",
+      "options": [
+        "He said that he was busy that day",
+        "He said that I am busy today",
+        "He says that he was busy that day",
+        "He said that he is busy today"
+      ],
+      "answer": 0,
+      "explanation": "Reporting in the past shifts the tense back and moves the time reference, so 'I am busy today' becomes 'he was busy that day'.",
+      "source": "https://en.wikipedia.org/wiki/Indirect_speech"
+    },
+    {
+      "id": "va-130",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "What is the noun form of the verb 'decide'?",
+      "options": [
+        "Decision",
+        "Decisive",
+        "Decidedly",
+        "Deciding to"
+      ],
+      "answer": 0,
+      "explanation": "Decision is the noun. Decisive is the adjective and decidedly the adverb.",
+      "source": "https://en.wikipedia.org/wiki/Nominalization"
+    },
+    {
+      "id": "va-131",
+      "category": "vao",
+      "topic": "Current Affairs",
+      "difficulty": "medium",
+      "question": "The Digital India programme aims primarily to",
+      "options": [
+        "Deliver government services electronically and expand digital access",
+        "Build new highways",
+        "Increase crude oil imports",
+        "Set up new steel plants"
+      ],
+      "answer": 0,
+      "explanation": "Digital India covers digital infrastructure, governance and services on demand, and digital literacy. Roads and steel fall under other ministries entirely.",
+      "source": "https://en.wikipedia.org/wiki/Digital_India"
+    },
+    {
+      "id": "va-132",
+      "category": "vao",
+      "topic": "Current Affairs",
+      "difficulty": "medium",
+      "question": "Under PM-KISAN, eligible farmer families receive income support of how much per year?",
+      "options": [
+        "Six thousand rupees",
+        "Sixty thousand rupees",
+        "Six hundred rupees",
+        "Sixteen thousand rupees"
+      ],
+      "answer": 0,
+      "explanation": "PM-KISAN pays six thousand rupees a year in three equal instalments directly into farmers' bank accounts.",
+      "source": "https://en.wikipedia.org/wiki/Pradhan_Mantri_Kisan_Samman_Nidhi"
+    },
+    {
+      "id": "va-133",
+      "category": "vao",
+      "topic": "Current Affairs",
+      "difficulty": "hard",
+      "question": "The Swachh Bharat Mission is administered in rural areas by which ministry?",
+      "options": [
+        "Jal Shakti",
+        "Home Affairs",
+        "Defence",
+        "External Affairs"
+      ],
+      "answer": 0,
+      "explanation": "The rural component sits with the Department of Drinking Water and Sanitation under the Ministry of Jal Shakti; the urban component is with Housing and Urban Affairs.",
+      "source": "https://en.wikipedia.org/wiki/Swachh_Bharat_Mission"
+    },
+    {
+      "id": "va-134",
+      "category": "vao",
+      "topic": "Current Affairs",
+      "difficulty": "medium",
+      "question": "Which identity number is issued by the Unique Identification Authority of India?",
+      "options": [
+        "Aadhaar",
+        "PAN",
+        "Voter ID",
+        "Passport number"
+      ],
+      "answer": 0,
+      "explanation": "UIDAI issues the twelve-digit Aadhaar. PAN comes from the Income Tax Department and voter IDs from the Election Commission.",
+      "source": "https://en.wikipedia.org/wiki/Aadhaar"
+    },
+    {
+      "id": "va-135",
+      "category": "vao",
+      "topic": "Current Affairs",
+      "difficulty": "medium",
+      "question": "Direct Benefit Transfer aims to reduce leakage by",
+      "options": [
+        "Paying subsidies straight into beneficiaries' bank accounts",
+        "Printing more ration cards",
+        "Raising subsidy rates",
+        "Distributing goods through more intermediaries"
+      ],
+      "answer": 0,
+      "explanation": "DBT removes intermediaries by crediting entitlements directly to a linked bank account, which is why it is tied to Aadhaar seeding.",
+      "source": "https://en.wikipedia.org/wiki/Direct_Benefit_Transfer"
     }
   ]
 }
