@@ -124,3 +124,63 @@ body.sidepanel { padding: 0; display: block; }
 #kq-app header.top { display: none; }
 
 footer { padding: 8px 4px 0; }
+
+/* ================= the Android quiz =================
+   Full bleed. The screen is the card, so there is no card. */
+.mq { position: fixed; inset: 0; display: flex; flex-direction: column; background: var(--bg); }
+
+.mq-rail { height: 3px; background: rgba(127,127,127,.25); flex: none; }
+.mq-rail i { display: block; height: 100%; width: 0; background: var(--text); transition: width .25s ease; }
+
+.mq-top {
+  display: flex; align-items: center; gap: 10px;
+  padding: calc(8px + env(safe-area-inset-top)) 14px 8px;
+  flex: none;
+}
+.mq-close {
+  appearance: none; border: 0; background: none; color: var(--text);
+  padding: 8px; margin: -8px; cursor: pointer; opacity: .7;
+  min-width: 44px; min-height: 44px;   /* the smallest reliable touch target */
+}
+.mq-close svg { width: 20px; height: 20px; display: block; }
+.mq-count { font-size: 13px; font-weight: 600; }
+.mq-score { margin-left: auto; font-size: 12px; color: var(--muted); }
+
+.mq-body { flex: 1 1 auto; overflow-y: auto; padding: 6px 16px 16px; -webkit-overflow-scrolling: touch; }
+.mq-topic { margin: 0 0 6px; font-size: 11px; letter-spacing: .8px; text-transform: uppercase; color: var(--muted); }
+.mq-q { margin: 0 0 18px; font-size: 20px; line-height: 1.35; font-weight: 600; }
+
+.mq-opt {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+  min-height: 56px; padding: 12px 14px; margin: 0 0 10px;
+  font: inherit; font-size: 15px; color: var(--text);
+  background: var(--card); border: 1.5px solid var(--card-border);
+  border-radius: 14px; cursor: pointer;
+  transition: background .15s, border-color .15s, transform .08s;
+}
+.mq-opt:active { transform: scale(.985); }
+.mq-letter {
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--hover); font-size: 12px; font-weight: 700;
+}
+.mq-opt.is-right { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 18%, transparent); }
+.mq-opt.is-wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 16%, transparent); }
+.mq-opt.is-dim { opacity: .45; }
+.mq-opt:disabled { cursor: default; }
+
+.mq-fb { margin-top: 4px; padding: 14px; border-radius: 14px; background: var(--card); border: 1px solid var(--card-border); }
+.mq-verdict { margin: 0 0 6px; font-weight: 700; font-size: 15px; }
+.mq-verdict.ok { color: var(--ok); }
+.mq-verdict.bad { color: var(--bad); }
+.mq-expl { margin: 0; font-size: 14px; line-height: 1.5; opacity: .9; }
+.mq-src { display: inline-block; margin-top: 10px; font-size: 13px; text-decoration: underline; color: inherit; opacity: .75; }
+
+/* The action sits above the gesture bar, always reachable. */
+.mq-next {
+  flex: none; margin: 0 16px calc(14px + env(safe-area-inset-bottom));
+  border: 0; border-radius: 14px; padding: 16px;
+  font: inherit; font-size: 16px; font-weight: 700;
+  background: var(--accent); color: var(--on-accent); cursor: pointer;
+}
+.mq-next:active { transform: scale(.99); }

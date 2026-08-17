@@ -52,30 +52,10 @@
   var running = false;
 
   function renderBatch(quiz, lightning) {
-    var card = document.getElementById('card');
-    card.innerHTML = '';
-    global.TPQ_UI.create(card, {
-      questions: quiz.questions,
-      title: quiz.title,
-      durationSec: 0,              // no auto-close: a phone is not a popup
-      theme: quiz.theme,
-      glass: quiz.glass,
-      glassCustom: quiz.glassCustom,
-      // A summary between every batch would be exactly the break lightning
-      // mode exists to remove.
-      skipSummary: lightning,
-      onAnswer: function (q, ok) { global.KinvtQuiz.recordAnswer(q, ok); },
-      onFinish: function (c, t) {
-        global.KinvtQuiz.recordResult(c, t);
-        if (!lightning || !running) return;
-        // Build the next batch before the card tears itself down, so the
-        // stream never visibly stops.
-        global.KinvtQuiz.buildQuiz().then(function (next) {
-          if (!running) return;
-          if (next && next.questions.length) renderBatch(next, true);
-          else close();
-        });
-      },
+    // The purpose-built Android renderer, not the desktop card: it owns the
+    // whole screen, refills its own queue, and needs no batch boundary.
+    global.KinvtQuizUI.open(document.getElementById('card'), {
+      lightning: lightning,
       onClose: close
     });
   }
@@ -92,7 +72,7 @@
           return;
         }
         var s = global.KinvtQuiz.getSettings();
-        var lightning = s.lightning === true;
+        var lightning = s.lightning !== false;   // Android opts out
 
         var el = overlay();
         el.hidden = false;
@@ -103,20 +83,6 @@
       .catch(function (e) {
         global.alert('Could not start a quiz: ' + (e && e.message ? e.message : e));
       });
-  }
-
-  // Lightning is the right default on a phone and the wrong one on the
-  // desktop, where the card is an interruption. DEFAULT_SETTINGS carries the
-  // desktop value, so the phone flips it once on first run — guarded by its
-  // own key so a later "off" from the user is never overwritten.
-  function applyMobileDefaults() {
-    try {
-      if (localStorage.getItem("kinvt.mobileDefaults")) return;
-      var s = global.KinvtQuiz.getSettings();
-      s.lightning = true;
-      global.KinvtQuiz.setSettings(s);
-      localStorage.setItem("kinvt.mobileDefaults", "1");
-    } catch (e) { /* storage unavailable; the desktop default stands */ }
   }
 
   global.KinvtMobile = { startQuiz: startQuiz, close: close };
@@ -134,7 +100,6 @@
     }
 
     global.KinvtStorage.ready()
-      .then(applyMobileDefaults)
       .then(function () { return global.KinvtReminders ? global.KinvtReminders.init() : null; })
       .then(function () { return global.KinvtQuiz.syncContent(); })
       .catch(function () { /* offline: the bundled banks are what get used */ });

@@ -27,7 +27,7 @@
     glass: 'balanced',
     glassCustom: 70,
     adaptive: true,
-    lightning: false,   // keep serving questions instead of stopping after perQuiz
+    lightning: null,    // null = unset: desktop treats it as off, Android as on
     respectDnd: true,
     quietStart: 1320,     // 22:00, minutes since midnight
     quietEnd: 420,        // 07:00
@@ -186,7 +186,7 @@
           theme: settings.theme || 'dark',
           glass: settings.glass || 'balanced',
           glassCustom: settings.glassCustom | 0 || 70,
-          lightning: settings.lightning === true
+          lightning: settings.lightning === true   // desktop opts in
         };
       });
     }).catch(function () { return null; });

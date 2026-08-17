@@ -350,6 +350,7 @@
 
     /* ---- adaptation and do-not-disturb ---- */
 
+    // null means unset; on this shell that reads as off.
     $('lightning').checked = settings.lightning === true;
     $('lightning').addEventListener('change', function () { settings.lightning = this.checked; save(); });
     $('adaptive').checked = settings.adaptive !== false;
