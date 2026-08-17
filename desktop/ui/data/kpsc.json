@@ -1731,6 +1731,646 @@
       "answer": 0,
       "explanation": "Shiradi Ghat carries the Mangaluru-Bengaluru route through the Western Ghats. Nathu La, Zoji La and Rohtang are Himalayan passes.",
       "source": "https://en.wikipedia.org/wiki/Shiradi_Ghat"
+    },
+    {
+      "id": "kp-111",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Nolamba dynasty of Karnataka ruled as feudatories of which larger power?",
+      "options": [
+        "The Western Gangas and later the Rashtrakutas",
+        "The Mughals",
+        "The Delhi Sultanate",
+        "The Marathas"
+      ],
+      "answer": 0,
+      "explanation": "The Nolambas of the Tumakuru and Chitradurga region ruled as subordinates of the Gangas, Rashtrakutas and Chalukyas in turn.",
+      "source": "https://en.wikipedia.org/wiki/Nolamba_dynasty"
+    },
+    {
+      "id": "kp-112",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Which Kannada poet is known as Adikavi, the first poet?",
+      "options": [
+        "Pampa",
+        "Ranna",
+        "Ponna",
+        "Janna"
+      ],
+      "answer": 0,
+      "explanation": "Pampa, author of Vikramarjuna Vijaya and Adipurana, is called Adikavi. Ranna and Ponna complete the ratnatraya, the three gems of old Kannada.",
+      "source": "https://en.wikipedia.org/wiki/Pampa_(Kannada_poet)"
+    },
+    {
+      "id": "kp-113",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Bahmani Sultanate had one of its capitals in which Karnataka city?",
+      "options": [
+        "Bidar",
+        "Mysuru",
+        "Mangaluru",
+        "Shivamogga"
+      ],
+      "answer": 0,
+      "explanation": "The Bahmanis moved their capital from Gulbarga to Bidar, where the fort and the Mahmud Gawan madrasa still stand.",
+      "source": "https://en.wikipedia.org/wiki/Bahmani_Sultanate"
+    },
+    {
+      "id": "kp-114",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Mahmud Gawan, remembered for a madrasa at Bidar, served the Bahmani state as",
+      "options": [
+        "Prime minister",
+        "Court poet",
+        "Chief architect",
+        "Naval commander"
+      ],
+      "answer": 0,
+      "explanation": "Mahmud Gawan was the Bahmani prime minister and a patron of learning, whose madrasa at Bidar survives in part.",
+      "source": "https://en.wikipedia.org/wiki/Mahmud_Gawan"
+    },
+    {
+      "id": "kp-115",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "The Kadamba dynasty was founded by whom, according to tradition?",
+      "options": [
+        "Mayurasharma",
+        "Pulakeshin I",
+        "Dantidurga",
+        "Vishnuvardhana"
+      ],
+      "answer": 0,
+      "explanation": "Mayurasharma founded the Kadambas at Banavasi in the fourth century, traditionally after being slighted at a Pallava court.",
+      "source": "https://en.wikipedia.org/wiki/Kadamba_dynasty"
+    },
+    {
+      "id": "kp-116",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Who led the Amara Sullia and Kodagu uprising against the British in 1837?",
+      "options": [
+        "Kalyanaswamy and local chieftains",
+        "Sangolli Rayanna",
+        "Rani Chennamma",
+        "Tipu Sultan"
+      ],
+      "answer": 0,
+      "explanation": "The 1837 Amara Sullia revolt in the Kodagu and Dakshina Kannada region briefly captured Mangaluru before being suppressed.",
+      "source": "https://en.wikipedia.org/wiki/Amara_Sullia_Revolt"
+    },
+    {
+      "id": "kp-117",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Which Karnataka body hears appeals in revenue and land matters below the High Court?",
+      "options": [
+        "The Karnataka Appellate Tribunal",
+        "The Lokayukta",
+        "The State Election Commission",
+        "The Public Service Commission"
+      ],
+      "answer": 0,
+      "explanation": "The Karnataka Appellate Tribunal hears appeals in revenue and certain other matters, sitting above the Deputy Commissioner in that ladder.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka"
+    },
+    {
+      "id": "kp-118",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Recruitment to Karnataka's state civil services is conducted by",
+      "options": [
+        "The Karnataka Public Service Commission",
+        "The Union Public Service Commission",
+        "The Staff Selection Commission",
+        "The Lokayukta"
+      ],
+      "answer": 0,
+      "explanation": "KPSC conducts the state civil service examinations. UPSC handles the all-India services and central posts.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka_Public_Service_Commission"
+    },
+    {
+      "id": "kp-119",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "Members of the Karnataka Legislative Council are chosen partly by which electorates?",
+      "options": [
+        "Graduates, teachers, local authorities and the assembly",
+        "Only the general public",
+        "Only the Governor",
+        "Only sitting MPs"
+      ],
+      "answer": 0,
+      "explanation": "A Legislative Council is composed of members elected by MLAs, local authorities, graduates and teachers, plus a share nominated by the Governor.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka_Legislative_Council"
+    },
+    {
+      "id": "kp-120",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Which Article empowers a state to have a Legislative Council?",
+      "options": [
+        "Article 169",
+        "Article 110",
+        "Article 356",
+        "Article 280"
+      ],
+      "answer": 0,
+      "explanation": "Article 169 lets Parliament create or abolish a state Legislative Council on a resolution of that state's assembly.",
+      "source": "https://en.wikipedia.org/wiki/State_Legislative_Council_(India)"
+    },
+    {
+      "id": "kp-121",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Bhima river, a major tributary of the Krishna, enters Karnataka from which state?",
+      "options": [
+        "Maharashtra",
+        "Telangana",
+        "Goa",
+        "Kerala"
+      ],
+      "answer": 0,
+      "explanation": "The Bhima rises in Maharashtra's Bhimashankar hills and flows through northern Karnataka before joining the Krishna.",
+      "source": "https://en.wikipedia.org/wiki/Bhima_River"
+    },
+    {
+      "id": "kp-122",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which Karnataka district is known for its granite and dimensional stone quarries?",
+      "options": [
+        "Ilkal in Bagalkot and surrounding areas",
+        "Udupi",
+        "Kodagu",
+        "Dakshina Kannada"
+      ],
+      "answer": 0,
+      "explanation": "Northern Karnataka around Ilkal and Bagalkot is a major granite and building-stone region, quite unlike the laterite-rich coast.",
+      "source": "https://en.wikipedia.org/wiki/Granite"
+    },
+    {
+      "id": "kp-123",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Which Karnataka river joins the Krishna near Raichur after flowing past Hampi?",
+      "options": [
+        "Tungabhadra",
+        "Kaveri",
+        "Sharavathi",
+        "Netravati"
+      ],
+      "answer": 0,
+      "explanation": "The Tungabhadra flows past Hampi and joins the Krishna near Raichur, watering the doab between the two rivers.",
+      "source": "https://en.wikipedia.org/wiki/Tungabhadra_River"
+    },
+    {
+      "id": "kp-124",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Raichur doab lies between which two rivers?",
+      "options": [
+        "Krishna and Tungabhadra",
+        "Kaveri and Kabini",
+        "Kali and Sharavathi",
+        "Bhima and Godavari"
+      ],
+      "answer": 0,
+      "explanation": "A doab is the land between two rivers, and the Raichur doab lies between the Krishna and the Tungabhadra, long fought over by Vijayanagara and the Sultanates.",
+      "source": "https://en.wikipedia.org/wiki/Raichur_doab"
+    },
+    {
+      "id": "kp-125",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which Karnataka coastal district is known for its fishing harbour at Malpe?",
+      "options": [
+        "Udupi",
+        "Uttara Kannada",
+        "Dakshina Kannada",
+        "Kodagu"
+      ],
+      "answer": 0,
+      "explanation": "Malpe near Udupi is one of Karnataka's largest fishing harbours, and the departure point for St Mary's Island.",
+      "source": "https://en.wikipedia.org/wiki/Malpe"
+    },
+    {
+      "id": "kp-126",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Which classical Kannada text on grammar and poetics survives from the ninth century?",
+      "options": [
+        "Kavirajamarga",
+        "Vaddaradhane",
+        "Samskara",
+        "Malegalalli Madumagalu"
+      ],
+      "answer": 0,
+      "explanation": "Kavirajamarga, attributed to the Rashtrakuta court, is the earliest available Kannada literary work and discusses poetics and the Kannada country.",
+      "source": "https://en.wikipedia.org/wiki/Kavirajamarga"
+    },
+    {
+      "id": "kp-127",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "hard",
+      "question": "Kuvempu, the first Kannada Jnanpith laureate, wrote which epic in blank verse?",
+      "options": [
+        "Sri Ramayana Darshanam",
+        "Kavirajamarga",
+        "Vachana Bharata",
+        "Karnataka Bharata Katha Manjari"
+      ],
+      "answer": 0,
+      "explanation": "Kuvempu's Sri Ramayana Darshanam earned him the Jnanpith in 1967. He also wrote the state anthem, Jaya Bharata Jananiya Tanujate.",
+      "source": "https://en.wikipedia.org/wiki/Kuvempu"
+    },
+    {
+      "id": "kp-128",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Which Kannada writer received the Jnanpith for a body of work including 'Yayati' style historical drama and is known for Tughlaq?",
+      "options": [
+        "Girish Karnad",
+        "Chandrashekhara Kambara",
+        "Masti Venkatesha Iyengar",
+        "D. R. Bendre"
+      ],
+      "answer": 0,
+      "explanation": "Girish Karnad, a Jnanpith laureate, wrote Tughlaq, Hayavadana and Yayati. Kambara and Bendre are separate laureates with their own bodies of work.",
+      "source": "https://en.wikipedia.org/wiki/Girish_Karnad"
+    },
+    {
+      "id": "kp-129",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "D. R. Bendre, a Jnanpith winner, wrote principally in which form?",
+      "options": [
+        "Poetry",
+        "Historical fiction",
+        "Travel writing",
+        "Legal commentary"
+      ],
+      "answer": 0,
+      "explanation": "Bendre, who wrote under the name Ambikatanayadatta, is celebrated for lyric poetry in the Dharwad Kannada idiom.",
+      "source": "https://en.wikipedia.org/wiki/D._R._Bendre"
+    },
+    {
+      "id": "kp-130",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "hard",
+      "question": "Which Karnataka temple town is the seat of the Vaishnava saint Ramanuja's long exile?",
+      "options": [
+        "Melukote",
+        "Sringeri",
+        "Udupi",
+        "Gokarna"
+      ],
+      "answer": 0,
+      "explanation": "Ramanuja spent years at Melukote in Mandya district, where the Cheluvanarayana temple and the Vairamudi festival remain associated with him.",
+      "source": "https://en.wikipedia.org/wiki/Melukote"
+    },
+    {
+      "id": "kp-131",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which Karnataka institution is India's principal centre for aerospace research alongside HAL?",
+      "options": [
+        "National Aerospace Laboratories, Bengaluru",
+        "IIT Madras",
+        "BARC Trombay",
+        "NRSC Hyderabad"
+      ],
+      "answer": 0,
+      "explanation": "NAL at Bengaluru is a CSIR laboratory working on civil aircraft and aerospace research, close to HAL and the defence cluster.",
+      "source": "https://en.wikipedia.org/wiki/National_Aerospace_Laboratories"
+    },
+    {
+      "id": "kp-132",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which Karnataka district produces the largest share of the state's arecanut?",
+      "options": [
+        "Shivamogga and the Malnad belt",
+        "Ballari",
+        "Raichur",
+        "Bidar"
+      ],
+      "answer": 0,
+      "explanation": "Arecanut is concentrated in the Malnad districts of Shivamogga, Chikkamagaluru and Dakshina Kannada, where rainfall is high.",
+      "source": "https://en.wikipedia.org/wiki/Areca_nut"
+    },
+    {
+      "id": "kp-133",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "hard",
+      "question": "Karnataka's Kolar Gold Fields closed in 2001 primarily because",
+      "options": [
+        "Mining had become uneconomic at increasing depth",
+        "The gold ran out completely overnight",
+        "A court banned all mining",
+        "The site was flooded by a dam"
+      ],
+      "answer": 0,
+      "explanation": "KGF reached extreme depths where extraction costs exceeded the value recovered, and Bharat Gold Mines was wound up in 2001.",
+      "source": "https://en.wikipedia.org/wiki/Kolar_Gold_Fields"
+    },
+    {
+      "id": "kp-134",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which Karnataka city is the centre of the state's garment export industry?",
+      "options": [
+        "Bengaluru",
+        "Bidar",
+        "Raichur",
+        "Chamarajanagar"
+      ],
+      "answer": 0,
+      "explanation": "Bengaluru hosts a large ready-made garment manufacturing and export sector alongside its IT industry.",
+      "source": "https://en.wikipedia.org/wiki/Bangalore"
+    },
+    {
+      "id": "kp-135",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Which Karnataka national park adjoins Bandipur and Nagarhole to form part of the Nilgiri Biosphere Reserve?",
+      "options": [
+        "Mudumalai lies across the border in Tamil Nadu",
+        "Kaziranga",
+        "Gir",
+        "Sundarbans"
+      ],
+      "answer": 0,
+      "explanation": "Bandipur and Nagarhole in Karnataka adjoin Mudumalai in Tamil Nadu and Wayanad in Kerala within the Nilgiri Biosphere Reserve.",
+      "source": "https://en.wikipedia.org/wiki/Nilgiri_Biosphere_Reserve"
+    },
+    {
+      "id": "kp-136",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "hard",
+      "question": "Kudremukh National Park was the subject of a long dispute over which activity?",
+      "options": [
+        "Iron ore mining inside the park",
+        "Commercial fishing",
+        "Sand quarrying on the coast",
+        "Wind farm construction"
+      ],
+      "answer": 0,
+      "explanation": "Iron ore mining inside Kudremukh was phased out after litigation over its impact on the Bhadra catchment and the shola-grassland ecosystem.",
+      "source": "https://en.wikipedia.org/wiki/Kudremukh"
+    },
+    {
+      "id": "kp-137",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Which bird is the state bird of Karnataka?",
+      "options": [
+        "Indian roller",
+        "Peacock",
+        "Great Indian bustard",
+        "Hornbill"
+      ],
+      "answer": 0,
+      "explanation": "The Indian roller, or neelakanta, is the state bird. The peacock is the national bird.",
+      "source": "https://en.wikipedia.org/wiki/Indian_roller"
+    },
+    {
+      "id": "kp-138",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Kokkarebellur in Mandya district is known for the community protection of which birds?",
+      "options": [
+        "Painted storks and pelicans",
+        "Flamingos",
+        "Penguins",
+        "Ostriches"
+      ],
+      "answer": 0,
+      "explanation": "Villagers at Kokkarebellur have long protected nesting painted storks and spot-billed pelicans, treating them as bringing good fortune.",
+      "source": "https://en.wikipedia.org/wiki/Kokkarebellur"
+    },
+    {
+      "id": "kp-139",
+      "category": "kpsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "Which Karnataka institution is India's national centre for biological sciences research under TIFR?",
+      "options": [
+        "NCBS Bengaluru",
+        "IISER Pune",
+        "IIT Bombay",
+        "AIIMS Delhi"
+      ],
+      "answer": 0,
+      "explanation": "The National Centre for Biological Sciences at Bengaluru is part of the Tata Institute of Fundamental Research.",
+      "source": "https://en.wikipedia.org/wiki/National_Centre_for_Biological_Sciences"
+    },
+    {
+      "id": "kp-140",
+      "category": "kpsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "The Indian Deep Space Network, which tracks ISRO's interplanetary missions, is located near which Karnataka town?",
+      "options": [
+        "Byalalu near Bengaluru",
+        "Hosapete",
+        "Bidar",
+        "Karwar"
+      ],
+      "answer": 0,
+      "explanation": "The Indian Deep Space Network antennas at Byalalu tracked Chandrayaan and the Mars Orbiter Mission.",
+      "source": "https://en.wikipedia.org/wiki/Indian_Deep_Space_Network"
+    },
+    {
+      "id": "kp-141",
+      "category": "kpsc",
+      "topic": "Science",
+      "difficulty": "hard",
+      "question": "Raman Research Institute, founded by C. V. Raman, is in which city?",
+      "options": [
+        "Bengaluru",
+        "Kolkata",
+        "Chennai",
+        "Pune"
+      ],
+      "answer": 0,
+      "explanation": "C. V. Raman founded the Raman Research Institute at Bengaluru in 1948 after his years at IISc. His Nobel-winning work was done earlier in Kolkata.",
+      "source": "https://en.wikipedia.org/wiki/Raman_Research_Institute"
+    },
+    {
+      "id": "kp-142",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Karnataka's anti-corruption body created in 1984 to inquire into public servants' conduct is the",
+      "options": [
+        "Lokayukta",
+        "Vigilance Commission",
+        "Human Rights Commission",
+        "Information Commission"
+      ],
+      "answer": 0,
+      "explanation": "The Karnataka Lokayukta was constituted in 1984 and has been among the more prominent state anti-corruption institutions.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka_Lokayukta"
+    },
+    {
+      "id": "kp-143",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which is the westernmost point of Karnataka's coastline district-wise?",
+      "options": [
+        "Uttara Kannada, bordering Goa",
+        "Kolar",
+        "Bidar",
+        "Chamarajanagar"
+      ],
+      "answer": 0,
+      "explanation": "Uttara Kannada occupies the northern part of Karnataka's coast, adjoining Goa. Kolar, Bidar and Chamarajanagar are all inland.",
+      "source": "https://en.wikipedia.org/wiki/Uttara_Kannada"
+    },
+    {
+      "id": "kp-144",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Which Karnataka festival involves decorated bulls and is celebrated at harvest time?",
+      "options": [
+        "Kambala and Sankranti bull traditions of the coast and plains",
+        "Onam",
+        "Bihu",
+        "Pongal only in Karnataka"
+      ],
+      "answer": 0,
+      "explanation": "Coastal Karnataka holds Kambala buffalo races, and Sankranti brings cattle decoration across the state. Onam and Bihu belong to Kerala and Assam.",
+      "source": "https://en.wikipedia.org/wiki/Kambala"
+    },
+    {
+      "id": "kp-145",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Which Karnataka fort city was the Adil Shahi capital?",
+      "options": [
+        "Vijayapura",
+        "Bidar",
+        "Kalaburagi",
+        "Ballari"
+      ],
+      "answer": 0,
+      "explanation": "Vijayapura, formerly Bijapur, was the Adil Shahi capital and holds the Gol Gumbaz and Ibrahim Rauza. Bidar was the Bahmani and later Barid Shahi capital.",
+      "source": "https://en.wikipedia.org/wiki/Bijapur_Sultanate"
+    },
+    {
+      "id": "kp-146",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which Karnataka board markets the state's silk under a well-known brand?",
+      "options": [
+        "Karnataka Silk Industries Corporation",
+        "Coffee Board",
+        "Coir Board",
+        "Tea Board"
+      ],
+      "answer": 0,
+      "explanation": "KSIC manufactures and markets Mysore Silk. The Coffee Board is a central body headquartered in Bengaluru but deals with coffee.",
+      "source": "https://en.wikipedia.org/wiki/Mysore_silk"
+    },
+    {
+      "id": "kp-147",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "The Western Ghats in Karnataka are a source region for which two major east-flowing rivers?",
+      "options": [
+        "Kaveri and Tungabhadra",
+        "Ganga and Yamuna",
+        "Narmada and Tapi",
+        "Indus and Sutlej"
+      ],
+      "answer": 0,
+      "explanation": "The Kaveri rises in Kodagu and the Tunga and Bhadra in Chikkamagaluru, all in the Karnataka Ghats, and all flow east.",
+      "source": "https://en.wikipedia.org/wiki/Western_Ghats"
+    },
+    {
+      "id": "kp-148",
+      "category": "kpsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "Which Bengaluru institution designs India's military aircraft engines and gas turbines?",
+      "options": [
+        "Gas Turbine Research Establishment",
+        "NCBS",
+        "IISc alone",
+        "NAL alone"
+      ],
+      "answer": 0,
+      "explanation": "GTRE, a DRDO laboratory in Bengaluru, works on aero gas turbine engines including the Kaveri programme.",
+      "source": "https://en.wikipedia.org/wiki/Gas_Turbine_Research_Establishment"
+    },
+    {
+      "id": "kp-149",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Which official heads the administration of a Zilla Panchayat in Karnataka?",
+      "options": [
+        "The Chief Executive Officer",
+        "The Deputy Commissioner",
+        "The Tahsildar",
+        "The Panchayat Development Officer"
+      ],
+      "answer": 0,
+      "explanation": "A Chief Executive Officer, usually an IAS officer, heads the Zilla Panchayat administration alongside the elected president.",
+      "source": "https://en.wikipedia.org/wiki/Panchayati_raj_in_India"
+    },
+    {
+      "id": "kp-150",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "St Mary's Island off the Karnataka coast is geologically notable for",
+      "options": [
+        "Columnar basaltic lava formations",
+        "Coral atolls",
+        "Glacial deposits",
+        "Salt flats"
+      ],
+      "answer": 0,
+      "explanation": "The islands off Malpe show hexagonal columnar basalt, a national geological monument linked to the rifting of Madagascar from India.",
+      "source": "https://en.wikipedia.org/wiki/St._Mary%27s_Islands"
     }
   ]
 }
