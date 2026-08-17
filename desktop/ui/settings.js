@@ -10,11 +10,20 @@
 (function () {
   'use strict';
 
-  var invoke = window.__TAURI__.core.invoke;
-  var emit = window.__TAURI__.event.emit;
+  // Outside a shell — the browser preview, or a page opened directly — there
+  // is no __TAURI__ at all, and reading through it threw before a single line
+  // of the page rendered. The stub keeps everything except the shell calls
+  // working, which is what makes settings.html previewable without building.
+  var TAURI = window.__TAURI__ || {
+    core: { invoke: function () { return Promise.resolve(); } },
+    event: { emit: function () {}, listen: function () {} }
+  };
+  var invoke = TAURI.core.invoke;
+  var emit = TAURI.event.emit;
 
   var settings = null;
   var flashTimer = null;
+  var topicLabels = {};   // id -> human label, filled once the library loads
 
   function $(id) { return document.getElementById(id); }
 
@@ -100,6 +109,7 @@
   function renderLibrary(catalog) {
     var wrap = $('cats');
     wrap.innerHTML = '';
+    catalog.forEach(function (cat) { topicLabels[cat.id] = cat.label; });
 
     var groups = {};
     catalog.forEach(function (cat) {
@@ -155,14 +165,51 @@
     });
   }
 
+  // Weakest topic first — that is the row worth acting on. Alphabetical order
+  // would bury it among the ones you already know.
+  function renderTopicStats() {
+    var host = $('topicStats');
+    if (!host) return;
+    var rows = window.KinvtQuiz.topicBreakdown();
+    if (!rows.length) {
+      host.innerHTML = '<p class="hint">No questions answered yet — your weakest topics will appear here.</p>';
+      return;
+    }
+    host.innerHTML = rows.map(function (r) {
+      var name = topicLabels[r.id] || r.id;
+      if (r.accuracy === null || !r.answered) {
+        return '<div class="trow muted"><span class="tname">' + name + '</span>' +
+               '<span class="tval">not started</span></div>';
+      }
+      var pct = Math.round(r.accuracy * 100);
+      return '<div class="trow">' +
+        '<span class="tname">' + name + '</span>' +
+        '<span class="tbar"><i style="width:' + pct + '%"></i></span>' +
+        '<span class="tval">' + pct + '% <em>' + r.answered + '</em></span>' +
+        '</div>';
+    }).join('');
+  }
+
   function renderStats() {
     var st = window.KinvtQuiz.getStats();
-    $('stAnswered').textContent = st.answered;
-    $('stCorrect').textContent = st.correct;
-    $('stAcc').textContent = st.answered ? Math.round((st.correct / st.answered) * 100) + '%' : '–';
-    $('stStreak').textContent = st.streak;
+    // Totals are summed across devices rather than stored, so that syncing a
+    // phone in does not double-count anything.
+    var t = window.KinvtMerge.totals(st);
+    $('stAnswered').textContent = t.answered;
+    $('stCorrect').textContent = t.correct;
+    $('stAcc').textContent = t.answered ? Math.round((t.correct / t.answered) * 100) + '%' : '–';
+    $('stStreak').textContent = window.KinvtQuiz.streak();
     var rev = $('stReview');
     if (rev) rev.textContent = window.KinvtQuiz.reviewCount();
+
+    var sync = $('stSync');
+    if (sync) {
+      var at = window.KinvtQuiz.lastSyncAt();
+      sync.textContent = at
+        ? 'Question banks last updated ' + new Date(at).toLocaleString()
+        : 'Question banks not yet updated from the repository';
+    }
+    renderTopicStats();
   }
 
   function allBoxes() {
@@ -173,7 +220,6 @@
     settings = window.KinvtQuiz.getSettings();
 
     $('enabled').checked = settings.enabled;
-    $('interval').value = String(settings.intervalMin);
     $('perQuiz').value = String(settings.perQuiz);
     $('duration').value = String(settings.durationSec);
     $('theme').value = settings.theme;
@@ -182,12 +228,64 @@
     renderGlassUI();
     renderStats();
 
-    window.KinvtQuiz.loadLibrary().then(renderLibrary).catch(function (err) {
+    window.KinvtQuiz.loadLibrary().then(function (catalog) {
+      renderLibrary(catalog);
+      renderTopicStats();   // labels are known now
+    }).catch(function (err) {
       $('cats').textContent = 'Could not load the library: ' + err;
     });
 
     $('enabled').addEventListener('change', function () { settings.enabled = this.checked; save(); });
-    $('interval').addEventListener('change', function () { settings.intervalMin = parseInt(this.value, 10) || 30; save(); });
+    /* ---- popup interval ----
+     * The presets cover the common choices, but "every 20 minutes" is a
+     * perfectly reasonable thing to want and no list of presets can cover
+     * everyone. Any value the dropdown does not offer selects Custom and
+     * fills the number box, so a custom interval survives a reload rather
+     * than silently snapping back to a preset.
+     *
+     * Floor of 2 minutes: below that the popup stops being a study prompt and
+     * becomes an interruption you would turn off entirely.
+     */
+    var MIN_INTERVAL = 2;
+    var MAX_INTERVAL = 1440;
+
+    function clampInterval(v) {
+      var n = Math.round(parseInt(v, 10) || 0);
+      return Math.max(MIN_INTERVAL, Math.min(MAX_INTERVAL, n || 30));
+    }
+
+    function isPreset(v) {
+      return Array.prototype.some.call($('interval').options, function (o) {
+        return o.value !== 'custom' && parseInt(o.value, 10) === v;
+      });
+    }
+
+    function renderInterval() {
+      var v = clampInterval(settings.intervalMin);
+      var custom = !isPreset(v);
+      $('interval').value = custom ? 'custom' : String(v);
+      $('intervalCustomRow').hidden = !custom;
+      $('intervalCustom').value = String(v);
+    }
+
+    $('interval').addEventListener('change', function () {
+      if (this.value === 'custom') {
+        $('intervalCustomRow').hidden = false;
+        $('intervalCustom').focus();
+        return;                       // nothing saved until a number is given
+      }
+      settings.intervalMin = clampInterval(this.value);
+      $('intervalCustomRow').hidden = true;
+      save();
+    });
+
+    $('intervalCustom').addEventListener('change', function () {
+      settings.intervalMin = clampInterval(this.value);
+      this.value = String(settings.intervalMin);   // show what was actually stored
+      save();
+    });
+
+    renderInterval();
     $('perQuiz').addEventListener('change', function () { settings.perQuiz = parseInt(this.value, 10) || 3; save(); });
     $('duration').addEventListener('change', function () { settings.durationSec = parseInt(this.value, 10) || 45; save(); });
     $('theme').addEventListener('change', function () {
@@ -245,6 +343,89 @@
       if (flashTimer) clearTimeout(flashTimer);
       span.textContent = 'Quiz launched';
       flashTimer = setTimeout(function () { span.textContent = 'Quiz me now'; }, 1800);
+    });
+
+    /* ---- adaptation and do-not-disturb ---- */
+
+    $('adaptive').checked = settings.adaptive !== false;
+    $('respectDnd').checked = settings.respectDnd !== false;
+    $('adaptive').addEventListener('change', function () { settings.adaptive = this.checked; save(); });
+    $('respectDnd').addEventListener('change', function () { settings.respectDnd = this.checked; save(); });
+
+    /* ---- quiet hours ----
+     * Stored as minutes since midnight, which keeps timezones and dates out
+     * of the comparison entirely.
+     */
+    function toMinutes(v) {
+      var p = String(v || '').split(':');
+      return (parseInt(p[0], 10) || 0) * 60 + (parseInt(p[1], 10) || 0);
+    }
+    function toTime(m) {
+      var h = Math.floor((m || 0) / 60), mm = (m || 0) % 60;
+      return ('0' + h).slice(-2) + ':' + ('0' + mm).slice(-2);
+    }
+    $('quietStart').value = toTime(settings.quietStart != null ? settings.quietStart : 1320);
+    $('quietEnd').value = toTime(settings.quietEnd != null ? settings.quietEnd : 420);
+    $('quietStart').addEventListener('change', function () { settings.quietStart = toMinutes(this.value); save(); });
+    $('quietEnd').addEventListener('change', function () { settings.quietEnd = toMinutes(this.value); save(); });
+
+    /* ---- backup and restore ----
+     * This data exists nowhere else: no account, no server. Restore therefore
+     * merges rather than replaces, and merging is idempotent, so restoring
+     * the same file twice is harmless.
+     */
+    function backupMsg(text) { $('backupMsg').textContent = text; }
+
+    $('exportBtn').addEventListener('click', function () {
+      var stamp = new Date().toISOString().slice(0, 10);
+      var payload = JSON.stringify(window.KinvtQuiz.exportPayload(), null, 2);
+      var dialog = window.__TAURI__ && window.__TAURI__.dialog;
+
+      if (dialog && dialog.save) {
+        dialog.save({
+          defaultPath: 'kinvt-study-backup-' + stamp + '.json',
+          filters: [{ name: 'JSON', extensions: ['json'] }]
+        }).then(function (path) {
+          if (!path) return;                       // cancelled
+          return invoke('write_backup', { path: path, contents: payload })
+            .then(function () { backupMsg('Backed up to ' + path); });
+        }).catch(function (e) { backupMsg('Backup failed: ' + e); });
+      } else {
+        // No native dialog (Electron, or a preview in the browser): fall back
+        // to a download rather than leaving the button dead.
+        var blob = new Blob([payload], { type: 'application/json' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'kinvt-study-backup-' + stamp + '.json';
+        a.click();
+        URL.revokeObjectURL(a.href);
+        backupMsg('Backup downloaded.');
+      }
+    });
+
+    $('importBtn').addEventListener('click', function () {
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'application/json,.json';
+      input.addEventListener('change', function () {
+        var file = input.files && input.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function () {
+          var payload;
+          try { payload = JSON.parse(reader.result); }
+          catch (e) { backupMsg('That file is not valid JSON.'); return; }
+
+          var res = window.KinvtQuiz.importPayload(payload);
+          if (!res.ok) { backupMsg('Could not restore: ' + res.error); return; }
+
+          settings = window.KinvtQuiz.getSettings();
+          renderStats();
+          backupMsg('Restored. Your existing progress was merged, not replaced.');
+        };
+        reader.readAsText(file);
+      });
+      input.click();
     });
 
     // Stats change in the quiz window, so refresh when it writes them.

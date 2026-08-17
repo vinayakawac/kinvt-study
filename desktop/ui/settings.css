@@ -429,3 +429,27 @@ footer { text-align: center; font-size: 10px; color: var(--muted); }
   background: rgba(220, 154, 133, .12);
   border: 1px solid rgba(220, 154, 133, .38);
 }
+
+/* ---- per-topic progress ---- */
+.topic-stats { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.topic-stats .trow {
+  display: grid; grid-template-columns: 1fr 90px 74px;
+  align-items: center; gap: 10px; font-size: 13px;
+}
+.topic-stats .tname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.topic-stats .tbar {
+  height: 6px; border-radius: 3px;
+  background: rgba(127, 127, 127, .22); overflow: hidden;
+}
+.topic-stats .tbar i { display: block; height: 100%; border-radius: 3px; background: currentColor; opacity: .55; }
+.topic-stats .tval { text-align: right; font-variant-numeric: tabular-nums; }
+.topic-stats .tval em { opacity: .5; font-style: normal; margin-left: 4px; }
+.topic-stats .trow.muted { grid-template-columns: 1fr auto; opacity: .45; }
+
+.backup-row { gap: 8px; flex-wrap: wrap; }
+.quiet-pair { display: flex; align-items: center; gap: 8px; }
+.quiet-pair input[type="time"] {
+  background: var(--hover); color: var(--text);
+  border: 1px solid var(--card-border); border-radius: 7px; padding: 4px 8px;
+  font: inherit;
+}
