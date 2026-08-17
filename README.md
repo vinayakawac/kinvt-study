@@ -45,6 +45,7 @@ Those are browser security boundaries, not missing features. A native window has
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — the shell, the shared `ui/` folder, and why the shell owns so little.
 - [docs/CONTENT.md](docs/CONTENT.md) — question schema, adding topics, the daily sync.
 - [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) — nothing appears, card cut off, grey halo, build failures.
+- [docs/HANDOFF-ANDROID.md](docs/HANDOFF-ANDROID.md), [docs/HANDOFF-DESKTOP.md](docs/HANDOFF-DESKTOP.md) — context for picking either half up fresh.
 - [docs/ERROR_HANDLING.md](docs/ERROR_HANDLING.md), [docs/FAQ.md](docs/FAQ.md)
 
 ## License
