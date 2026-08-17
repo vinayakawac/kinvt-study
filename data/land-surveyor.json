@@ -737,6 +737,662 @@
       "answer": 0,
       "explanation": "The Bharat Ratna is the highest civilian award, ahead of the Padma Vibhushan, Padma Bhushan and Padma Shri. The Param Vir Chakra is the highest wartime military decoration.",
       "source": "https://en.wikipedia.org/wiki/Bharat_Ratna"
+    },
+    {
+      "id": "ls-047",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "In chain surveying, a tie line is used mainly to",
+      "options": [
+        "Check the accuracy of the survey and locate interior detail",
+        "Measure vertical angles",
+        "Set out a right angle",
+        "Record magnetic bearings"
+      ],
+      "answer": 0,
+      "explanation": "A tie or check line connects two known points on other lines, so its measured length can be compared with its plotted length as a proof of accuracy.",
+      "source": "https://en.wikipedia.org/wiki/Chain_surveying"
+    },
+    {
+      "id": "ls-048",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "hard",
+      "question": "The correction for sag in a suspended tape is always",
+      "options": [
+        "Subtractive",
+        "Additive",
+        "Zero",
+        "Dependent on temperature only"
+      ],
+      "answer": 0,
+      "explanation": "A sagging tape follows a curve longer than the straight line between supports, so the measured value is too large and the correction is subtracted.",
+      "source": "https://en.wikipedia.org/wiki/Surveying"
+    },
+    {
+      "id": "ls-049",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "Which instrument is used to set out a perpendicular offset from a chain line?",
+      "options": [
+        "Cross staff",
+        "Prismatic compass",
+        "Dumpy level",
+        "Clinometer"
+      ],
+      "answer": 0,
+      "explanation": "A cross staff or optical square sights at right angles to the chain line. A compass measures bearings and a level measures heights.",
+      "source": "https://en.wikipedia.org/wiki/Surveying"
+    },
+    {
+      "id": "ls-050",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "The correction for slope when measuring along sloping ground is",
+      "options": [
+        "Always subtractive",
+        "Always additive",
+        "Zero on gentle slopes",
+        "Additive above 10 degrees"
+      ],
+      "answer": 0,
+      "explanation": "A distance measured along a slope is longer than its horizontal projection, so the slope correction is always subtracted to get plan distance.",
+      "source": "https://en.wikipedia.org/wiki/Surveying"
+    },
+    {
+      "id": "ls-051",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "hard",
+      "question": "If a 20 m chain is 5 cm too short, the true length of a line measured as 400 m is",
+      "options": [
+        "399 m",
+        "401 m",
+        "400 m",
+        "395 m"
+      ],
+      "answer": 0,
+      "explanation": "True length is measured length times the ratio of actual to nominal chain length, so 400 times 19.95 divided by 20 gives 399 m. A short chain over-reads.",
+      "source": "https://en.wikipedia.org/wiki/Gunter%27s_chain"
+    },
+    {
+      "id": "ls-052",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "medium",
+      "question": "In a prismatic compass the graduated ring is attached to",
+      "options": [
+        "The magnetic needle, so the ring stays fixed while the box turns",
+        "The box, so it turns with the sight vanes",
+        "The prism housing",
+        "The pivot only"
+      ],
+      "answer": 0,
+      "explanation": "In a prismatic compass the ring is fixed to the needle and remains oriented to magnetic north while the box rotates, which is why it reads whole circle bearings directly.",
+      "source": "https://en.wikipedia.org/wiki/Compass_survey"
+    },
+    {
+      "id": "ls-053",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "hard",
+      "question": "The magnetic bearing of a line is 45 degrees and the declination is 2 degrees west. The true bearing is",
+      "options": [
+        "43 degrees",
+        "47 degrees",
+        "45 degrees",
+        "225 degrees"
+      ],
+      "answer": 0,
+      "explanation": "With westerly declination the magnetic north lies west of true north, so the true bearing is the magnetic bearing minus the declination.",
+      "source": "https://en.wikipedia.org/wiki/Magnetic_declination"
+    },
+    {
+      "id": "ls-054",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "medium",
+      "question": "A closed traverse is one in which the survey lines",
+      "options": [
+        "Form a closed polygon or return to the starting point",
+        "Are all straight",
+        "Never cross each other",
+        "Are measured only once"
+      ],
+      "answer": 0,
+      "explanation": "A closed traverse returns to its origin or to a second known point, which allows the closing error to be computed. An open traverse gives no such check.",
+      "source": "https://en.wikipedia.org/wiki/Traverse_(surveying)"
+    },
+    {
+      "id": "ls-055",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "medium",
+      "question": "Local attraction is caused by",
+      "options": [
+        "Nearby iron objects or electric currents deflecting the needle",
+        "Changes in air temperature",
+        "An incorrectly levelled instrument",
+        "A worn chain"
+      ],
+      "answer": 0,
+      "explanation": "Iron railings, steel structures and power lines deflect the compass needle locally. The fore and back bearing check is how such stations are detected.",
+      "source": "https://en.wikipedia.org/wiki/Compass_survey"
+    },
+    {
+      "id": "ls-056",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "A change point in levelling is a point on which",
+      "options": [
+        "Both a fore sight and a back sight are taken",
+        "Only an intermediate sight is taken",
+        "The instrument is set up",
+        "A benchmark is established"
+      ],
+      "answer": 0,
+      "explanation": "A change or turning point carries the level forward: the fore sight from the old setup and the back sight from the new one are both read on it.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-057",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "hard",
+      "question": "The collimation error of a level is best eliminated by",
+      "options": [
+        "Balancing back sight and fore sight distances",
+        "Using a longer staff",
+        "Levelling only downhill",
+        "Taking readings faster"
+      ],
+      "answer": 0,
+      "explanation": "An equal-distance setup makes the collimation error affect both readings equally, so it cancels in the difference. This is the reciprocal levelling principle.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-058",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "Reciprocal levelling is used when",
+      "options": [
+        "A river or valley prevents equal sight distances",
+        "The ground is perfectly flat",
+        "Only one benchmark exists",
+        "The staff is shorter than usual"
+      ],
+      "answer": 0,
+      "explanation": "When an obstacle forces unequal sights, observing from both banks and averaging cancels collimation, curvature and refraction errors.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-059",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "The effect of the earth's curvature on a long level sight makes the reading",
+      "options": [
+        "Too large, so the correction is subtractive",
+        "Too small, so the correction is additive",
+        "Unchanged",
+        "Random in sign"
+      ],
+      "answer": 0,
+      "explanation": "Curvature drops the level surface away from the horizontal line of sight, so the staff reads high and the correction is subtracted. Refraction partly offsets it.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-060",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "hard",
+      "question": "In profile levelling, the reduced levels are plotted against",
+      "options": [
+        "Chainage along the alignment",
+        "Magnetic bearing",
+        "Time of observation",
+        "Instrument height"
+      ],
+      "answer": 0,
+      "explanation": "A longitudinal section plots reduced level against chainage, giving the ground profile along a road, canal or pipeline alignment.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-061",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "medium",
+      "question": "The vertical distance between two consecutive contours is called the",
+      "options": [
+        "Contour interval",
+        "Horizontal equivalent",
+        "Gradient",
+        "Datum"
+      ],
+      "answer": 0,
+      "explanation": "The contour interval is the constant vertical spacing. The horizontal distance between the same two contours is the horizontal equivalent, which varies with slope.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-062",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "hard",
+      "question": "Contours that close on themselves with progressively lower values towards the centre indicate a",
+      "options": [
+        "Depression or pond",
+        "Hill",
+        "Ridge",
+        "Uniform slope"
+      ],
+      "answer": 0,
+      "explanation": "Concentric contours decreasing inward describe a hollow. Increasing inward would describe a hill, which is why depression contours carry hachure marks on maps.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-063",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "medium",
+      "question": "Contour lines crossing a stream valley form which shape, pointing which way?",
+      "options": [
+        "A V pointing upstream",
+        "A V pointing downstream",
+        "A straight line",
+        "A closed loop"
+      ],
+      "answer": 0,
+      "explanation": "Contours bend upstream as they cross a valley because the valley floor is lower, so the same elevation is reached further inland along the channel.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-064",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "medium",
+      "question": "The temporary adjustments of a theodolite are setting up, levelling and",
+      "options": [
+        "Focusing to eliminate parallax",
+        "Permanent collimation",
+        "Computing latitudes",
+        "Fixing the benchmark"
+      ],
+      "answer": 0,
+      "explanation": "Temporary adjustments are made at every setup: centring, levelling and focusing the eyepiece and objective so the cross hairs and image do not shift relative to each other.",
+      "source": "https://en.wikipedia.org/wiki/Theodolite"
+    },
+    {
+      "id": "ls-065",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "hard",
+      "question": "The method of repetition in theodolite work is used to",
+      "options": [
+        "Improve the accuracy of a measured horizontal angle",
+        "Measure vertical angles only",
+        "Set out a curve",
+        "Determine magnetic declination"
+      ],
+      "answer": 0,
+      "explanation": "Repetition accumulates the same angle several times on the circle and divides by the number of repetitions, reducing reading and graduation errors.",
+      "source": "https://en.wikipedia.org/wiki/Theodolite"
+    },
+    {
+      "id": "ls-066",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "medium",
+      "question": "In traverse computation, latitude of a line is its projection on the",
+      "options": [
+        "North-south axis",
+        "East-west axis",
+        "Vertical plane",
+        "Line of collimation"
+      ],
+      "answer": 0,
+      "explanation": "Latitude is the north-south component, computed as length times cosine of the bearing. Departure is the east-west component, using the sine.",
+      "source": "https://en.wikipedia.org/wiki/Traverse_(surveying)"
+    },
+    {
+      "id": "ls-067",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "hard",
+      "question": "In a closed traverse, the algebraic sum of the latitudes should theoretically be",
+      "options": [
+        "Zero",
+        "Equal to the perimeter",
+        "Equal to the area",
+        "Equal to the closing bearing"
+      ],
+      "answer": 0,
+      "explanation": "Returning to the starting point means the northings and southings cancel, so both the latitude and departure sums should be zero. Any residue is the closing error.",
+      "source": "https://en.wikipedia.org/wiki/Traverse_(surveying)"
+    },
+    {
+      "id": "ls-068",
+      "category": "land-surveyor",
+      "topic": "Tacheometry",
+      "difficulty": "medium",
+      "question": "Tacheometry is used chiefly where",
+      "options": [
+        "Direct chaining is difficult, such as broken or steep ground",
+        "The ground is perfectly flat",
+        "Only vertical angles matter",
+        "Magnetic bearings are unavailable"
+      ],
+      "answer": 0,
+      "explanation": "Tacheometry derives distance from a staff intercept rather than a tape, which suits steep, wooded or waterlogged ground where chaining is impractical.",
+      "source": "https://en.wikipedia.org/wiki/Tacheometry"
+    },
+    {
+      "id": "ls-069",
+      "category": "land-surveyor",
+      "topic": "Tacheometry",
+      "difficulty": "hard",
+      "question": "In the stadia system, if the staff intercept is 1.5 m and the multiplying constant is 100, the horizontal distance on a level sight is about",
+      "options": [
+        "150 m",
+        "15 m",
+        "1500 m",
+        "100 m"
+      ],
+      "answer": 0,
+      "explanation": "Distance is the intercept times the multiplying constant plus the small additive constant, giving roughly 150 m for a 1.5 m intercept.",
+      "source": "https://en.wikipedia.org/wiki/Tacheometry"
+    },
+    {
+      "id": "ls-070",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "medium",
+      "question": "In a total station, angles and distances are recorded",
+      "options": [
+        "Electronically, and can be downloaded without manual booking",
+        "Only in a field book",
+        "As analogue traces",
+        "By photographic plate"
+      ],
+      "answer": 0,
+      "explanation": "A total station stores observations digitally, which removes the transcription errors that hand booking introduces and speeds up plotting.",
+      "source": "https://en.wikipedia.org/wiki/Total_station"
+    },
+    {
+      "id": "ls-071",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "hard",
+      "question": "Differential GPS improves accuracy by using",
+      "options": [
+        "A base station at a known point to correct the rover's position",
+        "A second satellite constellation",
+        "A longer observation wavelength",
+        "Barometric readings"
+      ],
+      "answer": 0,
+      "explanation": "DGPS computes the error at a base station whose coordinates are known and applies that correction to the rover, cancelling most atmospheric and orbital error.",
+      "source": "https://en.wikipedia.org/wiki/Differential_GPS"
+    },
+    {
+      "id": "ls-072",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "medium",
+      "question": "How many satellites must a GPS receiver observe to fix a three-dimensional position?",
+      "options": [
+        "Four",
+        "Three",
+        "Two",
+        "Six"
+      ],
+      "answer": 0,
+      "explanation": "Three satellites fix three coordinates, and a fourth is needed to solve the receiver clock error, which is why four is the practical minimum.",
+      "source": "https://en.wikipedia.org/wiki/Global_Positioning_System"
+    },
+    {
+      "id": "ls-073",
+      "category": "land-surveyor",
+      "topic": "Remote Sensing",
+      "difficulty": "medium",
+      "question": "Spatial resolution of a satellite image refers to",
+      "options": [
+        "The ground area represented by one pixel",
+        "The number of spectral bands",
+        "The frequency of revisit",
+        "The radiometric depth in bits"
+      ],
+      "answer": 0,
+      "explanation": "Spatial resolution is the ground size of a pixel. Spectral resolution counts the bands, temporal resolution the revisit interval, and radiometric the bit depth.",
+      "source": "https://en.wikipedia.org/wiki/Remote_sensing"
+    },
+    {
+      "id": "ls-074",
+      "category": "land-surveyor",
+      "topic": "Remote Sensing",
+      "difficulty": "hard",
+      "question": "In GIS, overlaying a cadastral parcel layer on a soil layer to find which soils fall in a parcel is an example of",
+      "options": [
+        "Vector overlay analysis",
+        "Image classification",
+        "Georeferencing",
+        "Edge detection"
+      ],
+      "answer": 0,
+      "explanation": "Overlay analysis combines two spatial layers to answer a question neither can alone. Georeferencing merely fixes an image to real-world coordinates.",
+      "source": "https://en.wikipedia.org/wiki/Geographic_information_system"
+    },
+    {
+      "id": "ls-075",
+      "category": "land-surveyor",
+      "topic": "Survey Organisation",
+      "difficulty": "medium",
+      "question": "The datum for levelling in India is referenced to mean sea level determined at",
+      "options": [
+        "Tide gauge observations at several ports, historically including Karachi",
+        "The summit of Mount Everest",
+        "The centre of the earth",
+        "Any convenient benchmark"
+      ],
+      "answer": 0,
+      "explanation": "The Indian levelling datum was derived from tide gauge observations, and Survey of India benchmarks carry heights above that mean sea level surface.",
+      "source": "https://en.wikipedia.org/wiki/Survey_of_India"
+    },
+    {
+      "id": "ls-076",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "The SI unit of pressure is the",
+      "options": [
+        "Pascal",
+        "Newton",
+        "Joule",
+        "Watt"
+      ],
+      "answer": 0,
+      "explanation": "One pascal is one newton per square metre. The newton is force, the joule energy and the watt power.",
+      "source": "https://en.wikipedia.org/wiki/Pascal_(unit)"
+    },
+    {
+      "id": "ls-077",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "Which quantity remains constant when a body moves with uniform velocity?",
+      "options": [
+        "Momentum",
+        "Kinetic energy only in one direction",
+        "Acceleration is non-zero",
+        "Net force is non-zero"
+      ],
+      "answer": 0,
+      "explanation": "Uniform velocity means no acceleration, so by Newton's first law the net force is zero and momentum stays constant.",
+      "source": "https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion"
+    },
+    {
+      "id": "ls-078",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "hard",
+      "question": "A body is in equilibrium when",
+      "options": [
+        "The vector sum of forces and of moments about any point are both zero",
+        "Only the forces sum to zero",
+        "Only the moments sum to zero",
+        "It is at rest at the origin"
+      ],
+      "answer": 0,
+      "explanation": "Static equilibrium requires both conditions: zero resultant force prevents translation and zero resultant moment prevents rotation.",
+      "source": "https://en.wikipedia.org/wiki/Mechanical_equilibrium"
+    },
+    {
+      "id": "ls-079",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "The bending of a surveying staff image seen through hot air near the ground is due to",
+      "options": [
+        "Atmospheric refraction",
+        "Diffraction",
+        "Polarisation",
+        "Interference"
+      ],
+      "answer": 0,
+      "explanation": "Temperature gradients change air density and bend the light path, which is why long sights close to hot ground are avoided in precise levelling.",
+      "source": "https://en.wikipedia.org/wiki/Atmospheric_refraction"
+    },
+    {
+      "id": "ls-080",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "The area of a circle of radius 7 cm is approximately",
+      "options": [
+        "154 sq cm",
+        "44 sq cm",
+        "49 sq cm",
+        "22 sq cm"
+      ],
+      "answer": 0,
+      "explanation": "Area is pi times the radius squared, so 22/7 times 49 gives 154 square centimetres. Forty-four would be the circumference instead.",
+      "source": "https://en.wikipedia.org/wiki/Circle"
+    },
+    {
+      "id": "ls-081",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "One acre is approximately how many square metres?",
+      "options": [
+        "4047",
+        "1000",
+        "10000",
+        "2500"
+      ],
+      "answer": 0,
+      "explanation": "An acre is about 4047 square metres, roughly 0.4 hectare. Ten thousand square metres is a full hectare.",
+      "source": "https://en.wikipedia.org/wiki/Acre"
+    },
+    {
+      "id": "ls-082",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "hard",
+      "question": "In a right-angled triangle, if one acute angle is 30 degrees, the side opposite it is what fraction of the hypotenuse?",
+      "options": [
+        "One half",
+        "One third",
+        "Two thirds",
+        "Three quarters"
+      ],
+      "answer": 0,
+      "explanation": "The sine of 30 degrees is one half, so the opposite side is half the hypotenuse. This is the standard 30-60-90 ratio.",
+      "source": "https://en.wikipedia.org/wiki/Trigonometric_functions"
+    },
+    {
+      "id": "ls-083",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "If a plot measures 40 m by 25 m, its area in hectares is",
+      "options": [
+        "0.1",
+        "1.0",
+        "0.01",
+        "10"
+      ],
+      "answer": 0,
+      "explanation": "The area is 1000 square metres, and a hectare is 10,000 square metres, so the plot is 0.1 hectare.",
+      "source": "https://en.wikipedia.org/wiki/Hectare"
+    },
+    {
+      "id": "ls-084",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "hard",
+      "question": "The simple interest on 8000 rupees at 5 percent for 3 years is",
+      "options": [
+        "1200",
+        "400",
+        "2400",
+        "800"
+      ],
+      "answer": 0,
+      "explanation": "Simple interest is principal times rate times time divided by 100, giving 8000 times 5 times 3 over 100, which is 1200.",
+      "source": "https://en.wikipedia.org/wiki/Interest"
+    },
+    {
+      "id": "ls-085",
+      "category": "land-surveyor",
+      "topic": "Computer Applications",
+      "difficulty": "medium",
+      "question": "In a computer, which component executes arithmetic and logic operations?",
+      "options": [
+        "The ALU inside the CPU",
+        "The hard disk",
+        "The power supply",
+        "The monitor"
+      ],
+      "answer": 0,
+      "explanation": "The arithmetic logic unit within the processor performs calculations and comparisons. Storage and display devices hold or present data rather than compute it.",
+      "source": "https://en.wikipedia.org/wiki/Arithmetic_logic_unit"
+    },
+    {
+      "id": "ls-086",
+      "category": "land-surveyor",
+      "topic": "Computer Applications",
+      "difficulty": "medium",
+      "question": "Which file format is commonly used to exchange survey coordinate data as plain text?",
+      "options": [
+        "CSV",
+        "EXE",
+        "JPG",
+        "MP3"
+      ],
+      "answer": 0,
+      "explanation": "Comma-separated values hold point number, northing, easting and elevation as readable text that almost any software can import.",
+      "source": "https://en.wikipedia.org/wiki/Comma-separated_values"
+    },
+    {
+      "id": "ls-087",
+      "category": "land-surveyor",
+      "topic": "General Knowledge",
+      "difficulty": "medium",
+      "question": "Which organisation prepares India's topographical maps?",
+      "options": [
+        "Survey of India",
+        "Geological Survey of India",
+        "Indian Meteorological Department",
+        "National Informatics Centre"
+      ],
+      "answer": 0,
+      "explanation": "The Survey of India produces the national topographical map series. The Geological Survey maps rocks and minerals instead.",
+      "source": "https://en.wikipedia.org/wiki/Survey_of_India"
     }
   ]
 }
