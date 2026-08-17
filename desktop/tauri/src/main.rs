@@ -15,7 +15,7 @@
 use tauri::{
     menu::{Menu, MenuItem},
     tray::TrayIconBuilder,
-    Emitter, Manager, WebviewUrl, WebviewWindowBuilder,
+    Emitter, Listener, Manager, WebviewUrl, WebviewWindowBuilder,
 };
 
 const QUIZ_WINDOW: &str = "quiz";
@@ -173,6 +173,147 @@ fn open_url(url: String) -> Result<(), String> {
     open::that(url).map_err(|e| e.to_string())
 }
 
+/// The sync listener.
+///
+/// Rust owns the socket and nothing else: it does not decrypt, merge, or even
+/// parse the payload. The envelope goes to the webview, which holds the only
+/// implementation of the protocol, and the webview's answer is written back.
+/// Putting the crypto here would mean writing it twice — once in Rust for the
+/// desktop and once in JS for the phone — and two implementations of a
+/// protocol drift apart.
+struct SyncState {
+    stop: std::sync::Mutex<Option<std::sync::mpsc::Sender<()>>>,
+}
+
+/// The LAN address to put in the QR code. Loopback is useless to a phone.
+fn lan_address() -> String {
+    // No packet is sent; connecting a UDP socket just asks the OS which
+    // interface it would use to reach the internet — the same interface the
+    // phone is on.
+    std::net::UdpSocket::bind("0.0.0.0:0")
+        .and_then(|s| {
+            s.connect("8.8.8.8:80")?;
+            s.local_addr()
+        })
+        .map(|a| a.ip().to_string())
+        .unwrap_or_else(|_| "127.0.0.1".to_string())
+}
+
+#[tauri::command]
+fn sync_listen(
+    app: tauri::AppHandle,
+    state: tauri::State<'_, std::sync::Arc<SyncState>>,
+) -> Result<serde_json::Value, String> {
+    // Port 0 lets the OS choose: a fixed port would be a predictable target
+    // and could collide with something already listening.
+    let server = tiny_http::Server::http("0.0.0.0:0").map_err(|e| e.to_string())?;
+    let port = server
+        .server_addr()
+        .to_ip()
+        .ok_or("listener has no IP address")?
+        .port();
+
+    let (tx, rx) = std::sync::mpsc::channel::<()>();
+    *state.stop.lock().unwrap() = Some(tx);
+
+    let handle = app.clone();
+    std::thread::spawn(move || {
+        for mut request in server.incoming_requests() {
+            if rx.try_recv().is_ok() {
+                break;
+            }
+            // One path only. This is not a file server, and anything else gets
+            // a bare 404 with no hint that a real endpoint exists.
+            if request.method() != &tiny_http::Method::Post || request.url() != "/v1/sync" {
+                let _ = request.respond(tiny_http::Response::empty(404));
+                continue;
+            }
+
+            let mut body = String::new();
+            if std::io::Read::read_to_string(request.as_reader(), &mut body).is_err() {
+                let _ = request.respond(tiny_http::Response::empty(400));
+                continue;
+            }
+            // A sync payload is a few hundred kilobytes at most; anything
+            // larger is not a sync.
+            if body.len() > 4 * 1024 * 1024 {
+                let _ = request.respond(tiny_http::Response::empty(413));
+                continue;
+            }
+
+            match ask_webview(&handle, &body) {
+                Ok((status, reply)) => {
+                    let _ = request
+                        .respond(tiny_http::Response::from_string(reply).with_status_code(status));
+                }
+                Err(_) => {
+                    let _ = request.respond(tiny_http::Response::empty(400));
+                }
+            }
+        }
+    });
+
+    Ok(serde_json::json!({ "host": lan_address(), "port": port }))
+}
+
+/// Hand one envelope to the webview and wait for its verdict.
+///
+/// `eval` is fire-and-forget, so the webview posts its answer back through a
+/// channel rather than returning it. A missing reply within the timeout is a
+/// failure, not a hang: a stuck listener thread would leak for the life of the
+/// app.
+fn ask_webview(app: &tauri::AppHandle, body: &str) -> Result<(u16, String), String> {
+    use std::sync::mpsc;
+    use std::time::Duration;
+
+    let win = app
+        .get_webview_window(SETTINGS_WINDOW)
+        .or_else(|| app.get_webview_window(QUIZ_WINDOW))
+        .ok_or("no window to handle the sync")?;
+
+    let (tx, rx) = mpsc::channel::<(u16, String)>();
+    let tx = std::sync::Mutex::new(Some(tx));
+
+    let id = app.listen_any("sync-reply", move |event| {
+        if let Some(tx) = tx.lock().unwrap().take() {
+            let payload = event.payload();
+            let status = serde_json::from_str::<serde_json::Value>(payload)
+                .ok()
+                .and_then(|v| v.get("status").and_then(|s| s.as_u64()))
+                .unwrap_or(500) as u16;
+            let envelope = serde_json::from_str::<serde_json::Value>(payload)
+                .ok()
+                .and_then(|v| v.get("envelope").cloned())
+                .map(|e| e.to_string())
+                .unwrap_or_default();
+            let _ = tx.send((status, envelope));
+        }
+    });
+
+    let script = format!(
+        "window.KinvtSync.handleRequest({}, function (d) {{ \
+           var p = window.KinvtPairing.getPeer(d); return p && p.key; \
+         }}).then(function (r) {{ \
+           window.__TAURI__.event.emit('sync-reply', {{ status: r.status, envelope: r.envelope || null }}); \
+         }});",
+        body
+    );
+    win.eval(&script).map_err(|e| e.to_string())?;
+
+    let out = rx
+        .recv_timeout(Duration::from_secs(10))
+        .map_err(|_| "the page did not answer in time".to_string());
+    app.unlisten(id);
+    out
+}
+
+#[tauri::command]
+fn sync_stop(state: tauri::State<'_, std::sync::Arc<SyncState>>) {
+    if let Some(tx) = state.stop.lock().unwrap().take() {
+        let _ = tx.send(());
+    }
+}
+
 /// Settings live in their own ordinary window — it wants normal decorations
 /// and a solid background, unlike the quiz card.
 #[tauri::command]
@@ -201,6 +342,9 @@ fn open_settings(app: tauri::AppHandle) {
 
 fn main() {
     tauri::Builder::default()
+        .manage(std::sync::Arc::new(SyncState {
+            stop: std::sync::Mutex::new(None),
+        }))
         // A second launch must not start a second copy. Two instances would
         // each own a tray icon, a popup timer and a claim on Ctrl+Shift+Q —
         // the user would see duplicate cards and one instance would silently
@@ -222,7 +366,9 @@ fn main() {
             dnd_active,
             write_backup,
             read_backup,
-            open_url
+            open_url,
+            sync_listen,
+            sync_stop
         ])
         .setup(|app| {
             // ---- system tray ----

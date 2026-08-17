@@ -156,6 +156,17 @@
     </div>
   </section>
 
+  <section class="card">
+    <div class="sec-head"><h2>Devices</h2></div>
+    <p class="hint">Sync your progress with your phone over your own Wi-Fi. Nothing is sent to any server and no account is needed — the key is shown as a code and never travels over the network.</p>
+    <div class="row backup-row">
+      <button type="button" id="pairBtn">Pair a device</button>
+      <span class="hint" id="pairMsg"></span>
+    </div>
+    <div id="pairQr" class="pair-qr" hidden></div>
+    <div id="peerList"></div>
+  </section>
+
   <button type="button" id="startNow" class="primary">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
     <span>Quiz me now</span>
@@ -165,11 +176,15 @@
     Questions are bundled on-device. No accounts, no data collection, no network at runtime beyond the daily question sync.
   </footer>
 
+  <script src="qr.js"></script>
   <script src="merge.js"></script>
   <script src="storage.js"></script>
   <script src="progress.js"></script>
   <script src="selection.js"></script>
   <script src="quiz-engine.js"></script>
+  <script src="sync-crypto.js"></script>
+  <script src="sync-pairing.js"></script>
+  <script src="sync-session.js"></script>
   <script src="settings.js"></script>
 </body>
 </html>

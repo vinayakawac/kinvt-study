@@ -16,7 +16,8 @@ const { contextBridge, ipcRenderer } = require('electron');
 // exactly how the title-bar theming broke the first time.
 const ALLOWED = [
   'show_quiz', 'hide_quiz', 'resize_quiz', 'open_settings', 'set_titlebar_theme',
-  'dnd_active', 'write_backup', 'read_backup', 'open_url'
+  'dnd_active', 'write_backup', 'read_backup', 'open_url',
+  'sync_listen', 'sync_stop'
 ];
 
 contextBridge.exposeInMainWorld('__TAURI__', {

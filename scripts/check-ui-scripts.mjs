@@ -11,7 +11,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const UI = path.join('desktop', 'ui');
-const REQUIRED = ['merge.js', 'storage.js', 'progress.js', 'selection.js', 'quiz-engine.js'];
+const REQUIRED = ['merge.js', 'storage.js', 'progress.js', 'selection.js', 'quiz-engine.js',
+                  'sync-crypto.js', 'sync-pairing.js', 'sync-session.js'];
 const PAGES = ['index.html', 'settings.html', '_preview.html'];
 
 // before -> must load ahead of after
@@ -20,6 +21,9 @@ const ORDER = [
   ['storage.js', 'progress.js'],
   ['progress.js', 'selection.js'],
   ['selection.js', 'quiz-engine.js'],
+  ['quiz-engine.js', 'sync-session.js'],
+  ['sync-crypto.js', 'sync-pairing.js'],
+  ['sync-pairing.js', 'sync-session.js'],
   ['quiz-engine.js', 'app.js'],
   ['quiz-engine.js', 'settings.js']
 ];

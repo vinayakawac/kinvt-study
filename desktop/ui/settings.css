@@ -453,3 +453,7 @@ footer { text-align: center; font-size: 10px; color: var(--muted); }
   border: 1px solid var(--card-border); border-radius: 7px; padding: 4px 8px;
   font: inherit;
 }
+
+/* ---- pairing ---- */
+.pair-qr { display: flex; justify-content: center; padding: 12px 0; }
+.pair-qr svg { border-radius: 8px; }

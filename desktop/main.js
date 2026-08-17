@@ -195,6 +195,72 @@ ipcMain.handle("open_url", (_e, url) => {
   return shell.openExternal(s);
 });
 
+/* ---------- sync listener ----------
+ * The shell owns the socket and nothing else. It does not decrypt, merge, or
+ * even parse the payload: the envelope goes to the webview, which holds the
+ * only implementation of the protocol, and its answer is written back.
+ *
+ * Putting the crypto here would mean writing it twice — once in Node for the
+ * desktop and once in JS for the phone — and two implementations of a
+ * protocol drift apart.
+ */
+let syncServer = null;
+
+function lanAddress() {
+  const nets = require('node:os').networkInterfaces();
+  for (const name of Object.keys(nets)) {
+    for (const n of nets[name]) {
+      // Loopback and IPv6 are useless in a QR code the phone has to reach.
+      if (n.family === 'IPv4' && !n.internal) return n.address;
+    }
+  }
+  return '127.0.0.1';
+}
+
+ipcMain.handle('sync_listen', async () => {
+  if (syncServer) { try { syncServer.close(); } catch (e) { /* already gone */ } }
+
+  syncServer = require('node:http').createServer((req, res) => {
+    // One path only. This is not a file server, and anything else gets a bare
+    // 404 with no hint that a real endpoint exists.
+    if (req.method !== 'POST' || req.url !== '/v1/sync') {
+      res.writeHead(404).end();
+      return;
+    }
+    let body = '';
+    req.on('data', (chunk) => {
+      body += chunk;
+      // A sync payload is a few hundred kilobytes at most. Anything larger is
+      // not a sync, and buffering it would be an easy way to exhaust memory.
+      if (body.length > 4 * 1024 * 1024) { res.writeHead(413).end(); req.destroy(); }
+    });
+    req.on('end', async () => {
+      try {
+        const envelope = JSON.parse(body);
+        const target = settingsWin && !settingsWin.isDestroyed() ? settingsWin : quizWin;
+        const reply = await target.webContents.executeJavaScript(
+          'window.KinvtSync.handleRequest(' + JSON.stringify(envelope) + ', function (d) {' +
+          '  var p = window.KinvtPairing.getPeer(d); return p && p.key;' +
+          '})'
+        );
+        res.writeHead(reply.status, { 'content-type': 'application/json' });
+        res.end(reply.envelope ? JSON.stringify(reply.envelope) : '');
+      } catch (e) {
+        res.writeHead(400).end();
+      }
+    });
+  });
+
+  await new Promise((resolve) => syncServer.listen(0, '0.0.0.0', resolve));
+  return { host: lanAddress(), port: syncServer.address().port };
+});
+
+ipcMain.handle('sync_stop', () => {
+  if (!syncServer) return;
+  try { syncServer.close(); } catch (e) { /* already gone */ }
+  syncServer = null;
+});
+
 /* ---------- lifecycle ---------- */
 
 // A tray app must not quit when its windows are closed.

@@ -428,9 +428,81 @@
       input.click();
     });
 
+    /* ---- pairing a phone ----
+     * The QR carries the key, which is the whole security model: it crosses
+     * optically and never touches the network, so the HTTP transport only ever
+     * moves ciphertext. It is therefore rendered and nothing else — never
+     * logged, never copied to the clipboard, never put in the title.
+     */
+    var pairTimer = null;
+
+    function renderPeers() {
+      var peers = window.KinvtPairing.listPeers();
+      $('peerList').innerHTML = peers.length
+        ? peers.map(function (p) {
+            return '<div class="row"><span>' + p.name + '</span>' +
+              '<span class="hint">' +
+              (p.lastSyncAt ? 'last synced ' + new Date(p.lastSyncAt).toLocaleString() : 'never synced') +
+              '</span><button type="button" class="link" data-forget="' + p.deviceId + '">Forget</button></div>';
+          }).join('')
+        : '<p class="hint">No devices paired yet.</p>';
+    }
+
+    function stopPairing(message) {
+      if (pairTimer) { clearTimeout(pairTimer); pairTimer = null; }
+      $('pairQr').hidden = true;
+      $('pairQr').innerHTML = '';
+      invoke('sync_stop');
+      $('pairMsg').textContent = message || '';
+      renderPeers();
+    }
+
+    $('pairBtn').addEventListener('click', function () {
+      $('pairMsg').textContent = 'Starting…';
+      invoke('sync_listen').then(function (addr) {
+        if (!addr || !addr.port) throw new Error('the listener did not start');
+        return window.KinvtSyncCrypto.newKey().then(function (key) {
+          var expiresAt = Date.now() + window.KinvtPairing.PAIRING_TTL_MS;
+          var url = window.KinvtPairing.buildUrl({
+            host: addr.host,
+            port: addr.port,
+            key: key,
+            deviceId: window.KinvtProgress.thisDevice(),
+            expiresAt: expiresAt
+          });
+
+          // Accept this key for whichever device scans the code during the
+          // window. The phone sends its id, and it is stored on first contact.
+          window.KinvtPairing.savePeer('pending', key, 'Pending');
+
+          $('pairQr').innerHTML = window.KinvtQR.toSvg(url, 220);
+          $('pairQr').hidden = false;
+          $('pairMsg').textContent = 'Scan this with the phone app — expires in 2 minutes.';
+
+          pairTimer = setTimeout(function () {
+            stopPairing('Pairing code expired.');
+          }, window.KinvtPairing.PAIRING_TTL_MS);
+        });
+      }).catch(function (e) {
+        $('pairMsg').textContent = 'Could not start pairing: ' + (e && e.message ? e.message : e);
+      });
+    });
+
+    // Forgetting a device deletes the shared key, so it cannot sync again
+    // without scanning a fresh code.
+    $('peerList').addEventListener('click', function (e) {
+      var id = e.target && e.target.getAttribute && e.target.getAttribute('data-forget');
+      if (!id) return;
+      window.KinvtPairing.forgetPeer(id);
+      renderPeers();
+    });
+
+    renderPeers();
+
     // Stats change in the quiz window, so refresh when it writes them.
     window.addEventListener('storage', function (e) {
       if (e.key === 'kinvt.stats') renderStats();
+      if (e.key === 'kinvt.peers') renderPeers();
     });
   }
 
