@@ -41,7 +41,7 @@ jobs:
         run: node scripts/check-shell-parity.mjs
 
       - name: Unit tests
-        run: node --test "scripts/test/*.test.mjs"
+        run: node --test scripts/test/*.test.mjs
 
       # Without --require-source, because the questions written before sources
       # were required would otherwise fail. Generated content is validated

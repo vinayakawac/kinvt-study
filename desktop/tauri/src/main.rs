@@ -239,7 +239,9 @@ fn main() {
                     }
                     // The webview owns all persisted state, so it records the
                     // snooze rather than Rust keeping a second source of truth.
-                    "snooze" => { let _ = app.emit("snooze", ()); }
+                    "snooze" => {
+                        let _ = app.emit("snooze", ());
+                    }
                     "settings" => open_settings(app.clone()),
                     "quit" => app.exit(0),
                     _ => {}
