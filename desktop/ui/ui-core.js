@@ -270,6 +270,13 @@
 
     function stopCountdown() {
       if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      // Freeze the bar where it is. Clearing the timeout alone leaves the CSS
+      // transition running, so the bar would keep draining to empty with
+      // nothing behind it — which reads as "about to close" while the card
+      // sits there, exactly the wrong signal.
+      var current = global.getComputedStyle(fill).width;
+      fill.style.transition = 'none';
+      fill.style.width = current;
     }
 
     /* ---- rendering ---- */
@@ -324,7 +331,6 @@
     function pick(i) {
       if (answered || finished) return;
       answered = true;
-      startCountdown(); // interaction resets the auto-close timer
 
       var q = questions[idx];
       var correct = (i === q.answer);
@@ -354,12 +360,18 @@
       }
       reportProgress();
 
+      // Answering ends the question's countdown. Whatever time was left was
+      // for deciding, and reading the explanation is a separate job — letting
+      // the old timer run on would close the card mid-sentence for anyone who
+      // answered late.
+      stopCountdown();
+
       var isLast = (idx + 1 >= questions.length);
       if (isLast && cfg.skipSummary) {
-        // Nothing left to advance to — give the explanation time to be read,
-        // then go. Showing a button that only says "Done" is a dead click.
-        stopCountdown();
-        closeTimer = setTimeout(finishQuietly, 2600);
+        // Nothing left to advance to. Reading an explanation and its source
+        // takes as long as reading the question did, so it gets the same
+        // budget rather than a token couple of seconds.
+        closeTimer = setTimeout(finishQuietly, durationMs);
       } else {
         nextEl.classList.add('tpq-show');
       }

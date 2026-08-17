@@ -446,7 +446,7 @@ footer { text-align: center; font-size: 10px; color: var(--muted); }
 .topic-stats .tval em { opacity: .5; font-style: normal; margin-left: 4px; }
 .topic-stats .trow.muted { grid-template-columns: 1fr auto; opacity: .45; }
 
-.backup-row { gap: 8px; flex-wrap: wrap; }
+
 .quiet-pair { display: flex; align-items: center; gap: 8px; }
 .quiet-pair input[type="time"] {
   background: var(--hover); color: var(--text);
@@ -457,3 +457,38 @@ footer { text-align: center; font-size: 10px; color: var(--muted); }
 /* ---- pairing ---- */
 .pair-qr { display: flex; justify-content: center; padding: 12px 0; }
 .pair-qr svg { border-radius: 8px; }
+
+/* ---- secondary buttons ----
+   Back up, Restore and Pair were browser-default buttons sitting inside a
+   themed panel: grey, square, and visibly not part of the app. They share one
+   style with the card surface so they read as the same product. */
+.btn {
+  font: inherit;
+  font-size: 12.5px;
+  color: var(--text);
+  background: var(--hover);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 7px 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, border-color .15s, transform .1s;
+}
+.btn:hover { background: var(--card-border); border-color: var(--text); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* The action rows wrap on a narrow window, and the trailing status message
+   takes the remaining width rather than squeezing the buttons. */
+.backup-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+.backup-row .hint { flex: 1 1 auto; min-width: 0; margin: 0; }
+
+/* A paired device row: name, when it last synced, and Forget. */
+#peerList .row { gap: 10px; }
+#peerList .row .hint { flex: 1 1 auto; text-align: right; margin: 0; }
