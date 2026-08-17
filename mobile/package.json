@@ -8,7 +8,7 @@
     "www": "node ../scripts/build-mobile-www.mjs",
     "sync": "npm run www && cap sync android",
     "open": "cap open android",
-    "apk": "npm run sync && cd android && gradlew assembleRelease"
+    "apk": "npm run sync && cd android && gradlew assembleDebug"
   },
   "dependencies": {
     "@capacitor/android": "^6.2.0",
