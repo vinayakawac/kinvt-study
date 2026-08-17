@@ -1,0 +1,8 @@
+<!-- Android status-bar icons must be a white silhouette on transparent; a
+     full-colour icon renders as a featureless grey square. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+  <path android:fillColor="#FFFFFFFF"
+      android:pathData="M12,2A10,10 0,1 0,22 12,10 10,0 0,0 12,2zM12,18.2a1.2,1.2 0,1 1,1.2 -1.2A1.2,1.2 0,0 1,12 18.2zM13.2,13.4v0.6h-2.4v-1.6c0,-1.6 2.6,-1.9 2.6,-3.4a1.4,1.4 0,0 0,-2.8 0h-2a3.4,3.4 0,0 1,6.8 0C15.4,11.1 13.2,11.6 13.2,13.4z"/>
+</vector>

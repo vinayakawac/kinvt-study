@@ -1,0 +1,14 @@
+/* The card is a floating window on the desktop and the whole screen here. */
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--bg, #1c1b19);
+  /* Keep content clear of the status bar and the gesture area. */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+#card { max-width: 640px; margin: 0 auto; padding: 16px; }
+
+/* The desktop's option rows are sized for a mouse; a finger needs more. */
+#card .tpq-opt { min-height: 52px; }

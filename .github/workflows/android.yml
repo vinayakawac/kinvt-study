@@ -1,0 +1,115 @@
+name: Android
+
+# Builds the APK on a runner, because the Android SDK, Java and Gradle are not
+# on the development machine — the same reason the Tauri build lives in CI.
+#
+# Pull requests get a debug APK as an artifact; a version tag gets a signed
+# release APK attached to the GitHub release.
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: android-actions/setup-android@v3
+
+      # mobile/www is generated and gitignored, so it does not exist on a
+      # fresh checkout. Building it first also proves the generator is
+      # deterministic when --check runs straight afterwards.
+      - name: Build the shared UI into mobile/www
+        run: |
+          node scripts/build-mobile-www.mjs
+          node scripts/build-mobile-www.mjs --check
+
+      - name: Install
+        working-directory: mobile
+        run: npm install --no-audit --no-fund
+
+      # mobile/android is generated too. Committing it would mean carrying a
+      # large tree that Capacitor rewrites on every version bump.
+      - name: Generate the Android project
+        working-directory: mobile
+        run: |
+          npx cap add android
+          npx cap sync android
+
+      - name: Notification icon
+        run: |
+          mkdir -p mobile/android/app/src/main/res/drawable
+          cp mobile/src/res/ic_stat_kinvt.xml mobile/android/app/src/main/res/drawable/
+
+      - name: Permissions
+        run: node scripts/patch-android-manifest.mjs
+
+      - name: Build debug APK
+        working-directory: mobile/android
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Name it after the commit
+        run: |
+          src=$(find mobile/android/app/build/outputs/apk/debug -name '*.apk' | head -1)
+          cp "$src" "Kinvt-study-debug-${GITHUB_SHA::7}.apk"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kinvt-study-debug-apk
+          path: Kinvt-study-debug-*.apk
+          if-no-files-found: error
+
+      # Signing only happens for a tag, and only when the secrets exist. A
+      # fork without them still gets a working debug build above.
+      - name: Restore the keystore
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$KEYSTORE_B64" ]; then
+            echo "::warning::No ANDROID_KEYSTORE_BASE64 secret; skipping the signed release build."
+            exit 0
+          fi
+          echo "$KEYSTORE_B64" | base64 -d > mobile/android/kinvt-release.jks
+
+      - name: Build and attach the signed release APK
+        if: startsWith(github.ref, 'refs/tags/v')
+        working-directory: mobile/android
+        env:
+          KS_PASS: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASS: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          if [ ! -f kinvt-release.jks ]; then echo "unsigned; nothing to attach"; exit 0; fi
+          ./gradlew assembleRelease --no-daemon \
+            -PKINVT_KEYSTORE=kinvt-release.jks \
+            -PKINVT_KEYSTORE_PASSWORD="$KS_PASS" \
+            -PKINVT_KEY_ALIAS="$KEY_ALIAS" \
+            -PKINVT_KEY_PASSWORD="$KEY_PASS"
+          find app/build/outputs/apk/release -name '*.apk' -exec cp {} "../../Kinvt-study-${GITHUB_REF_NAME}.apk" \;
+
+      - uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/v')
+        with:
+          files: Kinvt-study-*.apk
+          fail_on_unmatched_files: false
+
+      - name: Remove the keystore from the runner
+        if: always()
+        run: rm -f mobile/android/kinvt-release.jks

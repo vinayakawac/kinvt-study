@@ -34,6 +34,13 @@ jobs:
       - name: JavaScript parses
         run: node scripts/check-syntax.mjs
 
+      # mobile/www is generated and gitignored, so build it then verify the
+      # generator is deterministic. A stale copy would ship an old UI in the APK.
+      - name: Mobile UI copy is reproducible
+        run: |
+          node scripts/build-mobile-www.mjs
+          node scripts/build-mobile-www.mjs --check
+
       - name: UI module wiring
         run: node scripts/check-ui-scripts.mjs
 

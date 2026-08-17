@@ -53,25 +53,6 @@
   var cardObserver = new ResizeObserver(function () { fitWindow(); });
   cardObserver.observe(cardEl);
 
-  /* ---------- quiet hours ----------
-   * Minutes since midnight, which keeps timezones and dates out of it. The
-   * case that matters is a window crossing midnight (22:00–07:00, the
-   * default): a naive start <= now < end silences nothing at all for it.
-   */
-  function isQuiet(now, start, end) {
-    if (start === end) return false;
-    if (start < end) return now >= start && now < end;
-    return now >= start || now < end;
-  }
-
-  function inQuietHours(settings) {
-    var d = new Date();
-    var mins = d.getHours() * 60 + d.getMinutes();
-    var s = typeof settings.quietStart === 'number' ? settings.quietStart : 1320;
-    var e = typeof settings.quietEnd === 'number' ? settings.quietEnd : 420;
-    return isQuiet(mins, s, e);
-  }
-
   /* ---------- showing a quiz ----------
    * `manual` marks an explicit request — the hotkey or the tray. Those always
    * fire: silently swallowing a keypress reads as a bug, and pressing the key
@@ -83,7 +64,7 @@
     if (!manual) {
       var s = window.KinvtQuiz.getSettings();
       if (Date.now() < window.KinvtQuiz.getSnoozeUntil()) { scheduleNext(); return; }
-      if (inQuietHours(s)) { scheduleNext(); return; }
+      if (window.KinvtQuietHours.isQuietAt(new Date(), s)) { scheduleNext(); return; }
 
       if (s.respectDnd !== false) {
         return invoke('dnd_active').then(function (busy) {
