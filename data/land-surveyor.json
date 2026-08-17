@@ -1393,6 +1393,1014 @@
       "answer": 0,
       "explanation": "The Survey of India produces the national topographical map series. The Geological Survey maps rocks and minerals instead.",
       "source": "https://en.wikipedia.org/wiki/Survey_of_India"
+    },
+    {
+      "id": "ls-088",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "Which of these is a cumulative error in chain surveying?",
+      "options": [
+        "Using a chain of incorrect length",
+        "Careless holding of the chain",
+        "Random reading of the tape",
+        "Wind shaking the ranging rod"
+      ],
+      "answer": 0,
+      "explanation": "A wrong chain length errs the same way every time, so the error accumulates with distance. Careless holding and reading vary in sign and tend to compensate.",
+      "source": "https://en.wikipedia.org/wiki/Observational_error"
+    },
+    {
+      "id": "ls-089",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "Reciprocal ranging is needed when",
+      "options": [
+        "The two ends of a line are not intervisible",
+        "The line crosses a road",
+        "The chain is too short",
+        "The ground is level"
+      ],
+      "answer": 0,
+      "explanation": "When a hill hides one end from the other, two surveyors direct each other into line by successive approximation until both are on the straight line.",
+      "source": "https://en.wikipedia.org/wiki/Surveying"
+    },
+    {
+      "id": "ls-090",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "hard",
+      "question": "The temperature correction for a steel tape used above its standardisation temperature is",
+      "options": [
+        "Additive, because the tape expands",
+        "Subtractive, because the tape expands",
+        "Zero",
+        "Additive, because the tape contracts"
+      ],
+      "answer": 0,
+      "explanation": "A warmer tape is longer than nominal, so each tape length covers more ground and the measured value is too small; the correction is added.",
+      "source": "https://en.wikipedia.org/wiki/Thermal_expansion"
+    },
+    {
+      "id": "ls-091",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "Which is the most suitable survey method for a small, fairly level area with few details?",
+      "options": [
+        "Chain surveying",
+        "Triangulation",
+        "Photogrammetry",
+        "Satellite geodesy"
+      ],
+      "answer": 0,
+      "explanation": "Chain surveying suits small, open and reasonably level ground. Undulating or large areas need instruments that measure angles or use aerial and satellite data.",
+      "source": "https://en.wikipedia.org/wiki/Chain_surveying"
+    },
+    {
+      "id": "ls-092",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "An offset longer than about 15 metres is generally taken as",
+      "options": [
+        "An oblique offset with two measurements",
+        "A perpendicular offset by eye",
+        "A tie line",
+        "A base line"
+      ],
+      "answer": 0,
+      "explanation": "Beyond a short distance a right angle cannot be judged accurately, so the point is fixed by two oblique measurements from known chainages instead.",
+      "source": "https://en.wikipedia.org/wiki/Surveying"
+    },
+    {
+      "id": "ls-093",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "medium",
+      "question": "The angle between two survey lines computed from their whole circle bearings is called the",
+      "options": [
+        "Included angle",
+        "Deflection angle",
+        "Declination",
+        "Dip"
+      ],
+      "answer": 0,
+      "explanation": "The included angle at a station is the difference of the bearings of the two lines meeting there. A deflection angle is measured from the prolongation of the previous line.",
+      "source": "https://en.wikipedia.org/wiki/Traverse_(surveying)"
+    },
+    {
+      "id": "ls-094",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "hard",
+      "question": "If the fore bearing of a line is 120 degrees, its back bearing is",
+      "options": [
+        "300 degrees",
+        "60 degrees",
+        "240 degrees",
+        "120 degrees"
+      ],
+      "answer": 0,
+      "explanation": "Back bearing is fore bearing plus 180 degrees when the fore bearing is under 180, giving 300 degrees here.",
+      "source": "https://en.wikipedia.org/wiki/Bearing_(navigation)"
+    },
+    {
+      "id": "ls-095",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "medium",
+      "question": "A surveyor's compass differs from a prismatic compass in that it reads",
+      "options": [
+        "Quadrantal bearings from 0 to 90 in each quadrant",
+        "Whole circle bearings only",
+        "Vertical angles",
+        "Slope distances"
+      ],
+      "answer": 0,
+      "explanation": "The surveyor's compass gives reduced or quadrantal bearings measured from north or south towards east or west, unlike the prismatic compass's 0 to 360 reading.",
+      "source": "https://en.wikipedia.org/wiki/Compass_survey"
+    },
+    {
+      "id": "ls-096",
+      "category": "land-surveyor",
+      "topic": "Compass Survey",
+      "difficulty": "medium",
+      "question": "Magnetic declination at a place changes over time mainly because of",
+      "options": [
+        "Slow movement of the earth's magnetic poles",
+        "Changes in altitude",
+        "Seasonal rainfall",
+        "Nearby construction"
+      ],
+      "answer": 0,
+      "explanation": "Secular variation from the drifting magnetic field alters declination over years, which is why old bearings must be corrected before reuse.",
+      "source": "https://en.wikipedia.org/wiki/Geomagnetic_secular_variation"
+    },
+    {
+      "id": "ls-097",
+      "category": "land-surveyor",
+      "topic": "Plane Table",
+      "difficulty": "medium",
+      "question": "The main advantage of plane tabling is that",
+      "options": [
+        "The plan is drawn in the field while the ground is in view",
+        "It gives the highest possible precision",
+        "It works well in heavy rain",
+        "It needs no levelling"
+      ],
+      "answer": 0,
+      "explanation": "Plotting on site means omissions are noticed immediately. Its weaknesses are lower precision and being unusable in wet weather.",
+      "source": "https://en.wikipedia.org/wiki/Plane_table"
+    },
+    {
+      "id": "ls-098",
+      "category": "land-surveyor",
+      "topic": "Plane Table",
+      "difficulty": "hard",
+      "question": "Orienting a plane table by backsighting along a previously drawn line is more accurate than using the trough compass because",
+      "options": [
+        "It is unaffected by local attraction",
+        "It needs no alidade",
+        "It works without a known station",
+        "It is faster"
+      ],
+      "answer": 0,
+      "explanation": "A compass needle can be deflected by nearby iron, while backsighting depends only on the geometry already plotted.",
+      "source": "https://en.wikipedia.org/wiki/Plane_table"
+    },
+    {
+      "id": "ls-099",
+      "category": "land-surveyor",
+      "topic": "Plane Table",
+      "difficulty": "medium",
+      "question": "In the radiation method of plane tabling, detail points are located by",
+      "options": [
+        "Drawing rays from one station and scaling measured distances",
+        "Intersecting rays from two stations",
+        "Resection from three points",
+        "Running a closed traverse"
+      ],
+      "answer": 0,
+      "explanation": "Radiation plots each point along its ray at the measured distance from a single station, which suits small areas within tape range.",
+      "source": "https://en.wikipedia.org/wiki/Plane_table"
+    },
+    {
+      "id": "ls-100",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "An inverted staff reading, used for the underside of a bridge or a ceiling, is entered in the level book as",
+      "options": [
+        "A negative value",
+        "A normal positive value",
+        "Zero",
+        "Twice the reading"
+      ],
+      "answer": 0,
+      "explanation": "The point is above the line of collimation, so the reading is booked negative and the usual arithmetic then gives the correct reduced level.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-101",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "hard",
+      "question": "Which levelling method is best for checking a long line of levels for error?",
+      "options": [
+        "Fly levelling back to the starting benchmark",
+        "Taking more intermediate sights",
+        "Using a longer staff",
+        "Reading only fore sights"
+      ],
+      "answer": 0,
+      "explanation": "Closing the circuit back onto the starting benchmark reveals the accumulated misclosure, which can then be distributed. Intermediate sights add detail but no check.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-102",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "A bench mark established by the Survey of India as part of the national network is called a",
+      "options": [
+        "GTS benchmark",
+        "Temporary benchmark",
+        "Arbitrary benchmark",
+        "Change point"
+      ],
+      "answer": 0,
+      "explanation": "Great Trigonometrical Survey benchmarks carry precise heights above mean sea level. Temporary and arbitrary marks are local to one job.",
+      "source": "https://en.wikipedia.org/wiki/Benchmark_(surveying)"
+    },
+    {
+      "id": "ls-103",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "In the height of instrument method, an arithmetic check is that the sum of back sights minus the sum of fore sights equals",
+      "options": [
+        "The last reduced level minus the first",
+        "The number of setups",
+        "The sum of intermediate sights",
+        "The height of instrument"
+      ],
+      "answer": 0,
+      "explanation": "This difference must equal the net rise or fall over the whole line. Any mismatch signals a booking or arithmetic error, not a field error.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-104",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "medium",
+      "question": "A contour interval is usually chosen based on",
+      "options": [
+        "The scale of the map, the terrain and the purpose",
+        "The length of the tape",
+        "The time of day",
+        "The magnetic declination"
+      ],
+      "answer": 0,
+      "explanation": "Flat ground and large scales take a small interval; steep ground or small scales take a larger one, or the contours would be unreadably dense.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-105",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "hard",
+      "question": "Equally spaced contours on a map indicate",
+      "options": [
+        "A uniform slope",
+        "A vertical cliff",
+        "A hilltop",
+        "A depression"
+      ],
+      "answer": 0,
+      "explanation": "Constant horizontal equivalent means the ground rises at a constant rate. Converging contours mean a steepening slope.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-106",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "medium",
+      "question": "Which method of contouring is called the indirect method?",
+      "options": [
+        "Locating spot levels on a grid and interpolating contours",
+        "Tracing each contour on the ground",
+        "Following the water line of a reservoir",
+        "Levelling along each contour"
+      ],
+      "answer": 0,
+      "explanation": "The indirect method levels a grid of points and interpolates the contours on paper, which is far quicker than physically tracing each contour on site.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-107",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "medium",
+      "question": "Which permanent adjustment ensures the line of collimation is perpendicular to the horizontal axis?",
+      "options": [
+        "Adjustment of the line of sight",
+        "Adjustment of the plate level",
+        "Centring the plumb bob",
+        "Focusing the eyepiece"
+      ],
+      "answer": 0,
+      "explanation": "If the line of sight is not perpendicular to the trunnion axis, the telescope traces a cone rather than a plane, and the error is eliminated by the two-peg or face-change method.",
+      "source": "https://en.wikipedia.org/wiki/Theodolite"
+    },
+    {
+      "id": "ls-108",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "hard",
+      "question": "The closing error of a traverse is distributed by the transit rule in proportion to",
+      "options": [
+        "The latitudes and departures of each line",
+        "The lengths of the lines",
+        "The included angles",
+        "The number of stations"
+      ],
+      "answer": 0,
+      "explanation": "The transit rule apportions error by the size of each latitude and departure, while Bowditch's rule uses the line lengths. Transit suits traverses where angles are more reliable than distances.",
+      "source": "https://en.wikipedia.org/wiki/Traverse_(surveying)"
+    },
+    {
+      "id": "ls-109",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "medium",
+      "question": "A deflection angle traverse is most commonly used for",
+      "options": [
+        "Long narrow routes such as roads, canals and railways",
+        "Compact urban blocks",
+        "Small farm plots",
+        "Mine shafts"
+      ],
+      "answer": 0,
+      "explanation": "Route surveys run largely in one direction, so measuring the deflection from the previous line's prolongation is the natural way to record the alignment.",
+      "source": "https://en.wikipedia.org/wiki/Traverse_(surveying)"
+    },
+    {
+      "id": "ls-110",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "medium",
+      "question": "The vertical angle measured above the horizontal is called the",
+      "options": [
+        "Angle of elevation",
+        "Angle of depression",
+        "Azimuth",
+        "Bearing"
+      ],
+      "answer": 0,
+      "explanation": "Elevation is measured upward and depression downward from the horizontal. Azimuth and bearing are horizontal directions.",
+      "source": "https://en.wikipedia.org/wiki/Vertical_angle"
+    },
+    {
+      "id": "ls-111",
+      "category": "land-surveyor",
+      "topic": "Tacheometry",
+      "difficulty": "medium",
+      "question": "An anallatic lens in a tacheometer is used to",
+      "options": [
+        "Make the additive constant effectively zero",
+        "Increase magnification",
+        "Level the instrument",
+        "Measure vertical angles"
+      ],
+      "answer": 0,
+      "explanation": "The anallatic lens shifts the apparent origin of measurement to the instrument's vertical axis, so distance is simply the intercept times 100.",
+      "source": "https://en.wikipedia.org/wiki/Tacheometry"
+    },
+    {
+      "id": "ls-112",
+      "category": "land-surveyor",
+      "topic": "Tacheometry",
+      "difficulty": "hard",
+      "question": "When a tacheometric sight is inclined, the staff intercept must be corrected because",
+      "options": [
+        "The staff is not perpendicular to the line of sight",
+        "The multiplying constant changes",
+        "The staff expands",
+        "The instrument is not level"
+      ],
+      "answer": 0,
+      "explanation": "A vertical staff meets an inclined sight obliquely, so the intercept is larger than it would be perpendicular; the correction uses the cosine of the vertical angle.",
+      "source": "https://en.wikipedia.org/wiki/Tacheometry"
+    },
+    {
+      "id": "ls-113",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "medium",
+      "question": "In a total station survey, a prism is used to",
+      "options": [
+        "Return the EDM signal to the instrument",
+        "Level the tripod",
+        "Magnify the target",
+        "Measure the temperature"
+      ],
+      "answer": 0,
+      "explanation": "A corner-cube prism reflects the beam back along its incoming path regardless of small tilts, which is why it works at long ranges.",
+      "source": "https://en.wikipedia.org/wiki/Retroreflector"
+    },
+    {
+      "id": "ls-114",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "hard",
+      "question": "Multipath error in GPS is caused by",
+      "options": [
+        "Signals reflecting off buildings or water before reaching the antenna",
+        "Satellite clock drift",
+        "Ionospheric delay",
+        "Receiver noise"
+      ],
+      "answer": 0,
+      "explanation": "A reflected signal travels further than the direct one, biasing the range. Choosing open sites and using choke-ring antennas reduces it.",
+      "source": "https://en.wikipedia.org/wiki/Multipath_propagation"
+    },
+    {
+      "id": "ls-115",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "medium",
+      "question": "Real time kinematic GPS achieves centimetre accuracy by using",
+      "options": [
+        "Carrier phase measurements with corrections from a base station",
+        "A longer observation session only",
+        "More satellites in view",
+        "A larger antenna"
+      ],
+      "answer": 0,
+      "explanation": "RTK resolves the carrier phase ambiguity using base station corrections sent in real time, which is far more precise than code ranging alone.",
+      "source": "https://en.wikipedia.org/wiki/Real-time_kinematic_positioning"
+    },
+    {
+      "id": "ls-116",
+      "category": "land-surveyor",
+      "topic": "Remote Sensing",
+      "difficulty": "medium",
+      "question": "Which platform gives the highest spatial resolution for a small site survey?",
+      "options": [
+        "A drone flying a few hundred metres up",
+        "A polar orbiting satellite",
+        "A geostationary satellite",
+        "A weather balloon at 20 km"
+      ],
+      "answer": 0,
+      "explanation": "Ground sample distance falls with altitude, so a low-flying drone resolves centimetres where satellites resolve metres.",
+      "source": "https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle"
+    },
+    {
+      "id": "ls-117",
+      "category": "land-surveyor",
+      "topic": "Remote Sensing",
+      "difficulty": "hard",
+      "question": "A digital elevation model represents",
+      "options": [
+        "Terrain height as a grid or network of elevation values",
+        "Land ownership boundaries",
+        "Soil chemistry",
+        "Road traffic volume"
+      ],
+      "answer": 0,
+      "explanation": "A DEM stores elevation across an area, from which slope, aspect, watersheds and contours can all be derived.",
+      "source": "https://en.wikipedia.org/wiki/Digital_elevation_model"
+    },
+    {
+      "id": "ls-118",
+      "category": "land-surveyor",
+      "topic": "Survey Organisation",
+      "difficulty": "medium",
+      "question": "Which projection is used for the Survey of India topographical map series?",
+      "options": [
+        "Lambert conformal conic and polyconic historically",
+        "Mercator only",
+        "Gnomonic",
+        "Orthographic"
+      ],
+      "answer": 0,
+      "explanation": "India's topographical sheets have historically used polyconic and later Lambert conformal conic projections, chosen to limit distortion over the country's latitude range.",
+      "source": "https://en.wikipedia.org/wiki/Map_projection"
+    },
+    {
+      "id": "ls-119",
+      "category": "land-surveyor",
+      "topic": "Survey Organisation",
+      "difficulty": "medium",
+      "question": "A scale of 1:50,000 means one centimetre on the map represents",
+      "options": [
+        "500 metres on the ground",
+        "50 metres",
+        "5 kilometres",
+        "50 kilometres"
+      ],
+      "answer": 0,
+      "explanation": "One centimetre times 50,000 is 50,000 centimetres, which is 500 metres.",
+      "source": "https://en.wikipedia.org/wiki/Scale_(map)"
+    },
+    {
+      "id": "ls-120",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "The density of pure water at 4 degrees Celsius is approximately",
+      "options": [
+        "1000 kg per cubic metre",
+        "100 kg per cubic metre",
+        "10 kg per cubic metre",
+        "10000 kg per cubic metre"
+      ],
+      "answer": 0,
+      "explanation": "Water is densest near 4 degrees Celsius at about 1000 kilograms per cubic metre, which is one gram per cubic centimetre.",
+      "source": "https://en.wikipedia.org/wiki/Properties_of_water"
+    },
+    {
+      "id": "ls-121",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "Which instrument measures atmospheric pressure?",
+      "options": [
+        "Barometer",
+        "Hygrometer",
+        "Anemometer",
+        "Ammeter"
+      ],
+      "answer": 0,
+      "explanation": "A barometer measures pressure, a hygrometer humidity, an anemometer wind speed and an ammeter electric current.",
+      "source": "https://en.wikipedia.org/wiki/Barometer"
+    },
+    {
+      "id": "ls-122",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "hard",
+      "question": "The acceleration due to gravity is approximately",
+      "options": [
+        "9.8 metres per second squared",
+        "9.8 metres per second",
+        "98 metres per second squared",
+        "0.98 metres per second squared"
+      ],
+      "answer": 0,
+      "explanation": "Standard gravity is about 9.81 metres per second squared. Metres per second alone would be a speed, not an acceleration.",
+      "source": "https://en.wikipedia.org/wiki/Gravitational_acceleration"
+    },
+    {
+      "id": "ls-123",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "Work done is zero when the force acting on a body is",
+      "options": [
+        "Perpendicular to the displacement",
+        "Parallel to the displacement",
+        "Opposite to the displacement",
+        "Larger than the weight"
+      ],
+      "answer": 0,
+      "explanation": "Work is force times displacement times the cosine of the angle between them, and the cosine of ninety degrees is zero.",
+      "source": "https://en.wikipedia.org/wiki/Work_(physics)"
+    },
+    {
+      "id": "ls-124",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "The volume of a cube of side 5 cm is",
+      "options": [
+        "125 cubic cm",
+        "25 cubic cm",
+        "75 cubic cm",
+        "150 cubic cm"
+      ],
+      "answer": 0,
+      "explanation": "Volume is the side cubed, so five times five times five gives 125 cubic centimetres. Twenty-five would be the area of one face.",
+      "source": "https://en.wikipedia.org/wiki/Cube"
+    },
+    {
+      "id": "ls-125",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "If 3 workers finish a task in 12 days, how long will 6 workers take, working at the same rate?",
+      "options": [
+        "6 days",
+        "24 days",
+        "12 days",
+        "3 days"
+      ],
+      "answer": 0,
+      "explanation": "Work is inversely proportional to the number of workers, so doubling them halves the time.",
+      "source": "https://en.wikipedia.org/wiki/Proportionality_(mathematics)"
+    },
+    {
+      "id": "ls-126",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "hard",
+      "question": "The perimeter of a rectangle is 60 m and its length is twice its breadth. Its area is",
+      "options": [
+        "200 sq m",
+        "400 sq m",
+        "100 sq m",
+        "300 sq m"
+      ],
+      "answer": 0,
+      "explanation": "With length 2b, the perimeter 6b equals 60 so b is 10 and the length 20, giving an area of 200 square metres.",
+      "source": "https://en.wikipedia.org/wiki/Rectangle"
+    },
+    {
+      "id": "ls-127",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "What is 15 percent of 400?",
+      "options": [
+        "60",
+        "45",
+        "15",
+        "150"
+      ],
+      "answer": 0,
+      "explanation": "Fifteen percent is 15 divided by 100, times 400, which gives 60.",
+      "source": "https://en.wikipedia.org/wiki/Percentage"
+    },
+    {
+      "id": "ls-128",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "One guntha, a land unit used in Karnataka, is approximately how many square metres?",
+      "options": [
+        "101",
+        "1000",
+        "10",
+        "4047"
+      ],
+      "answer": 0,
+      "explanation": "A guntha is about 101 square metres, and forty gunthas make one acre of roughly 4047 square metres.",
+      "source": "https://en.wikipedia.org/wiki/Guntha"
+    },
+    {
+      "id": "ls-129",
+      "category": "land-surveyor",
+      "topic": "Computer Applications",
+      "difficulty": "medium",
+      "question": "Which software category would AutoCAD belong to for a surveyor?",
+      "options": [
+        "Computer aided drafting",
+        "Word processing",
+        "Database management",
+        "Antivirus"
+      ],
+      "answer": 0,
+      "explanation": "CAD software draws and edits plans and sections from survey coordinates, which is the surveyor's main drafting tool.",
+      "source": "https://en.wikipedia.org/wiki/Computer-aided_design"
+    },
+    {
+      "id": "ls-130",
+      "category": "land-surveyor",
+      "topic": "Computer Applications",
+      "difficulty": "medium",
+      "question": "A backup of survey data should ideally be kept",
+      "options": [
+        "In more than one location, including off site",
+        "Only on the field laptop",
+        "Only on the total station",
+        "Printed on paper alone"
+      ],
+      "answer": 0,
+      "explanation": "A single copy is lost with the device that holds it. Keeping a second copy elsewhere is what protects against theft, damage and drive failure.",
+      "source": "https://en.wikipedia.org/wiki/Backup"
+    },
+    {
+      "id": "ls-131",
+      "category": "land-surveyor",
+      "topic": "General Knowledge",
+      "difficulty": "medium",
+      "question": "Which Indian organisation is responsible for weather forecasting?",
+      "options": [
+        "India Meteorological Department",
+        "Survey of India",
+        "ISRO",
+        "Geological Survey of India"
+      ],
+      "answer": 0,
+      "explanation": "The IMD issues forecasts and warnings. ISRO supplies satellite data, and the Survey of India maps terrain.",
+      "source": "https://en.wikipedia.org/wiki/India_Meteorological_Department"
+    },
+    {
+      "id": "ls-132",
+      "category": "land-surveyor",
+      "topic": "General Knowledge",
+      "difficulty": "medium",
+      "question": "The National Highways Authority of India was set up to develop and maintain",
+      "options": [
+        "National highways",
+        "Village roads",
+        "Railways",
+        "Ports"
+      ],
+      "answer": 0,
+      "explanation": "NHAI develops and manages the national highway network. Village roads fall to state and rural development agencies.",
+      "source": "https://en.wikipedia.org/wiki/National_Highways_Authority_of_India"
+    },
+    {
+      "id": "ls-133",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "medium",
+      "question": "A base line in chain surveying should be",
+      "options": [
+        "The longest line, measured with the greatest care",
+        "The shortest line available",
+        "Always along a road",
+        "Measured only once"
+      ],
+      "answer": 0,
+      "explanation": "The base line controls the whole framework, so it is made as long as the ground allows and measured most carefully; errors in it propagate everywhere.",
+      "source": "https://en.wikipedia.org/wiki/Chain_surveying"
+    },
+    {
+      "id": "ls-134",
+      "category": "land-surveyor",
+      "topic": "Chain Survey",
+      "difficulty": "hard",
+      "question": "Well-conditioned triangles in a chain survey framework have angles close to",
+      "options": [
+        "60 degrees",
+        "20 degrees",
+        "90 and 10 degrees",
+        "150 degrees"
+      ],
+      "answer": 0,
+      "explanation": "Near-equilateral triangles minimise the effect of a small angular error on the computed sides. Very acute or obtuse triangles amplify it.",
+      "source": "https://en.wikipedia.org/wiki/Triangulation_(surveying)"
+    },
+    {
+      "id": "ls-135",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "Which type of level uses a compensator instead of a bubble to level the line of sight?",
+      "options": [
+        "Automatic level",
+        "Dumpy level",
+        "Tilting level",
+        "Abney level"
+      ],
+      "answer": 0,
+      "explanation": "An automatic or self-levelling instrument uses a gravity-suspended compensator, so only rough levelling by the circular bubble is needed.",
+      "source": "https://en.wikipedia.org/wiki/Level_(instrument)"
+    },
+    {
+      "id": "ls-136",
+      "category": "land-surveyor",
+      "topic": "Levelling",
+      "difficulty": "medium",
+      "question": "The difference in level between two points is independent of",
+      "options": [
+        "The route taken between them",
+        "The instrument's accuracy",
+        "The staff readings",
+        "The benchmark used"
+      ],
+      "answer": 0,
+      "explanation": "Height difference is a property of the two points, so any correct route gives the same answer. That is exactly why a closed circuit reveals accumulated error.",
+      "source": "https://en.wikipedia.org/wiki/Levelling"
+    },
+    {
+      "id": "ls-137",
+      "category": "land-surveyor",
+      "topic": "Contouring",
+      "difficulty": "medium",
+      "question": "Contours on a map are most useful to a surveyor for",
+      "options": [
+        "Computing earthwork volumes and planning alignments",
+        "Recording ownership",
+        "Showing soil colour",
+        "Marking magnetic north"
+      ],
+      "answer": 0,
+      "explanation": "Contours give the ground shape, from which cut and fill quantities, gradients and drainage can all be derived.",
+      "source": "https://en.wikipedia.org/wiki/Contour_line"
+    },
+    {
+      "id": "ls-138",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "medium",
+      "question": "Setting the theodolite exactly over a station mark is called",
+      "options": [
+        "Centring",
+        "Levelling",
+        "Collimating",
+        "Transiting"
+      ],
+      "answer": 0,
+      "explanation": "Centring places the vertical axis over the ground mark using a plumb bob or optical plummet, and is done before final levelling.",
+      "source": "https://en.wikipedia.org/wiki/Theodolite"
+    },
+    {
+      "id": "ls-139",
+      "category": "land-surveyor",
+      "topic": "Theodolite",
+      "difficulty": "hard",
+      "question": "If a traverse has a large closing error, the first thing to check is",
+      "options": [
+        "The field measurements and booking for a gross mistake",
+        "The colour of the ink used",
+        "The weather that day",
+        "The age of the instrument"
+      ],
+      "answer": 0,
+      "explanation": "A large misclosure indicates a blunder such as a transposed digit, a missed station or a wrongly read angle, not the small random errors that adjustment rules are meant to spread.",
+      "source": "https://en.wikipedia.org/wiki/Traverse_(surveying)"
+    },
+    {
+      "id": "ls-140",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "medium",
+      "question": "Which of these is a limitation of GPS surveying?",
+      "options": [
+        "Poor accuracy under dense tree canopy or between tall buildings",
+        "It cannot measure height at all",
+        "It works only at night",
+        "It requires a magnetic compass"
+      ],
+      "answer": 0,
+      "explanation": "GPS needs a clear sky view; canopy and buildings block or reflect signals. Height is measured, though less precisely than horizontal position.",
+      "source": "https://en.wikipedia.org/wiki/Global_Positioning_System"
+    },
+    {
+      "id": "ls-141",
+      "category": "land-surveyor",
+      "topic": "Modern Survey",
+      "difficulty": "medium",
+      "question": "Coordinates recorded by a total station are usually stored as",
+      "options": [
+        "Northing, easting and elevation",
+        "Latitude and longitude only",
+        "Bearing and distance only",
+        "Colour values"
+      ],
+      "answer": 0,
+      "explanation": "A total station works in a local rectangular system of northing, easting and reduced level, which can later be transformed to geographic coordinates.",
+      "source": "https://en.wikipedia.org/wiki/Total_station"
+    },
+    {
+      "id": "ls-142",
+      "category": "land-surveyor",
+      "topic": "Remote Sensing",
+      "difficulty": "medium",
+      "question": "Georeferencing an aerial photograph means",
+      "options": [
+        "Assigning real-world coordinates to its pixels",
+        "Printing it at a larger size",
+        "Converting it to greyscale",
+        "Compressing the file"
+      ],
+      "answer": 0,
+      "explanation": "Georeferencing ties image coordinates to ground coordinates using control points, so the image can be overlaid on a map.",
+      "source": "https://en.wikipedia.org/wiki/Georeferencing"
+    },
+    {
+      "id": "ls-143",
+      "category": "land-surveyor",
+      "topic": "Survey Organisation",
+      "difficulty": "medium",
+      "question": "On a map, the representative fraction 1:1000 is a",
+      "options": [
+        "Larger scale than 1:50,000",
+        "Smaller scale than 1:50,000",
+        "The same scale as 1:50,000",
+        "Not a valid scale"
+      ],
+      "answer": 0,
+      "explanation": "The smaller the denominator the larger the scale, so 1:1000 shows a small area in great detail while 1:50,000 covers much more ground with less.",
+      "source": "https://en.wikipedia.org/wiki/Scale_(map)"
+    },
+    {
+      "id": "ls-144",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "Which of the following is a scalar quantity?",
+      "options": [
+        "Speed",
+        "Velocity",
+        "Force",
+        "Displacement"
+      ],
+      "answer": 0,
+      "explanation": "Speed has magnitude only. Velocity, force and displacement all carry direction as well and are vectors.",
+      "source": "https://en.wikipedia.org/wiki/Scalar_(physics)"
+    },
+    {
+      "id": "ls-145",
+      "category": "land-surveyor",
+      "topic": "Physics",
+      "difficulty": "medium",
+      "question": "The principle used in a spirit level bubble is that",
+      "options": [
+        "A bubble rises to the highest point of a curved sealed tube",
+        "Liquids expand when heated",
+        "Light bends in glass",
+        "Magnets align north to south"
+      ],
+      "answer": 0,
+      "explanation": "The tube is slightly curved, so the bubble, being lighter than the liquid, settles at the top, which is the middle only when the tube is horizontal.",
+      "source": "https://en.wikipedia.org/wiki/Spirit_level"
+    },
+    {
+      "id": "ls-146",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "The average of 12, 15, 18 and 15 is",
+      "options": [
+        "15",
+        "16",
+        "14",
+        "60"
+      ],
+      "answer": 0,
+      "explanation": "The four values total 60, and 60 divided by 4 is 15.",
+      "source": "https://en.wikipedia.org/wiki/Arithmetic_mean"
+    },
+    {
+      "id": "ls-147",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "medium",
+      "question": "A field is 200 m long and 150 m wide. Its area in hectares is",
+      "options": [
+        "3",
+        "30",
+        "0.3",
+        "300"
+      ],
+      "answer": 0,
+      "explanation": "The area is 30,000 square metres, and one hectare is 10,000 square metres, so the field is 3 hectares.",
+      "source": "https://en.wikipedia.org/wiki/Hectare"
+    },
+    {
+      "id": "ls-148",
+      "category": "land-surveyor",
+      "topic": "Mathematics",
+      "difficulty": "hard",
+      "question": "If the ratio of two numbers is 3:5 and their sum is 64, the larger number is",
+      "options": [
+        "40",
+        "24",
+        "32",
+        "45"
+      ],
+      "answer": 0,
+      "explanation": "Eight parts total 64, so one part is 8 and the larger number is five parts, or 40.",
+      "source": "https://en.wikipedia.org/wiki/Ratio"
+    },
+    {
+      "id": "ls-149",
+      "category": "land-surveyor",
+      "topic": "Computer Applications",
+      "difficulty": "medium",
+      "question": "Which format is most suitable for sharing a survey plan so the recipient cannot easily alter it?",
+      "options": [
+        "PDF",
+        "DOC",
+        "CSV",
+        "TXT"
+      ],
+      "answer": 0,
+      "explanation": "PDF fixes the layout and is not readily editable without special tools, which is why it is the standard for issuing drawings and reports.",
+      "source": "https://en.wikipedia.org/wiki/PDF"
+    },
+    {
+      "id": "ls-150",
+      "category": "land-surveyor",
+      "topic": "General Knowledge",
+      "difficulty": "medium",
+      "question": "India's Green Revolution began in which decade?",
+      "options": [
+        "The 1960s",
+        "The 1930s",
+        "The 1990s",
+        "The 2010s"
+      ],
+      "answer": 0,
+      "explanation": "High-yielding wheat varieties were introduced from the mid-1960s, transforming output in Punjab, Haryana and western Uttar Pradesh.",
+      "source": "https://en.wikipedia.org/wiki/Green_Revolution_in_India"
     }
   ]
 }
