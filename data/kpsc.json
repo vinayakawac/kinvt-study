@@ -1091,6 +1091,646 @@
       "answer": 0,
       "explanation": "The Western Ghats were listed for their exceptional biodiversity and high levels of endemism, being one of the world's recognised hotspots.",
       "source": "https://en.wikipedia.org/wiki/Western_Ghats"
+    },
+    {
+      "id": "kp-071",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Western Ganga dynasty ruled southern Karnataka from which early capital?",
+      "options": [
+        "Talakadu",
+        "Banavasi",
+        "Manyakheta",
+        "Halebidu"
+      ],
+      "answer": 0,
+      "explanation": "The Western Gangas ruled from Talakadu on the Kaveri, having earlier used Kolar. Banavasi was the Kadamba capital and Manyakheta the Rashtrakuta one.",
+      "source": "https://en.wikipedia.org/wiki/Western_Ganga_dynasty"
+    },
+    {
+      "id": "kp-072",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Which Hoysala king is credited with commissioning the Chennakeshava temple at Belur?",
+      "options": [
+        "Vishnuvardhana",
+        "Ballala II",
+        "Narasimha I",
+        "Vinayaditya"
+      ],
+      "answer": 0,
+      "explanation": "Vishnuvardhana commissioned the Chennakeshava temple around 1117 CE, traditionally to mark a victory over the Cholas. Ballala II ruled later at the dynasty's peak.",
+      "source": "https://en.wikipedia.org/wiki/Chennakeshava_Temple,_Belur"
+    },
+    {
+      "id": "kp-073",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Vijayanagara empire was founded by Harihara and Bukka under the guidance of which sage?",
+      "options": [
+        "Vidyaranya",
+        "Basavanna",
+        "Madhvacharya",
+        "Ramanuja"
+      ],
+      "answer": 0,
+      "explanation": "Vidyaranya, a Sringeri seer, is traditionally credited with guiding the founding of Vijayanagara in 1336. Basavanna led the earlier Lingayat movement and Madhvacharya founded Dvaita philosophy.",
+      "source": "https://en.wikipedia.org/wiki/Vijayanagara_Empire"
+    },
+    {
+      "id": "kp-074",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Which Adil Shahi ruler built the Gol Gumbaz at Vijayapura?",
+      "options": [
+        "Mohammed Adil Shah",
+        "Ibrahim Adil Shah II",
+        "Yusuf Adil Shah",
+        "Ali Adil Shah I"
+      ],
+      "answer": 0,
+      "explanation": "The Gol Gumbaz is the tomb of Mohammed Adil Shah, completed in 1656 and famed for its whispering gallery. Ibrahim Adil Shah II built the nearby Ibrahim Rauza.",
+      "source": "https://en.wikipedia.org/wiki/Gol_Gumbaz"
+    },
+    {
+      "id": "kp-075",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Mysore kingdom was restored to the Wadiyars in 1799 after the defeat of which ruler?",
+      "options": [
+        "Tipu Sultan",
+        "Hyder Ali",
+        "Krishnaraja Wadiyar II",
+        "Chikka Devaraja"
+      ],
+      "answer": 0,
+      "explanation": "After Tipu Sultan died at Srirangapatna in 1799, the British restored the Wadiyar line under a subsidiary alliance, installing the child Krishnaraja Wadiyar III.",
+      "source": "https://en.wikipedia.org/wiki/Kingdom_of_Mysore"
+    },
+    {
+      "id": "kp-076",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Sangolli Rayanna, a Karnataka freedom fighter, fought the British on behalf of which kingdom?",
+      "options": [
+        "Kittur",
+        "Mysore",
+        "Keladi",
+        "Coorg"
+      ],
+      "answer": 0,
+      "explanation": "Sangolli Rayanna was a commander under Rani Chennamma of Kittur and continued guerrilla resistance after her defeat, until he was captured and hanged in 1831.",
+      "source": "https://en.wikipedia.org/wiki/Sangolli_Rayanna"
+    },
+    {
+      "id": "kp-077",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "The Chalukya capital Badami is famous for which architectural feature?",
+      "options": [
+        "Rock-cut cave temples",
+        "A whispering gallery",
+        "Soapstone carving",
+        "A monolithic Bahubali statue"
+      ],
+      "answer": 0,
+      "explanation": "Badami is known for its four rock-cut cave temples carved into sandstone cliffs. Soapstone carving is Hoysala, and the Bahubali monolith is at Shravanabelagola.",
+      "source": "https://en.wikipedia.org/wiki/Badami_cave_temples"
+    },
+    {
+      "id": "kp-078",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "Which Karnataka site preserves Ashokan rock edicts?",
+      "options": [
+        "Brahmagiri in Chitradurga",
+        "Hampi in Vijayanagara",
+        "Belur in Hassan",
+        "Banavasi in Uttara Kannada"
+      ],
+      "answer": 0,
+      "explanation": "Minor rock edicts of Ashoka survive at Brahmagiri and other sites in Chitradurga district, marking the Mauryan reach into the south.",
+      "source": "https://en.wikipedia.org/wiki/Edicts_of_Ashoka"
+    },
+    {
+      "id": "kp-079",
+      "category": "kpsc",
+      "topic": "History",
+      "difficulty": "hard",
+      "question": "Which dynasty ruled from Kalyani and patronised the Vachana movement in its later years?",
+      "options": [
+        "Western Chalukyas",
+        "Rashtrakutas",
+        "Kadambas",
+        "Nolambas"
+      ],
+      "answer": 0,
+      "explanation": "The Western or Kalyani Chalukyas ruled from Basavakalyan, and it was under their Kalachuri successors that Basavanna's Vachana movement flourished.",
+      "source": "https://en.wikipedia.org/wiki/Western_Chalukya_Empire"
+    },
+    {
+      "id": "kp-080",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "How many Rajya Sabha seats does Karnataka have?",
+      "options": [
+        "12",
+        "10",
+        "16",
+        "8"
+      ],
+      "answer": 0,
+      "explanation": "Karnataka elects 12 members to the Rajya Sabha, alongside its 28 Lok Sabha seats.",
+      "source": "https://en.wikipedia.org/wiki/Rajya_Sabha"
+    },
+    {
+      "id": "kp-081",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Karnataka Legislative Assembly has how many elected members?",
+      "options": [
+        "224",
+        "250",
+        "180",
+        "294"
+      ],
+      "answer": 0,
+      "explanation": "The Vidhana Sabha has 224 elected constituencies. The Legislative Council, the upper house, is much smaller and partly indirectly elected.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka_Legislative_Assembly"
+    },
+    {
+      "id": "kp-082",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "hard",
+      "question": "Under which Article can Parliament create a new state by altering the boundaries of an existing one?",
+      "options": [
+        "Article 3",
+        "Article 2",
+        "Article 1",
+        "Article 4"
+      ],
+      "answer": 0,
+      "explanation": "Article 3 empowers Parliament to form new states and alter boundaries, names and areas. Article 2 covers admitting new states into the Union.",
+      "source": "https://en.wikipedia.org/wiki/Constitution_of_India"
+    },
+    {
+      "id": "kp-083",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Which body recommended the reorganisation of Indian states on linguistic lines in 1955?",
+      "options": [
+        "The States Reorganisation Commission",
+        "The Sarkaria Commission",
+        "The Dhar Commission",
+        "The Punchhi Commission"
+      ],
+      "answer": 0,
+      "explanation": "The States Reorganisation Commission under Fazl Ali reported in 1955, leading to the 1956 Act that enlarged Mysore State. The earlier Dhar Commission had advised against linguistic reorganisation.",
+      "source": "https://en.wikipedia.org/wiki/States_Reorganisation_Commission"
+    },
+    {
+      "id": "kp-084",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Panchayat elections in Karnataka are conducted by which body?",
+      "options": [
+        "The State Election Commission",
+        "The Election Commission of India",
+        "The Deputy Commissioner",
+        "The Karnataka Lokayukta"
+      ],
+      "answer": 0,
+      "explanation": "Article 243K vests panchayat and municipal elections in a State Election Commission. The Election Commission of India handles Parliament and the state legislature only.",
+      "source": "https://en.wikipedia.org/wiki/Panchayati_raj_in_India"
+    },
+    {
+      "id": "kp-085",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Kali river of Karnataka flows through which district before reaching the Arabian Sea?",
+      "options": [
+        "Uttara Kannada",
+        "Udupi",
+        "Dakshina Kannada",
+        "Kodagu"
+      ],
+      "answer": 0,
+      "explanation": "The Kali rises in the Western Ghats and reaches the sea at Karwar in Uttara Kannada, and is dammed at Supa for hydroelectricity.",
+      "source": "https://en.wikipedia.org/wiki/Kali_River_(Karnataka)"
+    },
+    {
+      "id": "kp-086",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "Which is the largest lake in Karnataka by surface area?",
+      "options": [
+        "Almatti reservoir",
+        "Ulsoor lake",
+        "Hebbal lake",
+        "Ranganathittu"
+      ],
+      "answer": 0,
+      "explanation": "The Almatti reservoir on the Krishna is the largest water body in the state. Ulsoor and Hebbal are small urban lakes in Bengaluru.",
+      "source": "https://en.wikipedia.org/wiki/Almatti_Dam"
+    },
+    {
+      "id": "kp-087",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "The Linganamakki dam is built across which river?",
+      "options": [
+        "Sharavathi",
+        "Kaveri",
+        "Tungabhadra",
+        "Bhadra"
+      ],
+      "answer": 0,
+      "explanation": "Linganamakki impounds the Sharavathi in Shivamogga district and feeds the hydroelectric station below Jog Falls.",
+      "source": "https://en.wikipedia.org/wiki/Linganamakki_Dam"
+    },
+    {
+      "id": "kp-088",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which Karnataka district borders both Goa and Maharashtra?",
+      "options": [
+        "Belagavi",
+        "Kalaburagi",
+        "Bidar",
+        "Raichur"
+      ],
+      "answer": 0,
+      "explanation": "Belagavi district touches both Maharashtra to the north and Goa to the west. Bidar borders Maharashtra and Telangana instead.",
+      "source": "https://en.wikipedia.org/wiki/Belagavi_district"
+    },
+    {
+      "id": "kp-089",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "hard",
+      "question": "The Deccan plateau of Karnataka slopes generally in which direction?",
+      "options": [
+        "Eastward",
+        "Westward",
+        "Northward",
+        "Southward"
+      ],
+      "answer": 0,
+      "explanation": "The plateau tilts east, which is why the Krishna, Kaveri and Tungabhadra flow east to the Bay of Bengal while only short rivers run west off the Ghats.",
+      "source": "https://en.wikipedia.org/wiki/Deccan_Plateau"
+    },
+    {
+      "id": "kp-090",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which soil type dominates the Malnad region of Karnataka?",
+      "options": [
+        "Laterite",
+        "Black cotton",
+        "Alluvial",
+        "Desert sandy"
+      ],
+      "answer": 0,
+      "explanation": "Heavy rainfall in the Malnad leaches silica away and leaves iron-rich laterite. Black cotton soil dominates the drier northern plains instead.",
+      "source": "https://en.wikipedia.org/wiki/Laterite"
+    },
+    {
+      "id": "kp-091",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Mangaluru port handles a large share of which export from Karnataka?",
+      "options": [
+        "Iron ore and coffee",
+        "Tea and jute",
+        "Coal and steel",
+        "Petroleum crude"
+      ],
+      "answer": 0,
+      "explanation": "New Mangalore Port is the state's major seaport, historically shipping iron ore, coffee, cashew and granite.",
+      "source": "https://en.wikipedia.org/wiki/New_Mangalore_Port"
+    },
+    {
+      "id": "kp-092",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Which Karnataka dance form is performed by women balancing a decorated pot, associated with temple festivals?",
+      "options": [
+        "Kolata and Dollu Kunitha traditions",
+        "Kathakali",
+        "Odissi",
+        "Bharatanatyam"
+      ],
+      "answer": 0,
+      "explanation": "Karnataka's folk repertoire includes Dollu Kunitha with drums and Kolata with sticks. Kathakali is from Kerala and Odissi from Odisha.",
+      "source": "https://en.wikipedia.org/wiki/Dollu_Kunitha"
+    },
+    {
+      "id": "kp-093",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "hard",
+      "question": "Which Kannada writer wrote 'Samskara', later made into an award-winning film?",
+      "options": [
+        "U. R. Ananthamurthy",
+        "Shivaram Karanth",
+        "Kuvempu",
+        "Girish Karnad"
+      ],
+      "answer": 0,
+      "explanation": "U. R. Ananthamurthy wrote Samskara in 1965. Girish Karnad acted in the film adaptation but wrote plays such as Tughlaq and Hayavadana.",
+      "source": "https://en.wikipedia.org/wiki/Samskara_(novel)"
+    },
+    {
+      "id": "kp-094",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Shivaram Karanth, a Jnanpith laureate from Karnataka, is especially associated with reviving which art form?",
+      "options": [
+        "Yakshagana",
+        "Kathak",
+        "Kuchipudi",
+        "Chhau"
+      ],
+      "answer": 0,
+      "explanation": "Shivaram Karanth experimented with and revived Yakshagana, the coastal dance-drama, alongside his novels and encyclopaedic writing.",
+      "source": "https://en.wikipedia.org/wiki/Shivaram_Karanth"
+    },
+    {
+      "id": "kp-095",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Which festival marks the Karnataka state formation day on 1 November?",
+      "options": [
+        "Kannada Rajyotsava",
+        "Ugadi",
+        "Dasara",
+        "Makar Sankranti"
+      ],
+      "answer": 0,
+      "explanation": "Kannada Rajyotsava marks the formation of the state in 1956. Ugadi is the Kannada new year and Dasara the Mysuru royal festival.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka_Rajyotsava"
+    },
+    {
+      "id": "kp-096",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "hard",
+      "question": "The Sringeri Sharada Peetham was established by which philosopher?",
+      "options": [
+        "Adi Shankaracharya",
+        "Madhvacharya",
+        "Ramanujacharya",
+        "Basavanna"
+      ],
+      "answer": 0,
+      "explanation": "Adi Shankara established the Sringeri matha in Chikkamagaluru as one of his four cardinal seats. Madhvacharya founded the Udupi tradition instead.",
+      "source": "https://en.wikipedia.org/wiki/Sringeri_Sharada_Peetham"
+    },
+    {
+      "id": "kp-097",
+      "category": "kpsc",
+      "topic": "Culture",
+      "difficulty": "medium",
+      "question": "Udupi is associated with which philosopher and the Krishna temple he founded?",
+      "options": [
+        "Madhvacharya",
+        "Adi Shankara",
+        "Ramanuja",
+        "Vidyaranya"
+      ],
+      "answer": 0,
+      "explanation": "Madhvacharya, founder of the Dvaita school, established the Udupi Krishna temple and its eight mathas.",
+      "source": "https://en.wikipedia.org/wiki/Madhvacharya"
+    },
+    {
+      "id": "kp-098",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which Karnataka district leads in sericulture, the rearing of silkworms?",
+      "options": [
+        "Ramanagara",
+        "Udupi",
+        "Kodagu",
+        "Bidar"
+      ],
+      "answer": 0,
+      "explanation": "Ramanagara hosts one of Asia's largest silk cocoon markets, and Karnataka is India's leading silk producer.",
+      "source": "https://en.wikipedia.org/wiki/Sericulture"
+    },
+    {
+      "id": "kp-099",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "The Bhadravathi steel plant in Karnataka is associated with which name?",
+      "options": [
+        "Visvesvaraya Iron and Steel",
+        "Tata Steel",
+        "Bhilai Steel",
+        "Rourkela Steel"
+      ],
+      "answer": 0,
+      "explanation": "The Visvesvaraya Iron and Steel Plant at Bhadravathi was founded during the Mysore state's industrialisation and later named for M. Visvesvaraya.",
+      "source": "https://en.wikipedia.org/wiki/Visvesvaraya_Iron_and_Steel_Plant"
+    },
+    {
+      "id": "kp-100",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "hard",
+      "question": "M. Visvesvaraya, the engineer honoured on Engineers' Day, served Mysore in which office?",
+      "options": [
+        "Diwan of Mysore",
+        "Governor of Mysore",
+        "Chief Minister of Mysore",
+        "Maharaja of Mysore"
+      ],
+      "answer": 0,
+      "explanation": "Visvesvaraya was Diwan of Mysore from 1912 to 1918 and oversaw the Krishna Raja Sagara dam and the state's industrial expansion.",
+      "source": "https://en.wikipedia.org/wiki/M._Visvesvaraya"
+    },
+    {
+      "id": "kp-101",
+      "category": "kpsc",
+      "topic": "Economy",
+      "difficulty": "medium",
+      "question": "Which spice is widely intercropped with coffee in Kodagu and Chikkamagaluru?",
+      "options": [
+        "Black pepper",
+        "Saffron",
+        "Cumin",
+        "Fenugreek"
+      ],
+      "answer": 0,
+      "explanation": "Black pepper vines are trained up the shade trees of coffee estates, making it a major Karnataka spice. Saffron is a Kashmir crop and cumin largely Gujarat and Rajasthan.",
+      "source": "https://en.wikipedia.org/wiki/Black_pepper"
+    },
+    {
+      "id": "kp-102",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Bhadra Wildlife Sanctuary, a tiger reserve, lies in which part of Karnataka?",
+      "options": [
+        "The Malnad in Chikkamagaluru and Shivamogga",
+        "The Raichur doab",
+        "Coastal Udupi",
+        "The Kolar plateau"
+      ],
+      "answer": 0,
+      "explanation": "Bhadra straddles Chikkamagaluru and Shivamogga in the Malnad, and was among the earliest reserves to complete a voluntary village relocation.",
+      "source": "https://en.wikipedia.org/wiki/Bhadra_Wildlife_Sanctuary"
+    },
+    {
+      "id": "kp-103",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "hard",
+      "question": "Which Karnataka bird sanctuary near Gadag is known for wintering waterfowl?",
+      "options": [
+        "Magadi",
+        "Ranganathittu",
+        "Kokkarebellur",
+        "Attiveri"
+      ],
+      "answer": 0,
+      "explanation": "Magadi in Gadag district hosts large numbers of migratory bar-headed geese each winter. Ranganathittu is on the Kaveri near Srirangapatna.",
+      "source": "https://en.wikipedia.org/wiki/Bar-headed_goose"
+    },
+    {
+      "id": "kp-104",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "What is the state flower of Karnataka?",
+      "options": [
+        "Lotus",
+        "Rose",
+        "Jasmine",
+        "Marigold"
+      ],
+      "answer": 0,
+      "explanation": "The lotus is Karnataka's state flower, alongside the elephant as state animal, the Indian roller as state bird and sandalwood as state tree.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka"
+    },
+    {
+      "id": "kp-105",
+      "category": "kpsc",
+      "topic": "Environment",
+      "difficulty": "medium",
+      "question": "Sandalwood, the state tree of Karnataka, is protected because of what pressure?",
+      "options": [
+        "Illegal felling for its heartwood oil",
+        "Flooding of its habitat",
+        "Introduction of invasive pollinators",
+        "Excessive rainfall"
+      ],
+      "answer": 0,
+      "explanation": "Sandalwood's aromatic heartwood makes mature trees valuable enough to attract smuggling, which is why cutting has long been regulated in the state.",
+      "source": "https://en.wikipedia.org/wiki/Santalum_album"
+    },
+    {
+      "id": "kp-106",
+      "category": "kpsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "The Indian Institute of Science, India's premier research institute, is located in which city?",
+      "options": [
+        "Bengaluru",
+        "Pune",
+        "Chennai",
+        "Hyderabad"
+      ],
+      "answer": 0,
+      "explanation": "IISc was founded at Bengaluru in 1909 with support from Jamsetji Tata and the Mysore royal family.",
+      "source": "https://en.wikipedia.org/wiki/Indian_Institute_of_Science"
+    },
+    {
+      "id": "kp-107",
+      "category": "kpsc",
+      "topic": "Science",
+      "difficulty": "medium",
+      "question": "ISRO's satellite manufacturing centre, U R Rao Satellite Centre, is in which city?",
+      "options": [
+        "Bengaluru",
+        "Thiruvananthapuram",
+        "Sriharikota",
+        "Ahmedabad"
+      ],
+      "answer": 0,
+      "explanation": "The U R Rao Satellite Centre at Bengaluru builds ISRO's satellites. Launch vehicles come from Thiruvananthapuram and launches from Sriharikota.",
+      "source": "https://en.wikipedia.org/wiki/U_R_Rao_Satellite_Centre"
+    },
+    {
+      "id": "kp-108",
+      "category": "kpsc",
+      "topic": "Science",
+      "difficulty": "hard",
+      "question": "C. N. R. Rao, a Bharat Ratna recipient based in Karnataka, works in which field?",
+      "options": [
+        "Solid state and materials chemistry",
+        "Nuclear physics",
+        "Molecular biology",
+        "Astrophysics"
+      ],
+      "answer": 0,
+      "explanation": "C. N. R. Rao is a solid state and materials chemist and received the Bharat Ratna in 2014.",
+      "source": "https://en.wikipedia.org/wiki/C._N._R._Rao"
+    },
+    {
+      "id": "kp-109",
+      "category": "kpsc",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Karnataka High Court's benches at Dharwad and Kalaburagi were created to serve which need?",
+      "options": [
+        "Access to justice for the northern districts",
+        "Hearing only tax matters",
+        "Trying election petitions",
+        "Reviewing panchayat disputes"
+      ],
+      "answer": 0,
+      "explanation": "The circuit benches were established so litigants in northern Karnataka would not have to travel to Bengaluru for High Court matters.",
+      "source": "https://en.wikipedia.org/wiki/Karnataka_High_Court"
+    },
+    {
+      "id": "kp-110",
+      "category": "kpsc",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which pass connects the coastal plain to the Bengaluru plateau along the Shiradi route?",
+      "options": [
+        "Shiradi Ghat",
+        "Nathu La",
+        "Zoji La",
+        "Rohtang"
+      ],
+      "answer": 0,
+      "explanation": "Shiradi Ghat carries the Mangaluru-Bengaluru route through the Western Ghats. Nathu La, Zoji La and Rohtang are Himalayan passes.",
+      "source": "https://en.wikipedia.org/wiki/Shiradi_Ghat"
     }
   ]
 }
