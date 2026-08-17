@@ -1,14 +1,48 @@
-/* The card is a floating window on the desktop and the whole screen here. */
+/* The phone's home screen is the settings page, so it needs room to breathe
+   and touch targets rather than mouse ones. */
+body.sidepanel { padding: 14px; }
+
 body {
-  padding: 0;
-  margin: 0;
+  /* index.html on the desktop is a transparent window and paints nothing.
+     On a phone that shows as a blank screen, so the background is asserted. */
   background: var(--bg, #1c1b19);
-  /* Keep content clear of the status bar and the gesture area. */
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-#card { max-width: 640px; margin: 0 auto; padding: 16px; }
+/* Comfortable targets: the desktop rows are sized for a cursor. */
+.cat { min-height: 46px; }
+.btn { min-height: 42px; }
+select, input[type="time"], input[type="number"] { min-height: 38px; }
+.primary { padding: 14px; font-size: 15px; position: sticky; bottom: 8px; z-index: 5; }
 
-/* The desktop's option rows are sized for a mouse; a finger needs more. */
-#card .tpq-opt { min-height: 52px; }
+/* ---- the quiz overlay ----
+   A quiz covers the screen rather than appearing inline, so the page behind
+   cannot be scrolled away mid-question. */
+#kinvt-quiz-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--bg, #1c1b19);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#kinvt-quiz-overlay[hidden] { display: none; }
+
+#kinvt-quiz-overlay .kq-scroll {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(16px + env(safe-area-inset-top)) 12px calc(16px + env(safe-area-inset-bottom));
+}
+
+#kinvt-quiz-overlay #card { width: 100%; max-width: 560px; }
+
+/* The card's own options are sized for a mouse; a finger needs more. */
+#kinvt-quiz-overlay .tpq-opt { min-height: 52px; }
+
+/* ui-core sizes the card for the desktop's 412px window. On a phone it should
+   use the width available, so the max-width is lifted and the wrapper bounds
+   it instead. */
+#kinvt-quiz-overlay .tpq-card { max-width: 100% !important; width: 100% !important; }

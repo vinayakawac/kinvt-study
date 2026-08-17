@@ -48,8 +48,29 @@ function place(relTo, body) {
 
 // The shims are injected into the copy rather than referenced from
 // desktop/ui, so the desktop pages stay free of scripts that would 404 there.
+// The phone's home screen is the settings page, not the quiz window.
+//
+// index.html is the DESKTOP quiz window: a transparent, chromeless page whose
+// body is an empty #card that only fills when a popup fires. Shipping it as the
+// Android launch page gave exactly what you would expect — a blank screen.
+// The settings page already has the topic list, progress and controls, so it is
+// the right home, and the quiz renders over it as a full-screen overlay.
+function buildMobileIndex(settingsHtml) {
+  return injectShims(
+    settingsHtml
+      .replace('<title>Kinvt-study — Settings</title>', '<title>Kinvt-study</title>')
+      // ui-core.js draws the quiz card and is not loaded by the settings page.
+      .replace('  <script src="qr.js"></script>', '  <script src="ui-core.js"></script>\n  <script src="qr.js"></script>')
+  );
+}
+
 function injectShims(html) {
   return html
+    // Without this an Android webview assumes a ~980px page and scales the
+    // whole thing down, so a 375px phone renders the app at about a third
+    // size. The desktop shells size their own windows and never needed it.
+    .replace('  <meta charset="utf-8">',
+      '  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">')
     .replace('  <script src="ui-core.js"></script>',
       '  <link rel="stylesheet" href="shim/mobile.css">\n  <script src="ui-core.js"></script>')
     // storage-native.js swaps KinvtStorage's backend, so it must run AFTER
@@ -58,19 +79,32 @@ function injectShims(html) {
     // and Android quietly falls back to the localStorage this exists to avoid.
     .replace('  <script src="progress.js"></script>',
       '  <script src="shim/storage-native.js"></script>\n  <script src="progress.js"></script>')
-    // These depend on KinvtQuiz and TPQ_UI, and replace app.js, which is the
-    // desktop window controller and meaningless on a phone.
-    .replace('  <script src="app.js"></script>', [
-      '  <script src="shim/reminders.js"></script>',
-      '  <script src="shim/scan.js"></script>',
-      '  <script src="shim/mobile-app.js"></script>'
-    ].join('\n'));
+    // These depend on KinvtQuiz and TPQ_UI. On the settings page they go after
+    // settings.js; app.js is the desktop window controller and is dropped.
+    .replace('  <script src="app.js"></script>', SHIM_TAIL)
+    .replace('  <script src="settings.js"></script>', '  <script src="settings.js"></script>\n' + SHIM_TAIL);
 }
 
+const SHIM_TAIL = [
+  '  <script src="shim/reminders.js"></script>',
+  '  <script src="shim/scan.js"></script>',
+  '  <script src="shim/mobile-app.js"></script>'
+].join('\n');
+
 const uiFiles = walk(UI);
+const settingsHtml = fs.readFileSync(path.join(UI, 'settings.html'), 'utf8');
+
 for (const rel of uiFiles) {
   const src = fs.readFileSync(path.join(UI, rel));
-  place(rel, rel === 'index.html' ? Buffer.from(injectShims(src.toString('utf8'))) : src);
+  if (rel === 'index.html') {
+    // Replaced wholesale: the desktop quiz window is not a phone home screen.
+    place(rel, Buffer.from(buildMobileIndex(settingsHtml)));
+  } else if (rel === 'settings.html') {
+    // Kept for completeness, though the app opens index.html.
+    place(rel, Buffer.from(injectShims(src.toString('utf8'))));
+  } else {
+    place(rel, src);
+  }
 }
 
 // The shim supplies what Tauri provides on the desktop: durable storage,
