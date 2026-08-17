@@ -20,7 +20,7 @@ serde_json = "1"
 # Painting the title bar to match the app background is a Windows-only DWM
 # call, so the dependency is target-gated rather than carried everywhere.
 [target.'cfg(windows)'.dependencies]
-windows = { version = "0.58", features = ["Win32_Foundation", "Win32_Graphics_Dwm"] }
+windows = { version = "0.58", features = ["Win32_Foundation", "Win32_Graphics_Dwm", "Win32_UI_Shell"] }
 
 [profile.release]
 # A study popup has no business being a large download or holding memory it

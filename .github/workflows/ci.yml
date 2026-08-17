@@ -27,6 +27,22 @@ jobs:
       - name: Sync feed is current
         run: node scripts/sync-feed.mjs --check
 
+      # A module left out of a page, or a command implemented in only one
+      # shell, both fail silently at runtime rather than at build time.
+      # A syntax error in the shell shows a crash dialog and nothing else;
+      # nothing else here parses main.js before it is packaged.
+      - name: JavaScript parses
+        run: node scripts/check-syntax.mjs
+
+      - name: UI module wiring
+        run: node scripts/check-ui-scripts.mjs
+
+      - name: Shell command parity
+        run: node scripts/check-shell-parity.mjs
+
+      - name: Unit tests
+        run: node --test "scripts/test/*.test.mjs"
+
       # Without --require-source, because the questions written before sources
       # were required would otherwise fail. Generated content is validated
       # with the flag on, in expand-library.yml.

@@ -17,7 +17,7 @@
  */
 'use strict';
 
-const { app, BrowserWindow, Tray, Menu, globalShortcut, ipcMain, screen, nativeTheme, nativeImage } = require('electron');
+const { app, BrowserWindow, Tray, Menu, globalShortcut, ipcMain, screen, nativeTheme, nativeImage, shell } = require('electron');
 const path = require('path');
 
 const CARD_WIDTH = 400;
@@ -167,6 +167,34 @@ ipcMain.handle('emit', (_e, name) => {
   if (name === 'start-quiz') startQuiz();
 });
 
+
+/* ---------- parity with the Tauri shell ----------
+ * ui/ calls the same command names in both shells, so anything Rust exposes
+ * must exist here too or the feature silently does nothing under Electron.
+ */
+
+// Electron has no equivalent of SHQueryUserNotificationState. Rather than
+// guess, report "not busy": a wrong true would silently stop every scheduled
+// popup, which is far worse than an occasional badly-timed one. Quiet hours
+// and snooze still apply, and both are handled in the webview.
+ipcMain.handle("dnd_active", () => false);
+
+ipcMain.handle("write_backup", (_e, { path: p, contents }) => {
+  return require("node:fs").promises.writeFile(p, contents, "utf8");
+});
+
+ipcMain.handle("read_backup", (_e, { path: p }) => {
+  return require("node:fs").promises.readFile(p, "utf8");
+});
+
+ipcMain.handle("open_url", (_e, url) => {
+  // The scheme check is the security boundary: without it this would hand the
+  // OS any local executable path the page asked for.
+  var s = String(url);
+  if (s.indexOf('https://') !== 0 && s.indexOf('http://') !== 0) return;
+  return shell.openExternal(s);
+});
+
 /* ---------- lifecycle ---------- */
 
 // A tray app must not quit when its windows are closed.
@@ -200,6 +228,7 @@ if (!app.requestSingleInstanceLock()) {
     tray.setToolTip('Kinvt-study — local quiz, no AI');
     tray.setContextMenu(Menu.buildFromTemplate([
       { label: 'Quiz me now', click: startQuiz },
+      { label: 'Snooze 1 hour', click: () => { if (quizWin) quizWin.webContents.send('snooze'); } },
       { label: 'Settings…', click: openSettings },
       { type: 'separator' },
       { label: 'Quit', click: () => { app.isQuitting = true; app.quit(); } }

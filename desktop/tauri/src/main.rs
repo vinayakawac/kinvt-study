@@ -119,6 +119,46 @@ fn set_titlebar_theme(app: tauri::AppHandle, dark: bool) {
     }
 }
 
+/// Whether the OS says now is a bad moment to put a window on screen.
+///
+/// One call covers every case that matters: fullscreen Direct3D (games),
+/// presentation mode, busy or screen-sharing, and Focus Assist quiet time.
+/// Anything other than "accepts notifications" means stay out of the way.
+///
+/// On failure this returns false — allowing the popup. A broken query should
+/// not silently disable the whole product.
+#[cfg(windows)]
+#[tauri::command]
+fn dnd_active() -> bool {
+    use windows::Win32::UI::Shell::{SHQueryUserNotificationState, QUNS_ACCEPTS_NOTIFICATIONS};
+    unsafe {
+        match SHQueryUserNotificationState() {
+            Ok(state) => state != QUNS_ACCEPTS_NOTIFICATIONS,
+            Err(_) => false,
+        }
+    }
+}
+
+#[cfg(not(windows))]
+#[tauri::command]
+fn dnd_active() -> bool {
+    false
+}
+
+/// Read and write a backup file at a path the user picked.
+///
+/// Plain std::fs rather than a filesystem plugin: the whole requirement is one
+/// read and one write of a path the user has already chosen in a dialog.
+#[tauri::command]
+fn write_backup(path: String, contents: String) -> Result<(), String> {
+    std::fs::write(&path, contents).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+fn read_backup(path: String) -> Result<String, String> {
+    std::fs::read_to_string(&path).map_err(|e| e.to_string())
+}
+
 /// Settings live in their own ordinary window — it wants normal decorations
 /// and a solid background, unlike the quiz card.
 #[tauri::command]
@@ -164,14 +204,18 @@ fn main() {
             hide_quiz,
             resize_quiz,
             open_settings,
-            set_titlebar_theme
+            set_titlebar_theme,
+            dnd_active,
+            write_backup,
+            read_backup
         ])
         .setup(|app| {
             // ---- system tray ----
             let quiz_now = MenuItem::with_id(app, "quiz_now", "Quiz me now", true, None::<&str>)?;
+            let snooze = MenuItem::with_id(app, "snooze", "Snooze 1 hour", true, None::<&str>)?;
             let settings = MenuItem::with_id(app, "settings", "Settings…", true, None::<&str>)?;
             let quit = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
-            let menu = Menu::with_items(app, &[&quiz_now, &settings, &quit])?;
+            let menu = Menu::with_items(app, &[&quiz_now, &snooze, &settings, &quit])?;
 
             let tray_icon = app
                 .default_window_icon()
@@ -193,6 +237,9 @@ fn main() {
                             let _ = win.set_focus();
                         }
                     }
+                    // The webview owns all persisted state, so it records the
+                    // snooze rather than Rust keeping a second source of truth.
+                    "snooze" => { let _ = app.emit("snooze", ()); }
                     "settings" => open_settings(app.clone()),
                     "quit" => app.exit(0),
                     _ => {}

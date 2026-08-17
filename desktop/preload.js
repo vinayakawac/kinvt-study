@@ -11,7 +11,13 @@
 
 const { contextBridge, ipcRenderer } = require('electron');
 
-const ALLOWED = ['show_quiz', 'hide_quiz', 'resize_quiz', 'open_settings', 'set_titlebar_theme'];
+// Every command ui/ may call. A name missing here is rejected at the bridge,
+// so the feature silently does nothing rather than failing loudly — which is
+// exactly how the title-bar theming broke the first time.
+const ALLOWED = [
+  'show_quiz', 'hide_quiz', 'resize_quiz', 'open_settings', 'set_titlebar_theme',
+  'dnd_active', 'write_backup', 'read_backup', 'open_url'
+];
 
 contextBridge.exposeInMainWorld('__TAURI__', {
   core: {

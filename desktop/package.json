@@ -7,7 +7,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win --publish never"
+    "build": "electron-builder --win --publish never",
+    "prebuild": "node ../scripts/check-syntax.mjs && node ../scripts/check-shell-parity.mjs"
   },
   "devDependencies": {
     "electron": "^33.2.0",
@@ -16,9 +17,18 @@
   "build": {
     "appId": "com.kinvtstudy.quiz",
     "productName": "Kinvt-study",
-    "files": ["main.js", "preload.js", "ui/**/*", "!ui/_preview*", "icons/**/*"],
+    "files": [
+      "main.js",
+      "preload.js",
+      "ui/**/*",
+      "!ui/_preview*",
+      "icons/**/*"
+    ],
     "win": {
-      "target": ["nsis", "portable"],
+      "target": [
+        "nsis",
+        "portable"
+      ],
       "icon": "icons/icon.ico"
     },
     "nsis": {

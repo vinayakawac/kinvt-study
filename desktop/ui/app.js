@@ -13,12 +13,17 @@
 (function () {
   'use strict';
 
-  var invoke = window.__TAURI__.core.invoke;
-  var listen = window.__TAURI__.event.listen;
+  var TAURI = window.__TAURI__ || {
+    core: { invoke: function () { return Promise.resolve(); } },
+    event: { emit: function () {}, listen: function () {} }
+  };
+  var invoke = TAURI.core.invoke;
+  var listen = TAURI.event.listen;
 
   var cardEl = document.getElementById('card');
   var timer = null;
   var open = false;
+  var lastH = 0;
 
   function hide() {
     open = false;
@@ -30,8 +35,6 @@
 
   // A transparent window shows its unused area as a floating rectangle, so
   // the window has to track the card's real height rather than guess it.
-  var lastH = 0;
-
   function fitWindow() {
     // Measure the wrapper, not the card, so the padding that keeps the
     // rounded corners off the window edge is included.
@@ -50,8 +53,51 @@
   var cardObserver = new ResizeObserver(function () { fitWindow(); });
   cardObserver.observe(cardEl);
 
-  function startQuiz() {
+  /* ---------- quiet hours ----------
+   * Minutes since midnight, which keeps timezones and dates out of it. The
+   * case that matters is a window crossing midnight (22:00–07:00, the
+   * default): a naive start <= now < end silences nothing at all for it.
+   */
+  function isQuiet(now, start, end) {
+    if (start === end) return false;
+    if (start < end) return now >= start && now < end;
+    return now >= start || now < end;
+  }
+
+  function inQuietHours(settings) {
+    var d = new Date();
+    var mins = d.getHours() * 60 + d.getMinutes();
+    var s = typeof settings.quietStart === 'number' ? settings.quietStart : 1320;
+    var e = typeof settings.quietEnd === 'number' ? settings.quietEnd : 420;
+    return isQuiet(mins, s, e);
+  }
+
+  /* ---------- showing a quiz ----------
+   * `manual` marks an explicit request — the hotkey or the tray. Those always
+   * fire: silently swallowing a keypress reads as a bug, and pressing the key
+   * IS the statement that now is a fine moment.
+   */
+  function startQuiz(manual) {
     if (open) return; // never stack two cards in one window
+
+    if (!manual) {
+      var s = window.KinvtQuiz.getSettings();
+      if (Date.now() < window.KinvtQuiz.getSnoozeUntil()) { scheduleNext(); return; }
+      if (inQuietHours(s)) { scheduleNext(); return; }
+
+      if (s.respectDnd !== false) {
+        return invoke('dnd_active').then(function (busy) {
+          // Skipped, not queued. Queuing would fire a burst of cards the
+          // moment a game closes, which is worse than missing one.
+          if (busy) { scheduleNext(); return; }
+          return present();
+        }).catch(function () { return present(); });
+      }
+    }
+    return present();
+  }
+
+  function present() {
     return window.KinvtQuiz.buildQuiz().then(function (quiz) {
       if (!quiz) return; // nothing selected — stay quiet rather than show an empty card
       open = true;
@@ -90,15 +136,22 @@
     clearTimer();
     var s = window.KinvtQuiz.getSettings();
     if (!s.enabled) return;
-    var mins = Math.max(1, Math.round(s.intervalMin) || 30);
+    // Floor of 2 minutes matches what Settings allows; anything smaller would
+    // be an interruption rather than a study prompt.
+    var mins = Math.max(2, Math.round(s.intervalMin) || 30);
     timer = setTimeout(function () {
-      startQuiz();
+      startQuiz(false);
     }, mins * 60 * 1000);
   }
 
   // Tray menu and the global hotkey both route through this event, so there
-  // is one code path for "start a quiz now".
-  listen('start-quiz', function () { startQuiz(); });
+  // is one code path for "start a quiz now" — and both count as manual.
+  listen('start-quiz', function () { startQuiz(true); });
+
+  listen('snooze', function () {
+    window.KinvtQuiz.setSnoozeUntil(Date.now() + 60 * 60 * 1000);
+    scheduleNext();
+  });
 
   // Settings changes must re-arm the timer, otherwise a new interval would
   // not take effect until after the next popup fired on the old one.
