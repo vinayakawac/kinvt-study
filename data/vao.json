@@ -2161,6 +2161,246 @@
       "answer": 0,
       "explanation": "DBT removes intermediaries by crediting entitlements directly to a linked bank account, which is why it is tied to Aadhaar seeding.",
       "source": "https://en.wikipedia.org/wiki/Direct_Benefit_Transfer"
+    },
+    {
+      "id": "va-136",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "A possession certificate issued by the revenue authorities states that a person",
+      "options": [
+        "Is in actual possession of a specified piece of land",
+        "Owns a registered company",
+        "Has paid income tax",
+        "Is a resident of the state"
+      ],
+      "answer": 0,
+      "explanation": "A possession certificate records actual physical possession, which can differ from registered ownership and is often needed for loans and utility connections.",
+      "source": "https://en.wikipedia.org/wiki/Possession_(law)"
+    },
+    {
+      "id": "va-137",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "hard",
+      "question": "In Karnataka, 'phodi' work refers to",
+      "options": [
+        "Field measurement to give each sub-divided holding its own record",
+        "Auction of surplus government land",
+        "Assessment of house tax",
+        "Collection of arrears"
+      ],
+      "answer": 0,
+      "explanation": "Phodi is the survey operation that gives a partitioned or sold portion its own hissa number, sketch and record, completing what the mutation began on paper.",
+      "source": "https://en.wikipedia.org/wiki/Cadastre"
+    },
+    {
+      "id": "va-138",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Which officer is the custodian of village land records in Karnataka?",
+      "options": [
+        "The Village Accountant",
+        "The Panchayat Development Officer",
+        "The Sub-Registrar",
+        "The Police Sub-Inspector"
+      ],
+      "answer": 0,
+      "explanation": "The Village Accountant keeps and updates the village records under the Revenue Inspector's supervision. The Sub-Registrar keeps registered deeds instead.",
+      "source": "https://en.wikipedia.org/wiki/Patwari"
+    },
+    {
+      "id": "va-139",
+      "category": "vao",
+      "topic": "Revenue Administration",
+      "difficulty": "medium",
+      "question": "Stamp duty on a property sale in Karnataka is payable to which department?",
+      "options": [
+        "Stamps and Registration",
+        "Commercial Taxes",
+        "Revenue survey",
+        "Rural Development"
+      ],
+      "answer": 0,
+      "explanation": "Stamp duty and registration fees are collected by the Department of Stamps and Registration through the Sub-Registrar offices.",
+      "source": "https://en.wikipedia.org/wiki/Stamp_duty"
+    },
+    {
+      "id": "va-140",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka city is a major centre of the cotton and handloom trade in the north?",
+      "options": [
+        "Hubballi",
+        "Mysuru",
+        "Mangaluru",
+        "Kodagu"
+      ],
+      "answer": 0,
+      "explanation": "Hubballi is the commercial heart of north Karnataka, historically a cotton and handloom trading centre. Mangaluru is a port and Mysuru a silk and tourism centre.",
+      "source": "https://en.wikipedia.org/wiki/Hubli"
+    },
+    {
+      "id": "va-141",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "hard",
+      "question": "Which UNESCO World Heritage Site in Karnataka comprises a group of Chalukyan monuments?",
+      "options": [
+        "Pattadakal",
+        "Hampi only",
+        "Belur",
+        "Srirangapatna"
+      ],
+      "answer": 0,
+      "explanation": "Pattadakal in Bagalkot district is inscribed for its Chalukyan temples blending northern and southern styles. Hampi is separately inscribed for Vijayanagara.",
+      "source": "https://en.wikipedia.org/wiki/Pattadakal"
+    },
+    {
+      "id": "va-142",
+      "category": "vao",
+      "topic": "Karnataka GK",
+      "difficulty": "medium",
+      "question": "Which Karnataka district is the largest by geographical area?",
+      "options": [
+        "Belagavi",
+        "Bengaluru Urban",
+        "Udupi",
+        "Kodagu"
+      ],
+      "answer": 0,
+      "explanation": "Belagavi is the largest district by area in Karnataka. Bengaluru Urban is the smallest but most populous.",
+      "source": "https://en.wikipedia.org/wiki/List_of_districts_of_Karnataka"
+    },
+    {
+      "id": "va-143",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "The Zilla Panchayat in Karnataka operates at which level?",
+      "options": [
+        "District",
+        "Village",
+        "Taluk",
+        "State"
+      ],
+      "answer": 0,
+      "explanation": "The Zilla Panchayat is the district tier, above the Taluk Panchayat and the Gram Panchayat.",
+      "source": "https://en.wikipedia.org/wiki/Panchayati_raj_in_India"
+    },
+    {
+      "id": "va-144",
+      "category": "vao",
+      "topic": "Polity",
+      "difficulty": "medium",
+      "question": "Which writ is issued to release a person from unlawful detention?",
+      "options": [
+        "Habeas corpus",
+        "Mandamus",
+        "Prohibition",
+        "Quo warranto"
+      ],
+      "answer": 0,
+      "explanation": "Habeas corpus commands that a detained person be produced before the court. Mandamus compels a public duty and quo warranto challenges a claim to office.",
+      "source": "https://en.wikipedia.org/wiki/Habeas_corpus"
+    },
+    {
+      "id": "va-145",
+      "category": "vao",
+      "topic": "History",
+      "difficulty": "medium",
+      "question": "In which year did India adopt its Constitution?",
+      "options": [
+        "1949, coming into force in 1950",
+        "1947",
+        "1950 for both",
+        "1935"
+      ],
+      "answer": 0,
+      "explanation": "The Constituent Assembly adopted the Constitution on 26 November 1949 and it came into force on 26 January 1950.",
+      "source": "https://en.wikipedia.org/wiki/Constitution_of_India"
+    },
+    {
+      "id": "va-146",
+      "category": "vao",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "question": "Which Karnataka river flows westward and forms the Gersoppa or Jog falls?",
+      "options": [
+        "Sharavathi",
+        "Kaveri",
+        "Bhima",
+        "Tungabhadra"
+      ],
+      "answer": 0,
+      "explanation": "The Sharavathi drops at Jog Falls, also called Gersoppa, before reaching the Arabian Sea. The Kaveri, Bhima and Tungabhadra all flow east.",
+      "source": "https://en.wikipedia.org/wiki/Jog_Falls"
+    },
+    {
+      "id": "va-147",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "Which device converts a printed document into a digital image?",
+      "options": [
+        "Scanner",
+        "Printer",
+        "Plotter",
+        "Projector"
+      ],
+      "answer": 0,
+      "explanation": "A scanner digitises a physical page. Printers, plotters and projectors all output rather than capture.",
+      "source": "https://en.wikipedia.org/wiki/Image_scanner"
+    },
+    {
+      "id": "va-148",
+      "category": "vao",
+      "topic": "Computer Knowledge",
+      "difficulty": "medium",
+      "question": "In an office suite, which application is best suited to preparing a presentation?",
+      "options": [
+        "Impress or PowerPoint",
+        "Calc or Excel",
+        "Writer or Word",
+        "Base or Access"
+      ],
+      "answer": 0,
+      "explanation": "Impress and PowerPoint build slide presentations. Spreadsheets handle calculation, word processors documents and Base or Access databases.",
+      "source": "https://en.wikipedia.org/wiki/Presentation_program"
+    },
+    {
+      "id": "va-149",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Choose the correct form: 'Neither of the officers ____ present.'",
+      "options": [
+        "was",
+        "were",
+        "are",
+        "have been"
+      ],
+      "answer": 0,
+      "explanation": "'Neither' is singular, so it takes a singular verb even when followed by a plural noun in the of-phrase.",
+      "source": "https://en.wikipedia.org/wiki/English_grammar"
+    },
+    {
+      "id": "va-150",
+      "category": "vao",
+      "topic": "English",
+      "difficulty": "medium",
+      "question": "Which word is the synonym of 'obligatory'?",
+      "options": [
+        "Compulsory",
+        "Optional",
+        "Voluntary",
+        "Occasional"
+      ],
+      "answer": 0,
+      "explanation": "Obligatory means required, so compulsory is the synonym. Optional and voluntary are its opposites.",
+      "source": "https://en.wikipedia.org/wiki/Synonym"
     }
   ]
 }
