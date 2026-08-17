@@ -16,3 +16,6 @@ mobile/node_modules/
 # Signing material must never be committed
 *.keystore
 *.jks
+
+# Local build collection point (see README)
+builds/

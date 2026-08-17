@@ -428,6 +428,32 @@
       input.click();
     });
 
+    /* ---- resetting progress ----
+     * This clears the only copy of your history: answered counts, per-topic
+     * accuracy and the review queue all live on this device and nowhere else.
+     * So it asks twice — once to confirm, and by offering a backup first —
+     * rather than wiping months of work on a stray click.
+     */
+    $('resetBtn').addEventListener('click', function () {
+      var st = window.KinvtQuiz.getStats();
+      var total = window.KinvtMerge.totals(st).answered;
+      var msg = total
+        ? 'Reset progress?\n\nThis erases ' + total + ' answered questions, every topic\'s accuracy, and ' +
+          window.KinvtQuiz.reviewCount() + ' questions waiting for review.\n\n' +
+          'It cannot be undone — there is no server holding a copy. Back up first if you are unsure.'
+        : 'There is no progress to reset yet.';
+
+      if (!total) { backupMsg(msg); return; }
+      if (!window.confirm(msg)) return;
+
+      window.KinvtQuiz.resetStats();
+      // The review queue is separate storage and must go too, or retired
+      // questions would keep resurfacing against a zeroed score.
+      try { localStorage.removeItem('kinvt.review'); } catch (e) { /* noop */ }
+      renderStats();
+      backupMsg('Progress reset. Question banks and paired devices are untouched.');
+    });
+
     /* ---- pairing a phone ----
      * The QR carries the key, which is the whole security model: it crosses
      * optically and never touches the network, so the HTTP transport only ever

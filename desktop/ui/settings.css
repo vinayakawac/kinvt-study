@@ -492,3 +492,7 @@ footer { text-align: center; font-size: 10px; color: var(--muted); }
 /* A paired device row: name, when it last synced, and Forget. */
 #peerList .row { gap: 10px; }
 #peerList .row .hint { flex: 1 1 auto; text-align: right; margin: 0; }
+
+/* Destructive action: visibly not the same kind of button as its neighbours. */
+.btn.danger { color: var(--bad); border-color: var(--bad); }
+.btn.danger:hover { background: var(--bad); color: var(--bg); border-color: var(--bad); }
