@@ -47,6 +47,12 @@ jobs:
       - name: Shell command parity
         run: node scripts/check-shell-parity.mjs
 
+      # The shipped code has no dependencies; these are test-only. jsqr decodes
+      # what the QR encoder produces, which is the one thing assertions written
+      # alongside an encoder cannot check.
+      - name: Test dependencies
+        run: npm install --no-audit --no-fund
+
       - name: Unit tests
         run: node --test scripts/test/*.test.mjs
 

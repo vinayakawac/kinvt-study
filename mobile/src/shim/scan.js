@@ -10,14 +10,62 @@
   var Scanner = global.Capacitor && global.Capacitor.Plugins && global.Capacitor.Plugins.BarcodeScanner;
   if (!Scanner) return;
 
+  /*
+   * The sync request goes through native HTTP rather than the webview's fetch,
+   * and it has to.
+   *
+   * Capacitor serves the app from https://localhost, so a plain fetch() to a
+   * peer at http://192.168.x.x is active mixed content and Chromium blocks it
+   * outright — before Android's own cleartext policy even gets a say. Both had
+   * to be fixed; the manifest's network security config handles the second.
+   *
+   * The two obvious ways out are both wrong here:
+   *
+   *   androidScheme: 'http'        drops the app to an insecure origin, which
+   *                                takes crypto.subtle with it — and the sync
+   *                                envelope is encrypted with WebCrypto, so
+   *                                this trades a blocked request for no
+   *                                encryption at all.
+   *   allowMixedContent: true      globally re-permits mixed content for every
+   *                                request the app will ever make. Capacitor
+   *                                documents it as not for production, and it
+   *                                is far more than one LAN call needs.
+   *
+   * CapacitorHttp makes the request from native code, where the webview's
+   * mixed-content rule does not apply, and nothing else in the app changes:
+   * the question sync keeps using ordinary fetch over HTTPS.
+   */
+  var Http = global.Capacitor.Plugins && global.Capacitor.Plugins.CapacitorHttp;
+
   function transport(url, envelope) {
-    return fetch(url, {
+    if (!Http) {
+      // A build without the plugin: try anyway rather than fail silently, and
+      // let the mixed-content error surface as itself.
+      return fetch(url, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(envelope)
+      }).then(function (r) {
+        if (!r.ok) throw new Error('the other device refused the sync (' + r.status + ')');
+        return r.json();
+      });
+    }
+
+    return Http.request({
+      url: url,
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(envelope)
+      // Passed as an object, not a string: CapacitorHttp serialises JSON
+      // itself, and handing it a pre-encoded string gets it sent as a quoted
+      // JSON string that the other end cannot parse as an envelope.
+      data: envelope
     }).then(function (r) {
-      if (!r.ok) throw new Error('the other device refused the sync (' + r.status + ')');
-      return r.json();
+      if (r.status < 200 || r.status >= 300) {
+        throw new Error('the other device refused the sync (' + r.status + ')');
+      }
+      // Native returns parsed JSON when the content type says so, and a string
+      // otherwise.
+      return typeof r.data === 'string' ? JSON.parse(r.data) : r.data;
     });
   }
 

@@ -1,0 +1,12 @@
+{
+  "name": "kinvt-study",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test scripts/test/*.test.mjs"
+  },
+  "//": "The shipped code has no dependencies and should keep none — the QR encoder, the PNG encoder and the ICO writer are all hand-rolled on purpose. jsqr is here to DECODE what the encoder produces, in tests only. An encoder checked solely by assertions written alongside it can be systematically wrong and pass everything; an independent decoder cannot be wrong in the same way.",
+  "devDependencies": {
+    "jsqr": "^1.4.0"
+  }
+}

@@ -57,7 +57,11 @@ jobs:
           mkdir -p mobile/android/app/src/main/res/drawable
           cp mobile/src/res/ic_stat_kinvt.xml mobile/android/app/src/main/res/drawable/
 
-      - name: Permissions
+      # Also raises minSdk and, on a tag, stamps versionCode/versionName —
+      # Play rejects an upload whose versionCode does not increase.
+      - name: Permissions, SDK level and version
+        env:
+          KINVT_VERSION: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || '' }}
         run: node scripts/patch-android-manifest.mjs
 
       # mobile/android is regenerated on every run, so the launcher icons are

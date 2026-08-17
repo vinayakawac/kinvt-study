@@ -1,158 +1,144 @@
 # Android release plan
 
-What stands between the current APK and a Play Store listing, in the order it
-should be done, with an honest note on how far each item can actually be
-verified from this machine.
+What stands between the current APK and a Play Store listing, with an honest
+note on how far each item can be verified from this machine.
 
-Written 2026-08-17. Status at that date: the app builds, runs and is usable on
-an emulator; it has never been built as a release, never been signed, and one
-of its two headline features (device sync) cannot work on any real device as
-shipped.
+Written 2026-08-17; **A1, A2, A3, A5, A6 and B3 were done that day** and are
+kept below with what was actually found, because most of them turned up more
+than the plan predicted.
 
-Three groups:
-
-- **A — code, verifiable here.** Emulator plus the test suite is enough.
-- **B — code, verifiable only in part.** Real hardware or a Play-enabled
-  device closes the rest.
-- **C — not mine to do.** Keys, money, and a hosted URL.
+Groups: **A** code, verifiable here — **B** code, verifiable only in part —
+**C** not mine to do.
 
 ---
 
-## A1. Cleartext HTTP to the LAN — *blocks sync entirely*
+## ✅ A1. Cleartext HTTP — *was two bugs, not one*
 
-**The bug.** `sync-session.js` builds `http://<host>:<port>/v1/sync`. Android
-has blocked cleartext by default since Android 9, so on any real device the
-fetch fails with `ERR_CLEARTEXT_NOT_PERMITTED` before a byte leaves. Sync is
-not "untested" — it cannot work.
+Sync builds `http://<host>:<port>/v1/sync`, and Android has blocked cleartext
+by default since Android 9. Fixed with a `network_security_config.xml` applied
+by `patch-android-manifest.mjs`.
 
-This never showed up because the emulator is NAT'd off the LAN, so no sync was
-ever attempted from it.
+**Correction to the original plan**, which claimed the config could be scoped
+to private IP ranges: it cannot. `<domain>` entries take hostnames, and the
+format has no CIDR syntax, so "permit cleartext on 192.168.0.0/16" is not
+expressible. A peer's address is DHCP and cannot be listed ahead of time.
 
-**The fix.** A `network_security_config.xml` permitting cleartext for private
-ranges *only* — `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`, plus
-`10.0.2.2` so the emulator can reach a listener on the host. Referenced from
-`<application android:networkSecurityConfig=…>`, applied by
-`patch-android-manifest.mjs` since `mobile/android` is regenerated.
+What *is* expressible is the reverse, and that is what shipped: cleartext is
+permitted by default, and `githubusercontent.com` — the only host contacted off
+the LAN — is pinned to HTTPS so it cannot be downgraded even by a future
+`http://` typo. The plaintext carries an already-encrypted envelope; TLS was
+never what protected it.
 
-Scoping to private ranges matters: `usesCleartextTraffic="true"` would open
-plaintext to the whole internet to fix a LAN-only feature, and Play asks about
-exactly this.
+**Then a second, independent blocker appeared** once the first was fixed, and
+only because A2 made a real request possible: Capacitor serves the app from
+`https://localhost`, so *any* `http://` fetch is active mixed content and
+Chromium blocks it before Android's policy is consulted. Neither fix alone
+does anything.
 
-**Verified by** A2.
+Two obvious ways out are both wrong here. `androidScheme: 'http'` drops the app
+to an insecure origin and takes `crypto.subtle` with it — and the sync envelope
+is encrypted with WebCrypto, so it trades a blocked request for no encryption.
+`allowMixedContent: true` re-permits mixed content globally and Capacitor
+documents it as not for production. The sync transport now goes through
+`CapacitorHttp`, which makes the request from native code where the webview's
+rule does not apply, and nothing else in the app changes.
 
----
+## ✅ A2. A real device-to-device sync
 
-## A2. A real device-to-device sync — *closes a long-standing unknown*
+`scripts/dev-sync-host.mjs` stands up the listener the desktop shells run as
+its own process; the emulator reaches it at `10.0.2.2`. **A sync completed**:
+the phone went from 11 answered / 6 correct to 14 / 8, exactly absorbing the
+host's three answers, and the host logged the 200. Repeating it changed
+nothing, which is the idempotent merge behaving.
 
-`scripts/test/sync-transport.test.mjs` already stands up an HTTP listener
-shaped exactly like the shells' — same path, same 404, same size cap. Lift its
-`listen()` into `scripts/dev-sync-host.mjs`, run it on this machine, and the
-emulator reaches it at `10.0.2.2:<port>`. Seed a peer, tap sync.
+That is the first device-to-device sync in the project's history.
 
-That is a genuine end-to-end exchange between two independent devices over a
-real socket, and it proves A1 at the same time.
+**Still not proven:** that the Tauri and Electron listeners behave like the Node
+one — only the shared protocol was exercised — and nothing about discovery or
+pairing over real Wi-Fi. Two physical devices remain the only way.
 
-**What it does not prove:** that the Tauri and Electron listeners behave like
-the Node one (only the shared protocol is exercised), and nothing about
-discovery or pairing over real Wi-Fi. Two physical devices remain the only way
-to close those.
+## ✅ A3. Decode a generated QR — *found three real bugs*
 
----
+The old tests checked finders, timing and quiet zone, and every one passed
+while **no code the encoder ever produced could be read by anything.** They
+were written from the same understanding as the encoder, so they agreed with
+it. `jsqr` is now a devDependency and the tests require the original string
+back, across all ten versions.
 
-## A3. Decode a generated QR code — *closes the oldest unknown*
+What it found, in order:
 
-`qr.test.mjs` checks finder patterns, timing and quiet zone. It has never
-decoded anything, so a systematically wrong mask or wrong format bits would
-pass every existing assertion — which is precisely what the handoff suspected.
+1. **The Reed–Solomon generator polynomial was built backwards.** `rsGenerator`
+   emitted coefficients lowest-degree-first while `rsEncode` read them
+   highest-first. Degree 1 hid it perfectly — the generator there is `[1, 1]`,
+   a palindrome — so the field arithmetic looked sound while every code carried
+   error-correction bytes computed from a mirrored polynomial. Syndromes never
+   cleared; every scanner rejected it.
+2. **No version information block.** Versions 7 and up carry their version in
+   two 6×3 blocks beside the finders. It was never written, so everything from
+   version 7 on was unreadable.
+3. **Two alignment patterns dropped at version 7+.** The loop skipped any
+   centre that was already `reserved`, which looks equivalent to the spec's
+   rule and is not: centres on row/column 6 sit on the timing lines and are
+   reserved, so `(6, mid)` and `(mid, 6)` were silently omitted. Versions 1–6
+   have only two centres and no middle one, so nothing was ever lost there —
+   which is why the bug waited for version 7.
 
-Add an independent decoder as a **devDependency** and assert
-`decode(encode(url)) === url`, over a short string and a full-length pairing
-URL (which pushes past version 1 and exercises the version selection).
+A pairing URL is about 103 characters, i.e. version 5 or 6, so real codes were
+in the range that *would* have worked had bug 1 not made all of them invalid.
 
-Independent, deliberately: a decoder written here from the same understanding
-as the encoder would share its bugs and prove nothing. This is also stronger
-than pointing a camera at a screen — deterministic, and it runs in CI forever.
+Two edits to the format-information placement were made along the way and then
+**reverted**: it was correct as written. Indexing from bit 0 up lands the same
+modules as the spec's bit-14-down ordering because the two halves of each copy
+are walked in opposite directions, so the reversal cancels. Verified module for
+module against an independent encoder before reverting.
 
----
+## ✅ A5. `assembleRelease` proven
 
-## A4. targetSdk — *a real decision, not a version bump*
+It had never once run. It works, and produces a 23.5 MB
+`app-release-unsigned.apk`. Signing still needs C1.
 
-Currently `targetSdk 34`, `compileSdk 34`, Capacitor 6.2. Play requires new
-submissions to target the previous year's API level, so 34 is short. **Check
-Play's current required level before picking a number** — it moves every
-August.
+## ✅ A6. Version from the tag, and ✅ B3. minSdk
 
-The catch: **API 35 enforces edge-to-edge.** The status bar goes transparent
-and content draws underneath it. The app already uses `env(safe-area-inset-*)`
-throughout, so it may land close — but today's build has an opaque status bar,
-so this *will* change how every screen looks and every one needs re-checking.
-
-Two routes:
-
-- **(a) Bump targetSdk on Capacitor 6.** Smaller diff, testable in about an
-  hour. Off Capacitor's official support matrix — 6.x targets SDK 34.
-- **(b) Upgrade Capacitor 6 → 7 first, then bump.** The supported path. Bigger
-  blast radius: all five plugins move together, and the shims get re-verified
-  against new plugin APIs.
-
-**(b) for something going to Play.** (a) is a reasonable way to find out how
-much edge-to-edge actually costs before committing to the upgrade.
-
----
-
-## A5. Prove `assembleRelease` works
-
-Only `assembleDebug` has ever run — `app/build/outputs/apk/` contains `debug`
-and nothing else. Build an **unsigned release**, install it, walk every screen.
-Release-only differences (manifest merge, resource shrinking, the debug-only
-webview affordances Capacitor drops) have never once been exercised.
-
-Cheap, and it must happen before signing is worth wiring up.
-
----
-
-## A6. Version from the tag
-
-`versionCode 1` / `versionName "1.0"` are hardcoded. Play rejects an upload
-whose `versionCode` does not exceed the last one, so this needs to be
-mechanical before the first update, not after. Derive both from the `v*` tag in
-CI.
+`patch-android-manifest.mjs` now raises minSdk 22 → 26 and, when `KINVT_VERSION`
+is set from a `v*` tag in CI, stamps `versionName` and a monotonic
+`versionCode` (1.2.3 → 10203). Play rejects an upload whose versionCode does
+not increase, so this had to be mechanical before the first update.
 
 ---
+
+## A4. targetSdk — *the one real decision, still open*
+
+`targetSdk 34`, `compileSdk 34`, Capacitor 6.2. Play requires new submissions
+to target the previous year's API level. **Check Play's current required level
+before picking a number** — it moves every August.
+
+API 35 enforces edge-to-edge: the status bar goes transparent and content draws
+underneath. The CSS already uses `env(safe-area-inset-*)`, so it may land
+close, but today's build has an opaque status bar, so this *will* change every
+screen and every one needs rechecking.
+
+- **(a) Bump targetSdk on Capacitor 6.** Small, testable in about an hour. Off
+  Capacitor's support matrix — 6.x targets SDK 34.
+- **(b) Upgrade Capacitor 6 → 7 first.** The supported path. All five plugins
+  move together and the shims get re-verified.
+
+**(b) for something going to Play.** (a) is a cheap way to find out what
+edge-to-edge costs before committing.
 
 ## B1. Reminders through Doze
 
-Testable further than the handoff assumed: `adb shell dumpsys deviceidle
-force-idle` puts the emulator into Doze, and whether an inexact alarm survives
-it can be observed directly. Worth doing — it is the difference between "we
-think reminders work" and "reminders survive Doze on stock Android".
-
-**Never testable here:** OEM battery managers. Xiaomi, Samsung, Oppo and
-friends kill background alarms by policy, and no emulator reproduces that. This
-stays a known risk to be documented in the listing, not solved in code.
-
----
+Testable further than assumed: `adb shell dumpsys deviceidle force-idle` puts
+the emulator into Doze directly. Never testable here: OEM battery managers.
+Xiaomi, Samsung and friends kill background alarms by policy, and no emulator
+reproduces it. Document it in the listing; it is not fixable in code.
 
 ## B2. The barcode scanner module download
 
-`scan.js` now installs Google's scanner module on first use, because `scan()`
-fails without it on a clean device — found by testing, not by reading docs.
-That install path has still never run: this emulator image has no Play
-Services to fetch it from.
-
-Needs a **Google Play** system image AVD, or a real phone. One attempt with a
-Play-enabled AVD is worth it before assuming a device is required.
-
----
-
-## B3. minSdk 22
-
-Android 5.1, and the app has only ever run on API 35. ML Kit, adaptive icons
-(26+) and webview behaviour on 5.1 are all untested, for a fraction of a
-percent of devices.
-
-**Raise it to 26.** It costs nothing real and deletes a whole class of unknowns
-rather than carrying them into a release.
+`scan.js` installs Google's scanner module on first use, because `scan()` fails
+without it on a clean device — found by testing, not by reading docs. That
+install path has still never run: this emulator image has no Play Services to
+fetch from. Try a **Google Play** system image AVD before assuming a real phone
+is required.
 
 ---
 
@@ -168,48 +154,31 @@ keytool -genkeypair -v -keystore kinvt-release.jks -keyalg RSA -keysize 4096 -va
 Then set four repository secrets, which the workflow already reads:
 `ANDROID_KEYSTORE_BASE64` (the `.jks`, base64), `ANDROID_KEYSTORE_PASSWORD`,
 `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`. Until they exist the workflow logs
-a warning and produces an unsigned APK.
-
-The `.jks` must never be committed. `.gitignore` should say so explicitly
-before the file exists, not after.
-
----
+a warning and produces an unsigned APK. The `.jks` must never be committed —
+`.gitignore` should say so before the file exists, not after.
 
 ## C2. Play Console account
 
-One-time $25, and identity verification that can take days. Start it early —
-it is the item most likely to be the actual long pole.
+One-time $25 plus identity verification that can take days. Start it early; it
+is the most likely long pole.
+
+## C3–C5. Privacy policy, Data safety, store assets
+
+The policy text is derivable from what the code does — questions bundled
+on-device, no accounts, no analytics, camera only for pairing, notifications
+for reminders, no network at runtime beyond the question sync — and can be
+drafted here; hosting it is the part that needs somewhere to live. Data safety
+answers follow from the manifest permissions and the code paths, so they can be
+filled in accurately rather than guessed; a declaration that does not match
+observed behaviour is a suspension risk. Screenshots can be captured from the
+emulator; the feature graphic needs design.
 
 ---
 
-## C3. Privacy policy — a hosted URL is required
+## What is left, in order
 
-The text is derivable from what the code actually does, and can be drafted
-here: questions bundled on-device, no accounts, no analytics, camera used only
-to scan a pairing code, notifications for reminders, no network at runtime
-beyond the question sync. Hosting it is the part that needs somewhere to live.
-
-## C4. Data safety declaration
-
-Every answer follows from the manifest permissions and the code paths, so this
-can be filled in accurately rather than guessed. Worth doing carefully: a
-declaration that does not match observed app behaviour is a suspension risk.
-
-## C5. Store listing assets
-
-Screenshots can be captured from the emulator at the required sizes, and the
-copy drafted. The feature graphic needs actual design work.
-
----
-
-## Suggested order
-
-1. **A1 + A2 together** — the live bug and the test that proves it fixed.
-2. **A3** — cheap, and closes the oldest unknown in the project.
-3. **A4** — decide the Capacitor route, because A5 and everything after it
-   depend on the answer.
-4. **A5, A6, B3** — release mechanics, once the SDK level is settled.
-5. **C1 + C2 in parallel with all of the above** — they have lead times that
-   have nothing to do with code.
-6. **B1, B2** — before submitting, not before building.
-7. **C3–C5** — last, and only once the app's behaviour has stopped moving.
+1. **A4** — decide the Capacitor route. Everything about the release variant
+   depends on it.
+2. **C1 + C2** — in parallel, they have lead times unrelated to code.
+3. **B1, B2** — before submitting, not before building.
+4. **C3–C5** — last, once behaviour has stopped moving.

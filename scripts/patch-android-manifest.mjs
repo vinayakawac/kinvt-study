@@ -10,6 +10,32 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MANIFEST = path.join(ROOT, 'mobile', 'android', 'app', 'src', 'main', 'AndroidManifest.xml');
 const GRADLE = path.join(ROOT, 'mobile', 'android', 'app', 'build.gradle');
+const XML_DIR = path.join(ROOT, 'mobile', 'android', 'app', 'src', 'main', 'res', 'xml');
+const VARIABLES = path.join(ROOT, 'mobile', 'android', 'variables.gradle');
+
+// Capacitor generates minSdk 22 — Android 5.1. The app has only ever been run
+// on API 35, ML Kit and adaptive icons both want more, and API 22 is a
+// rounding error of the install base. Raising it deletes a class of untested
+// configurations rather than carrying them into a release.
+const MIN_SDK = 26;
+
+/*
+ * Play rejects an upload whose versionCode does not exceed the previous one,
+ * so this has to be mechanical before the first update rather than after.
+ * KINVT_VERSION is the tag name in CI (v1.2.3); without it the generated
+ * defaults stand, which is right for a local debug build.
+ *
+ * versionCode packs the semver so it always increases: 1.2.3 -> 10203. Two
+ * digits each for minor and patch, which is plenty and stays readable in the
+ * Play console.
+ */
+function versionFromTag() {
+  const tag = process.env.KINVT_VERSION || '';
+  const m = /^v?(\d+)\.(\d+)\.(\d+)$/.exec(tag.trim());
+  if (!m) return null;
+  const [, major, minor, patch] = m.map(Number);
+  return { name: `${major}.${minor}.${patch}`, code: major * 10000 + minor * 100 + patch };
+}
 
 const PERMISSIONS = `
     <!-- Android 13+ requires the user to grant notifications at runtime. -->
@@ -22,6 +48,46 @@ const PERMISSIONS = `
 // Exact-alarm permissions are deliberately absent. Inexact alarms are correct
 // for a study prompt: exact ones need a special-access grant on Android 12+
 // and cost noticeably more battery to buy accuracy nobody needs here.
+
+/*
+ * Device sync talks plain HTTP to a peer on the same Wi-Fi, and Android has
+ * blocked cleartext by default since Android 9. Without this the fetch fails
+ * with ERR_CLEARTEXT_NOT_PERMITTED before a byte leaves the phone — so sync
+ * was not merely untested on a real device, it could not work at all. The
+ * emulator never showed it because it is NAT'd off the LAN and no sync was
+ * ever attempted from one.
+ *
+ * The obvious fix is android:usesCleartextTraffic="true", which permits
+ * plaintext to anywhere. This is narrower in the only way the format allows.
+ *
+ * A peer's address comes from DHCP and changes; it cannot be listed ahead of
+ * time, and network-security-config has no CIDR syntax, so "permit cleartext
+ * on private ranges only" is not expressible. What IS expressible is the
+ * reverse: the one host this app contacts over the internet —
+ * raw.githubusercontent.com, for the daily question sync — is pinned to HTTPS
+ * and cannot be downgraded even by a code change that typed http:// by
+ * mistake. Cleartext then stays available for everything else, which in
+ * practice is the LAN peer.
+ *
+ * What travels in that plaintext is already ciphertext: the sync envelope is
+ * encrypted under the key that was scanned from the pairing code, and TLS was
+ * never what protected it.
+ */
+const NETWORK_CONFIG = `<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Reachable: a sync peer on your own Wi-Fi, addressed by IP. -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <!-- The question sync, and the only host contacted off the LAN. HTTPS or
+         nothing, regardless of what any future code asks for. -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">githubusercontent.com</domain>
+    </domain-config>
+</network-security-config>
+`;
 
 const SIGNING = `
     signingConfigs {
@@ -55,6 +121,18 @@ if (!manifest.includes('POST_NOTIFICATIONS')) {
   console.log('✓ permissions already present');
 }
 
+fs.mkdirSync(XML_DIR, { recursive: true });
+fs.writeFileSync(path.join(XML_DIR, 'network_security_config.xml'), NETWORK_CONFIG);
+
+if (!manifest.includes('networkSecurityConfig')) {
+  manifest = manifest.replace('<application',
+    '<application\n        android:networkSecurityConfig="@xml/network_security_config"');
+  fs.writeFileSync(MANIFEST, manifest);
+  console.log('✓ network security config written and referenced');
+} else {
+  console.log('✓ network security config already referenced');
+}
+
 let gradle = fs.readFileSync(GRADLE, 'utf8');
 if (!gradle.includes('KINVT_KEYSTORE')) {
   gradle = gradle.replace(/android\s*\{/, 'android {\n' + SIGNING);
@@ -62,4 +140,26 @@ if (!gradle.includes('KINVT_KEYSTORE')) {
   console.log('✓ signing config added to build.gradle');
 } else {
   console.log('✓ signing config already present');
+}
+
+let vars = fs.readFileSync(VARIABLES, 'utf8');
+const minMatch = /minSdkVersion\s*=\s*(\d+)/.exec(vars);
+if (minMatch && Number(minMatch[1]) !== MIN_SDK) {
+  vars = vars.replace(/minSdkVersion\s*=\s*\d+/, `minSdkVersion = ${MIN_SDK}`);
+  fs.writeFileSync(VARIABLES, vars);
+  console.log(`✓ minSdkVersion raised ${minMatch[1]} -> ${MIN_SDK}`);
+} else {
+  console.log(`✓ minSdkVersion already ${MIN_SDK}`);
+}
+
+const version = versionFromTag();
+if (version) {
+  gradle = fs.readFileSync(GRADLE, 'utf8');
+  gradle = gradle
+    .replace(/versionCode\s+\d+/, `versionCode ${version.code}`)
+    .replace(/versionName\s+"[^"]*"/, `versionName "${version.name}"`);
+  fs.writeFileSync(GRADLE, gradle);
+  console.log(`✓ version ${version.name} (code ${version.code}) from KINVT_VERSION`);
+} else {
+  console.log('✓ no KINVT_VERSION tag; keeping the generated version for a local build');
 }

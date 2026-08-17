@@ -43,13 +43,23 @@
     return EXP[LOG[a] + LOG[b]];
   }
 
+  /* Builds (x - α^0)(x - α^1)…(x - α^(degree-1)), highest-degree coefficient
+   * first, which is the order rsEncode below reads it in.
+   *
+   * The two terms used to be the other way round, which produced the whole
+   * polynomial reversed. Degree 1 hid it perfectly — the generator there is
+   * [1, 1], a palindrome — so the field arithmetic looked sound while every
+   * code carried error-correction bytes computed from a mirrored polynomial.
+   * The result is a QR code whose syndromes never clear, which no structural
+   * test can see and every scanner rejects.
+   */
   function rsGenerator(degree) {
     var poly = [1];
     for (var i = 0; i < degree; i++) {
       var next = new Array(poly.length + 1).fill(0);
       for (var j = 0; j < poly.length; j++) {
-        next[j] ^= gfMul(poly[j], EXP[i]);
-        next[j + 1] ^= poly[j];
+        next[j] ^= poly[j];                          // multiply by x
+        next[j + 1] ^= gfMul(poly[j], EXP[i]);       // and by α^i
       }
       poly = next;
     }
@@ -167,16 +177,44 @@
     }
 
     // alignment patterns
+    /* The spec omits exactly three of the centre combinations — the ones that
+     * would land on a finder. Everything else is placed, including the two
+     * that straddle the timing lines at row and column 6.
+     *
+     * Testing "is this centre already reserved" looks equivalent and is not:
+     * the timing lines are reserved, so it silently also dropped (6, mid) and
+     * (mid, 6). Versions 1-6 have only two centres and no middle one, so
+     * nothing was ever lost there and every code scanned. Version 7 is the
+     * first with three, and every code from there up was missing two
+     * alignment patterns and could not be read.
+     */
     var centres = ALIGNMENT[version];
+    var lastCentre = centres[centres.length - 1];
     for (var a = 0; a < centres.length; a++) {
       for (var b = 0; b < centres.length; b++) {
         var ar = centres[a], ac = centres[b];
-        if (reserved[ar][ac]) continue;
+        if ((ar === 6 && ac === 6) ||
+            (ar === 6 && ac === lastCentre) ||
+            (ar === lastCentre && ac === 6)) continue;
         for (var y = -2; y <= 2; y++) {
           for (var x = -2; x <= 2; x++) {
             m[ar + y][ac + x] = (Math.max(Math.abs(y), Math.abs(x)) !== 1) ? 1 : 0;
             reserved[ar + y][ac + x] = true;
           }
+        }
+      }
+    }
+
+    // Version information: versions 7 and up carry their version number in
+    // two 6x3 blocks beside the top-right and bottom-left finders, and a
+    // decoder reads them to know how big the grid is. Without them everything
+    // from version 7 on is unreadable — which is why codes up to version 6
+    // scanned and longer ones silently did not.
+    if (version >= 7) {
+      for (var vr = 0; vr < 6; vr++) {
+        for (var vc = 0; vc < 3; vc++) {
+          reserved[vr][size - 11 + vc] = true;
+          reserved[size - 11 + vc][vr] = true;
         }
       }
     }
@@ -216,7 +254,24 @@
       }
     }
 
+    /* Format info for EC level L with mask 0, pre-computed from the spec.
+     *
+     * Both copies of this had their horizontal and vertical strips swapped:
+     * bits 0-5 were written up the column at m[i][8] when the spec puts them
+     * along the row at m[8][i], and the second copy was mirrored the same way.
+     *
+     * Nothing caught it, because a QR code with wrong format bits is still a
+     * perfectly well-formed grid — finders, timing and quiet zone all correct,
+     * which is exactly what the tests here checked. A decoder reads the format
+     * information before anything else, so it got garbage and gave up, and
+     * every code this ever produced was unreadable. It went unnoticed because
+     * no scanner had ever been pointed at one.
+     */
     // format info for EC level L with mask 0, pre-computed from the spec.
+    // Indexed from bit 0 up, which lands the same modules as the spec's own
+    // bit-14-down ordering: the two halves of each copy are walked in
+    // opposite directions, so the reversal cancels. Verified module for module
+    // against an independent encoder — see qr.test.mjs.
     var FORMAT = 0x77c4;
     for (var i2 = 0; i2 < 15; i2++) {
       var v = (FORMAT >> i2) & 1;
@@ -227,6 +282,23 @@
 
       if (i2 < 8) m[8][size - 1 - i2] = v;
       else m[size - 15 + i2][8] = v;
+    }
+
+    // The version number, plus a 12-bit BCH remainder over the generator the
+    // spec names, written into the two blocks reserved above.
+    if (version >= 7) {
+      var vinfo = version << 12;
+      var rem = vinfo;
+      for (var b2 = 5; b2 >= 0; b2--) if ((rem >>> (b2 + 12)) & 1) rem ^= 0x1f25 << b2;
+      vinfo |= rem & 0xfff;
+
+      for (var i3 = 0; i3 < 18; i3++) {
+        var bit = (vinfo >>> i3) & 1;
+        var rr2 = Math.floor(i3 / 3);
+        var cc3 = i3 % 3;
+        m[rr2][size - 11 + cc3] = bit;          // beside the top-right finder
+        m[size - 11 + cc3][rr2] = bit;          // and above the bottom-left
+      }
     }
 
     return m;
